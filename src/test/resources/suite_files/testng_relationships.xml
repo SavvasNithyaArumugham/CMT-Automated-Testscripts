@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Miscellaneous1" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+		 <!-- 	Relationship 2.0 Test Scripts -->
+			<class name="testscripts.misc1.AUT_AG_005" />
+			<class name="testscripts.misc1.AUT_AG_006" />
+			<class name="testscripts.misc1.AUT_AG_007" />
+			<class name="testscripts.misc1.AUT_AG_008" />
+			<class name="testscripts.misc1.AUT_AG_011" />
+			<class name="testscripts.misc1.AUT_AG_015" />
+			
+<!-- 			
+			<class name="testscripts.sharebox.AUT_AG_001" />
+			<class name="testscripts.sharebox.AUT_AG_005" />
+			<class name="testscripts.sharebox.AUT_AG_008P2" />
+			<class name="testscripts.sharebox.AUT_AG_022P2" /> -->
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AspectSearch" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			
+			<class name="testscripts.functional.TC358" />
+			<class name="testscripts.functional.TC359" />
+			<class name="testscripts.functional.TC360" />
+			<class name="testscripts.functional.TC361" />
+			<class name="testscripts.functional.TC362" />
+			<class name="testscripts.functional.TC363" />
+			<class name="testscripts.functional.TC364" />
+			<class name="testscripts.functional.TC365" />
+			<class name="testscripts.functional.TC366" />
+			<class name="testscripts.functional.TC368" />
+			<class name="testscripts.functional.TC369" />
+			<class name="testscripts.functional.TC370" />
+			<class name="testscripts.functional.TC371" /> 
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

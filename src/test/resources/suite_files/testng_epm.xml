@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="EPM" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<!-- EPM Test Scripts 24 TC's -->
+			<!--Descope <class name="testscripts.epm.AUT_AG_001" /> -->
+			<class name="testscripts.epm.AUT_AG_002" />
+			<class name="testscripts.epm.AUT_AG_003" />
+			<class name="testscripts.epm.AUT_AG_004" />
+			<class name="testscripts.epm.AUT_AG_005" />
+			<class name="testscripts.epm.AUT_AG_006" />
+			<class name="testscripts.epm.AUT_AG_007" />
+			<class name="testscripts.epm.AUT_AG_008P1" />
+			<class name="testscripts.epm.AUT_AG_008P2" />
+			<!-- <class name="testscripts.epm.AUT_AG_009" /> -->
+			<class name="testscripts.epm.AUT_AG_010" />
+			<class name="testscripts.epm.AUT_AG_011P1" />
+			<class name="testscripts.epm.AUT_AG_011P2" />
+			<class name="testscripts.epm.AUT_AG_012" />
+			<class name="testscripts.epm.AUT_AG_013" />
+			<class name="testscripts.epm.AUT_AG_014" />
+			<class name="testscripts.epm.AUT_AG_015" />
+			<class name="testscripts.epm.AUT_AG_016" />
+			<class name="testscripts.epm.AUT_AG_017" />
+			<class name="testscripts.epm.AUT_AG_018" />
+			<class name="testscripts.epm.AUT_AG_019" />
+			<class name="testscripts.epm.AUT_AG_020" />
+			<class name="testscripts.epm.AUT_AG_021" />
+			<class name="testscripts.epm.AUT_AG_022" />
+		<!-- Descoped	<class name="testscripts.epm.AUT_AG_023" /> -->
+			<class name="testscripts.epm.AUT_AG_024" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

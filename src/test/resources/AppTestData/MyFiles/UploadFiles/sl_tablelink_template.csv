@@ -1,0 +1,10 @@
+Title,External Url Link,Image Preview,Image Ref Url,Alt Tag,Caption Text,Copyright or Credit Text,Status,NodeRef
+TableLink1,https://www.pearson.com,,Image Ref Url,Alt Tag 1,Caption Text 1,Copyright or Credit Text1,,
+TableLink1,https://www.pearson.com,,Image Ref Url,Alt Tag 10,Caption Text 1,Copyright or Credit Text1,,
+TableLink2,https://www.pearson.com,,Image Ref Url,Alt Tag 2,Caption Text 2,Copyright or Credit Text2,,
+TableLink3,https://www.pearson.com,,Image Ref Url,Alt Tag 3,Caption Text 3,Copyright or Credit Text3,,
+TableLink4,https://www.pearson.com,,Image Ref Url,Alt Tag 4,Caption Text 4,Copyright or Credit Text4,,
+TableLink5,https://www.pearson.com,"TableLink.jpg,TableLink1.jpg",Image Ref Url,Alt Tag 4,Caption Text 4,Copyright or Credit Text4,,
+TableLink6,https://www.pearson.com,sites/autoavsmartlinktest/documentlibrary/Imageform1.jpg,Image Ref Url,Alt Tag 4,Caption Text 4,Copyright or Credit Text4,,
+TableLink7,https://www.pearson.com,sites/autoukavsmartlinktest/documentlibrary/Imageform1.jpg,Image Ref Url,Alt Tag 4,Caption Text 4,Copyright or Credit Text4,,
+TableLink8,https://www.pearson.com,sites/autoukavsmartlink/documentlibrary/Imageform.jpg,Image Ref Url,Alt Tag 4,Caption Text 4,Copyright or Credit Text4,,

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<FrameworkMetaData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Framework>CRAFTLite</Framework>
+	<Tool>Selenium</Tool>
+	<Language>Java</Language>
+	<Implementation>PageObjectModel</Implementation>
+	<Repository>FileSystem</Repository>
+	<CurrentVersion>
+		<Number>10</Number>
+		<Date>16/09/2014</Date>
+	</CurrentVersion>
+	<BaseVersion>
+		<Number>1</Number>
+		<Date>12/04/2013</Date>
+	</BaseVersion>
+</FrameworkMetaData>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Transformations" parallel="tests" thread-count="2">
+	<test name="Test">
+		<classes>
+			<!-- Transformations Test cases: 50 -->
+			<class name="testscripts.transformations.AUT_AG_001" />	
+			<class name="testscripts.transformations.AUT_AG_002" /><!-- Will pass-->
+			<class name="testscripts.transformations.AUT_AG_003" />
+			<class name="testscripts.transformations.AUT_AG_004" />
+			<class name="testscripts.transformations.AUT_AG_005" />
+			<class name="testscripts.transformations.AUT_AG_006" /><!-- Rule failed to run in application-->
+			<class name="testscripts.transformations.AUT_AG_007" />
+			<class name="testscripts.transformations.AUT_AG_008" />
+			<!--Descoped <class name="testscripts.transformations.AUT_AG_009" />
+			<class name="testscripts.transformations.AUT_AG_010" />
+			<class name="testscripts.transformations.AUT_AG_011" /> -->
+			<class name="testscripts.transformations.AUT_AG_012" />
+			<class name="testscripts.transformations.AUT_AG_013" />
+			<class name="testscripts.transformations.AUT_AG_014" /><!-- Rule failed to run in application-->
+			<class name="testscripts.transformations.AUT_AG_015" />
+			<class name="testscripts.transformations.AUT_AG_016" />
+			<class name="testscripts.transformations.AUT_AG_017" />
+			<class name="testscripts.transformations.AUT_AG_018" />
+			<class name="testscripts.transformations.AUT_AG_019" />
+			<class name="testscripts.transformations.AUT_AG_020" />
+			<class name="testscripts.transformations.AUT_AG_021" />	
+			<class name="testscripts.transformations.AUT_AG_022" />
+			<class name="testscripts.transformations.AUT_AG_023" />
+			<class name="testscripts.transformations.AUT_AG_024" />
+			<class name="testscripts.transformations.AUT_AG_025" />
+			<!-- Descoped <class name="testscripts.transformations.AUT_AG_026" /> -->
+			
+			<!-- Descoped <class name="testscripts.transformations.AUT_AG_041" />	
+			<class name="testscripts.transformations.AUT_AG_042" />
+			<class name="testscripts.transformations.AUT_AG_043" />
+			<class name="testscripts.transformations.AUT_AG_044" />
+			<class name="testscripts.transformations.AUT_AG_045" />
+			<class name="testscripts.transformations.AUT_AG_046" />
+			<class name="testscripts.transformations.AUT_AG_047" />
+			<class name="testscripts.transformations.AUT_AG_048" />
+			<class name="testscripts.transformations.AUT_AG_049" /> -->
+			</classes>
+		</test>
+		<test name="Test1">	
+		<classes>
+		<class name="testscripts.transformations.AUT_AG_024" />
+			<class name="testscripts.transformations.AUT_AG_025" />
+		<class name="testscripts.transformations.AUT_AG_027" />
+			<class name="testscripts.transformations.AUT_AG_028" />
+			<class name="testscripts.transformations.AUT_AG_029" />
+			<class name="testscripts.transformations.AUT_AG_030" />
+			<class name="testscripts.transformations.AUT_AG_031" />	
+			<class name="testscripts.transformations.AUT_AG_032" />
+			<class name="testscripts.transformations.AUT_AG_033" />
+			<class name="testscripts.transformations.AUT_AG_034" />
+			<class name="testscripts.transformations.AUT_AG_035" />
+			<class name="testscripts.transformations.AUT_AG_036" />
+			<class name="testscripts.transformations.AUT_AG_037" />
+			<class name="testscripts.transformations.AUT_AG_038" />
+			<class name="testscripts.transformations.AUT_AG_039" />
+			<class name="testscripts.transformations.AUT_AG_040" />
+			<class name="testscripts.transformations.AUT_AG_050" />
+		</classes>
+		
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

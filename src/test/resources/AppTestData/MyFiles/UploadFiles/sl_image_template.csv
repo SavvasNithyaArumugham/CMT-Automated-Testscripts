@@ -1,0 +1,6 @@
+Title,External Url Link,Image Preview,Alt Tag,Caption Text,Copyright or Credit Text,Status,NodeRef
+ImageSmartLink1,https://upload.wikimedia.org/wikipedia/commons/e/e0/JPEG_example_JPG_RIP_050.jpg,Imageform.jpg,Alt Tag 1,Caption Text 1,Copyright or Credit Text1,Success,workspace://SpacesStore/b75ae59e-17fb-4c81-a58b-4500d776268f
+ImageSmartLink2,https://www.discovery.com/,M01_IS2018_E_SB_2A_9830_A_7.3_09a.png,Alt Tag 2,Caption Text 2,Copyright or Credit Text2,Success,workspace://SpacesStore/8d734697-6e92-45db-88e9-1cedad6f029c
+ImageSmartLink3,https://www.pearson.com,Jellyfish.gif,Alt Tag 3,Caption Text 3,Copyright or Credit Text3,Success,workspace://SpacesStore/8ed4a754-3e02-4390-a1af-db0d41afa116
+ImageSmartLink4,https://www.pearson.com,b.o.n_.bmp,Alt Tag 4,Caption Text 4,Copyright or Credit Text4,Success,workspace://SpacesStore/c67bcd3a-b7df-4174-8037-e6bbdf055367
+ImageSmartLink5,https://www.pearson.com,,,,,Unsupported format.,

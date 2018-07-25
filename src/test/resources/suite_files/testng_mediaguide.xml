@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MEDIAGUIDE" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+
+			<!-- Release 1.9.6 -->
+			<class name="testscripts.mediaguide.MG_TC001" />
+			<class name="testscripts.mediaguide.MG_TC002" />
+			<class name="testscripts.mediaguide.MG_TC003" />
+			<class name="testscripts.mediaguide.MG_TC004" />
+			<class name="testscripts.mediaguide.MG_TC005P1" />
+			<class name="testscripts.mediaguide.MG_TC005P2" />
+			<class name="testscripts.mediaguide.MG_TC006P1" />
+			<class name="testscripts.mediaguide.MG_TC006P2" />
+			<class name="testscripts.mediaguide.MG_TC007P1" />
+			<class name="testscripts.mediaguide.MG_TC007P2" />
+			<class name="testscripts.mediaguide.MG_TC007P3" />
+			<class name="testscripts.mediaguide.MG_TC007P4" />
+			<class name="testscripts.mediaguide.MG_TC007P5" />
+			<class name="testscripts.mediaguide.MG_TC007P6" />
+			<class name="testscripts.mediaguide.MG_TC007P7" />
+			<class name="testscripts.mediaguide.MG_TC007P8" />
+			<class name="testscripts.mediaguide.MG_TC008" />
+
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

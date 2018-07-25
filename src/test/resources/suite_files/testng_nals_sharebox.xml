@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Sharebox" parallel="classes" thread-count="1">
+
+<test name="Test">
+		<classes>
+	<!-- root folder Update For 1hrmail, -->
+			<!-- 5272 _02 -->
+			<class name="testscripts.misc3.AUT_AG_306P11" />
+			<class name="testscripts.misc3.AUT_AG_307P1" />
+			<class name="testscripts.misc3.AUT_AG_307P2" />
+			<class name="testscripts.misc3.AUT_AG_307P3" />
+			<class name="testscripts.misc3.AUT_AG_307P4" />
+			<class name="testscripts.misc3.AUT_AG_307P5" />
+			<!-- root folder Update for 8 hr mail -->
+			<!-- 5272 _03 -->
+			<class name="testscripts.misc3.AUT_AG_308P1" />
+			<class name="testscripts.misc3.AUT_AG_308P2" />
+			<class name="testscripts.misc3.AUT_AG_308P3" />
+			<class name="testscripts.misc3.AUT_AG_308P4" />
+			<class name="testscripts.misc3.AUT_AG_308P5" />
+			<!-- root folder Update for 24 hr mail -->
+			<!--5272 _04  -->
+			<class name="testscripts.misc3.AUT_AG_309P1" />
+			<class name="testscripts.misc3.AUT_AG_309P2" />
+			<class name="testscripts.misc3.AUT_AG_309P3" />
+			<class name="testscripts.misc3.AUT_AG_309P4" />
+			<class name="testscripts.misc3.AUT_AG_309P5" />
+			<!-- child folder shared and Update for 8 hr mail with folder path details -->
+			<!-- 5272 _07 -->
+			<class name="testscripts.misc3.AUT_AG_310P1" />
+			<class name="testscripts.misc3.AUT_AG_310P2" />
+			<class name="testscripts.misc3.AUT_AG_310P3" />
+			<class name="testscripts.misc3.AUT_AG_310P4" />
+			<!-- child folder shared and Update for 24 hr mail with folder path details -->
+			<!-- 5272 _08 -->
+			<class name="testscripts.misc3.AUT_AG_311P1" />
+			<class name="testscripts.misc3.AUT_AG_311P2" />
+			<class name="testscripts.misc3.AUT_AG_311P3" />
+			<class name="testscripts.misc3.AUT_AG_311P4" />
+
+			<!-- child folder shared and Update for 1 hr mail with folder path not 
+				displayed -->
+			<!-- 5272_11 -->
+
+			<class name="testscripts.misc3.AUT_AG_312P1" />
+
+			<!-- child folder shared and Update for 1 hr mail with folder path not 
+				displayed -->
+			<!-- upload file via external shareUI -->
+			<!-- 5272_12 -->
+
+			<class name="testscripts.misc3.AUT_AG_313P1" />
+			<class name="testscripts.misc3.AUT_AG_313P2" />
+
+			<!-- Child folder shared and updated,immediate mail notification , fold 
+				path not displayed -->
+			<!-- 5272_05 -->
+
+	<!-- 		<class name="testscripts.misc3.AUT_AG_314P1" />
+			<class name="testscripts.misc3.AUT_AG_314P2" />
+			<class name="testscripts.misc3.AUT_AG_314P3" />
+			<class name="testscripts.misc3.AUT_AG_314P4" />
+			<class name="testscripts.misc3.AUT_AG_314P5" />
+			<class name="testscripts.misc3.AUT_AG_314P6" />
+			<class name="testscripts.misc3.AUT_AG_314P7" />
+			<class name="testscripts.misc3.AUT_AG_314P8" />
+			<class name="testscripts.misc3.AUT_AG_314P9" /> -->
+
+			<!-- Root folder updated,1hr mail notification, folder path displayed -->
+			<!-- 5272_06 -->
+			<class name="testscripts.misc3.AUT_AG_315P1" />
+			<class name="testscripts.misc3.AUT_AG_315P2" />
+			<class name="testscripts.misc3.AUT_AG_315P3" />
+
+			<!--sub folder shared, updated with files,1hr mail notification, folder 
+				path displayed -->
+					<!-- 5272_09 -->
+			<class name="testscripts.misc3.AUT_AG_316P1" />
+			<class name="testscripts.misc3.AUT_AG_316P2" />
+			
+			<!--sub folder shared, updated with files via External shareUI ,1hr mail notification,folder 
+				path displayed -->
+				<!-- 5272_10 -->
+			<class name="testscripts.misc3.AUT_AG_317P1" />
+			<class name="testscripts.misc3.AUT_AG_317P2" />
+			
+				<!--sub folder shared, updated with files in deep level folder10 ,1hr mail notification,folder 
+				path displayed -->
+				<!-- 5272_13,14,15 -->
+			<class name="testscripts.misc3.AUT_AG_318P1" />
+			<class name="testscripts.misc3.AUT_AG_318P2" />
+			<class name="testscripts.misc3.AUT_AG_318P3" />
+
+
+
+	
+
+			<class name="testscripts.sharebox.AUT_AG_007P1" />
+			<class name="testscripts.sharebox.AUT_AG_007P2" />
+			<class name="testscripts.sharebox.AUT_AG_010P1" />
+			<class name="testscripts.sharebox.AUT_AG_010P2" />
+			<class name="testscripts.sharebox.AUT_AG_010P3" />
+			<!-- covered in release 2.0 test cases <class name="testscripts.sharebox.AUT_AG_011P1" />
+			<class name="testscripts.sharebox.AUT_AG_011P2" />
+			<class name="testscripts.sharebox.AUT_AG_011P3" /> -->
+
+			<class name="testscripts.sharebox.AUT_AG_013P1" />
+			<class name="testscripts.sharebox.AUT_AG_013P2" />
+			<class name="testscripts.sharebox.AUT_AG_014P1" />
+			<class name="testscripts.sharebox.AUT_AG_014P2" />
+			<class name="testscripts.sharebox.AUT_AG_014P3" />
+			<class name="testscripts.sharebox.AUT_AG_015P1" />
+			<class name="testscripts.sharebox.AUT_AG_015P2" />
+			<class name="testscripts.sharebox.AUT_AG_015P3" />
+			<class name="testscripts.sharebox.AUT_AG_016P1" />
+			<class name="testscripts.sharebox.AUT_AG_016P2" />
+			<class name="testscripts.sharebox.AUT_AG_016P3" />
+
+			<class name="testscripts.sharebox.AUT_AG_018P1" />
+			<class name="testscripts.sharebox.AUT_AG_018P2" />
+			<class name="testscripts.sharebox.AUT_AG_018P3" />
+
+			<class name="testscripts.sharebox.AUT_AG_020P1" />
+			<class name="testscripts.sharebox.AUT_AG_020P2" />
+			<class name="testscripts.sharebox.AUT_AG_020P3" />
+			<class name="testscripts.sharebox.AUT_AG_020P4" /> -->
+			<class name="testscripts.sharebox.AUT_AG_021P1" />
+			<class name="testscripts.sharebox.AUT_AG_021P2" />
+			<class name="testscripts.sharebox.AUT_AG_022P1" />
+			<class name="testscripts.sharebox.AUT_AG_022P2" />
+			<class name="testscripts.sharebox.AUT_AG_023" />
+			<class name="testscripts.sharebox.AUT_AG_024" />
+			<class name="testscripts.sharebox.AUT_AG_025" />
+			<class name="testscripts.sharebox.AUT_AG_026P1" />
+			<class name="testscripts.sharebox.AUT_AG_026P2" />
+			<class name="testscripts.sharebox.AUT_AG_029" />
+			<class name="testscripts.sharebox.AUT_AG_033P2" />
+			<class name="testscripts.sharebox.AUT_AG_033P3" /> -->
+			<class name="testscripts.sharebox.AUT_AG_034P1" />
+			<class name="testscripts.sharebox.AUT_AG_034P2" />
+			<class name="testscripts.sharebox.AUT_AG_034P3" />
+			<class name="testscripts.sharebox.AUT_AG_034P4" />
+			<class name="testscripts.sharebox.AUT_AG_034P5" />
+
+			<class name="testscripts.sharebox.AUT_AG_036P1" />
+			<class name="testscripts.sharebox.AUT_AG_036P2" />
+			<class name="testscripts.sharebox.AUT_AG_037P1" />
+			<class name="testscripts.sharebox.AUT_AG_037P2" />
+			<class name="testscripts.sharebox.AUT_AG_038P1" />
+			<class name="testscripts.sharebox.AUT_AG_038P2" />
+			<class name="testscripts.sharebox.AUT_AG_041P1" />
+			<class name="testscripts.sharebox.AUT_AG_041P2" />
+			<class name="testscripts.sharebox.AUT_AG_041P3" />
+			<class name="testscripts.sharebox.AUT_AG_041P4" />
+			<class name="testscripts.sharebox.AUT_AG_043P1" />
+			<class name="testscripts.sharebox.AUT_AG_043P2" />
+			<class name="testscripts.sharebox.AUT_AG_044P1" />
+			<class name="testscripts.sharebox.AUT_AG_044P2" />
+			<class name="testscripts.sharebox.AUT_AG_044P3" />
+			<class name="testscripts.sharebox.AUT_AG_044P4" />
+			<class name="testscripts.sharebox.AUT_AG_044P5" />
+
+
+	<class name="testscripts.sharebox.AUT_AG_052" />
+	<class name="testscripts.sharebox.AUT_AG_052P1" />
+	
+		<class name="testscripts.misc5.AUT_AG_410P1" />
+			<class name="testscripts.misc5.AUT_AG_410P2" />
+			<class name="testscripts.misc5.AUT_AG_411" />
+			<class name="testscripts.misc5.AUT_AG_412P1" />
+			<class name="testscripts.misc5.AUT_AG_412P2" />
+			<class name="testscripts.misc5.AUT_AG_413P1" />
+			<class name="testscripts.misc5.AUT_AG_413P2" />
+			<class name="testscripts.misc5.AUT_AG_414P1" />
+			<class name="testscripts.misc5.AUT_AG_414P2" />
+			<class name="testscripts.misc5.AUT_AG_415P1" />
+			<class name="testscripts.misc5.AUT_AG_415P2" />
+			<class name="testscripts.misc5.AUT_AG_416" />
+			
+			<!--External Sharebox Language Switch  -->
+	<class name="testscripts.translation.AUT_AG_399P1" />
+	<class name="testscripts.translation.AUT_AG_399P2" />
+	<class name="testscripts.translation.AUT_AG_400P1" />
+	<class name="testscripts.translation.AUT_AG_400P2" />
+	<class name="testscripts.translation.AUT_AG_401P1" />
+	<class name="testscripts.translation.AUT_AG_401P2" />
+	
+		<!-- verify 1 hr mail for root folder updation -->
+			<class name="testscripts.misc3.AUT_AG_307P6" />
+			<!-- verify 1 hr mail for child folder shared and folder path not displayed -->
+			<!-- 5272_11 -->
+              <class name="testscripts.misc3.AUT_AG_312P2" />
+			<!-- verify 1 hr mail for child folder shared, upload file via external 
+				share UI and folder path not displayed -->
+			<!-- 5272_12 -->
+
+			<class name="testscripts.misc3.AUT_AG_313P3" />
+			<!-- verify 1 hr mail for root folder shared, add subfolder, file inside 
+				root folder and folder path displayed -->
+			<!-- 5272_06 -->
+
+			<class name="testscripts.misc3.AUT_AG_315P4" />
+			<!-- verify 1 hr mail for sub folder shared, add file inside sub folder 
+				and folder path displayed -->
+			<class name="testscripts.misc3.AUT_AG_316P3" />
+			<!-- verify 1 hr mail for sub folder shared, add file via External Share UI 
+				and folder path displayed -->
+			<class name="testscripts.misc3.AUT_AG_317P3" />
+			<!-- verify 1 hr mail for sub folder shared, add file in deep level folder10
+				and folder path displayed -->
+			<class name="testscripts.misc3.AUT_AG_318P4" />
+			
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

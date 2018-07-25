@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AMTS" parallel="tests" thread-count="1">
+	<test name="Test">
+		<classes>
+
+			<!-- AMTS Test Scripts -->
+			<class name="testscripts.amts.AUT_AG_776" />
+			<class name="testscripts.amts.AUT_AG_777" />
+			<class name="testscripts.amts.AUT_AG_778" />
+			<class name="testscripts.amts.AUT_AG_779" />
+			<class name="testscripts.amts.AUT_AG_780" />
+			<class name="testscripts.amts.AUT_AG_781" />
+			<class name="testscripts.amts.AUT_AG_782" />
+			<class name="testscripts.amts.AUT_AG_783" />
+			<class name="testscripts.amts.AUT_AG_788" />
+			<class name="testscripts.amts.AUT_AG_792" />
+			<class name="testscripts.amts.AUT_AG_793" />
+			<class name="testscripts.amts.AUT_AG_796" />
+			<class name="testscripts.amts.AUT_AG_797" />
+			<class name="testscripts.amts.AUT_AG_798" />
+			<class name="testscripts.amts.AUT_AG_799" />
+			<class name="testscripts.amts.AUT_AG_800" />
+			
+			<class name="testscripts.amts.AUT_AG_802" />
+			<class name="testscripts.amts.AUT_AG_803" />
+			<class name="testscripts.amts.AUT_AG_804" />
+			<class name="testscripts.amts.AUT_AG_805" /> 
+			<class name="testscripts.amts.AUT_AG_806" /> 
+			<class name="testscripts.amts.AUT_AG_807" /> 
+			<class name="testscripts.amts.AUT_AG_808" />
+			<class name="testscripts.amts.AUT_AG_809" />
+			<class name="testscripts.amts.AUT_AG_810" />
+			<class name="testscripts.amts.AUT_AG_811" />
+			<class name="testscripts.amts.AUT_AG_812" />
+			<class name="testscripts.amts.AUT_AG_813" />
+			<class name="testscripts.amts.AUT_AG_814" />
+			<class name="testscripts.amts.AUT_AG_815" />
+		<!-- Covered in TC AUT_AG_007	<class name="testscripts.amts.AUT_AG_816" />  -->
+		<!-- Covered in TC AUT_AG_818	<class name="testscripts.amts.AUT_AG_817" />  -->
+			<class name="testscripts.amts.AUT_AG_818" /> 
+			<class name="testscripts.amts.AUT_AG_819" /> 
+			
+			<class name="testscripts.amts.AUT_AG_070" />
+		<!-- duplicate of 70	<class name="testscripts.amts.AUT_AG_071" /> -->
+			<class name="testscripts.amts.AUT_AG_072" />			
+			<class name="testscripts.amts.AUT_AG_073" />			
+			<class name="testscripts.amts.AUT_AG_075" />
+			<class name="testscripts.amts.AUT_AG_076" />
+			
+		<!--duplicate of 81 	<class name="testscripts.amts.AUT_AG_077" /> -->
+			<class name="testscripts.amts.AUT_AG_078" />
+			<class name="testscripts.amts.AUT_AG_079" />
+			<class name="testscripts.amts.AUT_AG_080" />
+			<class name="testscripts.amts.AUT_AG_081" />
+			<class name="testscripts.amts.AUT_AG_082" />
+			
+			<class name="testscripts.amts.AUT_AG_083" />
+			<class name="testscripts.amts.AUT_AG_084" />
+			<class name="testscripts.amts.AUT_AG_084" />
+			<class name="testscripts.amts.AUT_AG_085" />
+			<!--Duplicate of 100 & 101 <class name="testscripts.amts.AUT_AG_086" />
+			<class name="testscripts.amts.AUT_AG_087" /> -->
+			<class name="testscripts.amts.AUT_AG_088" />
+			<class name="testscripts.amts.AUT_AG_089" />
+			<class name="testscripts.amts.AUT_AG_090" />
+			<class name="testscripts.amts.AUT_AG_091" />
+			
+			<class name="testscripts.amts.AUT_AG_092" />
+			<class name="testscripts.amts.AUT_AG_095" />
+			<class name="testscripts.amts.AUT_AG_096" />
+			<class name="testscripts.amts.AUT_AG_097" />
+			<class name="testscripts.amts.AUT_AG_098" />
+			<class name="testscripts.amts.AUT_AG_099" />
+			<class name="testscripts.amts.AUT_AG_100" />
+			<class name="testscripts.amts.AUT_AG_101" />
+			<class name="testscripts.amts.AUT_AG_102" />
+			<class name="testscripts.amts.AUT_AG_103" />
+			<class name="testscripts.amts.AUT_AG_104" />
+			<class name="testscripts.amts.AUT_AG_105" />
+			<class name="testscripts.amts.AUT_AG_106" />
+			
+			<class name="testscripts.amts.AUT_AG_107" />
+			<class name="testscripts.amts.AUT_AG_108" />
+			<class name="testscripts.amts.AUT_AG_110" />	
+			
+			<!-- Repository related TC's
+			<class name="testscripts.amts.AUT_AG_111" /> 
+			<class name="testscripts.amts.AUT_AG_112" /> 
+			<class name="testscripts.amts.AUT_AG_113" /> 
+			<class name="testscripts.amts.AUT_AG_114" /> 
+			<class name="testscripts.amts.AUT_AG_115" /> 
+			<class name="testscripts.amts.AUT_AG_116" /> 
+			<class name="testscripts.amts.AUT_AG_117" /> 
+			<class name="testscripts.amts.AUT_AG_118" /> 
+			<class name="testscripts.amts.AUT_AG_119" />
+			<class name="testscripts.amts.AUT_AG_120" />					
+			<class name="testscripts.amts.AUT_AG_122" /> -->	
+			
+			<class name="testscripts.amts.AUT_AG_128" />
+			<class name="testscripts.amts.AUT_AG_129" />
+			<class name="testscripts.amts.AUT_AG_130" />
+			
+			<class name="testscripts.amts.AUT_AG_049" />
+			<class name="testscripts.amts.AUT_AG_050" />
+			<class name="testscripts.amts.AUT_AG_051" />
+			<class name="testscripts.amts.AUT_AG_052" />
+			<class name="testscripts.amts.AUT_AG_053" />
+			<class name="testscripts.amts.AUT_AG_054" />
+			<class name="testscripts.amts.AUT_AG_055" />
+			<class name="testscripts.amts.AUT_AG_056" />
+			<class name="testscripts.amts.AUT_AG_057" />
+		<!--  	<class name="testscripts.amts.AUT_AG_058" />
+			<class name="testscripts.amts.AUT_AG_059" />
+			<class name="testscripts.amts.AUT_AG_060" /> -->
+			
+			<!-- Release 1.9.3 -->
+			<class name="testscripts.amts.AUT_AG_001" />
+			<class name="testscripts.amts.AUT_AG_002" />
+			<class name="testscripts.amts.AUT_AG_003" />
+			<class name="testscripts.amts.AUT_AG_004" />
+			<class name="testscripts.amts.AUT_AG_005" />
+			<class name="testscripts.amts.AUT_AG_006" />
+			<class name="testscripts.amts.AUT_AG_007" />
+			<class name="testscripts.amts.AUT_AG_008" />
+			<class name="testscripts.amts.AUT_AG_009" />
+			<class name="testscripts.amts.AUT_AG_010" />
+			<class name="testscripts.amts.AUT_AG_011" />
+			<class name="testscripts.amts.AUT_AG_012" /> 
+			
+			<!-- Release 1.9.6 -->
+		<class name="testscripts.amts.AUT_AG_820" />
+			<class name="testscripts.amts.AUT_AG_822" />
+			<class name="testscripts.amts.AUT_AG_823" />
+			<class name="testscripts.amts.AUT_AG_824" /> 
+			
+			<!-- Release 2.0 Optimization -->
+		 	<class name="testscripts.amts.AUT_AG_015" />
+			<class name="testscripts.amts.AUT_AG_015P1" />
+			<class name="testscripts.amts.AUT_AG_015P2" /> 
+			<class name="testscripts.amts.AUT_AG_016" />
+			<class name="testscripts.amts.AUT_AG_017" /> 
+			<class name="testscripts.amts.AUT_AG_018" />
+			<class name="testscripts.amts.AUT_AG_018P1" />
+			<class name="testscripts.amts.AUT_AG_019" />
+			<class name="testscripts.amts.AUT_AG_020" />
+			<class name="testscripts.amts.AUT_AG_021" />
+			<class name="testscripts.amts.AUT_AG_022" />
+			<class name="testscripts.amts.AUT_AG_023" />
+			<class name="testscripts.amts.AUT_AG_024" />
+			<class name="testscripts.amts.AUT_AG_025" />
+			<class name="testscripts.amts.AUT_AG_026" />
+			<class name="testscripts.amts.AUT_AG_027" /> 
+			<class name="testscripts.amts.AUT_AG_028" /> 
+
+
+			
+		</classes>
+	</test> <!-- Test -->
+<!-- <test name="Test1">	
+		<classes>
+		
+		<class name="testscripts.amts.AUT_AG_128" />
+			<class name="testscripts.amts.AUT_AG_129" />
+			<class name="testscripts.amts.AUT_AG_130" />
+			
+			<class name="testscripts.amts.AUT_AG_049" />
+			<class name="testscripts.amts.AUT_AG_050" />
+			<class name="testscripts.amts.AUT_AG_051" />
+			<class name="testscripts.amts.AUT_AG_052" />
+			<class name="testscripts.amts.AUT_AG_053" />
+			<class name="testscripts.amts.AUT_AG_054" />
+			<class name="testscripts.amts.AUT_AG_055" />
+			<class name="testscripts.amts.AUT_AG_056" />
+			<class name="testscripts.amts.AUT_AG_057" />
+	Release 1.9.3
+			<class name="testscripts.amts.AUT_AG_001" />
+			<class name="testscripts.amts.AUT_AG_002" />
+			<class name="testscripts.amts.AUT_AG_003" />
+			<class name="testscripts.amts.AUT_AG_004" />
+			<class name="testscripts.amts.AUT_AG_005" />
+			<class name="testscripts.amts.AUT_AG_006" />
+			<class name="testscripts.amts.AUT_AG_007" />
+			<class name="testscripts.amts.AUT_AG_008" />
+			<class name="testscripts.amts.AUT_AG_009" />
+			<class name="testscripts.amts.AUT_AG_010" />
+			<class name="testscripts.amts.AUT_AG_011" />
+			<class name="testscripts.amts.AUT_AG_012" />
+			
+			Release 1.9.6
+		<class name="testscripts.amts.AUT_AG_820" />
+			<class name="testscripts.amts.AUT_AG_822" />
+			<class name="testscripts.amts.AUT_AG_823" />
+			<class name="testscripts.amts.AUT_AG_824" />
+			
+			Release 2.0 Optimization
+			<class name="testscripts.amts.AUT_AG_015" />
+
+			<class name="testscripts.amts.AUT_AG_016" />
+			<class name="testscripts.amts.AUT_AG_017" />
+
+			<class name="testscripts.amts.AUT_AG_019" />
+			<class name="testscripts.amts.AUT_AG_020" />
+			<class name="testscripts.amts.AUT_AG_021" />
+			<class name="testscripts.amts.AUT_AG_022" />
+			<class name="testscripts.amts.AUT_AG_023" />
+			<class name="testscripts.amts.AUT_AG_024" />
+			<class name="testscripts.amts.AUT_AG_025" />
+			<class name="testscripts.amts.AUT_AG_026" />
+			<class name="testscripts.amts.AUT_AG_027" /> 
+			<class name="testscripts.amts.AUT_AG_028" /> 
+		</classes>
+	</test> Test -->
+
+</suite> <!-- Suite -->

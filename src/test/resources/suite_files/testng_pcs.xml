@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="PCS" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			
+			<!-- Release PCS Test Scripts 34 TC's-->
+	
+ 
+
+	<class name="testscripts.pcs.AUT_AG_01" />
+	<class name="testscripts.pcs.AUT_AG_02" />
+	<class name="testscripts.pcs.AUT_AG_03" />
+	<class name="testscripts.pcs.AUT_AG_04" />
+	<class name="testscripts.pcs.AUT_AG_05" />
+	<class name="testscripts.pcs.AUT_AG_06" />
+	<class name="testscripts.pcs.AUT_AG_06P2" />
+	<class name="testscripts.pcs.AUT_AG_07" />
+	<class name="testscripts.pcs.AUT_AG_08" />
+	<class name="testscripts.pcs.AUT_AG_09" />
+	<class name="testscripts.pcs.AUT_AG_09P2" />
+	<class name="testscripts.pcs.AUT_AG_10" />
+	<class name="testscripts.pcs.AUT_AG_10P2" />
+	<class name="testscripts.pcs.AUT_AG_11" />
+	<class name="testscripts.pcs.AUT_AG_12" />
+	<class name="testscripts.pcs.AUT_AG_12P2" />
+	<class name="testscripts.pcs.AUT_AG_13" />
+	<class name="testscripts.pcs.AUT_AG_13P2" />
+	<class name="testscripts.pcs.AUT_AG_14" />
+	<class name="testscripts.pcs.AUT_AG_15" />
+	<class name="testscripts.pcs.AUT_AG_16" />
+	<class name="testscripts.pcs.AUT_AG_17" />
+	<class name="testscripts.pcs.AUT_AG_18" />
+	<class name="testscripts.pcs.AUT_AG_19" />
+	<class name="testscripts.pcs.AUT_AG_23" />
+<!-- Duplicate	<class name="testscripts.pcs.AUT_AG_24" />
+	<class name="testscripts.pcs.AUT_AG_25" />
+	<class name="testscripts.pcs.AUT_AG_26" />
+	<class name="testscripts.pcs.AUT_AG_27" /> -->
+	<class name="testscripts.pcs.AUT_AG_28" />
+	<class name="testscripts.pcs.AUT_AG_28P2" />
+	<class name="testscripts.pcs.AUT_AG_29" />
+	<class name="testscripts.pcs.AUT_AG_30" />
+<!-- 	<class name="testscripts.pcs.AUT_AG_31" />
+	<class name="testscripts.pcs.AUT_AG_31P2" />
+	<class name="testscripts.pcs.AUT_AG_32" />
+	<class name="testscripts.pcs.AUT_AG_32P2" />  -->
+	
+	<!--Duplicate <class name="testscripts.pcs.AUT_AG_33" />
+	<class name="testscripts.pcs.AUT_AG_34" />
+	<class name="testscripts.pcs.AUT_AG_35" />
+	<class name="testscripts.pcs.AUT_AG_36" /> -->
+	<class name="testscripts.pcs.AUT_AG_37" />
+	<class name="testscripts.pcs.AUT_AG_37P2" />
+	<class name="testscripts.pcs.AUT_AG_38" />
+	<class name="testscripts.pcs.AUT_AG_39" />
+	<!--Mergred to Tc 37 <class name="testscripts.pcs.AUT_AG_40" />
+	<class name="testscripts.pcs.AUT_AG_40P2" />
+	<class name="testscripts.pcs.AUT_AG_41" />
+	<class name="testscripts.pcs.AUT_AG_41P2" />  -->
+	
+		
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

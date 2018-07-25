@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ObjectModel" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<!-- Test cases total 61 -->		
+			<!-- <class name="testscripts.functional.TC76" />
+			<class name="testscripts.functional.TC77Part1" />
+			<class name="testscripts.functional.TC77Part2" />
+			<class name="testscripts.functional.TC78" />
+			<class name="testscripts.functional.TC79" />
+			<class name="testscripts.functional.TC80" />
+			<class name="testscripts.functional.TC81" />
+			<class name="testscripts.functional.TC82" />
+			<class name="testscripts.functional.TC83" />
+			<class name="testscripts.functional.TC84" />
+			<class name="testscripts.functional.TC85" />
+			<class name="testscripts.functional.TC86" />
+			<class name="testscripts.functional.TC87" />
+			<class name="testscripts.functional.TC88" />
+			<class name="testscripts.functional.TC89" />
+			<class name="testscripts.functional.TC90" />
+			<class name="testscripts.functional.TC91" />
+			<class name="testscripts.functional.TC92" />
+			<class name="testscripts.functional.TC93" />
+			<class name="testscripts.functional.TC94" />
+			<class name="testscripts.functional.TC95" />
+			<class name="testscripts.functional.TC99" />
+			<class name="testscripts.functional.TC100" />
+			<class name="testscripts.functional.TC101" />
+			<class name="testscripts.functional.TC102" />
+			<class name="testscripts.functional.TC103" />
+			<class name="testscripts.functional.TC104" />
+			<class name="testscripts.functional.TC105" />
+			<class name="testscripts.functional.TC106" />
+			<class name="testscripts.functional.TC107" />
+			<class name="testscripts.functional.TC108" />
+			<class name="testscripts.functional.TC110" />
+			<class name="testscripts.functional.TC111" />
+			<class name="testscripts.functional.TC112" />
+			<class name="testscripts.functional.TC113" />
+			<class name="testscripts.functional.TC114" />
+			<class name="testscripts.functional.TC115" />
+			<class name="testscripts.functional.TC116" />
+			<class name="testscripts.functional.TC118" />
+			<class name="testscripts.functional.TC119" />
+			<class name="testscripts.functional.TC120" />
+			<class name="testscripts.functional.TC121" />
+			<class name="testscripts.functional.TC122Part1" />
+			<class name="testscripts.functional.TC122Part2" />
+			<class name="testscripts.functional.TC122Part3" />
+			<class name="testscripts.functional.TC123Part1" />
+			<class name="testscripts.functional.TC123Part2" />
+			<class name="testscripts.functional.TC123Part3" /> -->
+			<!-- Mandatory field('Program Name') has been removed, no need to check the mandatory field -->
+			<!-- <class name="testscripts.functional.TC124" /> --> 
+			<!-- <class name="testscripts.functional.TC125" />
+			<class name="testscripts.functional.TC126" />
+			<class name="testscripts.functional.TC127" />
+			<class name="testscripts.functional.TC128" />
+			<class name="testscripts.functional.TC129" />
+			<class name="testscripts.functional.TC130" />
+			<class name="testscripts.functional.TC131"/>
+			<class name="testscripts.functional.TC132"/>
+			<class name="testscripts.functional.TC133"/>
+			<class name="testscripts.functional.TC134"/>
+			<class name="testscripts.functional.TC135"/>
+			<class name="testscripts.functional.TC136"/>
+			<class name="testscripts.functional.TC138"/>
+			<class name="testscripts.functional.TC139"/>
+			<class name="testscripts.functional.TC140"/>
+			<class name="testscripts.functional.TC141"/>
+			<class name="testscripts.functional.TC142"/> -->
+			
+			<!-- Refactored Testcases -->
+		<class name="testscripts.objectmodel.AUT_AG_001" />
+	     	<class name="testscripts.objectmodel.AUT_AG_002" />
+	     	<class name="testscripts.objectmodel.AUT_AG_003" />
+	     	<class name="testscripts.objectmodel.AUT_AG_004" />
+     		<class name="testscripts.objectmodel.AUT_AG_005" />
+	     	<class name="testscripts.objectmodel.AUT_AG_006" />
+	     	<class name="testscripts.objectmodel.AUT_AG_007" />
+	     	<class name="testscripts.objectmodel.AUT_AG_008" />
+	     	<class name="testscripts.objectmodel.AUT_AG_009P1" />
+	     	<class name="testscripts.objectmodel.AUT_AG_009P2" />
+	     	<class name="testscripts.objectmodel.AUT_AG_009P3" />
+	     	<class name="testscripts.objectmodel.AUT_AG_010" />
+	     	<class name="testscripts.objectmodel.AUT_AG_011" />
+	     	<class name="testscripts.objectmodel.AUT_AG_012" />
+	     	 <class name="testscripts.objectmodel.AUT_AG_013P1" />
+	<!--      	duplicate <class name="testscripts.objectmodel.AUT_AG_013P1" /> -->
+	     	<class name="testscripts.objectmodel.AUT_AG_013P2" />
+	     	<class name="testscripts.objectmodel.AUT_AG_014" />
+	     	<class name="testscripts.objectmodel.AUT_AG_015" />
+	     	<class name="testscripts.objectmodel.AUT_AG_016P1" />
+	     	<class name="testscripts.objectmodel.AUT_AG_016P2" />
+	     	<class name="testscripts.objectmodel.AUT_AG_016P3" />
+	     	
+	     	
+	    <!--  	Release 1.9.3 -->
+	     	
+	     	<class name="testscripts.objectmodel.AUT_AG_017P1" />
+	     	<class name="testscripts.objectmodel.AUT_AG_017P2" />
+	     	<class name="testscripts.objectmodel.AUT_AG_017P3" />
+	     	<class name="testscripts.objectmodel.AUT_AG_017P4" />
+	     	<class name="testscripts.objectmodel.AUT_AG_018P1" />
+			<class name="testscripts.objectmodel.AUT_AG_018P2" />
+			<class name="testscripts.objectmodel.AUT_AG_018P3" /> 
+			
+		 <!--  	Release 1.9.6 -->	
+			<class name="testscripts.objectmodel.AUT_AG_019"/>
+			<class name="testscripts.objectmodel.AUT_AG_020P1" />
+			<class name="testscripts.objectmodel.AUT_AG_020P2" />
+			<class name="testscripts.objectmodel.AUT_AG_020P3" />
+			
+			<class name="testscripts.objectmodel.AUT_AG_021"/>
+			<class name="testscripts.objectmodel.AUT_AG_022"/>
+	     	
+	     	
+	     	
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

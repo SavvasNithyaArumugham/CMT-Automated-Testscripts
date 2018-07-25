@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Health_Check_Sanity" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<!-- Health check 77 Test cases-->
+			
+			
+			<class name="testscripts.healthcheck.AUT_AG_001" />
+<!-- 			 <class name="testscripts.healthcheck.AUT_AG_002" />
+		<class name="testscripts.healthcheck.AUT_AG_003" /> -->
+			<class name="testscripts.healthcheck.AUT_AG_004" />
+			<class name="testscripts.healthcheck.AUT_AG_005" />
+	<!-- 		<class name="testscripts.healthcheck.AUT_AG_006P1" />
+			<class name="testscripts.healthcheck.AUT_AG_006P2" /> -->
+	<!-- 	functionality covered in 
+	tc 8	<class name="testscripts.healthcheck.AUT_AG_007" /> -->
+<!-- 			<class name="testscripts.healthcheck.AUT_AG_008P1" />
+			<class name="testscripts.healthcheck.AUT_AG_008P2" /> -->
+			<!-- <class name="testscripts.healthcheck.AUT_AG_009" /> -->
+	<!-- 		<class name="testscripts.healthcheck.AUT_AG_010" /> -->
+			<class name="testscripts.healthcheck.AUT_AG_011" />
+			<class name="testscripts.healthcheck.AUT_AG_012" />
+		<!-- 	<class name="testscripts.healthcheck.AUT_AG_013" /> -->
+			<class name="testscripts.healthcheck.AUT_AG_014" />
+			<!--Copy to covered in AUT_AG_014 <class name="testscripts.healthcheck.AUT_AG_015" /> -->
+			<class name="testscripts.healthcheck.AUT_AG_016" />
+			<class name="testscripts.healthcheck.AUT_AG_017" />
+			<class name="testscripts.healthcheck.AUT_AG_018" />
+			<class name="testscripts.healthcheck.AUT_AG_019" />
+			<!-- <class name="testscripts.healthcheck.AUT_AG_020" /> -->
+			<class name="testscripts.healthcheck.AUT_AG_021" />
+			<class name="testscripts.healthcheck.AUT_AG_022P1" />
+			<class name="testscripts.healthcheck.AUT_AG_022P2" />
+			<class name="testscripts.healthcheck.AUT_AG_022P3" />
+			<class name="testscripts.healthcheck.AUT_AG_022P4" />
+			<class name="testscripts.healthcheck.AUT_AG_022P5" />
+			<class name="testscripts.healthcheck.AUT_AG_022P6" />
+			<class name="testscripts.healthcheck.AUT_AG_023" />
+			<class name="testscripts.healthcheck.AUT_AG_024" />
+		<!-- <class name="testscripts.healthcheck.AUT_AG_025P1" />
+			<class name="testscripts.healthcheck.AUT_AG_025P2" /> -->
+			<class name="testscripts.healthcheck.AUT_AG_026P1" />
+			<class name="testscripts.healthcheck.AUT_AG_026P2" />
+			<class name="testscripts.healthcheck.AUT_AG_027" />
+			<!-- <class name="testscripts.healthcheck.AUT_AG_028" /> -->
+			
+			
+			<class name="testscripts.healthcheck.AUT_AG_029" />
+			<class name="testscripts.healthcheck.AUT_AG_030" />
+			<class name="testscripts.healthcheck.AUT_AG_031" />
+			<class name="testscripts.healthcheck.AUT_AG_032" />
+			<class name="testscripts.healthcheck.AUT_AG_033" />
+		<!-- 	have to fix <class name="testscripts.healthcheck.AUT_AG_034" /> -->
+			<class name="testscripts.healthcheck.AUT_AG_035" />
+		<!-- similar function check as 35	<class name="testscripts.healthcheck.AUT_AG_036" /> -->
+			<class name="testscripts.healthcheck.AUT_AG_037" />
+	<!-- 	Not required for sanity	<class name="testscripts.healthcheck.AUT_AG_038" /> -->
+			<!--TC will be covered as part of bulk tool sanity <class name="testscripts.healthcheck.AUT_AG_039" /> -->
+			<!-- <class name="testscripts.healthcheck.AUT_AG_040" /> -->
+		<!-- covered in AUT_AG_037	<class name="testscripts.healthcheck.AUT_AG_041" /> -->
+			<class name="testscripts.healthcheck.AUT_AG_042" />
+		<!-- 	<class name="testscripts.healthcheck.AUT_AG_043" /> -->
+			<class name="testscripts.healthcheck.AUT_AG_044P1" />
+			<class name="testscripts.healthcheck.AUT_AG_044P2" />
+			<class name="testscripts.healthcheck.AUT_AG_044P3" />
+			<class name="testscripts.healthcheck.AUT_AG_044P4" />
+			<class name="testscripts.healthcheck.AUT_AG_044P5" />
+			<class name="testscripts.healthcheck.AUT_AG_044P6" /> 
+			
+			<!-- TC for AVT-->
+			
+				<class name="testscripts.healthcheck.AUT_AG_045P1" /> 
+				<class name="testscripts.healthcheck.AUT_AG_045P2" /> 
+			<!-- TC for MediaGuide-->
+			<class name="testscripts.healthcheck.AUT_AG_046" /> 
+			<!-- <class name="testscripts.avt.AVT_TC001" />
+			<class name="testscripts.avt.AVT_TC005" />			
+			
+			<class name="testscripts.objectmodel.AUT_AG_011" />
+			<class name="testscripts.objectmodel.AUT_AG_001" />
+			
+			<class name="testscripts.lifecycle.AUT_AG_001" />
+			
+			<class name="testscripts.xmp.AUT_AG_001" />	
+			<class name="testscripts.xmp.AUT_AG_013" />
+			
+			<class name="testscripts.sharebox.AUT_AG_002P1" />
+			<class name="testscripts.sharebox.AUT_AG_002P2" />
+			
+			<class name="testscripts.epm.AUT_AG_001" />
+			<class name="testscripts.epm.AUT_AG_008P1" />
+			<class name="testscripts.epm.AUT_AG_008P2" />
+			
+			<class name="testscripts.search.AUT_AG_005" />
+			<class name="testscripts.search.AUT_AG_008" />
+			<class name="testscripts.search.AUT_AG_009" />
+			<class name="testscripts.search.AUT_AG_051" />
+			<class name="testscripts.search.AUT_AG_144" />
+			
+			<class name="testscripts.release184.ALFDEPLOY_2747_TC001_2_3_4" />
+			
+			<class name="testscripts.movetocopyto.AUT_AG_001" />
+			<class name="testscripts.movetocopyto.AUT_AG_003" />
+			
+			<class name="testscripts.unzip.AUT_AG_001" />
+			<class name="testscripts.unzip.AUT_AG_002" />
+			<class name="testscripts.unzip.AUT_AG_003" />
+			
+			<class name="testscripts.links.TC15" />
+			<class name="testscripts.links.TC4" />
+			
+			<class name="testscripts.amts.AUT_AG_799" />
+			<class name="testscripts.amts.AUT_AG_813" />
+			
+			<class name="testscripts.workflows.AUT_AG_047P1" />
+			<class name="testscripts.workflows.AUT_AG_047P2" />
+			<class name="testscripts.workflows.AUT_AG_047P3" />
+			<class name="testscripts.workflows.AUT_AG_047P4" />
+			<class name="testscripts.workflows.AUT_AG_047P5" />
+			<class name="testscripts.workflows.AUT_AG_047P6" />
+			
+			<class name="testscripts.eps.AUT_AG_002" />
+			<class name="testscripts.eps.AUT_AG_005" />
+			<class name="testscripts.eps.AUT_AG_015" />
+			
+			<class name="testscripts.transformations.AUT_AG_050" />
+			
+			<class name="testscripts.pcs.AUT_AG_01" />
+			<class name="testscripts.pcs.AUT_AG_03" />
+			<class name="testscripts.pcs.AUT_AG_11" />
+			
+			<class name="testscripts.customsites.AUT_AG_003" />
+			<class name="testscripts.customsites.AUT_AG_006" />Functionality removed
+			
+			<class name="testscripts.marklogic.AUT_AG_002" />
+	
+			
+			<class name="testscripts.proofhq.AUT_AG_001P1" />
+			<class name="testscripts.proofhq.AUT_AG_001P2" />
+			
+			<class name="testscripts.misc1.AUT_AG_030P1" />
+			<class name="testscripts.misc1.AUT_AG_030P2" />
+			<class name="testscripts.misc1.AUT_AG_047" />
+			<class name="testscripts.misc1.AUT_AG_048" />
+			<class name="testscripts.misc1.AUT_AG_052" />
+			<class name="testscripts.misc1.AUT_AG_053" />
+			<class name="testscripts.misc1.AUT_AG_056" />
+			<class name="testscripts.misc1.AUT_AG_095" />
+			<class name="testscripts.misc2.AUT_AG_105" />
+			<class name="testscripts.misc2.AUT_AG_131" />
+			<class name="testscripts.misc2.AUT_AG_132" />
+			<class name="testscripts.misc2.AUT_AG_143" />
+			<class name="testscripts.misc2.AUT_AG_144" />
+			<class name="testscripts.misc2.AUT_AG_173P1" />
+			<class name="testscripts.misc2.AUT_AG_173P2" />
+			<class name="testscripts.misc2.AUT_AG_199" />
+			<class name="testscripts.misc3.AUT_AG_261" />
+			<class name="testscripts.misc3.AUT_AG_275" />
+			<class name="testscripts.misc3.AUT_AG_290" />
+			<class name="testscripts.misc4.AUT_AG_341" />
+			
+			<class name="testscripts.misc4.AUT_AG_358" /> -->
+				
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

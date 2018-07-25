@@ -1,0 +1,1254 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en_US" xml:lang="en_US">
+<head>
+   <title>Alfresco &raquo; My Files</title>
+   <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+   <script type="text/javascript" src="/share/service/messages_614cac1ae5e483928697efa6e481c4b2.js?locale=en_US"></script>
+         <script type="text/javascript">
+            var appContext = "\/share";
+         
+            var dojoConfig = {
+               baseUrl: "\/share/res/",
+               tlmSiblingOfDojo: false,
+               async: true,
+               parseOnLoad: false,
+               packages: [
+                  { name: "surf", location: "js/surf"},
+                  { name: "dijit", location: "js/lib/dojo-1.9.0/dijit"},
+                  { name: "service", location: "../service"},
+                  { name: "alfresco", location: "js/aikau/1.0.8.2/alfresco"},
+                  { name: "cm", location: "js/lib/code-mirror"},
+                  { name: "jqueryui", location: "js/lib/jquery-ui-1.11.1", main: "jquery-ui.min"},
+                  { name: "dojox", location: "js/lib/dojo-1.9.0/dojox"},
+                  { name: "jquery", location: "js/lib/jquery-1.11.1", main: "jquery-1.11.1.min"},
+                  { name: "dojo", location: "js/lib/dojo-1.9.0/dojo"}
+               ]
+            };
+         </script>
+         <script type="text/javascript" src="/share/res/js/lib/dojo-1.9.0/dojo/dojo.js"></script>
+   
+   <script type="text/javascript" src="/share/res/js/yui-common_0ebd1fff37640abe891d16bbee9d516a.js"></script>
+   <script type="text/javascript" src="/share/res/yui/history/history_543b42a00a378f4d4b6e70c81d915b0a.js"></script>
+   <script type="text/javascript" src="/share/res/js/bubbling.v2.1_5a671b93e806ea64b41f915cf6147232.js"></script>
+   <script type="text/javascript">//<![CDATA[
+      YAHOO.Bubbling.unsubscribe = function(layer, handler, scope)
+      {
+         this.bubble[layer].unsubscribe(handler, scope);
+      };
+//]]></script>
+   <script type="text/javascript">//<![CDATA[
+      <!-- Alfresco web framework constants -->
+      Alfresco.constants = Alfresco.constants || {};
+      Alfresco.constants.DEBUG = false;
+      Alfresco.constants.AUTOLOGGING = false;
+      Alfresco.constants.PROXY_URI = window.location.protocol + "//" + window.location.host + "\/share/proxy/alfresco/";
+      Alfresco.constants.PROXY_URI_RELATIVE = "\/share/proxy/alfresco/";
+      Alfresco.constants.PROXY_FEED_URI = window.location.protocol + "//" + window.location.host + "\/share/proxy/alfresco-feed/";
+      Alfresco.constants.THEME = "pearsonTheme";
+      Alfresco.constants.URL_CONTEXT = "\/share/";
+      Alfresco.constants.URL_RESCONTEXT = "\/share/res/";
+      Alfresco.constants.URL_PAGECONTEXT = "\/share/page/";
+      Alfresco.constants.URL_SERVICECONTEXT = "\/share/service/";
+      Alfresco.constants.URL_FEEDSERVICECONTEXT = "\/share/feedservice/";
+      Alfresco.constants.USERNAME = "VDUVVNA";
+      Alfresco.constants.SITE = "";
+      Alfresco.constants.PAGECONTEXT = "mine";
+      Alfresco.constants.PAGEID = "myfiles";
+      Alfresco.constants.JS_LOCALE = "en_US";
+      Alfresco.constants.USERPREFERENCES = "{\"org\": {\"alfresco\": {\"ext\": {\"documents\": {\"favourites\": {\"workspace:\/\/SpacesStore\/19f62db5-6b63-407e-bb25-08296e92df69\": {\"createdAt\": \"2015-10-29T07:26:53.167Z\"}}}, \"sites\": {\"favourites\": {\"automationtestdemosite20151111103752\": {\"createdAt\": \"2015-11-11T05:07:58.733Z\"}, \"automationtestdemosite20151111105932\": {\"createdAt\": \"2015-11-11T05:29:38.493Z\"}, \"automationtestdemosite20151111121420\": {\"createdAt\": \"2015-11-11T06:44:26.388Z\"}, \"automationtestdemosite20151111123159\": {\"createdAt\": \"2015-11-11T07:02:05.868Z\"}, \"automationtestdemosite20151111125413\": {\"createdAt\": \"2015-11-11T07:24:20.289Z\"}, \"automationtestdemosite20151111131109\": {\"createdAt\": \"2015-11-11T07:41:16.204Z\"}, \"automationtestdemosite20151111131455\": {\"createdAt\": \"2015-11-11T07:45:01.618Z\"}, \"automationtestdemosite20151111135539\": {\"createdAt\": \"2015-11-11T08:25:46.264Z\"}, \"automationtestdemosite20151111160048\": {\"createdAt\": \"2015-11-11T10:30:55.599Z\"}, \"automationtestdemosite20151111161259\": {\"createdAt\": \"2015-11-11T10:43:05.319Z\"}, \"automationtestdemosite20151111185224\": {\"createdAt\": \"2015-11-11T13:22:31.631Z\"}, \"automationtestdemosite20151111190320\": {\"createdAt\": \"2015-11-11T13:33:27.201Z\"}, \"automationtestdemosite20151111190534\": {\"createdAt\": \"2015-11-11T13:35:40.578Z\"}, \"automationtestdemosite20151112201503\": {\"createdAt\": \"2015-11-12T14:45:11.610Z\"}, \"automationtestdemosite20151112202035\": {\"createdAt\": \"2015-11-12T14:50:41.390Z\"}, \"automationtestdemosite20151112202619\": {\"createdAt\": \"2015-11-12T14:56:25.335Z\"}, \"automationtestdemosite20151113102025\": {\"createdAt\": \"2015-11-13T04:50:33.068Z\"}, \"automationtestdemosite20151118160145\": {\"createdAt\": \"2015-11-18T10:31:52.480Z\"}, \"automationtestdemosite20151118160547\": {\"createdAt\": \"2015-11-18T10:35:54.198Z\"}, \"automationtestdemosite20151118161230\": {\"createdAt\": \"2015-11-18T10:42:36.298Z\"}, \"automationtestdemosite20151118172157\": {\"createdAt\": \"2015-11-18T11:52:06.570Z\"}, \"automationtestdemosite20151119175301\": {\"createdAt\": \"2015-11-19T12:23:07.417Z\"}, \"automationtestdemosite20151121122001\": {\"createdAt\": \"2015-11-21T06:50:07.729Z\"}, \"automationtestdemosite20151123102614\": {\"createdAt\": \"2015-11-23T04:56:19.911Z\"}, \"test1257\": {\"createdAt\": \"2015-11-06T12:07:27.989Z\"}, \"test7521\": {\"createdAt\": \"2015-11-11T07:42:26.805Z\"}}}}, \"share\": {\"activities\": {\"component-2-1\": {\"activities\": \"\", \"filter\": \"all\"}}, \"documents\": {\"favourites\": \"workspace:\\\/\\\/SpacesStore\\\/19f62db5-6b63-407e-bb25-08296e92df69\"}, \"mydocuments\": {\"dashlet\": {\"component-2-2\": {\"simpleView\": false}}}, \"searchList\": {\"viewRendererName\": \"detailed\"}, \"sites\": {\"favourites\": {\"automationtestdemosite20151111103752\": true, \"automationtestdemosite20151111105932\": true, \"automationtestdemosite20151111121420\": true, \"automationtestdemosite20151111123159\": true, \"automationtestdemosite20151111125413\": true, \"automationtestdemosite20151111131109\": true, \"automationtestdemosite20151111131455\": true, \"automationtestdemosite20151111135539\": true, \"automationtestdemosite20151111160048\": true, \"automationtestdemosite20151111161259\": true, \"automationtestdemosite20151111185224\": true, \"automationtestdemosite20151111190320\": true, \"automationtestdemosite20151111190534\": true, \"automationtestdemosite20151112201503\": true, \"automationtestdemosite20151112202035\": true, \"automationtestdemosite20151112202619\": true, \"automationtestdemosite20151113102025\": true, \"automationtestdemosite20151118160145\": true, \"automationtestdemosite20151118160547\": true, \"automationtestdemosite20151118161230\": true, \"automationtestdemosite20151118172157\": true, \"automationtestdemosite20151119175301\": true, \"automationtestdemosite20151121122001\": true, \"automationtestdemosite20151123102614\": true, \"test1257\": true, \"test7521\": true}, \"recent\": {\"_0\": \"automationtestdemosite20151123102614\", \"_1\": \"automationtestdemosite\", \"_2\": \"automationtestdemosite20151121122001\", \"_3\": \"automationtestdemosite20151119175301\", \"_4\": \"automationtestdemosite20151118172157\"}}, \"twisters\": {\"collapsed\": \"\"}}}}}";
+      Alfresco.constants.CSRF_POLICY = {
+         enabled: false,
+         cookie: "{token}",
+         header: "{token}",
+         parameter: "{token}",
+         properties: {}
+      };
+      Alfresco.constants.CSRF_POLICY.properties["token"] = "Alfresco-CSRFToken";
+      Alfresco.constants.CSRF_POLICY.properties["referer"] = "";
+      Alfresco.constants.CSRF_POLICY.properties["origin"] = "";
+
+      Alfresco.constants.IFRAME_POLICY =
+      {
+         sameDomain: "allow",
+         crossDomainUrls: [
+            "*"
+         ]
+      };
+      
+      Alfresco.constants.HIDDEN_PICKER_VIEW_MODES = [
+      ];
+      
+      Alfresco.constants.MENU_ARROW_SYMBOL = "&#9662;";
+
+      Alfresco.constants.TINY_MCE_SUPPORTED_LOCALES = "en,de,es,fr,it,ja,nl,zh_CN,ru,nb,pt_BR";
+//]]></script>
+   <script type="text/javascript" src="/share/res/js/flash/AC_OETags_23681d043aef7e80993a9f9354d71741.js"></script>
+   <script type="text/javascript" src="/share/res/js/alfresco_81cc3f7e2803ab462f92938b9f11f90e.js"></script>
+   <script type="text/javascript" src="/share/res/modules/editors/tiny_mce_947dfc74b7dbff0f5062c429a469db58.js"></script>
+   <script type="text/javascript" src="/share/res/modules/editors/yui_editor_0a0da13c6dc370802cb4c2dc6ef1f559.js"></script>
+   <script type="text/javascript" src="/share/res/js/forms-runtime_8664364590545e9a793359ba51292ffd.js"></script>
+   <script type="text/javascript">//<![CDATA[
+      <!-- Share Constants -->
+      Alfresco.service.Preferences.FAVOURITE_DOCUMENTS = "org.alfresco.share.documents.favourites";
+      Alfresco.service.Preferences.FAVOURITE_FOLDERS = "org.alfresco.share.folders.favourites";
+      Alfresco.service.Preferences.FAVOURITE_FOLDER_EXT = "org.alfresco.ext.folders.favourites.";
+      Alfresco.service.Preferences.FAVOURITE_DOCUMENT_EXT = "org.alfresco.ext.documents.favourites.";
+      Alfresco.service.Preferences.FAVOURITE_SITES = "org.alfresco.share.sites.favourites";
+      Alfresco.service.Preferences.IMAP_FAVOURITE_SITES = "org.alfresco.share.sites.imapFavourites";
+      Alfresco.service.Preferences.COLLAPSED_TWISTERS = "org.alfresco.share.twisters.collapsed";
+      Alfresco.service.Preferences.RULE_PROPERTY_SETTINGS = "org.alfresco.share.rule.properties";
+      Alfresco.constants.URI_TEMPLATES =
+      {
+         "remote-node-page": "/{pageid}/p/{pagename}/{store_type}/{store_id}/{id}",
+         "remote-site-page": "/site/{site}/{pageid}/p/{pagename}",
+         "remote-page": "/{pageid}/p/{pagename}",
+         "share-site-page": "/{pageid}/ws/{webscript}/{store_type}/{store_id}/{id}",
+         "share-site-page": "/site/{site}/{pageid}/ws/{webscript}",
+         "sitedashboardpage": "/site/{site}/dashboard",
+         "contextpage": "/context/{pagecontext}/{pageid}",
+         "sitepage": "/site/{site}/{pageid}",
+         "userdashboardpage": "/user/{userid}/dashboard",
+         "userpage": "/user/{userid}/{pageid}",
+         "userprofilepage": "/user/{userid}/profile",
+         "userdefaultpage": "/user/{pageid}",
+         "consoletoolpage": "/console/{pageid}/{toolid}",
+         "consolepage": "/console/{pageid}",
+         "share-page": "/{pageid}/ws/{webscript}"
+      };
+      Alfresco.constants.HELP_PAGES =
+      {
+         "share-help": "http://docs.alfresco.com/5.0/topics/sh-uh-welcome.html",
+         "share-tutorial": "http://docs.alfresco.com/5.0/topics/alfresco-video-tutorials.html"
+      };
+      Alfresco.constants.HTML_EDITOR = 'tinyMCE';
+      Alfresco.constants.QUICKSHARE_URL = "\/share\/s\/{sharedId}";
+      Alfresco.constants.LINKSHARE_ACTIONS = [
+         {
+         id: "email", type: "link", index: 10,
+         params: { "href": "mailto:?subject={subject}&body={body}","target": "new" }
+         },
+         {
+         id: "facebook", type: "link", index: 20,
+         params: { "href": "https:\/\/www.facebook.com\/sharer\/sharer.php?u={shareUrl}&t={message}","target": "new" }
+         },
+         {
+         id: "twitter", type: "link", index: 30,
+         params: { "href": "https:\/\/twitter.com\/intent\/tweet?text={message}&url={shareUrl}","target": "new" }
+         },
+         {
+         id: "google-plus", type: "link", index: 40,
+         params: { "href": "https:\/\/plus.google.com\/share?url={shareUrl}","target": "new" }
+         }
+      ];
+//]]></script>
+   <script type="text/javascript" src="/share/res/js/share_4d9e78901ab008effdad9aa7634c9b70.js"></script>
+   <script type="text/javascript" src="/share/res/js/lightbox_bc0f7ca3f123011aa02ad82dace7cae3.js"></script>
+   <script type="text/javascript" src="/share/res/modules/create-site_4b5a63a49fcfd72d4903514f974e24db.js"></script>
+   <script type="text/javascript" src="/share/res/modules/documentlibrary/doclib-actions_e656d66243ea3de06c2d454448524ca0.js"></script>
+   <script type="text/javascript" src="/share/res/components/download/archive-and-download_ddf8cbac2c350666e6cae182175c5d2c.js"></script>
+   <script type="text/javascript">//<![CDATA[
+new Alfresco.ArchiveAndDownload("template_x002e_archive-and-download_x002e_myfiles_x0023_default").setMessages({"status.label": "Creating zip file", "message.invalid.arguments": "The request to build an archive was not correctly formed.", "header.error": "Error", "header.label": "Download", "message.download.failed": "Sorry, the download failed. Please try again later.", "file.status": "({0} out of {1} files added)", "message.maxContentSizeExceeded": "The content is too large to download. The maximum download size is {0}, the selected files are {1}.", "message.unknown.progress": "Unknown progress status returned", "message.cancelStatus": "Download cancelled", "message.archive.request.failed": "It is not possible to build an archive of the selected documents.", "label.failure": "Failure", "message.archive.progress.failed": "It was not possible to get progress on the archiving progress."});
+//]]></script>
+   <script type="text/javascript">//<![CDATA[
+//]]></script>
+   <script type="text/javascript">//<![CDATA[
+         Alfresco.constants.DASHLET_RESIZE = false && YAHOO.env.ua.mobile === null;
+//]]></script>
+   <script type="text/javascript" src="/share/res/components/documentlibrary/actions_940c8387b9e3ffb5b04e866acbcedcfb.js"></script>
+   <script type="text/javascript" src="/share/res/components/documentlibrary/actions-util_5747f381eedafb73298d782bf36f44aa.js"></script>
+   <script type="text/javascript" src="/share/res/modules/simple-dialog_a9b7dcc689e19e50aaef92f6ff581e08.js"></script>
+   <script type="text/javascript" src="/share/res/modules/documentlibrary/global-folder_e18e71b13f70df593923da5c9d79cc3d.js"></script>
+   <script type="text/javascript" src="/share/res/modules/documentlibrary/copy-move-to_02a0be7b865e0e24ebefc796732f6491.js"></script>
+   <script type="text/javascript" src="/share/res/components/people-finder/people-finder_ef68bf7d8033b2a17c9d493507bc9fa2.js"></script>
+   <script type="text/javascript" src="/share/res/modules/documentlibrary/permissions_47d8bcd6bb4ea2276d4b156e5463e7b3.js"></script>
+   <script type="text/javascript" src="/share/res/modules/documentlibrary/aspects_0603bd46cd67863d680f5f27d634f348.js"></script>
+   <script type="text/javascript" src="/share/res/modules/documentlibrary/cloud-folder_652eea6cf8a72aec5dd480a9105d5cf5.js"></script>
+   <script type="text/javascript" src="/share/res/modules/cloud-auth_2a5d6a438d7392ed70737962d7a76f2f.js"></script>
+   <script type="text/javascript" src="/share/res/js/officelauncher_c5dab768d0335483c03558e7df0e3dbd.js"></script>
+   <script type="text/javascript">//<![CDATA[
+var filter=new Alfresco.component.BaseFilter("Alfresco.DocListFilter", "template_x002e_filter_x002e_myfiles_x0023_default");
+//]]></script>
+   <script type="text/javascript">//<![CDATA[
+      filter.setFilterIds(["all","editingMe","editingOthers","recentlyModified","recentlyAdded","favourites","synced","syncedErrors"]);
+//]]></script>
+   <script type="text/javascript" src="/share/res/components/documentlibrary/tree_a152145429d35cefcf1743a7c276c2de.js"></script>
+   <script type="text/javascript" src="/share/res/components/documentlibrary/repo-tree_7df9dea7f0d4bb6a25a636cc59500115.js"></script>
+   <script type="text/javascript">//<![CDATA[
+new Alfresco.RepositoryDocListTree("template_x002e_tree_x002e_myfiles_x0023_default").setOptions({"maximumFolderCount": 500.0, "evaluateChildFolders": false, "rootNode": "alfresco:\/\/user\/home", "setDropTargets": true}).setMessages({"header.library": "My Files", "node.root": "My Files"});
+//]]></script>
+   <script type="text/javascript" src="/share/res/components/documentlibrary/categories_b91304d639497b266df2ed1b162e2622.js"></script>
+   <script type="text/javascript">//<![CDATA[
+new Alfresco.DocListCategories("template_x002e_categories_x002e_myfiles_x0023_default").setOptions({"nodeRef": "alfresco:\/\/category\/root", "evaluateChildFolders": true}).setMessages({"header.library": "Categories", "node.root": "Category Root"});
+//]]></script>
+   <script type="text/javascript" src="/share/res/components/documentlibrary/toolbar_6afa7d27feaa5b112632003bef920115.js"></script>
+   <script type="text/javascript" src="/share/res/components/documentlibrary/repo-toolbar_2232a3b3e792a13bd45eb2429cecbf0b.js"></script>
+   <script type="text/javascript" src="/share/res/components/documentlibrary/documentlist_1f0231d64113b08ec380bc4dcf859f6b.js"></script>
+   <script type="text/javascript" src="/share/res/components/documentlibrary/documentlist-view-detailed_d1667f06bff29d1c749ab26f7acff74e.js"></script>
+   <script type="text/javascript" src="/share/res/components/documentlibrary/documentlist-view-simple_4cb2314560ce89d9979bcfd8eb6f71ef.js"></script>
+   <script type="text/javascript" src="/share/res/components/documentlibrary/documentlist-view-gallery_8fb41001970b4c81d9145745da778bf7.js"></script>
+   <script type="text/javascript" src="/share/res/yui/slider/slider_9a190bd770d695cd077da3ff33d24704.js"></script>
+   <script type="text/javascript" src="/share/res/components/documentlibrary/documentlist-view-filmstrip_f931f8d4f5691df87c7c1663a0bd55de.js"></script>
+   <script type="text/javascript" src="/share/res/yui/carousel/carousel_694fc1b99f0b5823a304f36cb403c1ef.js"></script>
+   <script type="text/javascript" src="/share/res/components/preview/web-preview_6225c3ae7d7a820863a0c1eab3dcdb29.js"></script>
+   <script type="text/javascript" src="/share/res/components/preview/WebPreviewer_0eaf2df9eb1efaab29cb1db02d13cb8b.js"></script>
+   <script type="text/javascript" src="/share/res/js/flash/extMouseWheel_943fc6ff2e1c036e25d22feded8f7b4b.js"></script>
+   <script type="text/javascript" src="/share/res/components/preview/StrobeMediaPlayback_6c7827da5ad7e6ada1488773605d0adc.js"></script>
+   <script type="text/javascript" src="/share/res/components/preview/Video_de60dd1094e95d4966ff6119a9dbe153.js"></script>
+   <script type="text/javascript" src="/share/res/components/preview/Audio_25f2a797870e31469ddc8f82089599e7.js"></script>
+   <script type="text/javascript" src="/share/res/components/preview/Flash_3073c01e7c561f97786f4e6a82c4be00.js"></script>
+   <script type="text/javascript" src="/share/res/components/preview/Image_cfa4dbeeae7948769a7ceb7abfac338c.js"></script>
+   <script type="text/javascript" src="/share/res/components/preview/PdfJs_829382af3d0dd7b07f763ab83b388ba2.js"></script>
+   <script type="text/javascript" src="/share/res/components/preview/pdfjs/compatibility_90695d21e1a532441114824f412e2dce.js"></script>
+   <script type="text/javascript" src="/share/res/components/preview/pdfjs/pdf_c188835b3b029e1be65eee95e79978d5.js"></script>
+   <script type="text/javascript" src="/share/res/components/preview/pdfjs/pdf.worker_3956013bb1591ad9182d80ef21846b7c.js"></script>
+   <script type="text/javascript" src="/share/res/components/preview/spin_a0f5e59709250357e5db37c1c535d22c.js"></script>
+   <script type="text/javascript" src="/share/res/components/documentlibrary/documentlist-view-table_873eea85ed38c01a282b4bc166c9f1f5.js"></script>
+   <script type="text/javascript" src="/share/res/js/workflow/extended-toolbar_e5dd2beb05b1659e97f6577ef3886f9c.js"></script>
+   <script type="text/javascript" src="/share/res/js/subscription/subscription-main_93b215c924b37b385823dc9b12c1925c.js"></script>
+   <script type="text/javascript" src="/share/res/jquery/jquery-1.6.2-min_f7ee290e886f9dbb355b75363b42014f.js"></script>
+   <script type="text/javascript">//<![CDATA[
+var docListToolbar=new Alfresco.RepositoryDocListToolbar("template_x002e_documentlist_v2_x002e_myfiles_x0023_default").setOptions({"useTitle": true, "repositoryBrowsing": true, "syncMode": "ON_PREMISE", "siteId": "", "createContentByTemplateEnabled": true, "hideNavBar": false, "createContentActions": [{"icon": "folder", "index": 5.0, "permission": "", "label": "create-content.folder", "type": "javascript", "params": {"function": "onNewFolder"}}, {"icon": "text", "index": 10.0, "permission": "", "label": "create-content.text", "type": "pagelink", "params": {"page": "create-content?destination={nodeRef}&itemId=cm:content&mimeType=text\/plain"}}, {"icon": "html", "index": 20.0, "permission": "", "label": "create-content.html", "type": "pagelink", "params": {"page": "create-content?destination={nodeRef}&itemId=cm:content&mimeType=text\/html"}}, {"icon": "xml", "index": 30.0, "permission": "", "label": "create-content.xml", "type": "pagelink", "params": {"page": "create-content?destination={nodeRef}&itemId=cm:content&mimeType=text\/xml"}}], "rootNode": "alfresco:\/\/user\/home"}).setMessages({"details.banner.more-info": "More Info", "checkbox.check": "Check", "details.banner.folder.locked": "This folder is locked by {0}.", "table.audio.label.name": "Name", "button.fullwindow.enter": "Full Window", "actions.more": "More...", "description.editingOthers": "Documents Others are Editing", "table.dublincore.label.subject": "Subject", "table.effectivity.label.description": "Description", "table.effectivity.label.name": "Name", "details.banner.sync-failed": "Last sync failed.", "message.create-content-by-template-node.success": "Created content based on template ''{0}''", "button.customize": "Customize", "table.dublincore.label.identifier": "Identifier", "button.navbar.hide": "Hide Breadcrumb", "description.recentlyAdded": "Documents Added Recently", "description.tag": "Documents and Folders Tagged with", "status.cloud-sync-failed": "Sync failed. Click to view for info", "description.all": "All Documents in the Document Library", "table.dublincore.label.dcsource": "Source", "table.email.label.addressees": "CC", "message.multiple-delete.failure": "Could not delete items", "status.locked": "Locked by {0} ({1})", "button.fullscreen.enter": "Full Screen", "dnd.upload.description": "Upload files", "status.transferred-node": "Transferred from another Repository", "table.email.label.subjectline": "Subject", "button.folders.show": "Show Folders", "description.favourites": "My Favorite Documents and Folders", "table.dublincore.label.publisher": "Publisher", "message.multiple-delete.success": "Successfully deleted {0} item(s)", "table.email.label.attachments": "Attachments", "description.editingMe.more": "(working copies)", "label.new-folder-from-template.title": "Create Folder From Template", "description.synced.more": "", "status.geographic": "Geolocation metadata available", "edit-details.title": "Edit Properties: {0}", "description.path": "", "description.editingOthers.more": "(working copies)", "status.cloud-indirect-sync": "Indirectly synced. Click to view for info", "dnd.upload.tooltip": "<p>You can also drag and drop files from your desktop into the Document Library.<\/p><p>To use drag and drop instead, close the uploader below.<\/p>", "table.email.label.addressee": "To ", "description.category": "", "details.banner.locked": "This document is locked by {0}.", "table.email.label.originator": "From", "tip.insitu-rename": "Rename", "dnd.drop.doclist.description": "Drag files from your desktop and drop them here to upload.", "table.email.label.sentdate": "Sent", "table.effectivity.label.from": "Effective From", "message.multiple-delete.please-wait": "Please wait. Files being deleted...", "other.options": "You can also...", "description.all.more": "", "status.rules": "Folder has rules applied", "button.sort.ascending": "Sort Ascending", "table.audio.label.compressor": "Encoding", "description.recentlyModified": "Documents Recently Modified", "title.multiple-delete.confirm": "Confirm Multiple Delete", "description.tag.more": "{0}", "details.banner.editing": "This document is locked by you for offline editing.", "table.dublincore.label.description": "Description", "button.up": "Up", "table.dublincore.label.version": "Version", "button.fullscreen.exit": "Exit Full Screen", "unfollow.document.add.tip": "Unfollow document", "message.create-content-by-template-node.failure": "Could not create content based on template ''{0}''", "description.recentlyAdded.more": "", "table.audio.label.genre": "Genre", "follow.document.add.tip": "Follow document", "table.dublincore.label.rights": "Rights", "button.sync-to-cloud": "Sync to Cloud", "no.items.title": "No content items", "description.path.more": "", "label.new-folder.title": "New Folder", "label.new-folder-from-template.header": "Update the template folder properties", "label.filter-description": "Same type as {0}", "message.create-content-by-template-folder.failure": "Could not create folder based on template ''{0}''", "edit-details.label.edit-metadata": "All Properties...", "checkbox.uncheck": "Uncheck", "button.new-folder": "New Folder", "status.exif": "EXIF metadata available", "table.dublincore.label.creator": "Creator", "link.rss-feed": "RSS Feed", "message.create-content-by-template-folder.success": "Created folder based on template ''{0}''", "status.editing": "Being edited by you", "table.dublincore.label.type": "Type", "button.sort.descending": "Sort Descending", "standard.upload.title": "Build your library!", "table.dublincore.label.mimetype": "Format", "standard.upload.description": "Upload files", "button.removeDefaultView": "Remove \"{0}\" as default for this folder", "status.simple-workflow": "Simple Approve\/Reject workflow applied", "table.audio.label.title": "Title", "table.audio.label.trackNumber": "Track Number", "table.dublincore.label.contributor": "Contributor", "button.setDefaultView": "Set \"{0}\" as default for this folder", "table.effectivity.label.to": "Effective To", "button.options": "Options", "follow.document.add.label": "Follow", "table.dublincore.label.coverage": "Coverage", "button.unsync-from-cloud": "Unsync from Cloud", "show.folders": "Show {0} subfolder(s)", "description.editingMe": "Documents I'm Editing", "table.audio.label.sampleRate": "Sample Rate", "status.active-workflows": "Belongs to {0} active workflows", "unfollow.document.add.label": "Unfollow", "table.effectivity.label.modifier": "Modified By", "description.syncedErrors": "Documents with sync errors", "description.favourites.more": "", "details.banner.lock-owner": "This document is locked by you.", "dnd.drop.folder.description": "You can drop files onto folders.", "table.effectivity.label.modified": "Modified", "tip.insitu-tag": "Tag", "button.create-content": "Create...", "table.dublincore.label.title": "Title", "button.navbar.show": "Show Breadcrumb", "details.banner.folder.editing": "This folder is locked by you for offline editing.", "table.audio.label.artist": "Artist", "table.audio.label.album": "Album", "dnd.drop.title": "Drag and drop to upload files!", "button.folders.hide": "Hide Folders", "status.lock-owner": "Locked by you", "description.syncedErrors.more": "", "description.synced": "Documents synchronized with the cloud", "status.cloud-synced": "Click to view sync info", "dnd.newfolder.description": "Create a folder", "message.new-folder.success": "Folder ''{0}'' created", "message.new-folder.failure": "Could not create ''{0}''. Duplicate folder name?", "status.cloud-indirect-sync-failed": "Indirect sync failed. Click to view for info", "details.banner.folder.lock-owner": "This folder is locked by you.", "description.recentlyModified.more": "", "table.dublincore.label.name": "Name", "message.multiple-delete.confirm": "Are you sure you want to delete the following {0} items?", "label.new-folder.header": "New Folder Details", "description.category.more": "", "details.banner.sync-transient-error": "Temporary sync error.", "table.effectivity.label.version": "Version"});
+new customWorkflow.ExtendedDocumentList("template_x002e_documentlist_v2_x002e_myfiles_x0023_default").setOptions({"showFolders": true, "viewRendererName": "detailed", "replicationUrlMapping": {}, "viewRendererNames": ["simple", "detailed", "gallery", "filmstrip", "table", "audio", "media_table"], "rootNode": "alfresco:\/\/user\/home", "repositoryUrl": "http:\/\/localhost:8080\/alfresco", "useTitle": true, "sortAscending": true, "viewRenderers": [{"widget": "Alfresco.DocumentListSimpleViewRenderer", "index": 10.0, "id": "simple", "label": "Simple View", "iconClass": "simple"}, {"widget": "Alfresco.DocumentListViewRenderer", "index": 20.0, "id": "detailed", "label": "Detailed View", "iconClass": "detailed"}, {"widget": "Alfresco.DocumentListGalleryViewRenderer", "index": 30.0, "id": "gallery", "label": "Gallery View", "iconClass": "gallery"}, {"widget": "Alfresco.DocumentListFilmstripViewRenderer", "index": 40.0, "id": "filmstrip", "label": "Filmstrip View", "iconClass": "filmstrip"}, {"jsonConfig": "{ \"actions\": { \"show\": \"true\" }, \"indicators\": { \"show\": \"true\" }, \"selector\": { \"show\": \"true\" }, \"thumbnail\": { \"show\": \"true\" }, \"propertyColumns\": [ { \"property\": \"name\", \"label\": \"label.name\", \"width\": \"300\" }, { \"property\": \"cm:title\", \"label\": \"label.title\" }, { \"property\": \"cm:description\", \"label\": \"label.description\" }, { \"property\": \"cm:creator\", \"label\": \"label.creator\" }, { \"property\": \"cm:created\", \"label\": \"label.created\" }, { \"property\": \"cm:modifier\", \"label\": \"label.modifier\" }, { \"property\": \"modified\", \"label\": \"label.modified\" } ] }", "widget": "Alfresco.DocumentListTableViewRenderer", "index": 50.0, "id": "table", "label": "Table View", "iconClass": "table"}, {"jsonConfig": "{ \"actions\": { \"show\": \"true\" }, \"indicators\": { \"show\": \"true\" }, \"selector\": { \"show\": \"true\" }, \"thumbnail\": { \"show\": \"true\" }, \"propertyColumns\": [ { \"property\": \"name\", \"label\": \"table.audio.label.name\", \"width\": \"300\" }, { \"property\": \"cm:title\", \"label\": \"table.audio.label.title\", \"width\": \"200\" }, { \"property\": \"audio:album\", \"label\": \"table.audio.label.album\", \"width\": \"200\", \"link\": \"true\" }, { \"property\": \"audio:artist\", \"label\": \"table.audio.label.artist\", \"width\": \"200\" }, { \"property\": \"audio:genre\", \"label\": \"table.audio.label.genre\", \"width\": \"100\" }, { \"property\": \"audio:trackNumber\", \"label\": \"table.audio.label.trackNumber\", \"width\": \"100\" }, { \"property\": \"audio:sampleRate\", \"label\": \"table.audio.label.sampleRate\", \"width\": \"100\" }, { \"property\": \"audio:compressor\", \"label\": \"table.audio.label.compressor\", \"width\": \"100\" } ] }", "widget": "Alfresco.DocumentListTableViewRenderer", "index": 60.0, "id": "audio", "label": "Audio View", "iconClass": "table"}, {"jsonConfig": "{ \"actions\": { \"show\": \"true\" }, \"indicators\": { \"show\": \"true\" }, \"selector\": { \"show\": \"true\" }, \"thumbnail\": { \"show\": \"true\" }, \"propertyColumns\": [ { \"property\": \"name\", \"label\": \"label.name\", \"width\": \"300\" }, { \"property\": \"cm:description\", \"label\": \"label.description\", \"width\": \"200\" }, { \"property\": \"tags\", \"label\": \"label.tags\", \"width\": \"100\" }, { \"property\": \"exif:pixelXDimension\", \"label\": \"label.exif.width\", \"width\": \"75\" }, { \"property\": \"exif:pixelYDimension\", \"label\": \"label.exif.height\", \"width\": \"75\" }, { \"property\": \"size\", \"label\": \"label.size\", \"width\": \"75\" }, { \"property\": \"version\", \"label\": \"label.version\", \"width\": \"50\" } ] }", "widget": "Alfresco.DocumentListTableViewRenderer", "index": 100.0, "id": "media_table", "label": "Media View", "iconClass": "table"}], "usePagination": true, "repositoryBrowsing": true, "userIsSiteManager": false, "syncMode": "ON_PREMISE", "sortField": "cm:name", "siteId": "", "highlightFile": "", "associatedToolbar": docListToolbar, "simpleView": "null", "containerId": "documentLibrary"}).setMessages({"details.banner.more-info": "More Info", "checkbox.check": "Check", "details.banner.folder.locked": "This folder is locked by {0}.", "table.audio.label.name": "Name", "button.fullwindow.enter": "Full Window", "actions.more": "More...", "description.editingOthers": "Documents Others are Editing", "table.dublincore.label.subject": "Subject", "table.effectivity.label.description": "Description", "table.effectivity.label.name": "Name", "details.banner.sync-failed": "Last sync failed.", "message.create-content-by-template-node.success": "Created content based on template ''{0}''", "button.customize": "Customize", "table.dublincore.label.identifier": "Identifier", "button.navbar.hide": "Hide Breadcrumb", "description.recentlyAdded": "Documents Added Recently", "description.tag": "Documents and Folders Tagged with", "status.cloud-sync-failed": "Sync failed. Click to view for info", "description.all": "All Documents in the Document Library", "table.dublincore.label.dcsource": "Source", "table.email.label.addressees": "CC", "message.multiple-delete.failure": "Could not delete items", "status.locked": "Locked by {0} ({1})", "button.fullscreen.enter": "Full Screen", "dnd.upload.description": "Upload files", "status.transferred-node": "Transferred from another Repository", "table.email.label.subjectline": "Subject", "button.folders.show": "Show Folders", "description.favourites": "My Favorite Documents and Folders", "table.dublincore.label.publisher": "Publisher", "message.multiple-delete.success": "Successfully deleted {0} item(s)", "table.email.label.attachments": "Attachments", "description.editingMe.more": "(working copies)", "label.new-folder-from-template.title": "Create Folder From Template", "description.synced.more": "", "status.geographic": "Geolocation metadata available", "edit-details.title": "Edit Properties: {0}", "description.path": "", "description.editingOthers.more": "(working copies)", "status.cloud-indirect-sync": "Indirectly synced. Click to view for info", "dnd.upload.tooltip": "<p>You can also drag and drop files from your desktop into the Document Library.<\/p><p>To use drag and drop instead, close the uploader below.<\/p>", "table.email.label.addressee": "To ", "description.category": "", "details.banner.locked": "This document is locked by {0}.", "table.email.label.originator": "From", "tip.insitu-rename": "Rename", "dnd.drop.doclist.description": "Drag files from your desktop and drop them here to upload.", "table.email.label.sentdate": "Sent", "table.effectivity.label.from": "Effective From", "message.multiple-delete.please-wait": "Please wait. Files being deleted...", "other.options": "You can also...", "description.all.more": "", "status.rules": "Folder has rules applied", "button.sort.ascending": "Sort Ascending", "table.audio.label.compressor": "Encoding", "description.recentlyModified": "Documents Recently Modified", "title.multiple-delete.confirm": "Confirm Multiple Delete", "description.tag.more": "{0}", "details.banner.editing": "This document is locked by you for offline editing.", "table.dublincore.label.description": "Description", "button.up": "Up", "table.dublincore.label.version": "Version", "button.fullscreen.exit": "Exit Full Screen", "unfollow.document.add.tip": "Unfollow document", "message.create-content-by-template-node.failure": "Could not create content based on template ''{0}''", "description.recentlyAdded.more": "", "table.audio.label.genre": "Genre", "follow.document.add.tip": "Follow document", "table.dublincore.label.rights": "Rights", "button.sync-to-cloud": "Sync to Cloud", "no.items.title": "No content items", "description.path.more": "", "label.new-folder.title": "New Folder", "label.new-folder-from-template.header": "Update the template folder properties", "label.filter-description": "Same type as {0}", "message.create-content-by-template-folder.failure": "Could not create folder based on template ''{0}''", "edit-details.label.edit-metadata": "All Properties...", "checkbox.uncheck": "Uncheck", "button.new-folder": "New Folder", "status.exif": "EXIF metadata available", "table.dublincore.label.creator": "Creator", "link.rss-feed": "RSS Feed", "message.create-content-by-template-folder.success": "Created folder based on template ''{0}''", "status.editing": "Being edited by you", "table.dublincore.label.type": "Type", "button.sort.descending": "Sort Descending", "standard.upload.title": "Build your library!", "table.dublincore.label.mimetype": "Format", "standard.upload.description": "Upload files", "button.removeDefaultView": "Remove \"{0}\" as default for this folder", "status.simple-workflow": "Simple Approve\/Reject workflow applied", "table.audio.label.title": "Title", "table.audio.label.trackNumber": "Track Number", "table.dublincore.label.contributor": "Contributor", "button.setDefaultView": "Set \"{0}\" as default for this folder", "table.effectivity.label.to": "Effective To", "button.options": "Options", "follow.document.add.label": "Follow", "table.dublincore.label.coverage": "Coverage", "button.unsync-from-cloud": "Unsync from Cloud", "show.folders": "Show {0} subfolder(s)", "description.editingMe": "Documents I'm Editing", "table.audio.label.sampleRate": "Sample Rate", "status.active-workflows": "Belongs to {0} active workflows", "unfollow.document.add.label": "Unfollow", "table.effectivity.label.modifier": "Modified By", "description.syncedErrors": "Documents with sync errors", "description.favourites.more": "", "details.banner.lock-owner": "This document is locked by you.", "dnd.drop.folder.description": "You can drop files onto folders.", "table.effectivity.label.modified": "Modified", "tip.insitu-tag": "Tag", "button.create-content": "Create...", "table.dublincore.label.title": "Title", "button.navbar.show": "Show Breadcrumb", "details.banner.folder.editing": "This folder is locked by you for offline editing.", "table.audio.label.artist": "Artist", "table.audio.label.album": "Album", "dnd.drop.title": "Drag and drop to upload files!", "button.folders.hide": "Hide Folders", "status.lock-owner": "Locked by you", "description.syncedErrors.more": "", "description.synced": "Documents synchronized with the cloud", "status.cloud-synced": "Click to view sync info", "dnd.newfolder.description": "Create a folder", "message.new-folder.success": "Folder ''{0}'' created", "message.new-folder.failure": "Could not create ''{0}''. Duplicate folder name?", "status.cloud-indirect-sync-failed": "Indirect sync failed. Click to view for info", "details.banner.folder.lock-owner": "This folder is locked by you.", "description.recentlyModified.more": "", "table.dublincore.label.name": "Name", "message.multiple-delete.confirm": "Are you sure you want to delete the following {0} items?", "label.new-folder.header": "New Folder Details", "description.category.more": "", "details.banner.sync-transient-error": "Temporary sync error.", "table.effectivity.label.version": "Version"});
+//]]></script>
+   <script type="text/javascript" src="/share/res/js/checkin/bulk-checkin_e26c5d7091d515497e6e1de2619574a6.js"></script>
+   <script type="text/javascript" src="/share/res/js/pearson/lifecycle/lifecycle_f6a8f5da309bbbe613eb513c9f895386.js"></script>
+   <script type="text/javascript" src="/share/res/components/documentlibrary/link-to_f32647c4fef12e34173f0384f45dd4ea.js"></script>
+   <script type="text/javascript" src="/share/res/modules/document-picker/document-picker_2630370e046956545ddb25eba1e23beb.js"></script>
+   <script type="text/javascript" src="/share/res/js/pearson/relationship/add-relaitonship_ba8305dd4879aee8ac85901e4ccc21aa.js"></script>
+   <script type="text/javascript" src="/share/res/components/documentlibrary/unzip-action-min_d3817c027ef313f880d95ee34161e95d.js"></script>
+   <script type="text/javascript" src="/share/res/components/tag-filter/tag-filter_329de4a1913c9e28195a8709ec7511d6.js"></script>
+   <script type="text/javascript">//<![CDATA[
+var tagFilter=new Alfresco.TagFilter("template_x002e_tags_x002e_myfiles_x0023_default").setOptions({"numTags": 100.0, "rootNode": "workspace:\/\/SpacesStore\/b98a6a97-4906-4163-8739-da312a943837"}).setMessages({"header.title": "Tags", "label.no-tags": "Nothing has been tagged", "message.refresh.failure": "Could not retrieve tags"});
+//]]></script>
+   <script type="text/javascript">//<![CDATA[
+      tagFilter.setFilterIds(["tag"]);
+//]]></script>
+   <script type="text/javascript" src="/share/res/components/form/form_6784c65e86756fb83434eab021ca31e3.js"></script>
+   <script type="text/javascript" src="/share/res/components/form/date_ddafc872b6600afbd38c62eb7ea5aeb8.js"></script>
+   <script type="text/javascript" src="/share/res/components/form/date-picker_d3d480199209b8719d9ef541e3a3c7af.js"></script>
+   <script type="text/javascript" src="/share/res/components/form/period_06687cd14ce6f0519843823e1707d338.js"></script>
+   <script type="text/javascript" src="/share/res/components/object-finder/object-finder_59f44b55208707c06cc3946b993bd22b.js"></script>
+   <script type="text/javascript" src="/share/res/yui/calendar/calendar_5988804cd764aebe858556484bc2abda.js"></script>
+   <script type="text/javascript" src="/share/res/components/form/rich-text_9e023d36ef193b3b3e66a2ee05ed2644.js"></script>
+   <script type="text/javascript" src="/share/res/components/form/content_9080c709dc38a9d8a6ce05405a1fc53f.js"></script>
+   <script type="text/javascript" src="/share/res/components/form/workflow/transitions_e18bffeb68c61c1ebee76beb5d12323f.js"></script>
+   <script type="text/javascript" src="/share/res/components/form/workflow/activiti-transitions_d140513a3f05178a9fe02aabad62ae3a.js"></script>
+   <script type="text/javascript" src="/share/res/components/form/jmx/operations_7cbe27c4e529dd06930674fe2a8ff1bd.js"></script>
+   <script type="text/javascript" src="/share/res/components/upload/html-upload_c52c3260d10f5b2de27f6b1cc2fedfb7.js"></script>
+   <script type="text/javascript">//<![CDATA[
+var htmlUpload=new Alfresco.HtmlUpload("template_x002e_html-upload_x002e_myfiles_x0023_default").setMessages({"message.maxFileFileSizeExceeded": "File is too big, maximum file size {maximumFileSizeLimit}.", "label.minorVersion.more": "minor changes ({0})", "label.file": "File", "message.uploading": "Document is being uploaded...", "message.zeroByteFileSelected": "File is 0b in size and cannot be uploaded.", "header.singleUpload": "Upload File", "message.failure.409": "Content size violation", "section.file": "Choose File", "message.success": "Document successfully uploaded", "label.singleUploadTip": "With the latest Flash Player installed, you can upload multiple files. Download it from the <a href=\"http:\/\/www.adobe.com\/go\/getflashplayer\">Adobe Flash Player Download Center<\/a>.", "type.cm_content": "Content", "button.upload": "Upload File", "label.majorVersion.more": "major changes ({0})", "label.minorVersion": "minor changes", "label.contentType": "Type", "label.singleUpdateTip": "Upload a new version of {0}", "message.illegalCharacters": "Filenames cannot contain characters that are illegal on any operation system.", "label.version": "This version has:", "label.majorVersion": "major changes", "header.singleUpdate": "Update File", "section.version": "Version Information", "message.failure.413": "Quota Exceeded or File Too Large", "message.failure": "Document could not be uploaded", "label.comments": "Comments"});
+//]]></script>
+   <script type="text/javascript">//<![CDATA[
+      htmlUpload.setMaximumFileSizeLimit(0);
+//]]></script>
+   <script type="text/javascript" src="/share/res/components/upload/flash-upload_8d9599559f60547ba654f0515bd4919c.js"></script>
+   <script type="text/javascript">//<![CDATA[
+new Alfresco.FlashUpload("template_x002e_flash-upload_x002e_myfiles_x0023_default").setMessages({"label.minorVersion.more": "minor changes ({0})", "label.illegalChars": "Failure: Filename contains illegal characters", "header.singleUpload": "Upload File", "message.cancelStatus": "Upload(s) cancelled; {0} file(s) uploaded", "type.cm_content": "Content", "label.uploadStatus": "Status: {0}\/{1} uploaded ({2} failed)", "label.browse": "Select file(s) to upload", "label.majorVersion.more": "major changes ({0})", "header.multiUpload": "Upload File(s)", "label.failure.409": "Failure: Content size violation", "label.minorVersion": "minor changes", "label.majorVersion": "major changes", "header.singleUpdate": "Update File", "label.noFlash": "You need a Flash Player of version 9.0.45 to use this component. You can download the latest version of Flash Player from the <a href=\"http:\/\/www.adobe.com\/go\/getflashplayer\">Adobe Flash Player Download Center<\/a>.", "label.multiUploadTip": "Use CTRL or SHIFT to select multiple files", "message.zeroByteFileSelected": "You selected file {0}. It is 0 bytes in size and cannot be uploaded.", "label.noFiles": "No files to display, click icon to select file(s) to upload", "button.upload": "Upload File(s)", "message.flashError.title": "Flash Communication Error", "label.success": "Success", "label.failure.413": "Failure: Quota exceeded", "message.flashError.message": "The browser cannot communicate with the Flash Uploader. You can continue to upload in single-file mode, or refresh the page to restart Flash.", "label.singleUpdateTip": "Click icon to upload a new version of {0}", "label.version": "This version has:", "section.version": "Version Information", "label.failure": "Failure", "label.comments": "Comments"});
+//]]></script>
+   <script type="text/javascript" src="/share/res/components/upload/file-upload_fd3674f0f4b5feaf9c1c9a8112081bf1.js"></script>
+   <script type="text/javascript">//<![CDATA[
+//]]></script>
+   <script type="text/javascript">//<![CDATA[
+      new Alfresco.getFileUploadInstance().setOptions(
+      {
+         adobeFlashEnabled: true
+      });
+//]]></script>
+   <script type="text/javascript" src="/share/res/components/upload/dnd-upload_1202fd2317ebbeca33774053cc2f6c59.js"></script>
+   <script type="text/javascript">//<![CDATA[
+var dndUpload=new Alfresco.DNDUpload("template_x002e_dnd-upload_x002e_myfiles_x0023_default").setMessages({"message.maxFileFileSizeExceeded": "File {0} is too big ({1}), maximum file size {2}.", "label.minorVersion.more": "minor changes ({0})", "header.singleUpload": "Upload File", "message.cancelStatus": "Upload(s) cancelled; {0} file(s) uploaded", "type.cm_content": "Content", "label.uploadStatus": "{0} of {1} files complete", "button.selectFiles": "Select files to upload", "label.majorVersion.more": "major changes ({0})", "header.multiUpload": "Upload Files to {0}", "label.failure.409": "Failure: Content size violation", "label.minorVersion": "minor changes", "label.majorVersion": "major changes", "header.singleUpdate": "Update File", "message.zeroByteFileSelected": "File {0} is 0b in size and cannot be uploaded.", "message.zeroByteFiles": "The following cannot be uploaded because they are either folders or are zero bytes in size: {0}", "header.multiUpload.singleFile": "Upload File to {0}", "label.aggregateUploadStatus": "Uploading {0} files ({1})", "label.noFiles": "Loading files into memory, please wait...", "label.success": "Success", "label.uploadStatus.withFailures": "{0} of {1} files complete ({2} failed)", "label.failure.fileTooBig": "Failure: File greater than 25MB", "header.error": "Error", "label.failure.413": "Failure: Quota exceeded", "message.illegalCharacters": "File {0} contains characters that are illegal on some operating system.", "label.version": "This version has:", "label.documents": "Documents", "inmemory.uploadsize.exceeded": "Your browser does not support drag and drop uploads where the total size of dropped files exceeds {0}", "section.version": "Version Information", "label.failure": "Failure: {0}", "label.comments": "Comments"});
+//]]></script>
+   <script type="text/javascript">//<![CDATA[
+      dndUpload.setInMemoryLimit("262144000");
+      dndUpload.setMaximumFileSizeLimit(0);
+//]]></script>
+   <script type="text/javascript" src="/share/res/modules/about-share_469c075223b37f7a4263a25a0921b929.js"></script>
+   <script type="text/javascript" src="/share/res/db0f5a8c65e519f3a964fe5fb2c56ab7.js"></script> <!-- Group Name: "share" -->
+   <script type="text/javascript" src="/share/res/d41d8cd98f00b204e9800998ecf8427e.js"></script> <!-- Group Name: "share" -->
+   <style type="text/css" media="screen">
+      @import url("/share/res/css/yui-fonts-grids_fe8fbe97553ea9e004731970a95a499b.css");
+      @import url("/share/res/yui/columnbrowser/assets/columnbrowser_a6ca750d53c6b6c201614545f6c33ee7.css");
+      @import url("/share/res/yui/columnbrowser/assets/skins/default/columnbrowser-skin_8d0c089e2ba8e57eaf72126e1fff5581.css");
+      @import url("/share/res/themes/pearsonTheme/yui/assets/skin_542f6b5438580ab376ad308a2505f6bd.css");
+      @import url("/share/res/css/base_de49c93bbc21978cdd4fed6cccfb679e.css");
+      @import url("/share/res/css/yui-layout_dcf75721dfd8e8e7c46cdcf6a269cedd.css");
+      @import url("/share/res/themes/pearsonTheme/presentation_6c289b38539730726347487a0d0c8320.css");
+      @import url("/share/res/modules/create-site_060e2af3cb1bff4b25dc9a4fcdd024a4.css");
+   </style>
+
+   <style type="text/css" media="screen">
+      @import url("/share/res/components/form/form_b440b2338b2691f5f029e72ad6b7fcb1.css");
+      @import url("/share/res/components/download/archive-and-download_55e9ac24e2efda68d988649f9c247889.css");
+   </style>
+
+   <style type="text/css" media="screen">
+      @import url("/share/res/js/lib/dojo-1.9.0/dijit/themes/claro/claro_025b76d478d52769a40f555a7683026a.css");
+   </style>
+
+   <style type="text/css" media="screen">
+      @import url("/share/res/components/documentlibrary/actions_6f061611315e249698910dd470474520.css");
+      @import url("/share/res/modules/documentlibrary/global-folder_bb89460c8f8acab163a8dcd56e7ae338.css");
+      @import url("/share/res/components/people-finder/people-finder_5352736f73fc2073137b4a35cd59de1e.css");
+      @import url("/share/res/modules/documentlibrary/permissions_8cc3abde1fc7ee341e28ec6a5559c49f.css");
+      @import url("/share/res/modules/documentlibrary/aspects_6cfb7e163c9311ab000b57ec649dfa30.css");
+      @import url("/share/res/modules/cloud/cloud-auth-form_e78a29cbc9b41f51137534ae4797fb20.css");
+      @import url("/share/res/modules/cloud/cloud-folder-picker_f936a72cac397452d4141baf99fd0741.css");
+      @import url("/share/res/modules/cloud/cloud-sync-status_277a34f8a714cb3159c483fc074769dc.css");
+      @import url("/share/res/components/documentlibrary/tree_a93fd62b31ad8c0eaac5943cc2911d14.css");
+      @import url("/share/res/components/documentlibrary/categories_ad327cca11033c99b47ab49b5bc68701.css");
+      @import url("/share/res/components/documentlibrary/toolbar_7f9f2b97a0b4b71f44ab6f10526126d3.css");
+      @import url("/share/res/components/documentlibrary/documentlist_v2_cfe7a3bb8b05442dbebde4c7f41095b8.css");
+      @import url("/share/res/components/preview/web-preview_d512a1d6a6fcb6ae15cd6514a25e0da4.css");
+      @import url("/share/res/components/preview/WebPreviewerHTML_5d2468e9aa98a3fb37a6837bb5ff87fb.css");
+      @import url("/share/res/components/preview/Audio_07ef6805c628fabd0fad8bf7df13c066.css");
+      @import url("/share/res/components/preview/Image_a17531a3254b2f53149f1ac94ccaeee1.css");
+      @import url("/share/res/components/preview/viewer-common_f92d46440097e401e358786c3c729559.css");
+      @import url("/share/res/components/preview/PdfJs_08a7e17917064f28b0996130f56e1a1a.css");
+      @import url("/share/res/components/documentlibrary/documentlist-view-table_db893abb6dd7a328074e99f6c6ddb9f8.css");
+      @import url("/share/res/js/subscription/subscription-main_db69373da5ef34177437717c6f8d13ec.css");
+      @import url("/share/res/css/checkin/checkin-main_02179479f91f18d447ab040d5adf0758.css");
+      @import url("/share/res/components/documentlibrary/link-to_6d435629ae84a3da58476360741f7826.css");
+      @import url("/share/res/modules/document-picker/document-picker_fb1a926f2bd070cbab720007b3c4eb16.css");
+      @import url("/share/res/components/documentlibrary/unzip-action_b61d5b575952cec97ea33bbe76fc619f.css");
+   </style>
+
+   <style type="text/css" media="screen">
+      @import url("/share/res/yui/calendar/assets/calendar_0aa6d3550448045f9e37c2e63f30c3fc.css");
+      @import url("/share/res/components/object-finder/object-finder_95149543230cbea76f8abf97e9d77b90.css");
+   </style>
+
+   <style type="text/css" media="screen">
+      @import url("/share/res/components/upload/html-upload_a99a938dd0db8d123fafd0c2a40029a9.css");
+      @import url("/share/res/components/upload/flash-upload_85891740d5e2ee23608dc7f0ca7394bd.css");
+      @import url("/share/res/components/upload/dnd-upload_026dabbf03280d95b61a066ff1a95d6a.css");
+   </style>
+
+   <style type="text/css" media="screen">
+      @import url("/share/res/modules/about-share_96f40d08b6e9b9e6ea3b563a1a079af4.css");
+      @import url("/share/res/components/footer/footer_e9412e488dbccdea677a03379d64994c.css");
+   </style>
+
+   <link rel="stylesheet" type="text/css" href="/share/res/fae4a62d6e1cdc45af05a0fe7daefe5e.css" media="screen">
+   
+
+   <!-- Icons -->
+   <link rel="shortcut icon" href="/share/res/favicon.ico" type="image/vnd.microsoft.icon" />
+   <link rel="icon" href="/share/res/favicon.ico" type="image/vnd.microsoft.icon" />
+
+
+   
+
+
+
+   <!-- Alfresco web framework common resources -->
+   <script type="text/javascript" src="/share/res/modules/editors/tinymce/tinymce.min.js?checksum=f34ea2e33cbdf16fb05ecb3e9a6f6562"></script>
+
+
+
+   
+<script type="text/javascript">//<![CDATA[
+(function()
+{
+   var $combine = Alfresco.util.combinePaths;
+   
+   // If no location.hash exists, convert certain params in location.search to location.hash and replace the page
+   var loc = window.location;
+   if (loc.hash === "" && loc.search !== "")
+   {
+      var qs, q, url = loc.protocol + "//" + loc.host + loc.pathname, hash = "";
+      qs = Alfresco.util.getQueryStringParameters();
+      
+      var hashParams =
+      {
+         "path": true,
+         "page": true,
+         "filter": true
+      },
+         filterDataParam = "filterData";
+      
+      for (q in qs)
+      {
+         if (qs.hasOwnProperty(q) && q in hashParams)
+         {
+            if (q === "path")
+            {
+               hash += "&" + "filter=" + encodeURIComponent("path|" + qs[q]);
+            }
+            else
+            {
+               hash += "&" + encodeURIComponent(q) + "=" + encodeURIComponent(qs[q]);
+               if (q === "filter")
+               {
+                  // Check for filterData in QueryString for the "filter" case
+                  if (qs.hasOwnProperty(filterDataParam))
+                  {
+                     hash += escape("|" + qs[filterDataParam]);
+                     delete qs[filterDataParam];
+                  }
+               }
+            }
+            delete qs[q];
+         }
+      }
+      
+      if (hash.length > 0)
+      {
+         url += Alfresco.util.toQueryString(qs) + "#" + hash.substring(1);
+         window.location.replace(url);
+      }
+   }
+})();
+//]]></script>
+   <script type="text/javascript">//<![CDATA[
+      new Alfresco.widget.Resizer("Repository").setOptions({
+         initialWidth: 225
+      });
+   //]]></script>
+   
+
+   
+
+   <!-- Extension Module Dependencies -->
+
+   <script type="text/javascript" src="/share/res/ppc/modules/create-site_54f1a5f202e4e70d47e487d29d80fa78.js"></script>
+
+
+   <!-- Android & iPad CSS overrides -->
+   <script type="text/javascript">
+      if (navigator.userAgent.indexOf(" Android ") !== -1 || navigator.userAgent.indexOf("iPad;") !== -1 || navigator.userAgent.indexOf("iPhone;") !== -1 )
+      {
+         document.write("<link media='only screen and (max-device-width: 1024px)' rel='stylesheet' type='text/css' href='/share/res/css/tablet_7de8a1be3071a0284dec03f751448cb0.css'/>");
+         document.write("<link rel='stylesheet' type='text/css' href='/share/res/css/tablet_7de8a1be3071a0284dec03f751448cb0.css'/>");
+      }
+   </script>
+</head>
+
+<body id="Share" class="yui-skin-pearsonTheme alfresco-share  claro">
+   <div class="sticky-wrapper">
+      <div id="doc3">
+   <div id="alf-hd">
+
+
+   <script type="text/javascript">//<![CDATA[
+require(['surf/d4d0c51064f9d89c945ffa8c038f1372','dojo/domReady!'], function(Page) {
+ var p = new Page({services:[{"name": "alfresco\/services\/PreferenceService", "config": {"localPreferences": {"org": {"alfresco": {"ext": {"documents": {"favourites": {"workspace://SpacesStore/19f62db5-6b63-407e-bb25-08296e92df69": {"createdAt": "2015-10-29T07:26:53.167Z"}}}, "sites": {"favourites": {"automationtestdemosite20151111190534": {"createdAt": "2015-11-11T13:35:40.578Z"}, "automationtestdemosite20151112202619": {"createdAt": "2015-11-12T14:56:25.335Z"}, "test1257": {"createdAt": "2015-11-06T12:07:27.989Z"}, "automationtestdemosite20151111185224": {"createdAt": "2015-11-11T13:22:31.631Z"}, "automationtestdemosite20151111161259": {"createdAt": "2015-11-11T10:43:05.319Z"}, "automationtestdemosite20151113102025": {"createdAt": "2015-11-13T04:50:33.068Z"}, "automationtestdemosite20151118160145": {"createdAt": "2015-11-18T10:31:52.480Z"}, "automationtestdemosite20151111160048": {"createdAt": "2015-11-11T10:30:55.599Z"}, "automationtestdemosite20151118160547": {"createdAt": "2015-11-18T10:35:54.198Z"}, "automationtestdemosite20151111105932": {"createdAt": "2015-11-11T05:29:38.493Z"}, "automationtestdemosite20151111103752": {"createdAt": "2015-11-11T05:07:58.733Z"}, "automationtestdemosite20151111121420": {"createdAt": "2015-11-11T06:44:26.388Z"}, "automationtestdemosite20151119175301": {"createdAt": "2015-11-19T12:23:07.417Z"}, "automationtestdemosite20151111190320": {"createdAt": "2015-11-11T13:33:27.201Z"}, "automationtestdemosite20151111135539": {"createdAt": "2015-11-11T08:25:46.264Z"}, "automationtestdemosite20151111131109": {"createdAt": "2015-11-11T07:41:16.204Z"}, "automationtestdemosite20151123102614": {"createdAt": "2015-11-23T04:56:19.911Z"}, "automationtestdemosite20151111125413": {"createdAt": "2015-11-11T07:24:20.289Z"}, "automationtestdemosite20151111131455": {"createdAt": "2015-11-11T07:45:01.618Z"}, "automationtestdemosite20151112202035": {"createdAt": "2015-11-12T14:50:41.390Z"}, "automationtestdemosite20151118172157": {"createdAt": "2015-11-18T11:52:06.570Z"}, "automationtestdemosite20151121122001": {"createdAt": "2015-11-21T06:50:07.729Z"}, "test7521": {"createdAt": "2015-11-11T07:42:26.805Z"}, "automationtestdemosite20151111123159": {"createdAt": "2015-11-11T07:02:05.868Z"}, "automationtestdemosite20151118161230": {"createdAt": "2015-11-18T10:42:36.298Z"}, "automationtestdemosite20151112201503": {"createdAt": "2015-11-12T14:45:11.610Z"}}}}, "share": {"sites": {"favourites": {"automationtestdemosite20151111190534": true, "automationtestdemosite20151112202619": true, "test1257": true, "automationtestdemosite20151111185224": true, "automationtestdemosite20151111161259": true, "automationtestdemosite20151113102025": true, "automationtestdemosite20151118160145": true, "automationtestdemosite20151111160048": true, "automationtestdemosite20151118160547": true, "automationtestdemosite20151111105932": true, "automationtestdemosite20151111103752": true, "automationtestdemosite20151111121420": true, "automationtestdemosite20151119175301": true, "automationtestdemosite20151111190320": true, "automationtestdemosite20151111135539": true, "automationtestdemosite20151111131109": true, "automationtestdemosite20151123102614": true, "automationtestdemosite20151111125413": true, "automationtestdemosite20151111131455": true, "automationtestdemosite20151112202035": true, "automationtestdemosite20151118172157": true, "automationtestdemosite20151121122001": true, "test7521": true, "automationtestdemosite20151111123159": true, "automationtestdemosite20151118161230": true, "automationtestdemosite20151112201503": true}, "recent": {"_0": "automationtestdemosite20151123102614", "_1": "automationtestdemosite", "_2": "automationtestdemosite20151121122001", "_3": "automationtestdemosite20151119175301", "_4": "automationtestdemosite20151118172157"}}, "twisters": {"collapsed": ""}, "documents": {"favourites": "workspace:\/\/SpacesStore\/19f62db5-6b63-407e-bb25-08296e92df69"}, "searchList": {"viewRendererName": "detailed"}, "activities": {"component-2-1": {"filter": "all", "activities": ""}}, "mydocuments": {"dashlet": {"component-2-2": {"simpleView": false}}}}}}}}}, "alfresco\/services\/NavigationService", "alfresco\/services\/UserService", "alfresco\/services\/SiteService", "alfresco\/services\/LogoutService"],widgets:[{"name": "alfresco\/layout\/VerticalWidgets", "config": {"widgets": [{"name": "alfresco\/header\/Header", "config": {"widgets": [{"name": "alfresco\/header\/AlfMenuBar", "id": "HEADER_APP_MENU_BAR", "align": "left", "config": {"widgets": [{"name": "alfresco\/menus\/AlfMenuBarItem", "config": {"targetUrl": "user\/VDUVVNA\/dashboard", "id": "HEADER_HOME", "label": "header.menu.home.label"}, "id": "HEADER_HOME"}, {"name": "alfresco\/menus\/AlfMenuBarItem", "config": {"targetUrl": "context\/mine\/myfiles", "id": "HEADER_MY_FILES", "label": "header.menu.myfiles.label"}, "id": "HEADER_MY_FILES"}, {"name": "alfresco\/menus\/AlfMenuBarItem", "config": {"targetUrl": "context\/shared\/sharedfiles", "id": "HEADER_SHARED_FILES", "label": "header.menu.shared.label"}, "id": "HEADER_SHARED_FILES"}, {"name": "alfresco\/header\/AlfSitesMenu", "config": {"currentUser": "VDUVVNA", "id": "HEADER_SITES_MENU", "label": "header.menu.sites.label", "currentSite": null}, "id": "HEADER_SITES_MENU"}, {"name": "alfresco\/header\/AlfMenuBarPopup", "config": {"widgets": [{"name": "alfresco\/menus\/AlfMenuGroup", "config": {"widgets": [{"name": "alfresco\/header\/AlfMenuItem", "config": {"id": "HEADER_MY_TASKS", "label": "header.menu.mytasks.label", "targetUrl": "my-tasks#filter=workflows|active", "iconClass": "alf-mytasks-icon"}, "id": "HEADER_MY_TASKS"}, {"name": "alfresco\/header\/AlfMenuItem", "config": {"id": "HEADER_MY_WORKFLOWS", "label": "header.menu.myworkflows.label", "targetUrl": "my-workflows#filter=workflows|active", "iconClass": "alf-myworkflows-icon"}, "id": "HEADER_MY_WORKFLOWS"}]}}], "id": "HEADER_TASKS", "label": "header.menu.tasks.label"}, "id": "HEADER_TASKS"}, {"name": "alfresco\/menus\/AlfMenuBarItem", "config": {"targetUrl": "people-finder", "id": "HEADER_PEOPLE", "label": "header.menu.people.label"}, "id": "HEADER_PEOPLE"}, {"name": "alfresco\/menus\/AlfMenuBarItem", "config": {"targetUrl": "repository", "id": "HEADER_REPOSITORY", "label": "header.menu.repository.label"}, "id": "HEADER_REPOSITORY"}, {"name": "alfresco\/menus\/AlfMenuBarItem", "config": {"id": "HEADER_SITES_CONSOLE", "label": "header.menu.admin.sites.label", "renderFilter": [{"property": "user.groups.GROUP_SITE_ADMINISTRATORS", "values": [true]}], "targetUrl": "console\/sites-console\/manage-sites"}, "id": "HEADER_ADMIN_CONSOLE"}]}}, {"name": "alfresco\/header\/AlfMenuBar", "id": "HEADER_USER_MENU_BAR", "align": "right", "config": {"widgets": [{"name": "alfresco\/header\/AlfMenuBarPopup", "config": {"widgets": [{"name": "alfresco\/menus\/AlfMenuGroup", "config": {"widgets": [{"name": "alfresco\/header\/CurrentUserStatus", "config": {"id": "HEADER_USER_STATUS", "userStatus": "", "userStatusTime": ""}, "id": "HEADER_USER_STATUS"}, {"name": "alfresco\/header\/AlfMenuItem", "config": {"id": "HEADER_USER_MENU_SET_STATUS", "label": "set_status.label", "iconClass": "alf-user-status-icon", "publishTopic": "ALF_SET_USER_STATUS"}, "id": "HEADER_USER_MENU_SET_STATUS"}, {"name": "alfresco\/header\/AlfMenuItem", "config": {"id": "HEADER_USER_MENU_PROFILE", "label": "my_profile.label", "targetUrl": "user\/VDUVVNA\/profile", "iconClass": "alf-user-profile-icon"}, "id": "HEADER_USER_MENU_PROFILE"}, "", {"name": "alfresco\/header\/AlfMenuItem", "config": {"id": "HEADER_USER_MENU_HELP", "label": "help.label", "targetUrl": "http:\/\/docs.alfresco.com\/5.0\/topics\/sh-uh-welcome.html", "iconClass": "alf-user-help-icon", "targetUrlType": "FULL_PATH", "targetUrlLocation": "NEW"}, "id": "HEADER_USER_MENU_HELP"}], "id": "HEADER_USER_MENU"}, "id": "HEADER_USER_MENU"}], "id": "HEADER_USER_MENU_POPUP", "label": "Naveen Duvvuru"}, "id": "HEADER_USER_MENU_POPUP"}]}}, {"name": "alfresco\/header\/SearchBox", "id": "HEADER_SEARCH", "align": "right", "config": {"site": null, "linkToFacetedSearch": true, "id": "HEADER_SEARCH_BOX"}}], "currentItem": {"user": {"isNetworkAdmin": false, "groups": {"GROUP_SITE_ADMIN": true}, "isAdmin": false}}, "semanticWrapper": "nav"}, "id": "SHARE_HEADER"}, {"name": "alfresco\/header\/LicenseWarning", "config": {"userIsAdmin": false, "usage": null}, "id": "HEADER_LICENSE_WARNING"}, {"name": "alfresco\/layout\/LeftAndRight", "className": "share-header-title", "id": "HEADER_TITLE_BAR", "config": {"widgets": [{"name": "alfresco\/logo\/Logo", "id": "HEADER_LOGO", "align": "left", "config": {"currentTheme": "pearsonTheme", "logoClasses": "alfresco-logo-only", "logoSrc": "\/share\/res\/themes\/pearsonTheme\/images\/app-logo-48.png"}}, {"name": "alfresco\/header\/Title", "id": "HEADER_TITLE", "align": "left", "config": {"setBrowserTitle": false, "targetUrl": null, "label": "My Files"}}, {"name": "alfresco\/header\/AlfMenuBar", "className": "navigation-menu", "id": "HEADER_NAVIGATION_MENU_BAR", "align": "right", "config": {"widgets": []}}, {"name": "alfresco\/menus\/AlfMenuBar", "className": "title-menu", "id": "HEADER_TITLE_MENU", "align": "right", "config": {"widgets": []}}], "semanticWrapper": "header"}}]}, "id": "SHARE_VERTICAL_LAYOUT"}],publishOnReady:[]
+}, 'share-header');
+});
+//]]></script>
+
+   <div id="share-header"></div>
+   </div>
+   <div id="bd">
+<div id="template_x002e_actions-common_x002e_myfiles">
+    <div id="template_x002e_actions-common_x002e_myfiles_x0023_default">
+
+    </div>
+
+</div><div id="unbound-region-actions">
+</div>      <div class="yui-t1" id="alfresco-repository">
+         <div class="yui-b" id="alf-filters">
+<div id="template_x002e_filter_x002e_myfiles">
+    <div id="template_x002e_filter_x002e_myfiles_x0023_default">
+   <div class="filter doclib-filter">
+      <h2 class="alfresco-twister">Documents</h2>
+      <ul class="filterLink">
+         <li><span class="all"><a class="filter-link" rel="" href="#">All Documents</a></span></li>
+         <li><span class="editingMe"><a class="filter-link" rel="" href="#">I'm Editing</a></span></li>
+         <li><span class="editingOthers"><a class="filter-link" rel="" href="#">Others are Editing</a></span></li>
+         <li><span class="recentlyModified"><a class="filter-link" rel="" href="#">Recently Modified</a></span></li>
+         <li><span class="recentlyAdded"><a class="filter-link" rel="" href="#">Recently Added</a></span></li>
+         <li><span class="favourites"><a class="filter-link" rel="" href="#">My Favorites</a></span></li>
+         <li><span class="synced"><a class="filter-link" rel="" href="#">Synced Content</a></span></li>
+         <li><span class="syncedErrors"><a class="filter-link" rel="" href="#">Synced with Errors</a></span></li>
+      </ul>
+   </div>
+    </div>
+
+</div><div id="template_x002e_tree_x002e_myfiles">
+    <div id="template_x002e_tree_x002e_myfiles_x0023_default">
+
+
+
+      <div class="treeview filter">
+         <h2 id="template_x002e_tree_x002e_myfiles_x0023_default-h2" class="alfresco-twister">My Files</h2>
+         <div id="template_x002e_tree_x002e_myfiles_x0023_default-treeview" class="tree"></div>
+      </div>
+
+    </div>
+
+</div><div id="template_x002e_categories_x002e_myfiles">
+    <div id="template_x002e_categories_x002e_myfiles_x0023_default">
+
+
+
+      <div class="categoryview filter">
+         <h2 id="template_x002e_categories_x002e_myfiles_x0023_default-h2">Categories</h2>
+         <div id="template_x002e_categories_x002e_myfiles_x0023_default-treeview" class="category"></div>
+      </div>
+    </div>
+
+</div><div id="template_x002e_tags_x002e_myfiles">
+    <div id="template_x002e_tags_x002e_myfiles_x0023_default">
+
+
+
+      <div class="filter">
+         <h2 class="alfresco-twister">Tags</h2>
+         <ul class="filterLink" id="template_x002e_tags_x002e_myfiles_x0023_default-tags"><li>&nbsp;</li></ul>
+      </div>
+    </div>
+
+</div>         </div>
+         <div id="yui-main">
+            <div class="yui-b" id="alf-content">
+<div id="template_x002e_documentlist_v2_x002e_myfiles">
+    <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default">
+
+
+
+<!-- Form Assets -->
+
+
+<!-- NOTE: Use preminified version of tinymce/tinymce.js -->
+<script type="text/javascript" src="/share/res/modules/editors/tinymce/tinymce.min.js"></script>
+
+
+
+
+
+   <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-tb-body" class="toolbar no-check-bg">
+         <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-headerBar" class="header-bar flat-button theme-bg-2">
+               <div class="left">
+                  <div class="hideable toolbar-hidden DocListTree">
+                        <div class="file-select">
+                           <button id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-fileSelect-button" name="doclist-fileSelect-button">Select&nbsp;&#9662;</button>
+                           <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-fileSelect-menu" class="yuimenu">
+                              <div class="bd">
+                                 <ul>
+                                    <li><a href="#"><span class="selectDocuments">Documents</span></a></li>
+                                    <li><a href="#"><span class="selectFolders">Folders</span></a></li>
+                                    <li><a href="#"><span class="selectAll">All</span></a></li>
+                                    <li><a href="#"><span class="selectInvert">Invert Selection</span></a></li>
+                                    <li><a href="#"><span class="selectNone">None</span></a></li>
+                                 </ul>
+                              </div>
+                           </div>
+                        </div>
+                     <div class="create-content">
+                           <span id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-createContent-button" class="yui-button yui-push-button">
+                              <span class="first-child">
+                                 <button name="createContent">Create...&nbsp;&#9662;</button>
+                              </span>
+                           </span>
+                           <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-createContent-menu" class="yuimenu">
+                              <div class="bd"></div>
+                           </div>
+                     </div>
+         
+                  </div>
+                  
+                        <div class="hideable toolbar-hidden DocListTree">
+                           <div class="file-upload">
+                              <span id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-fileUpload-button" class="yui-button yui-push-button">
+                                 <span class="first-child">
+                                    <button name="fileUpload">Upload</button>
+                                 </span>
+                              </span>
+                           </div>
+                        </div>
+                  
+                     <div class="hideable toolbar-hidden DocListTree">
+                        <div class="sync-to-cloud">
+                           <span id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-syncToCloud-button" class="yui-button yui-push-button hidden">
+                              <span class="first-child">
+                                 <button name="syncToCloud">Sync to Cloud</button>
+                              </span>
+                           </span>
+                        </div>
+                     </div>
+                     <div class="hideable toolbar-hidden DocListTree">
+                        <div class="unsync-from-cloud">
+                           <span id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-unsyncFromCloud-button" class="yui-button yui-push-button hidden">
+                              <span class="first-child">
+                                 <button name="unsyncFromCloud">Unsync from Cloud</button>
+                              </span>
+                           </span>
+                        </div>
+                     </div>
+                  
+                     <div class="selected-items hideable toolbar-hidden DocListTree DocListFilter TagFilter DocListCategories">
+                        <button class="no-access-check" id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-selectedItems-button" name="doclist-selectedItems-button">Selected Items...&nbsp;&#9662;</button>
+                        <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-selectedItems-menu" class="yuimenu">
+                           <div class="bd">
+                              <ul>
+                                 <li><a type="" rel="" href="" data-has-aspects="" data-not-aspects=""><span class="onActionDownload">Download as Zip</span></a></li>
+                                 <li><a type="" rel="" href="" data-has-aspects="" data-not-aspects=""><span class="onActionCopyTo">Copy to...</span></a></li>
+                                 <li><a type="" rel="Delete" href="" data-has-aspects="" data-not-aspects=""><span class="onActionMoveTo">Move to...</span></a></li>
+                                 <li><a type="" rel="" href="" data-has-aspects="" data-not-aspects=""><span class="onActionAssignWorkflow">Start Workflow...</span></a></li>
+                                 <li><a type="" rel="Delete" href="" data-has-aspects="" data-not-aspects="hwf:hybridWorkflow,sys:undeletable"><span class="onActionDelete">Delete</span></a></li>
+                                 <li><a type="document" rel="CreateChildren" href="" data-has-aspects="" data-not-aspects="sync:syncSetMemberNode"><span class="onActionCloudSync">Sync to cloud</span></a></li>
+                                 <li><a type="" rel="Write" href="" data-has-aspects="" data-not-aspects=""><span class="onActionCheckOut">Edit Offline</span></a></li>
+                                 <li><a type="" rel="Write" href="" data-has-aspects="" data-not-aspects=""><span class="onActionCheckIn">Upload New Version</span></a></li>
+                                 <li><a type="" rel="CancelCheckOut" href="" data-has-aspects="" data-not-aspects=""><span class="onActionCancelCheckOut">Cancel Editing</span></a></li>
+                                 <li><a type="" rel="" href="" data-has-aspects="" data-not-aspects="lm:lifecycleAspect"><span class="clickAttach">Attach Lifecycle</span></a></li>
+                                 <li><a type="" rel="" href="" data-has-aspects="lm:lifecycleAspect" data-not-aspects=""><span class="clickDetach">Detach Lifecycle</span></a></li>
+                                 <li><a type="" rel="Write" href="" data-has-aspects="" data-not-aspects=""><span class="onActionLinkTo">Link To..</span></a></li>
+                                 <li><a href="#"><hr /></a></li>
+                                 <li><a href="#"><span class="onActionDeselectAll">Deselect All</span></a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  <!-- <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-paginator" class="paginator"></div> -->
+               </div>
+               <div class="right">
+                  <div class="options-select">
+                     <button id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-options-button" name="doclist-options-button">Options&nbsp;&#9662;</button>
+                     <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-options-menu" class="yuimenu" style="display:none;">
+                        <div class="bd">
+                           <ul>
+                                    <li><a href="#"><span class="hideFolders">Hide Folders</span></a></li>
+                                    <li><a href="#"><span class="hidePath">Hide Breadcrumb</span></a></li>
+                                 <li class="drop-down-list-break-below"><a href="#"><span class="rss">RSS Feed</span></a></li>
+                                 <li><a href="#"><span class="fullWindow">Full Window</span></a></li>
+                                 <li class="drop-down-list-break-below"><a href="#"><span class="fullScreen">Full Screen</span></a></li>
+                                      <li class="simple"><a href="#"><span class="view simple">Simple View</span></a></li>
+                                      <li class="detailed"><a href="#"><span class="view detailed">Detailed View</span></a></li>
+                                      <li class="gallery"><a href="#"><span class="view gallery">Gallery View</span></a></li>
+                                      <li class="filmstrip"><a href="#"><span class="view filmstrip">Filmstrip View</span></a></li>
+                                      <li class="table"><a href="#"><span class="view table">Table View</span></a></li>
+                                      <li class="table"><a href="#"><span class="view audio">Audio View</span></a></li>
+                                      <li class="table drop-down-list-break-below"><a href="#"><span class="view media_table">Media View</span></a></li>
+                                 <li><a href="#"><span class="removeDefaultView">Remove "{0}" as default for this folder</span></a></li>
+                                 <li><a href="#"><span class="setDefaultView">Set "{0}" as default for this folder</span></a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                    <div class="sort-field">
+                       <span id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-sortField-button" class="yui-button yui-push-button">
+                          <span class="first-child">
+                             <button name="doclist-sortField-button"></button>
+                          </span>
+                       </span>
+                       <!-- <span class="separator">&nbsp;</span> -->
+                       <select id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-sortField-menu">
+                          <option value="cm:name" title="true">Name</option>
+                          <option value="cm:likesRatingSchemeCount" title="false">Popularity</option>
+                          <option value="cm:title" >Title</option>
+                          <option value="cm:description" >Description</option>
+                          <option value="cm:created" >Created</option>
+                          <option value="cm:creator" >Creator</option>
+                          <option value="cm:modified" >Modified</option>
+                          <option value="cm:modifier" >Modifier</option>
+                          <option value="cm:content.size" >Size</option>
+                          <option value="cm:content.mimetype" >Mimetype</option>
+                          <option value="TYPE" >Type</option>
+                       </select>
+                    </div>
+                    <div class="sort-direction">
+                       <span id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-sortAscending-button" class="yui-button yui-push-button">
+                          <span class="first-child">
+                             <button name="doclist-sortAscending-button"></button>
+                          </span>
+                       </span>
+                    </div>
+                    <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-gallery-slider" class="alf-gallery-slider hidden">
+                       <div class="alf-gallery-slider-small"><img src="/share/res/components/documentlibrary/images/gallery-size-small-16.png"></div>
+                       <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-gallery-slider-bg" class="yui-h-slider alf-gallery-slider-bg"> 
+                       <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-gallery-slider-thumb" class="yui-slider-thumb alf-gallery-slider-thumb"><img src="/share/res/components/documentlibrary/images/thumb-n.png"></div> 
+                    </div>
+                    <div class="alf-gallery-slider-large"><img src="/share/res/components/documentlibrary/images/gallery-size-large-16.png"></div>
+                    </div>
+               </div>
+         </div>
+      
+         <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-navBar" class="nav-bar flat-button theme-bg-2">
+            <div class="hideable toolbar-hidden DocListTree DocListCategories">
+               <div class="folder-up">
+                  <span id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-folderUp-button" class="yui-button yui-push-button">
+                     <span class="first-child">
+                        <button class="no-access-check" name="folderUp"></button>
+                     </span>
+                  </span>
+               </div>
+               <div class="separator">&nbsp;</div>
+            </div>
+            <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-breadcrumb" class="breadcrumb hideable toolbar-hidden DocListTree DocListCategories"></div>
+            <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-description" class="description hideable toolbar-hidden DocListFilter TagFilter"></div>
+         </div>
+   
+   </div>
+   <!--[if IE]>
+      <iframe id="yui-history-iframe" src="/share/res/yui/history/assets/blank.html"></iframe>
+   <![endif]-->
+   <input id="yui-history-field" type="hidden" />
+   <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-dl-body" class="doclist no-check-bg">
+
+      <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-main-template" class="hidden">
+         <div>
+         </div>
+      </div>
+   
+      <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-no-items-template" class="hidden">
+         <div class="docListInstructionTitle">No content items</div>
+      </div>
+   
+      <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-hidden-subfolders-template" class="hidden">
+         <div class="docListInstructionTitle">No content items</div>
+         <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-show-folders-template" class="docListInstructionColumn">
+            <img class="docListInstructionImage docListLinkedInstruction" src="/share/res/components/documentlibrary/images/help-folder-48.png">
+            <a class="docListInstructionTextSmall docListLinkedInstruction"></a>
+         </div>
+      </div>
+   
+      <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-dnd-instructions-template" class="hidden">
+         <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-dnd-instructions">
+            <span class="docListInstructionTitle">Drag and drop to upload files!</span>
+            <div>
+               <div class="docListInstructionColumn docListInstructionColumnRightBorder">
+                  <img class="docListInstructionImage" src="/share/res/components/documentlibrary/images/help-drop-list-target-96.png">
+                  <span class="docListInstructionText">Drag files from your desktop and drop them here to upload.</span>
+               </div>
+               <div class="docListInstructionColumn">
+                  <img class="docListInstructionImage" src="/share/res/components/documentlibrary/images/help-drop-folder-target-96.png">
+                  <span class="docListInstructionText">You can drop files onto folders.</span>
+               </div>
+               <div style="clear:both"></div>
+            </div>
+         </div>
+      </div>
+   
+      <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-upload-instructions-template" class="hidden">
+         <div class="docListInstructionTitle">Build your library!</div>
+         <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-standard-upload-link-template" class="docListInstructionColumn">
+            <img class="docListInstructionImage docListLinkedInstruction" src="/share/res/components/documentlibrary/images/help-upload-96.png">
+            <span class="docListInstructionText"><a class="docListLinkedInstruction">Upload files</a></span>
+         </div>
+      </div>
+   
+      <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-other-options-template" class="hidden">
+         <div class="docListOtherOptions">You can also...</div>
+      </div>
+   
+      <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-standard-upload-template" class="hidden">
+        <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-standard-upload-link-template">
+           <img class="docListOtherOptionsImage docListLinkedInstruction" src="/share/res/components/documentlibrary/images/help-upload-48.png">
+           <span class="docListOtherOptionsText"><a class="docListLinkedInstruction">Upload files</a></span>
+        </div>
+      </div>
+   
+      <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-new-folder-template" class="hidden">
+        <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-new-folder-link-template">
+           <img class="docListOtherOptionsImage docListLinkedInstruction" src="/share/res/components/documentlibrary/images/help-new-folder-48.png">
+           <span class="docListOtherOptionsText"><a class="docListLinkedInstruction">Create a folder</a></span>
+        </div>
+      </div>
+   
+      <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-show-folders-template" class="hidden">
+         <img class="docListOtherOptionsImage docListLinkedInstruction" src="/share/res/components/documentlibrary/images/help-folder-48.png">
+         <span class="docListOtherOptionsText"><a class="docListLinkedInstruction"></a></span>
+      </div>
+      <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-doclistBar" class="yui-gc doclist-bar flat-button no-check-bg"></div>
+      <div class="alf-fullscreen-exit-button" class="hidden">
+        <span class="yui-button">
+            <span class="first-child">
+                <button type="button" title="Exit Full Screen" id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-fullscreen-exit-button"></button>
+            </span>
+         </span>
+      </div>
+   
+      <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-documents" class="documents"></div>
+      <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-gallery" class="alf-gallery documents"></div>
+      <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-gallery-empty" class="hidden documents">
+         <div class="yui-dt-liner"></div>
+      </div>
+      <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-filmstrip" class="alf-filmstrip alf-gallery documents">
+            <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-filmstrip-main-content" class="alf-filmstrip-main-content">
+                <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-filmstrip-carousel"></div>
+                <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-filmstrip-nav-main-previous" class="alf-filmstrip-nav-button alf-filmstrip-main-nav-button alf-filmstrip-nav-prev">
+                    <img src="/share/res/components/documentlibrary/images/filmstrip-main-nav-prev.png" />
+                </div>
+                <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-filmstrip-nav-main-next" class="alf-filmstrip-nav-button alf-filmstrip-main-nav-button alf-filmstrip-nav-next">
+                    <img src="/share/res/components/documentlibrary/images/filmstrip-main-nav-next.png" />
+                </div>
+            </div>
+            <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-filmstrip-nav" class="alf-filmstrip-nav">
+                <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-filmstrip-nav-handle" class="alf-filmstrip-nav-handle"></div>
+                <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-filmstrip-nav-carousel"></div>
+                <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-filmstrip-nav-buttons" class="alf-filmstrip-nav-buttons">
+                    <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-filmstrip-nav-previous" class="alf-filmstrip-nav-button alf-filmstrip-nav-prev">
+                        <img src="/share/res/components/documentlibrary/images/filmstrip-content-nav-prev.png" />
+                    </div>
+                    <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-filmstrip-nav-next" class="alf-filmstrip-nav-button alf-filmstrip-nav-next">
+                        <img src="/share/res/components/documentlibrary/images/filmstrip-content-nav-next.png" />
+                    </div>
+                </div>
+            </div>
+       </div>
+ 
+<div id="bulkCheckinDialogMarkup" class="hidden"> 
+<div class="hd">Update File(s)</div> 
+	<div class="bd">
+	<br>
+	 <div id="uploadnewversion-fileNamesBox-action" class="file-names-box hidden">
+        <table style='width:100%' id="uploadnewversion-file-list-table-action"></table>
+	</div>
+	<center>
+	<span class="yui-button yui-push-button" id="file-selection-button-overlay"><span class="first-child dnd-file-selection-button-overlay-wrapper"><button type="button" tabindex="0" id="bulkCheckIn" class="dnd-file-selection-button-overlay">Select files to upload</button><input id="bulkCheckInFiles" onchange="enableUploadButton()" type="file" multiple="" name="files[]" class="dnd-file-selection-button"></span></center>
+	<br>
+	<div id="version-div"/>
+	<div class="yui-g">
+                  <h2>Version Information</h2>
+               </div>
+               <form>
+                <div style="margin-left:78px">
+                     <span>This version has:</span>&nbsp;&nbsp;<span class="yui-u">
+                    <input id="minorVersion-radioButton" type="radio" name="majorVersion" checked="checked">&nbsp;minor changes
+                  </span>
+                 </div>
+                 <br>
+                 <div class="yui-u" style="margin-left:188px">
+                    <input id="majorVersion-radioButton" type="radio" name="majorVersion">&nbsp;major changes
+                  </div>
+                  </form>
+                  <br>
+                <div style="margin-left:78px">
+                <span>Comments</span>&nbsp;&nbsp;<span class="yui-u">
+                <div class="yui-u">
+                     <textarea style="margin-left:100px; margin-top:-20px; width:350px"id="description-textarea" name="description" cols="80" rows="4"></textarea>
+                  </div>
+               </div>  
+               </div>
+	<div class="bdft center">
+	<span class="yui-button yui-push-button"><span class="first-child hidden" id="onBulkCheckinOkButton"><button>Upload</button></span></span>
+	<span class="yui-button yui-push-button"><span class="first-child" id="onBulkCheckinCancelButton"><button>Cancel</button></span></span>
+	</div>  
+	</div>
+</div>
+   
+      <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-doclistBarBottom" class="yui-gc doclist-bar doclist-bar-bottom flat-button">
+         <div class="yui-u first">
+            <div class="file-select">&nbsp;</div>
+            <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-paginatorBottom" class="paginator"></div>
+         </div>
+      </div>
+   
+      <div style="display: none">
+   
+         <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-moreActions">
+            <div class="internal-show-more" id="onActionShowMore"><a href="#" class="show-more" alt="More..." aria-haspopup="true"><span>More...</span></a></div>
+            <div class="more-actions hidden"></div>
+         </div>
+   
+         <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-gallery-item-template" class="alf-gallery-item hidden">
+            <div class="alf-gallery-item-thumbnail">
+               <div class="alf-header">
+                  <div class="alf-select"></div>
+                     <a href="javascript:void(0)" class="alf-show-detail">&nbsp;</a>
+               </div>
+               <div class="alf-label"></div>
+            </div>
+            <div class="alf-detail" style="display: none;">
+               <div class="bd">
+                  <div class="alf-detail-thumbnail"></div>
+                  <div class="alf-status"></div>
+                  <div class="alf-actions"></div>
+                  <div style="clear: both;"></div>
+                  <div class="alf-description"></div>
+               </div>
+            </div>
+         </div>
+         
+           <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-filmstrip-nav-item-template" class="alf-filmstrip-nav-item hidden">
+              <div class="alf-filmstrip-nav-item-thumbnail">
+                 <div class="alf-label"></div>
+              </div>
+           </div>
+           <div id="template_x002e_documentlist_v2_x002e_myfiles_x0023_default-filmstrip-item-template" class="alf-gallery-item hidden">
+              <div class="alf-gallery-item-thumbnail">
+                 <div class="alf-header">
+                    <div class="alf-select"></div>
+                    <a href="javascript:void(0)" class="alf-show-detail">&nbsp;</a>
+                    <div class="alf-label"></div>
+                 </div>
+              </div>
+              <div class="alf-detail">
+                  <div class="bd">
+                      <div class="alf-status"></div>
+                      <div class="alf-actions"></div>
+                      <div style="clear: both;"></div>
+                      <div class="alf-description"></div>
+                  </div>
+              </div>
+           </div>
+   
+      </div>
+   
+   </div>
+    </div>
+
+</div>            </div>
+         </div>
+      </div>
+
+<div id="template_x002e_html-upload_x002e_myfiles">
+    <div id="template_x002e_html-upload_x002e_myfiles_x0023_default">
+
+
+
+      <div id="template_x002e_html-upload_x002e_myfiles_x0023_default-dialog" class="html-upload hidden">
+         <div class="hd">
+            <span id="template_x002e_html-upload_x002e_myfiles_x0023_default-title-span"></span>
+         </div>
+         <div class="bd">
+            <p id="template_x002e_html-upload_x002e_myfiles_x0023_default-singleUploadTip-span">With the latest Flash Player installed, you can upload multiple files. Download it from the <a href="http://www.adobe.com/go/getflashplayer">Adobe Flash Player Download Center</a>.</p>
+            <p id="template_x002e_html-upload_x002e_myfiles_x0023_default-singleUpdateTip-span">Upload a new version of {0}</p>
+         </div>
+         <div class="bd">
+            <script type="text/javascript">
+               var onAlfrescoHtmlUploadComponent_template_x002e_html__upload_x002e_myfiles_x0023_default_success = function(response)
+               {
+                  var component = Alfresco.util.ComponentManager.get('template_x002e_html-upload_x002e_myfiles_x0023_default');
+                  component.onUploadSuccess.call(component, response)
+               };
+               var onAlfrescoHtmlUploadComponent_template_x002e_html__upload_x002e_myfiles_x0023_default_failure= function(response)
+               {
+                  var component = Alfresco.util.ComponentManager.get('template_x002e_html-upload_x002e_myfiles_x0023_default');
+                  component.onUploadFailure.call(component, response)
+               };
+            </script>
+            <form id="template_x002e_html-upload_x002e_myfiles_x0023_default-htmlupload-form"
+                  method="post" enctype="multipart/form-data" accept-charset="utf-8"
+                  action="/share/proxy/alfresco/api/upload.html">
+               <fieldset>
+               <input type="hidden" id="template_x002e_html-upload_x002e_myfiles_x0023_default-siteId-hidden" name="siteId" value=""/>
+               <input type="hidden" id="template_x002e_html-upload_x002e_myfiles_x0023_default-containerId-hidden" name="containerId" value=""/>
+               <input type="hidden" id="template_x002e_html-upload_x002e_myfiles_x0023_default-destination-hidden" name="destination" value=""/>
+               <input type="hidden" id="template_x002e_html-upload_x002e_myfiles_x0023_default-username-hidden" name="username" value=""/>
+               <input type="hidden" id="template_x002e_html-upload_x002e_myfiles_x0023_default-updateNodeRef-hidden" name="updateNodeRef" value=""/>
+               <input type="hidden" id="template_x002e_html-upload_x002e_myfiles_x0023_default-uploadDirectory-hidden" name="uploadDirectory" value=""/>
+               <input type="hidden" id="template_x002e_html-upload_x002e_myfiles_x0023_default-overwrite-hidden" name="overwrite" value=""/>
+               <input type="hidden" id="template_x002e_html-upload_x002e_myfiles_x0023_default-thumbnails-hidden" name="thumbnails" value=""/>
+               <input type="hidden" name="success" value="window.parent.onAlfrescoHtmlUploadComponent_template_x002e_html__upload_x002e_myfiles_x0023_default_success"/>
+               <input type="hidden" name="failure" value="window.parent.onAlfrescoHtmlUploadComponent_template_x002e_html__upload_x002e_myfiles_x0023_default_failure"/>
+               <div>
+                  <div class="yui-g">
+                     <h2>Choose File</h2>
+                  </div>
+                  <div class="yui-gd hidden">
+                     <div class="yui-u first">
+                        <label for="template_x002e_html-upload_x002e_myfiles_x0023_default-contentType-select">Type</label>
+                     </div>
+                     <div class="yui-u">
+                        <select id="template_x002e_html-upload_x002e_myfiles_x0023_default-contentType-select" name="contentType" tabindex="0">
+                                 <option value="cm:content">cm_content</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="yui-gd">
+                     <div class="yui-u first">
+                        <label for="template_x002e_html-upload_x002e_myfiles_x0023_default-filedata-file">File</label>
+                     </div>
+                     <div class="yui-u">
+                        <input type="file" id="template_x002e_html-upload_x002e_myfiles_x0023_default-filedata-file" name="filedata" tabindex="0" />
+                     </div>
+                  </div>
+               </div>
+               <div id="template_x002e_html-upload_x002e_myfiles_x0023_default-versionSection-div">
+                  <div class="yui-g">
+                     <h2>Version Information</h2>
+                  </div>
+                  <div class="yui-gd">
+                     <div class="yui-u first">
+                        <span>This version has:</span>
+                     </div> 
+                     <div class="yui-u">
+                        <input id="template_x002e_html-upload_x002e_myfiles_x0023_default-minorVersion-radioButton" type="radio" name="majorVersion" checked="checked" value="false" tabindex="0" />
+                        <label for="template_x002e_html-upload_x002e_myfiles_x0023_default-minorVersion-radioButton" id="template_x002e_html-upload_x002e_myfiles_x0023_default-minorVersion">minor changes</label>
+                     </div>
+                  </div>
+                  <div class="yui-gd">
+                     <div class="yui-u first">&nbsp;
+                     </div>
+                     <div class="yui-u">
+                        <input id="template_x002e_html-upload_x002e_myfiles_x0023_default-majorVersion-radioButton" type="radio" name="majorVersion" value="true" tabindex="0" />
+                        <label for="template_x002e_html-upload_x002e_myfiles_x0023_default-majorVersion-radioButton" id="template_x002e_html-upload_x002e_myfiles_x0023_default-majorVersion">major changes</label>
+                     </div>
+                  </div>
+                  <div class="yui-gd">
+                     <div class="yui-u first">
+                        <label for="template_x002e_html-upload_x002e_myfiles_x0023_default-description-textarea">Comments</label>
+                     </div>
+                     <div class="yui-u">
+                        <textarea id="template_x002e_html-upload_x002e_myfiles_x0023_default-description-textarea" name="description" cols="80" rows="4" tabindex="0"></textarea>
+                     </div>
+                  </div>
+               </div>
+               <div class="bdft">
+                  <input id="template_x002e_html-upload_x002e_myfiles_x0023_default-upload-button" type="button" value="Upload File" tabindex="0" />
+                  <input id="template_x002e_html-upload_x002e_myfiles_x0023_default-cancel-button" type="button" value="Cancel" tabindex="0" />
+               </div>
+               </fieldset>
+            </form>
+         </div>
+      </div>
+    </div>
+
+</div><div id="template_x002e_flash-upload_x002e_myfiles">
+    <div id="template_x002e_flash-upload_x002e_myfiles_x0023_default">
+
+
+
+      <div id="template_x002e_flash-upload_x002e_myfiles_x0023_default-dialog" class="flash-upload hidden">
+         <div class="hd">
+            <span id="template_x002e_flash-upload_x002e_myfiles_x0023_default-title-span"></span>
+         </div>
+         <div class="bd">
+            <div class="browse-wrapper">
+               <div class="center">
+                  <div class="hidden browse" id="template_x002e_flash-upload_x002e_myfiles_x0023_default-flashuploader-div"></div>
+                  <div class="label">Select file(s) to upload</div>
+               </div>
+            </div>
+            <div class="tip-wrapper">
+               <span id="template_x002e_flash-upload_x002e_myfiles_x0023_default-multiUploadTip-span">Use CTRL or SHIFT to select multiple files</span>
+               <span id="template_x002e_flash-upload_x002e_myfiles_x0023_default-singleUpdateTip-span">Click icon to upload a new version of {0}</span>
+            </div>
+            <div id="template_x002e_flash-upload_x002e_myfiles_x0023_default-filelist-table" class="fileUpload-filelist-table"></div>
+            <div class="status-wrapper">
+               <span id="template_x002e_flash-upload_x002e_myfiles_x0023_default-status-span" class="status"></span>
+            </div>
+            <div id="template_x002e_flash-upload_x002e_myfiles_x0023_default-versionSection-div"> 
+               <div class="yui-g">
+                  <h2>Version Information</h2>
+               </div>
+               <div class="yui-gd">
+                  <div class="yui-u first">
+                     <span>This version has:</span>
+                  </div>
+                  <div class="yui-u">
+                     <input id="template_x002e_flash-upload_x002e_myfiles_x0023_default-minorVersion-radioButton" type="radio" name="majorVersion" checked="checked" tabindex="0"/>
+                     <label for="template_x002e_flash-upload_x002e_myfiles_x0023_default-minorVersion-radioButton" id="template_x002e_flash-upload_x002e_myfiles_x0023_default-minorVersion">minor changes</label>
+                  </div>
+               </div>
+               <div class="yui-gd">
+                  <div class="yui-u first">&nbsp;
+                  </div>
+                  <div class="yui-u">
+                     <input id="template_x002e_flash-upload_x002e_myfiles_x0023_default-majorVersion-radioButton" type="radio" name="majorVersion" tabindex="0"/>
+                     <label for="template_x002e_flash-upload_x002e_myfiles_x0023_default-majorVersion-radioButton" id="template_x002e_flash-upload_x002e_myfiles_x0023_default-majorVersion">major changes</label>
+                  </div>
+               </div>
+               <div class="yui-gd">
+                  <div class="yui-u first">
+                     <label for="template_x002e_flash-upload_x002e_myfiles_x0023_default-description-textarea">Comments</label>
+                  </div>
+                  <div class="yui-u">
+                     <textarea id="template_x002e_flash-upload_x002e_myfiles_x0023_default-description-textarea" name="description" cols="80" rows="4" tabindex="0"></textarea>
+                  </div>
+               </div>
+            </div>
+            <!-- Templates for a file row -->
+            <div style="display:none">
+               <div id="template_x002e_flash-upload_x002e_myfiles_x0023_default-left-div" class="fileupload-left-div">
+                  <span class="fileupload-percentage-span hidden">&nbsp;</span>
+                  <input class="fileupload-contentType-input" type="hidden" value="cm:content"/>
+               </div>
+               <div id="template_x002e_flash-upload_x002e_myfiles_x0023_default-center-div" class="fileupload-center-div">
+                  <span class="fileupload-progressSuccess-span">&nbsp;</span>
+                  <img src="/share/res/components/images/generic-file-32.png" class="fileupload-docImage-img" alt="file" />
+                  <span class="fileupload-progressInfo-span"></span>
+                  <span class="fileupload-filesize-span"></span>
+               </div>
+               <div id="template_x002e_flash-upload_x002e_myfiles_x0023_default-right-div" class="fileupload-right-div">
+                  <span class="fileupload-fileButton-span">
+                     <button class="fileupload-file-button" value="Remove" disabled="true" tabindex="0">Remove</button>
+                  </span>
+               </div>
+            </div>
+               <div class="bdft">
+                  <input id="template_x002e_flash-upload_x002e_myfiles_x0023_default-upload-button" type="button" value="Upload File(s)" tabindex="0"/>
+                  <input id="template_x002e_flash-upload_x002e_myfiles_x0023_default-cancelOk-button" type="button" value="Cancel" tabindex="0"/>
+               </div>
+         </div>
+      </div>
+    </div>
+
+</div><div id="template_x002e_file-upload_x002e_myfiles">
+    <div id="template_x002e_file-upload_x002e_myfiles_x0023_default">
+
+
+
+    </div>
+
+</div><div id="template_x002e_dnd-upload_x002e_myfiles">
+    <div id="template_x002e_dnd-upload_x002e_myfiles_x0023_default">
+
+
+
+      <div id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-dialog" class="dnd-upload hidden">
+         <div class="hd">
+            <span id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-title-span"></span>
+         </div>
+         <div class="bd">
+            <div id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-file-selection-controls" class="browse-wrapper">
+               <div class="center dnd-file-selection-control">
+                  <input id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-file-selection-button-overlay" type="button" value="Select files to upload" tabindex="0"/>
+               </div>
+            </div>
+         
+            <div id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-filelist-table" class="fileUpload-filelist-table"></div>
+      
+            <div class="status-wrapper">
+               <span id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-status-span" class="status"></span>
+            </div>
+            <div id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-aggregate-data-wrapper">
+              <div class="status-wrapper">
+                 <span id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-aggregate-status-span" class="status"></span>
+              </div>
+              <div id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-aggregate-progress-div" class="aggregate-progress-div">
+                 <span id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-aggregate-progress-span" class="aggregate-progressSuccess-span">&nbsp;</span>
+              </div>
+            </div>
+      
+            <div id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-versionSection-div">
+               <div class="yui-g">
+                  <h2>Version Information</h2>
+               </div>
+               <div class="yui-gd">
+                  <div class="yui-u first">
+                     <span>This version has:</span>
+                  </div>
+                  <div class="yui-u">
+                     <input id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-minorVersion-radioButton" type="radio" name="majorVersion" checked="checked" tabindex="0"/>
+                     <label for="template_x002e_dnd-upload_x002e_myfiles_x0023_default-minorVersion-radioButton" id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-minorVersion">minor changes</label>
+                  </div>
+               </div>
+               <div class="yui-gd">
+                  <div class="yui-u first">&nbsp;
+                  </div>
+                  <div class="yui-u">
+                     <input id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-majorVersion-radioButton" type="radio" name="majorVersion" tabindex="0"/>
+                     <label for="template_x002e_dnd-upload_x002e_myfiles_x0023_default-majorVersion-radioButton" id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-majorVersion">major changes</label>
+                  </div>
+               </div>
+               <div class="yui-gd">
+                  <div class="yui-u first">
+                     <label for="template_x002e_dnd-upload_x002e_myfiles_x0023_default-description-textarea">Comments</label>
+                  </div>
+                  <div class="yui-u">
+                     <textarea id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-description-textarea" name="description" cols="80" rows="4" tabindex="0"></textarea>
+                  </div>
+               </div>
+            </div>
+      
+            <!-- Templates for a file row -->
+            <div style="display:none">
+               <div id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-left-div" class="fileupload-left-div">
+                  <span class="fileupload-percentage-span">0%</span>
+                  <input class="fileupload-contentType-input" type="hidden" value="cm:content"/>
+               </div>
+               <div id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-center-div" class="fileupload-center-div">
+                  <span class="fileupload-progressSuccess-span">&nbsp;</span>
+                  <img src="/share/res/components/images/generic-file-32.png" class="fileupload-docImage-img" alt="file" />
+                  <span class="fileupload-progressInfo-span"></span>
+                  <span class="fileupload-filesize-span"></span>
+               </div>
+               <div id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-right-div" class="fileupload-right-div">
+                  <img src="/share/res/components/images/job-running-16.png" class="fileupload-status-img" alt="status" />
+                  <img src="/share/res/components/images/complete-16.png" class="fileupload-status-img hidden" alt="status" />
+                  <img src="/share/res/components/images/job-failed-16.png" class="fileupload-status-img hidden" alt="status" />
+               </div>
+            </div>
+               <div class="bdft">
+                  <input id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-upload-button" type="button" value="Upload" tabindex="0"/>
+                  <input id="template_x002e_dnd-upload_x002e_myfiles_x0023_default-cancelOk-button" type="button" value="Cancel" tabindex="0"/>
+               </div>
+         </div>
+      </div>
+    </div>
+
+</div><div id="template_x002e_archive-and-download_x002e_myfiles">
+    <div id="template_x002e_archive-and-download_x002e_myfiles_x0023_default">
+
+
+
+      <div id="template_x002e_archive-and-download_x002e_myfiles_x0023_default-dialog" class="archive-and-download hidden">
+         <div class="hd">
+            <span id="template_x002e_archive-and-download_x002e_myfiles_x0023_default-title-span">Download</span>
+         </div>
+         <div class="bd">
+            <div class="status-wrapper">
+               <span id="template_x002e_archive-and-download_x002e_myfiles_x0023_default-status-span" class="status">&nbsp;</span>
+            </div>
+            <div id="template_x002e_archive-and-download_x002e_myfiles_x0023_default-aggregate-data-wrapper">
+              <div class="status-wrapper">
+                 <span id="template_x002e_archive-and-download_x002e_myfiles_x0023_default-aggregate-status-span" class="status">Creating zip file</span>
+                 <span id="template_x002e_archive-and-download_x002e_myfiles_x0023_default-file-count-span" class="status">&nbsp;</span>
+              </div>
+              <div id="template_x002e_archive-and-download_x002e_myfiles_x0023_default-aggregate-progress-div" class="aggregate-progress-div">
+                 <span id="template_x002e_archive-and-download_x002e_myfiles_x0023_default-aggregate-progress-span" class="aggregate-progressSuccess-span">&nbsp;</span>
+              </div>
+            </div>
+            <div class="bdft">
+               <input id="template_x002e_archive-and-download_x002e_myfiles_x0023_default-cancelOk-button" type="button" value="Cancel" tabindex="0"/>
+            </div>
+         </div>
+      </div>
+    </div>
+
+</div>   </div>
+<div id="template_x002e_doclib-custom_x002e_myfiles">
+    <div id="template_x002e_doclib-custom_x002e_myfiles_x0023_default">
+    </div>
+
+</div>      </div>
+      <div class="sticky-push"></div>
+   </div>
+
+   <div class="sticky-footer">
+   <div id="alf-ft">
+<div id="global_x002e_footer">
+    <div id="global_x002e_footer_x0023_default">
+
+
+
+      <div class="footer footer-ent">
+         <span class="copyright">
+            <a href="#" onclick="Alfresco.module.getAboutShareInstance().show(); return false;"><img src="/share/res/components/images/alfresco-share-logo-enterprise.png" alt="Alfresco Enterprise" border="0"/></a>
+               <span class="licenseHolder">Licensed To: Pearson Shared Services Ltd</span><br>
+            <span>Alfresco Software, Inc. &copy; 2005-2015 All rights reserved.</span>
+         </span>
+      </div>
+    </div>
+
+</div>   </div>
+   </div>
+   <div id="alfresco-yuiloader"></div>
+   
+   <script type="text/javascript">//<![CDATA[
+Alfresco.util.YUILoaderHelper.loadComponents(true);
+Alfresco.util.Ajax.jsonGet({
+   url: Alfresco.constants.URL_CONTEXT + "service/modules/authenticated?noCache=" + new Date().getTime() + "&a=user"
+});
+   //]]></script>
+</body>
+</html>

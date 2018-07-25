@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="admin" parallel="classes"
+	thread-count="1">
+	<test name="Test">
+		<classes>
+	<class name="testscripts.misc4.AUT_AG_357" />
+					
+		<!-- 	<class name="testscripts.admin.AUT_AG_001" />
+			<class name="testscripts.admin.AUT_AG_002P1" />
+			<class name="testscripts.admin.AUT_AG_002P2" />
+			<class name="testscripts.admin.AUT_AG_003" />
+			<class name="testscripts.admin.AUT_AG_004" />
+			<class name="testscripts.admin.AUT_AG_005" />
+			<class name="testscripts.admin.AUT_AG_006" />
+			<class name="testscripts.admin.AUT_AG_007" />
+			<class name="testscripts.admin.AUT_AG_008" />
+			<class name="testscripts.admin.AUT_AG_009" />
+			<class name="testscripts.admin.AUT_AG_010" />
+			<class name="testscripts.admin.AUT_AG_011P1" />
+			<class name="testscripts.admin.AUT_AG_011P2" />
+			<class name="testscripts.admin.AUT_AG_0012" />
+			<class name="testscripts.admin.AUT_AG_013" />
+			<class name="testscripts.admin.AUT_AG_014" />
+			<class name="testscripts.admin.AUT_AG_015" />
+			<class name="testscripts.admin.AUT_AG_016" />
+			<class name="testscripts.admin.AUT_AG_017P1" />
+			<class name="testscripts.admin.AUT_AG_017P2" />
+			<class name="testscripts.admin.AUT_AG_018P1" />
+			<class name="testscripts.admin.AUT_AG_018P2" />
+			<class name="testscripts.admin.AUT_AG_019P1" />
+			<class name="testscripts.admin.AUT_AG_019P2" />
+			<class name="testscripts.admin.AUT_AG_020P1" />
+			<class name="testscripts.admin.AUT_AG_020P2" />
+			<class name="testscripts.admin.AUT_AG_021P1" />
+			<class name="testscripts.admin.AUT_AG_021P2" />
+			<class name="testscripts.admin.AUT_AG_022" />
+			<class name="testscripts.admin.AUT_AG_023P1" />
+			<class name="testscripts.admin.AUT_AG_023P2" />
+			<class name="testscripts.admin.AUT_AG_024P1" />
+			<class name="testscripts.admin.AUT_AG_024P2" />
+			<class name="testscripts.admin.AUT_AG_025P1" />
+			<class name="testscripts.admin.AUT_AG_025P2" />
+			<class name="testscripts.admin.AUT_AG_026P1" />
+			<class name="testscripts.admin.AUT_AG_026P2" />
+			<class name="testscripts.admin.AUT_AG_027P1" />
+			<class name="testscripts.admin.AUT_AG_027P2" />
+			<class name="testscripts.admin.AUT_AG_028P1" />
+			<class name="testscripts.admin.AUT_AG_028P2" />
+			<class name="testscripts.admin.AUT_AG_029" />
+			<class name="testscripts.admin.AUT_AG_030P1" />
+			<class name="testscripts.admin.AUT_AG_030P2" />
+			<class name="testscripts.admin.AUT_AG_031" />
+			<class name="testscripts.admin.AUT_AG_032" />
+			<class name="testscripts.admin.AUT_AG_033" />
+			<class name="testscripts.admin.AUT_AG_034" />
+			<class name="testscripts.admin.AUT_AG_035" />
+			<class name="testscripts.admin.AUT_AG_036" />
+			<class name="testscripts.admin.AUT_AG_037" />
+			<class name="testscripts.admin.AUT_AG_038" />
+			<class name="testscripts.admin.AUT_AG_039" />
+			<class name="testscripts.admin.AUT_AG_040" />
+			<class name="testscripts.admin.AUT_AG_041" />
+			<class name="testscripts.admin.AUT_AG_042" />
+			<class name="testscripts.admin.AUT_AG_043" />
+			<class name="testscripts.admin.AUT_AG_044" />
+			<class name="testscripts.admin.AUT_AG_045" />
+			<class name="testscripts.admin.AUT_AG_046" />
+			<class name="testscripts.admin.AUT_AG_047" />
+			<class name="testscripts.admin.AUT_AG_048" />
+			<class name="testscripts.admin.AUT_AG_049" />
+			<class name="testscripts.admin.AUT_AG_050" />
+			<class name="testscripts.admin.AUT_AG_053P1" />
+			<class name="testscripts.admin.AUT_AG_053P2" />
+			<class name="testscripts.admin.AUT_AG_054P1" />
+			<class name="testscripts.admin.AUT_AG_054P2" />
+			<class name="testscripts.admin.AUT_AG_055P1" />
+			<class name="testscripts.admin.AUT_AG_055P2" />
+			<class name="testscripts.admin.AUT_AG_056P1" />
+			<class name="testscripts.admin.AUT_AG_056P2" />
+			 -->
+			
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

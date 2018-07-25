@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="CustomSites" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<class name="testscripts.functional.TC196" />
+			<class name="testscripts.functional.TC197" />
+			<class name="testscripts.functional.TC198" />
+			<class name="testscripts.functional.TC199" />
+			<class name="testscripts.functional.TC200" />
+			<class name="testscripts.functional.TC201" />
+			<class name="testscripts.functional.TC202" />
+			<class name="testscripts.functional.TC203" />
+			<class name="testscripts.functional.TC204" />
+			<class name="testscripts.functional.TC205" />
+			<class name="testscripts.functional.TC206" />
+			<class name="testscripts.functional.TC207" />
+			<class name="testscripts.functional.TC209" />
+			<class name="testscripts.functional.TC210" />
+			<class name="testscripts.functional.TC211" />
+			<class name="testscripts.functional.TC212" />
+			<class name="testscripts.functional.TC213" />
+			<class name="testscripts.functional.TC214" />
+			<class name="testscripts.functional.TC215" />
+			<class name="testscripts.functional.TC216" />
+			<class name="testscripts.functional.TC217" />
+			<class name="testscripts.functional.TC218" />
+			<class name="testscripts.functional.TC219" />
+			<class name="testscripts.functional.TC220" />
+			<class name="testscripts.functional.TC221" />
+			<class name="testscripts.functional.TC222" />
+			<class name="testscripts.functional.TC223" />
+			<class name="testscripts.functional.TC224" />
+			<class name="testscripts.functional.TC225" />
+			<class name="testscripts.functional.TC226" />
+			<class name="testscripts.functional.TC227" />
+			<class name="testscripts.functional.TC228" />
+			<class name="testscripts.functional.TC229" />
+			<class name="testscripts.functional.TC230" />
+			<class name="testscripts.functional.TC231" />
+			<class name="testscripts.functional.TC232" />
+			<class name="testscripts.functional.TC233" />
+			<class name="testscripts.functional.TC234" />
+			<class name="testscripts.functional.TC235" />
+			<class name="testscripts.functional.TC236" />
+			<class name="testscripts.functional.TC237Part1" />
+			<class name="testscripts.functional.TC237Part2" />
+			<class name="testscripts.functional.TC238" />
+			<class name="testscripts.functional.TC239" />
+			<class name="testscripts.functional.TC240Part1" />
+			<class name="testscripts.functional.TC240Part2" />
+			<class name="testscripts.functional.TC241" />
+			<class name="testscripts.functional.TC242" />
+			<class name="testscripts.functional.TC243" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

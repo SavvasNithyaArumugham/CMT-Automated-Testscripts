@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><suite name="Alfresco_Automation_Failure_Suite" parallel="classes" thread-count="1">
+    <test name="Test">
+        <classes>
+            <class name="testscripts.eps.AUT_AG_051"/>
+        </classes>
+    </test>
+</suite>

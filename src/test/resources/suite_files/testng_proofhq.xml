@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ProofHQ" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<!-- Release 1.8.4 - ProofHQ Test Scripts-->
+			<class name="testscripts.proofhq.AUT_AG_001P1" />
+			<class name="testscripts.proofhq.AUT_AG_001P2" />
+			<class name="testscripts.proofhq.AUT_AG_002P1" />
+			<class name="testscripts.proofhq.AUT_AG_002P2" />
+			<class name="testscripts.proofhq.AUT_AG_002P3" />
+			<class name="testscripts.proofhq.AUT_AG_003P1" />
+			<class name="testscripts.proofhq.AUT_AG_003P2" />
+			<class name="testscripts.proofhq.AUT_AG_003P3" />
+			<class name="testscripts.proofhq.AUT_AG_004P1" />
+			<class name="testscripts.proofhq.AUT_AG_004P2" />
+			<class name="testscripts.proofhq.AUT_AG_005P1" />
+			<class name="testscripts.proofhq.AUT_AG_005P2" />
+			<class name="testscripts.proofhq.AUT_AG_006P1" />
+			<class name="testscripts.proofhq.AUT_AG_006P2" />
+			<class name="testscripts.proofhq.AUT_AG_007" />
+			<class name="testscripts.proofhq.AUT_AG_008" />
+		<!-- share box bug 	<class name="testscripts.proofhq.AUT_AG_010" /> -->
+		<!-- 	TC added to Test case one.
+		<class name="testscripts.proofhq.AUT_AG_012P1" />
+			<class name="testscripts.proofhq.AUT_AG_012P2" /> -->
+			<class name="testscripts.proofhq.AUT_AG_022P1" />
+			<class name="testscripts.proofhq.AUT_AG_023" />
+			<class name="testscripts.proofhq.AUT_AG_024" />
+			<class name="testscripts.proofhq.AUT_AG_026" />
+			<class name="testscripts.proofhq.AUT_AG_027" />
+			<class name="testscripts.proofhq.AUT_AG_028" />
+			<class name="testscripts.proofhq.AUT_AG_029" />
+			<class name="testscripts.proofhq.AUT_AG_030" />
+			<class name="testscripts.proofhq.AUT_AG_032" />
+		<!-- share box bug 	<class name="testscripts.proofhq.AUT_AG_033" /> -->
+			<class name="testscripts.proofhq.AUT_AG_036" />
+			<class name="testscripts.proofhq.AUT_AG_037" />
+			<class name="testscripts.proofhq.AUT_AG_038" />
+			<class name="testscripts.proofhq.AUT_AG_039" />
+			<class name="testscripts.proofhq.AUT_AG_040" />
+			<class name="testscripts.proofhq.AUT_AG_041" />
+			<class name="testscripts.proofhq.AUT_AG_042" />
+			<class name="testscripts.proofhq.AUT_AG_043" />
+			<!-- <class name="testscripts.proofhq.JReport" /> -->
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

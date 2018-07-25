@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Marklogic" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<!-- Release Marklogic Test Scripts -->
+			
+			<!-- <class name="testscripts.marklogic.AUT_AG_APIWorkflowForFolder" /> -->
+			<!-- <class name="testscripts.marklogic.AUT_AG_107" />
+			<class name="testscripts.marklogic.AUT_AG_108" />
+			<class name="testscripts.marklogic.AUT_AG_109" />
+			<class name="testscripts.marklogic.AUT_AG_110" />
+			<class name="testscripts.marklogic.AUT_AG_111" />
+			<class name="testscripts.marklogic.AUT_AG_112" />
+			<class name="testscripts.marklogic.AUT_AG_113" />
+			<class name="testscripts.marklogic.AUT_AG_114" />
+			<class name="testscripts.marklogic.AUT_AG_115" />
+			<class name="testscripts.marklogic.AUT_AG_116" />
+			<class name="testscripts.marklogic.AUT_AG_117" />
+			<class name="testscripts.marklogic.AUT_AG_118" />
+			<class name="testscripts.marklogic.AUT_AG_119" />
+			<class name="testscripts.marklogic.AUT_AG_120" />
+			
+			<class name="testscripts.marklogic.AUT_AG_131" />
+			<class name="testscripts.marklogic.AUT_AG_132" />
+			<class name="testscripts.marklogic.AUT_AG_133" />
+			<class name="testscripts.marklogic.AUT_AG_134" />
+			<class name="testscripts.marklogic.AUT_AG_135" />
+			<class name="testscripts.marklogic.AUT_AG_136" />
+			<class name="testscripts.marklogic.AUT_AG_137" />
+			
+			<class name="testscripts.marklogic.AUT_AG_139" />
+			<class name="testscripts.marklogic.AUT_AG_142" />
+			<class name="testscripts.marklogic.AUT_AG_144" />
+			
+			<class name="testscripts.marklogic.AUT_AG_153" />
+			<class name="testscripts.marklogic.AUT_AG_154" />
+			<class name="testscripts.marklogic.AUT_AG_155" />
+			<class name="testscripts.marklogic.AUT_AG_156" />
+			
+			<class name="testscripts.marklogic.AUT_AG_171" />
+			<class name="testscripts.marklogic.AUT_AG_172" />
+			<class name="testscripts.marklogic.AUT_AG_175" /> -->	
+			
+		<class name="testscripts.marklogic.AUT_AG_001" />
+		<class name="testscripts.marklogic.AUT_AG_002" />
+		<class name="testscripts.marklogic.AUT_AG_003" />
+		<class name="testscripts.marklogic.AUT_AG_004" />
+		<class name="testscripts.marklogic.AUT_AG_005" />
+		<class name="testscripts.marklogic.AUT_AG_006P1" />
+		<class name="testscripts.marklogic.AUT_AG_006P2" />
+		<class name="testscripts.marklogic.AUT_AG_007" />
+		<class name="testscripts.marklogic.AUT_AG_008" />
+		<class name="testscripts.marklogic.AUT_AG_009" />
+		<class name="testscripts.marklogic.AUT_AG_010" />
+		<class name="testscripts.marklogic.AUT_AG_011" />
+		<class name="testscripts.marklogic.AUT_AG_012" />
+		<class name="testscripts.marklogic.AUT_AG_013" />
+		<class name="testscripts.marklogic.AUT_AG_014" />
+		<class name="testscripts.marklogic.AUT_AG_015" />
+		<class name="testscripts.marklogic.AUT_AG_016" />
+		<class name="testscripts.marklogic.AUT_AG_017" />
+		<class name="testscripts.marklogic.AUT_AG_018" />
+
+			<!-- <class name="testscripts.marklogic.JReport" /> -->
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="linksAndAssociations" parallel="classes"
+	thread-count="1">
+	<test name="Test">
+		<classes>
+			<!-- ADMIN related cases
+			<class name="testscripts.links.TC1" /> 
+			<class	name="testscripts.links.TC2" /> 
+			<class name="testscripts.links.TC3" /> -->
+			<class name="testscripts.links.TC4" />
+			<class name="testscripts.links.TC5" />
+			<class name="testscripts.links.TC6_P1" />
+<!-- 	covered in 6P1		<class name="testscripts.links.TC6_P2" />
+			<class name="testscripts.links.TC6_P3" />	 -->	
+			<class name="testscripts.links.TC7" />
+			<class name="testscripts.links.TC8" />
+			<class name="testscripts.links.TC9" />
+			<class name="testscripts.links.TC10" />
+			<class name="testscripts.links.TC11" />
+			<class name="testscripts.links.TC12" />
+			<class name="testscripts.links.TC13" />
+	<!-- covered in 15		<class name="testscripts.links.TC14" /> -->
+			<class name="testscripts.links.TC15" />
+		<!-- Duplicate	<class name="testscripts.links.TC16" /> -->
+	<!--    <class name="testscripts.links.TC17" /> admin tc -->
+			<class name="testscripts.links.TC18" />
+			<!--covered in custom sites <class name="testscripts.links.TC19" /> -->
+	<!-- 	<class name="testscripts.links.TC20" /> admin tc-->
+			<class name="testscripts.links.TC21" />
+			<!-- Covered in 21 <class name="testscripts.links.TC22" />
+			<class name="testscripts.links.TC24" /> -->
+			<!--not related to link <class name="testscripts.links.TC23_P1" />
+			<class name="testscripts.links.TC23_P2" /> -->
+			
+			<!-- TC25 can't be merged as two different users were played -->
+			<class name="testscripts.links.AUT_AG_063_25" />
+			<class name="testscripts.links.AUT_AG_064_25" />
+			<!--TC25  -->
+			<!-- TC26 can't be merged as two different users were played -->
+			<class name="testscripts.links.AUT_AG_065P1" />
+			<class name="testscripts.links.AUT_AG_065P2" />
+			<class name="testscripts.links.AUT_AG_065P3" />
+			<class name="testscripts.links.AUT_AG_066P1" />
+			<class name="testscripts.links.AUT_AG_066P2" />
+		<!-- covered in 65	<class name="testscripts.links.AUT_AG_071P1" />
+			<class name="testscripts.links.AUT_AG_071P2" /> -->
+			<!-- 26 -->
+			<class name="testscripts.links.TC27" />
+			<!-- TC28 can't be merged as two different users were played -->
+	<!-- 	covered in TC 65	<class name="testscripts.links.AUT_AG_078P1" />
+			<class name="testscripts.links.AUT_AG_078P2" />
+			<class name="testscripts.links.AUT_AG_079P1" />
+			<class name="testscripts.links.AUT_AG_079P2" /> -->
+			<!-- 28 -->
+			<class name="testscripts.links.TC29" />
+			<class name="testscripts.links.TC30" />
+			<!-- TC31 can't be merged as two different users were played -->
+		<!-- 	<class name="testscripts.links.AUT_AG_075P1" />
+			<class name="testscripts.links.AUT_AG_075P2" /> -->
+			<!-- 31 -->
+			<!-- TC32 can't be merged due to data table conflict -->
+		<!-- Duplicate TC	<class name="testscripts.links.TC265" /> -->
+	<!-- EPS is not in scope		<class name="testscripts.links.TC266" /> -->
+		<!-- Duplicate TC 270	<class name="testscripts.links.TC268" /> -->
+			<class name="testscripts.links.TC270" />
+			<class name="testscripts.links.TC271" />
+			<!-- 32 -->
+			<!-- TC33 can't be merged due to data table conflict -->
+			<class name="testscripts.links.TC273" />
+			<class name="testscripts.links.TC275" />
+			<class name="testscripts.links.TC277" />
+			<class name="testscripts.links.TC278" />
+			<!-- 33 -->
+			<!-- <class name="testscripts.links.TC281Part1_34" /> webdev related TC failed to execute hence removing from Automation scope
+			<class name="testscripts.links.TC281Part2_34" />
+			<class name="testscripts.links.TC285Part1_35" />
+			<class name="testscripts.links.TC285Part2_35" />  -->
+			<class name="testscripts.links.TC36" />
+			<class name="testscripts.links.TC37" />
+			<class name="testscripts.links.TC38" />
+			<class name="testscripts.links.TC39" />
+			<!-- TC40 can't be merged due to data table conflict -->
+			<class name="testscripts.links.TC296" />
+	<!-- 	covered in tc 296	<class name="testscripts.links.TC297" /> -->
+			<!-- 40 -->
+			<!-- TC41 can't be merged due to data table complexity -->
+		<!-- Covered in 307,308	<class name="testscripts.links.TC306" /> -->
+			<class name="testscripts.links.TC307" />
+		<!-- covered in many test cases	<class name="testscripts.links.TC308" /> -->
+			<!-- 41 -->
+			<!-- TC42 can't be merged due to data table complexity -->
+			<!--Duplicate <class name="testscripts.links.TC309" /> -->
+			<class name="testscripts.links.TC312Part1" />
+			<class name="testscripts.links.TC312Part2" />
+			<class name="testscripts.links.TC313Part1" />
+			<class name="testscripts.links.TC313Part2" />
+			<!-- 42 -->
+			<class name="testscripts.links.TC310Part1_43" />
+			<class name="testscripts.links.TC310Part2_43" />
+			<class name="testscripts.links.TC310Part3_43" />
+			<class name="testscripts.links.TC311Part1_44" />
+			<class name="testscripts.links.TC311Part2_44" />
+			<!-- <class name="testscripts.links.TC311Part3_44" /> this TC is not in the functional package -->
+			<class name="testscripts.links.TC314Part1_45" />
+			<class name="testscripts.links.TC314Part2_45" />
+			<!-- <class name="testscripts.links.TC46" /> -->
+			<class name="testscripts.links.TC47" />
+			<!-- TC48 can't be merged due to data table complexity -->
+			<class name="testscripts.links.AUT_AG_579" />
+			<class name="testscripts.links.AUT_AG_580" />
+			<!-- 48 -->
+			<!-- TC49 can't be merged due to data table complexity -->
+			<class name="testscripts.links.AUT_AG_581" />
+			<class name="testscripts.links.AUT_AG_616" />
+			<class name="testscripts.links.AUT_AG_617" />
+			<class name="testscripts.links.AUT_AG_618" />
+			<class name="testscripts.links.AUT_AG_619" />
+			<!-- 49 -->
+			<class name="testscripts.links.TC50" />
+			<!-- TC51 -->
+			<class name="testscripts.links.AUT_AG_1049" />
+			<class name="testscripts.links.AUT_AG_1050" />
+			<!-- TC51 -->
+			<class name="testscripts.links.AUT_AG_52" />
+			<class name="testscripts.links.TC54" />
+			<class name="testscripts.links.TC55" />
+			<class name="testscripts.links.TC56" />
+			<class name="testscripts.links.TC57" />
+			<class name="testscripts.links.TC58" />
+			<class name="testscripts.links.TC59" />
+			<class name="testscripts.links.TC60" />
+			<class name="testscripts.links.TC61" />
+			<class name="testscripts.links.TC62" />
+			<class name="testscripts.links.TC63" />
+			<class name="testscripts.links.TC67P1" />
+			<class name="testscripts.links.TC67P2" />
+			<class name="testscripts.links.TC68P1" />
+			<class name="testscripts.links.TC68P2" />
+			<!--Duplicate <class name="testscripts.links.TC69" />
+			<class name="testscripts.links.TC70" />
+			<class name="testscripts.links.TC71" /> -->
+			<class name="testscripts.links.TC72" />
+
+	
+<!--Admin TC's and duplicated TC's
+		<class name="testscripts.sanity.TC1" /> 
+		<class name="testscripts.functional.TC24" />
+		<class name="testscripts.functional.TC245" />	duplicate of testscripts.functional.TC24
+		<class name="testscripts.sanity.TC2" />
+		<class name="testscripts.functional.TC25" />
+		<class name="testscripts.functional.TC246" />	duplicate of testscripts.functional.TC25
+		<class name="testscripts.sanity.TC3" />
+		<class name="testscripts.sanity.TC4" /> 		should be covered in testscripts.sanity.TC3
+		<class name="testscripts.sanity.TC5" /> 		should be covered in testscripts.sanity.TC3
+		<class name="testscripts.sanity.TC6" /> 		should be covered in testscripts.sanity.TC3
+		<class name="testscripts.sanity.TC7" /> 		should be covered in testscripts.sanity.TC3
+		<class name="testscripts.sanity.TC8" /> 		should be covered in testscripts.sanity.TC3
+		<class name="testscripts.sanity.TC9" /> 		should be covered in testscripts.sanity.TC3
+		<class name="testscripts.sanity.TC10" /> 
+		<class name="testscripts.functional.TC26" /> 	duplicate of testscripts.sanity.TC3
+		<class name="testscripts.functional.TC27" /> 	duplicate of testscripts.sanity.TC4
+		<class name="testscripts.functional.TC28" /> 	duplicate of testscripts.sanity.TC5
+		<class name="testscripts.functional.TC29" /> 	duplicate of testscripts.sanity.TC6
+		<class name="testscripts.functional.TC30" /> 	duplicate of testscripts.sanity.TC7
+		<class name="testscripts.functional.TC31" />	should be covered in testscripts.sanity.TC3
+		<class name="testscripts.functional.TC32" />	should be covered in testscripts.sanity.TC3
+		<class name="testscripts.functional.TC33" />	should be covered in testscripts.sanity.TC3
+		<class name="testscripts.functional.TC34" />	should be covered in testscripts.sanity.TC3
+		<class name="testscripts.functional.TC247" />	should be covered in testscripts.sanity.TC3
+		<class name="testscripts.functional.TC248" />	should be covered in testscripts.sanity.TC3
+		<class name="testscripts.functional.TC249" />	should be covered in testscripts.sanity.TC3
+		<class name="testscripts.functional.TC250" />	should be covered in testscripts.sanity.TC3
+		<class name="testscripts.functional.TC251" />	should be covered in testscripts.sanity.TC3
+		<class name="testscripts.functional.TC252" />	should be covered in testscripts.sanity.TC3
+		<class name="testscripts.functional.TC253" />	should be covered in testscripts.sanity.TC3
+		<class name="testscripts.functional.TC254" />	should be covered in testscripts.sanity.TC3
+		<class name="testscripts.functional.TC255" />	should be covered in testscripts.sanity.TC3
+		<class name="testscripts.sanity.TC11" /> 		should be covered in testscripts.sanity.TC11	
+		<class name="testscripts.functional.TC35" />	duplicate of testscripts.sanity.TC4	
+		<class name="testscripts.functional.TC37" />	duplicate of testscripts.sanity.TC4
+		<class name="testscripts.functional.TC38" />	duplicate of testscripts.sanity.TC4
+		<class name="testscripts.functional.TC39" />	duplicate of testscripts.sanity.TC4
+		<class name="testscripts.functional.TC40" />	duplicate of testscripts.sanity.TC4
+		<class name="testscripts.functional.TC256" />	duplicate of testscripts.sanity.TC4
+		<class name="testscripts.functional.TC258" />	duplicate of testscripts.sanity.TC4
+		<class name="testscripts.functional.TC259" />	duplicate of testscripts.sanity.TC4
+		<class name="testscripts.functional.TC260" />	duplicate of testscripts.sanity.TC4
+		<class name="testscripts.functional.TC261" />	duplicate of testscripts.sanity.TC4
+		<class name="testscripts.functional.TC262" />	duplicate of testscripts.sanity.TC4
+		<class name="testscripts.functional.TC279" />	duplicate of testscripts.links.TC7
+		<class name="testscripts.functional.TC282" />	duplicate of testscripts.links.TC7
+		<class name="testscripts.functional.TC286" />	duplicate of testscripts.links.TC7
+		<class name="testscripts.functional.TC291" />	duplicate of testscripts.links.TC7
+		<class name="testscripts.functional.TC295" />	duplicate of testscripts.links.TC7
+		<class name="testscripts.functional.TC283" />	duplicate of testscripts.links.TC8
+		<class name="testscripts.functional.TC284" />	duplicate of testscripts.links.TC9
+		<class name="testscripts.functional.TC299" />	duplicate of testscripts.links.TC10
+		<class name="testscripts.functional.TC300" />	duplicate of testscripts.links.TC10
+		<class name="testscripts.functional.TC302" />	duplicate of testscripts.links.TC11
+		<class name="testscripts.functional.TC303" />	duplicate of testscripts.links.TC12
+		<class name="testscripts.functional.TC44" />	duplicate of testscripts.links.TC13
+		<class name="testscripts.functional.TC292" />	duplicate of testscripts.links.TC13
+		<class name="testscripts.functional.TC36" />	duplicate of testscripts.sanity.TC10
+		<class name="testscripts.functional.TC257" />	duplicate of testscripts.sanity.TC10
+		<class name="testscripts.functional.TC288" />	covered in testscripts.links.TC15
+		 -->
+	
+
+
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

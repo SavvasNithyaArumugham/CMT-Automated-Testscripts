@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="FrenchTranslation" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<!--Life Cycle in French-->
+		<class name="testscripts.misc3.AUT_AG_319" />
+		<class name="testscripts.misc3.AUT_AG_320" />
+		<class name="testscripts.misc3.AUT_AG_321P1" />
+		<class name="testscripts.misc3.AUT_AG_321P2" />
+		<class name="testscripts.misc3.AUT_AG_321P3" />
+		<class name="testscripts.misc3.AUT_AG_321P4" />
+		<class name="testscripts.misc3.AUT_AG_322" /> 
+		<class name="testscripts.misc3.AUT_AG_323" />
+		<!-- EPS in French Translation  -->
+		<class name="testscripts.misc3.AUT_AG_324" />
+		<class name="testscripts.misc3.AUT_AG_325P1" />
+		<class name="testscripts.misc3.AUT_AG_325P2" />
+		<class name="testscripts.misc3.AUT_AG_326" />
+		<class name="testscripts.misc3.AUT_AG_327" />
+		
+			<class name="testscripts.misc5.AUT_AG_427" />
+			<class name="testscripts.misc5.AUT_AG_428" />
+			<class name="testscripts.misc5.AUT_AG_429" />
+			<class name="testscripts.misc5.AUT_AG_430" />
+			<class name="testscripts.misc5.AUT_AG_431" />
+			<class name="testscripts.misc5.AUT_AG_432" />
+			<!--Relationship in French-->
+			<class name="testscripts.misc5.AUT_AG_433" />
+			<class name="testscripts.misc5.AUT_AG_434" />
+			<class name="testscripts.misc5.AUT_AG_435" />
+			<class name="testscripts.misc5.AUT_AG_436" />
+			<class name="testscripts.misc5.AUT_AG_437" />
+			<class name="testscripts.misc5.AUT_AG_438" />
+			<class name="testscripts.misc5.AUT_AG_439" />
+			<class name="testscripts.misc5.AUT_AG_440" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

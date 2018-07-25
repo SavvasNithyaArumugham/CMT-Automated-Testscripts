@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Upgrade" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<!-- Upgrade Test Scripts 43 TC's-->
+			
+			<class name="testscripts.upgrade.AUT_AG_452" />
+		<!-- 	<class name="testscripts.upgrade.AUT_AG_453" />
+			<class name="testscripts.upgrade.AUT_AG_454" /> Repository TC
+			<class name="testscripts.upgrade.AUT_AG_455" />
+			<class name="testscripts.upgrade.AUT_AG_456" />
+			
+			Duplicate Test case . Refer Functional TC 320 - 340
+			<class name="testscripts.upgrade.AUT_AG_457" />
+			<class name="testscripts.upgrade.AUT_AG_458" />
+			<class name="testscripts.upgrade.AUT_AG_459" />
+			<class name="testscripts.upgrade.AUT_AG_460" />
+			<class name="testscripts.upgrade.AUT_AG_461" />
+			<class name="testscripts.upgrade.AUT_AG_462" />
+			<class name="testscripts.upgrade.AUT_AG_463" />
+			<class name="testscripts.upgrade.AUT_AG_464" />
+
+			
+			<class name="testscripts.upgrade.AUT_AG_465" />
+			<class name="testscripts.upgrade.AUT_AG_466" />
+			<class name="testscripts.upgrade.AUT_AG_467" />
+			<class name="testscripts.upgrade.AUT_AG_468" />
+			<class name="testscripts.upgrade.AUT_AG_469" />
+			<class name="testscripts.upgrade.AUT_AG_470" />
+			<class name="testscripts.upgrade.AUT_AG_471" />
+			<class name="testscripts.upgrade.AUT_AG_472" />
+			<class name="testscripts.upgrade.AUT_AG_473" />
+			<class name="testscripts.upgrade.AUT_AG_474P1" />
+			<class name="testscripts.upgrade.AUT_AG_474P2" />
+			<class name="testscripts.upgrade.AUT_AG_475" />
+			<class name="testscripts.upgrade.AUT_AG_476" />
+			<class name="testscripts.upgrade.AUT_AG_477" />
+			<class name="testscripts.upgrade.AUT_AG_478" />
+			<class name="testscripts.upgrade.AUT_AG_479" />
+
+			Admin TC's
+			<class name="testscripts.upgrade.AUT_AG_480P1" />
+			<class name="testscripts.upgrade.AUT_AG_480P2" />
+			<class name="testscripts.upgrade.AUT_AG_481P1" />
+			<class name="testscripts.upgrade.AUT_AG_481P2" />
+			<class name="testscripts.upgrade.AUT_AG_482P1" />
+			<class name="testscripts.upgrade.AUT_AG_482P2" />
+			<class name="testscripts.upgrade.AUT_AG_483P1" />
+			<class name="testscripts.upgrade.AUT_AG_483P2" />
+			<class name="testscripts.upgrade.AUT_AG_484" />
+			<class name="testscripts.upgrade.AUT_AG_485" />
+			<class name="testscripts.upgrade.AUT_AG_489" />
+			<class name="testscripts.upgrade.AUT_AG_490" />
+			<class name="testscripts.upgrade.AUT_AG_491P1" />
+			<class name="testscripts.upgrade.AUT_AG_491P2" />
+			<class name="testscripts.upgrade.AUT_AG_491P3" />
+			<class name="testscripts.upgrade.AUT_AG_491P4" />
+			<class name="testscripts.upgrade.AUT_AG_492" />
+			<class name="testscripts.upgrade.AUT_AG_493P1" />
+			<class name="testscripts.upgrade.AUT_AG_493P2" />
+			<class name="testscripts.upgrade.AUT_AG_493P3" />
+			<class name="testscripts.upgrade.AUT_AG_494" />
+			<class name="testscripts.upgrade.AUT_AG_486" />
+			<class name="testscripts.upgrade.AUT_AG_487" />
+			<class name="testscripts.upgrade.AUT_AG_488" /> -->
+			<class name="testscripts.upgrade.JReport" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

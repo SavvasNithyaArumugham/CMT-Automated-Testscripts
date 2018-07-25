@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GermanTranslation" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			
+			
+		<class name="testscripts.translation.AUT_AG_393" />
+		<class name="testscripts.translation.AUT_AG_394P1" />	
+		<class name="testscripts.translation.AUT_AG_394P2" />
+		<class name="testscripts.translation.AUT_AG_394P3" />
+		<class name="testscripts.translation.AUT_AG_394P4" />
+		<class name="testscripts.translation.AUT_AG_395" />
+		<class name="testscripts.translation.AUT_AG_396" />
+		<class name="testscripts.translation.AUT_AG_397" />
+		<class name="testscripts.translation.AUT_AG_398P1" />
+		<class name="testscripts.translation.AUT_AG_398P2" />
+		
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

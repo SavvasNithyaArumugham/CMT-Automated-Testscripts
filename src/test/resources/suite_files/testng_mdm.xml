@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Miscellaneous5" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<!-- Miscellaneous Test Scripts 100 TC's -->			
+
+	<!-- 		<class name="testscripts.misc5.AUT_AG_372" /> 
+			 <class name="testscripts.misc5.AUT_AG_373" />
+			 <class name="testscripts.misc5.AUT_AG_374" />
+			  <class name="testscripts.misc5.AUT_AG_390P1" />
+			  <class name="testscripts.misc5.AUT_AG_390P2" />
+			  <class name="testscripts.misc5.AUT_AG_390P3" />
+			  <class name="testscripts.misc5.AUT_AG_391P1" />
+			  <class name="testscripts.misc5.AUT_AG_391P2" />
+			  <class name="testscripts.misc5.AUT_AG_391P3" />
+			  <class name="testscripts.misc5.AUT_AG_392" /> -->
+			 
+			
+			 
+			  <class name="testscripts.misc3.AUT_AG_304P1" />
+			     <class name="testscripts.misc3.AUT_AG_304P2" />
+			     <class name="testscripts.misc3.AUT_AG_304P3" />
+			     <class name="testscripts.misc3.AUT_AG_304P4" />  
+			     <class name="testscripts.misc3.AUT_AG_304P5" />  
+		     
+			
+		
+			<!-- SVG Files - Release 1.8.6 -->
+		<!-- 	<class name="testscripts.misc5.AUT_AG_372" /> -->
+			<!-- <class name="testscripts.misc5.AUT_AG_373" />
+			<class name="testscripts.misc5.AUT_AG_374" /> -->
+			
+		<!-- 	Content Fulfilment - Release 1.9 -->
+		<!-- 	<class name="testscripts.misc5.AUT_AG_376" />
+			<class name="testscripts.misc5.AUT_AG_376P2" />	
+			<class name="testscripts.misc5.AUT_AG_377" />
+			<class name="testscripts.misc5.AUT_AG_378" />
+			<class name="testscripts.misc5.AUT_AG_379" />
+			<class name="testscripts.misc5.AUT_AG_380" />
+			<class name="testscripts.misc5.AUT_AG_381P1" />
+			<class name="testscripts.misc5.AUT_AG_381P2" />
+			<class name="testscripts.misc5.AUT_AG_382P1" />
+			<class name="testscripts.misc5.AUT_AG_382P2" />
+			<class name="testscripts.misc5.AUT_AG_383P1" />
+			<class name="testscripts.misc5.AUT_AG_383P2" />
+			<class name="testscripts.misc5.AUT_AG_384P1" />
+			<class name="testscripts.misc5.AUT_AG_384P2" />
+			<class name="testscripts.misc5.AUT_AG_384P3" />
+			<class name="testscripts.misc5.AUT_AG_385" />
+			<class name="testscripts.misc5.AUT_AG_386" />
+			<class name="testscripts.misc5.AUT_AG_387" />
+			<class name="testscripts.misc5.AUT_AG_388" />
+			<class name="testscripts.misc5.AUT_AG_389" /> -->
+		
+		
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Miscellaneous2" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<class name="testscripts.misc2.AUT_AG_178" />
+			<class name="testscripts.misc2.AUT_AG_179" />
+			<class name="testscripts.misc2.AUT_AG_180" />
+			<class name="testscripts.misc2.AUT_AG_181" />
+			<class name="testscripts.misc2.AUT_AG_182" />
+			<class name="testscripts.misc2.AUT_AG_183" />
+			<class name="testscripts.misc2.AUT_AG_184" />
+			<class name="testscripts.misc2.AUT_AG_185" />
+			<class name="testscripts.misc2.AUT_AG_186" />
+			<class name="testscripts.misc2.AUT_AG_187" />
+			<class name="testscripts.misc2.AUT_AG_188" />
+			<class name="testscripts.misc2.AUT_AG_189" />
+			<class name="testscripts.misc2.AUT_AG_190" />
+			<class name="testscripts.misc2.AUT_AG_191P1" />
+			<class name="testscripts.misc2.AUT_AG_191P2" />
+			<class name="testscripts.misc2.AUT_AG_191P3" />
+			<class name="testscripts.misc2.AUT_AG_191P4" />
+			<!-- <class name="testscripts.misc2.AUT_AG_192P1" />
+			<class name="testscripts.misc2.AUT_AG_192P2" />
+			<class name="testscripts.misc2.AUT_AG_192P3" />
+			<class name="testscripts.misc2.AUT_AG_192P4" /> --><!-- Duplicate -->
+			<class name="testscripts.misc2.AUT_AG_193P1" />
+			<class name="testscripts.misc2.AUT_AG_193P2" />
+			<class name="testscripts.misc2.AUT_AG_193P3" />
+			<class name="testscripts.misc2.AUT_AG_193P4" />
+			<!-- <class name="testscripts.misc2.AUT_AG_194P1" />
+			<class name="testscripts.misc2.AUT_AG_194P2" />
+			<class name="testscripts.misc2.AUT_AG_194P3" />
+			<class name="testscripts.misc2.AUT_AG_194P4" /> --><!-- Duplicate -->
+			<class name="testscripts.misc2.AUT_AG_195P1" />
+			<class name="testscripts.misc2.AUT_AG_195P2" />
+			<class name="testscripts.misc2.AUT_AG_195P3" />
+			<class name="testscripts.misc2.AUT_AG_195P4" />
+			<class name="testscripts.misc2.AUT_AG_196P1" />
+			<class name="testscripts.misc2.AUT_AG_196P2" />
+			<class name="testscripts.misc2.AUT_AG_196P3" />
+			<class name="testscripts.misc2.AUT_AG_197P1" />
+			<class name="testscripts.misc2.AUT_AG_197P2" />
+			<class name="testscripts.misc2.AUT_AG_197P3" />
+			<class name="testscripts.misc2.AUT_AG_198P1" />
+			<class name="testscripts.misc2.AUT_AG_198P2" />
+			<class name="testscripts.misc2.AUT_AG_198P3" />
+			<!-- <class name="testscripts.misc2.AUT_AG_198P4" /> -->
+			<class name="testscripts.misc2.AUT_AG_199" />
+		<!-- 	duplicate<class name="testscripts.misc2.AUT_AG_200P1" />
+			<class name="testscripts.misc2.AUT_AG_200P2" /> -->
+			<class name="testscripts.misc2.AUT_AG_201" />
+			<class name="testscripts.misc2.AUT_AG_202" />
+			<!-- duplicate<class name="testscripts.misc2.AUT_AG_203P1" />
+			<class name="testscripts.misc2.AUT_AG_203P2" /> -->
+			<class name="testscripts.misc2.AUT_AG_204P1" />
+			<class name="testscripts.misc2.AUT_AG_204P2" />
+			<class name="testscripts.misc2.AUT_AG_205P1" />
+			<class name="testscripts.misc2.AUT_AG_205P2" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

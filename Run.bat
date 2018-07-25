@@ -1,0 +1,1 @@
+java -cp bin;libs/* mvn clean verify -Dsuite.fileName=testng_release14.xml -DexecutionMode=Local 

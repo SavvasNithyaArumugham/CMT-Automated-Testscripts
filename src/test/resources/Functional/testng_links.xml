@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="LinksandAssociation" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			
+			<class name="testscripts.functional.TC245" />			
+			<class name="testscripts.functional.TC246" />
+			<class name="testscripts.functional.TC247" />
+			<class name="testscripts.functional.TC248" />
+			<class name="testscripts.functional.TC249" />
+			<class name="testscripts.functional.TC250" />
+			<class name="testscripts.functional.TC251" />
+			<class name="testscripts.functional.TC252" />
+			<class name="testscripts.functional.TC253" />
+			<class name="testscripts.functional.TC254" />
+			<class name="testscripts.functional.TC255" />
+			<class name="testscripts.functional.TC257" />
+			<class name="testscripts.functional.TC262" />
+			<class name="testscripts.functional.TC263" />
+			<class name="testscripts.functional.TC264" />
+			<class name="testscripts.functional.TC267" />
+			<class name="testscripts.functional.TC268" />			
+			<class name="testscripts.functional.TC272" />			
+			<class name="testscripts.functional.TC274" />		
+			<class name="testscripts.functional.TC286" />			
+			<class name="testscripts.functional.TC290" />			
+			<class name="testscripts.functional.TC296" />
+			<class name="testscripts.functional.TC300" />
+			<class name="testscripts.functional.TC305" />
+			<class name="testscripts.functional.TC307" />
+			<class name="testscripts.functional.TC308" />
+			<class name="testscripts.functional.TC309" />
+			<class name="testscripts.functional.TC310Part1" />
+			<class name="testscripts.functional.TC310Part2" />
+			<class name="testscripts.functional.TC311Part1" />
+			<class name="testscripts.functional.TC311Part2" />
+			<class name="testscripts.functional.TC311Part3" />
+			<class name="testscripts.functional.TC312Part1" />
+			<class name="testscripts.functional.TC312Part2" />
+			<class name="testscripts.functional.TC313Part1" />
+			<class name="testscripts.functional.TC313Part2" />
+			<class name="testscripts.functional.TC314Part1" />
+			<class name="testscripts.functional.TC314Part2" />	
+			<class name="testscripts.functional.TC270" />
+			<class name="testscripts.functional.TC271" />
+			<class name="testscripts.functional.TC273" />
+			<class name="testscripts.functional.TC275" />
+			<class name="testscripts.functional.TC277" />
+			<class name="testscripts.functional.TC278" />
+			<class name="testscripts.functional.TC279" />
+			<class name="testscripts.functional.TC281Part1" />
+			<class name="testscripts.functional.TC281Part2" />
+			<class name="testscripts.functional.TC282" />
+			<class name="testscripts.functional.TC283" />
+			<class name="testscripts.functional.TC284" />
+			<class name="testscripts.functional.TC285Part1" />
+			<class name="testscripts.functional.TC285Part2" />
+			<class name="testscripts.functional.TC287" />
+			<class name="testscripts.functional.TC288" />
+			<class name="testscripts.functional.TC289" />
+			<class name="testscripts.functional.TC291" />
+			<class name="testscripts.functional.TC292" />
+			<class name="testscripts.functional.TC293" />
+			<class name="testscripts.functional.TC294" />
+			<class name="testscripts.functional.TC295" />
+			<class name="testscripts.functional.TC297" />
+			<class name="testscripts.functional.TC298" />
+			<class name="testscripts.functional.TC306" />	
+			<class name="testscripts.functional.TC259" />
+			<class name="testscripts.functional.TC260" />
+			
+			<class name="testscripts.functional.TC261" />
+			<class name="testscripts.functional.TC258" />
+			<class name="testscripts.functional.TC256" />
+			<class name="testscripts.functional.TC265" />
+								
+			<class name="testscripts.functional.TC299" />
+			<class name="testscripts.functional.TC301" />
+			<class name="testscripts.functional.TC302" />
+			<class name="testscripts.functional.TC303" />
+			<class name="testscripts.functional.TC304" />
+			<class name="testscripts.functional.TC266" />
+			<class name="testscripts.functional.TC305" />	
+			
+			
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

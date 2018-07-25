@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Miscellaneous3" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<class name="testscripts.misc3.AUT_AG_254" />
+			<class name="testscripts.misc3.AUT_AG_255" />
+			<class name="testscripts.misc3.AUT_AG_256" />
+			<class name="testscripts.misc3.AUT_AG_257" />
+			<class name="testscripts.misc3.AUT_AG_258" /> 
+			<class name="testscripts.misc3.AUT_AG_259" />
+			<!-- <class name="testscripts.misc3.AUT_AG_260" /> -->
+			<class name="testscripts.misc3.AUT_AG_261" />
+			<class name="testscripts.misc3.AUT_AG_262P1" />
+			<class name="testscripts.misc3.AUT_AG_262P2" />
+			<class name="testscripts.misc3.AUT_AG_263" />
+			<class name="testscripts.misc3.AUT_AG_264" />
+			<class name="testscripts.misc3.AUT_AG_265" />
+			<!-- Descoped <class name="testscripts.misc3.AUT_AG_266" /> -->
+			<class name="testscripts.misc3.AUT_AG_267" />
+			<class name="testscripts.misc3.AUT_AG_268" />
+			<class name="testscripts.misc3.AUT_AG_269" />
+			<!-- Descoped <class name="testscripts.misc3.AUT_AG_270" /> -->
+			<class name="testscripts.misc3.AUT_AG_272" />
+			<class name="testscripts.misc3.AUT_AG_273" />
+			<class name="testscripts.misc3.AUT_AG_274" />
+			<class name="testscripts.misc3.AUT_AG_275" />
+			<!--covered in 277 <class name="testscripts.misc3.AUT_AG_276" /> -->
+			<class name="testscripts.misc3.AUT_AG_277" />
+			<class name="testscripts.misc3.AUT_AG_278" />
+			<class name="testscripts.misc3.AUT_AG_279" />
+			<!--covered in 277 <class name="testscripts.misc3.AUT_AG_280" /> <class 
+				name="testscripts.misc3.AUT_AG_281" /> -->
+			<class name="testscripts.misc3.AUT_AG_282" />
+			<!--covered in 280 <class name="testscripts.misc3.AUT_AG_283" /> -->
+			<class name="testscripts.misc3.AUT_AG_285P1" />
+			<class name="testscripts.misc3.AUT_AG_285P2" />
+			<!-- covered in TC 285 <class name="testscripts.misc3.AUT_AG_286P1" /> 
+				<class name="testscripts.misc3.AUT_AG_286P2" /> <class name="testscripts.misc3.AUT_AG_287P1" 
+				/> <class name="testscripts.misc3.AUT_AG_287P2" /> <class name="testscripts.misc3.AUT_AG_288P1" 
+				/> <class name="testscripts.misc3.AUT_AG_288P2" /> <class name="testscripts.misc3.AUT_AG_289P1" 
+				/> <class name="testscripts.misc3.AUT_AG_289P2" /> -->
+			<class name="testscripts.misc3.AUT_AG_290" />
+			<class name="testscripts.misc3.AUT_AG_291P1" />
+			<class name="testscripts.misc3.AUT_AG_291P2" />
+			<class name="testscripts.misc3.AUT_AG_292P1" />
+			<class name="testscripts.misc3.AUT_AG_292P2" />
+			<class name="testscripts.misc3.AUT_AG_293P1" />
+			<class name="testscripts.misc3.AUT_AG_293P2" />
+
+			<!--Descoped Help Functionality is removed <class name="testscripts.misc3.AUT_AG_294P1" 
+				/> <class name="testscripts.misc3.AUT_AG_294P2" /> <class name="testscripts.misc3.AUT_AG_295P1" 
+				/> <class name="testscripts.misc3.AUT_AG_295P2" /> <class name="testscripts.misc3.AUT_AG_297P1" 
+				/> <class name="testscripts.misc3.AUT_AG_297P2" /> -->
+
+			<class name="testscripts.misc3.AUT_AG_296P1" />
+			<class name="testscripts.misc3.AUT_AG_296P2" />
+			<class name="testscripts.misc3.AUT_AG_298P1" />
+			<class name="testscripts.misc3.AUT_AG_298P2" />
+			<class name="testscripts.misc3.AUT_AG_299P1" />
+			<class name="testscripts.misc3.AUT_AG_299P2" />
+			<class name="testscripts.misc3.AUT_AG_300P1" />
+			<class name="testscripts.misc3.AUT_AG_300P2" />
+			<class name="testscripts.misc3.AUT_AG_301" />
+			<class name="testscripts.misc3.AUT_AG_302" />
+			<class name="testscripts.misc3.AUT_AG_303" />
+			
+		</classes>
+
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

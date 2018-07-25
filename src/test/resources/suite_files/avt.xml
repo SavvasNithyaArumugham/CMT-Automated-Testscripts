@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="avt" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<!-- do not change the order of test scripts -->
+			<class name="testscripts.avt.AVT_TC001" />
+			<class name="testscripts.avt.AVT_TC002" />
+			<class name="testscripts.avt.AVT_TC003" />
+			<class name="testscripts.avt.AVT_TC004" />
+			<class name="testscripts.avt.AVT_TC005" />
+			<class name="testscripts.avt.AVT_TC006" />
+			<class name="testscripts.avt.AVT_TC007" />
+			<class name="testscripts.avt.AVT_TC008" />
+			<class name="testscripts.avt.AVT_TC009" />
+			<class name="testscripts.avt.AVT_TC010" />
+			<class name="testscripts.avt.AVT_TC011" />
+			<class name="testscripts.avt.AVT_TC012" />
+
+			<class name="testscripts.avt.AVT_TC013" />
+			<class name="testscripts.avt.AVT_TC014P1" />
+			<class name="testscripts.avt.AVT_TC014P2" />
+			<class name="testscripts.avt.AVT_TC016" />
+			<class name="testscripts.avt.AVT_TC017" />
+
+			<class name="testscripts.avt.AVT_TC018P1" />
+			<class name="testscripts.avt.AVT_TC018P2" />
+			<class name="testscripts.avt.AVT_TC019P1" />
+			<class name="testscripts.avt.AVT_TC019P2" />
+			<class name="testscripts.avt.AVT_TC019P3" />
+			<class name="testscripts.avt.AVT_TC019P4" />
+			<class name="testscripts.avt.AVT_TC019P5" />
+
+			<class name="testscripts.avt.AVT_TC020P1" />
+			<class name="testscripts.avt.AVT_TC020P2" />
+			<class name="testscripts.avt.AVT_TC020P3" />
+			<class name="testscripts.avt.AVT_TC020P4" />
+			<class name="testscripts.avt.AVT_TC020P5" />
+			<class name="testscripts.avt.AVT_TC020P6" />
+			<class name="testscripts.avt.AVT_TC020P7" />
+			<class name="testscripts.avt.AVT_TC021" />
+			<class name="testscripts.avt.AVT_TC022" />
+
+
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

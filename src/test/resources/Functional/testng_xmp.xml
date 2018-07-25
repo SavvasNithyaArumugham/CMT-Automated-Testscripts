@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Xmp" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<class name="testscripts.functional.TC143" />			
+			<class name="testscripts.functional.TC147"/>	
+			<class name="testscripts.functional.TC148"/>
+			<class name="testscripts.functional.TC149"/>
+			<class name="testscripts.functional.TC150"/>
+			<class name="testscripts.functional.TC151"/>
+			<class name="testscripts.functional.TC152"/>
+			<class name="testscripts.functional.TC154"/>
+			<class name="testscripts.functional.TC155"/>
+			<class name="testscripts.functional.TC158"/>
+			<class name="testscripts.functional.TC159"/>
+			<class name="testscripts.functional.TC162"/>
+			<class name="testscripts.functional.TC163"/>
+			<class name="testscripts.functional.TC166"/>
+			<class name="testscripts.functional.TC167"/>
+			<class name="testscripts.functional.TC170"/>
+			<class name="testscripts.functional.TC171"/>
+			<class name="testscripts.functional.TC174"/>
+			<class name="testscripts.functional.TC175"/>
+			<class name="testscripts.functional.TC178"/>
+			<class name="testscripts.functional.TC179"/>
+			<class name="testscripts.functional.TC182"/>
+			<class name="testscripts.functional.TC183"/>
+			<class name="testscripts.functional.TC194" />		
+			
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
