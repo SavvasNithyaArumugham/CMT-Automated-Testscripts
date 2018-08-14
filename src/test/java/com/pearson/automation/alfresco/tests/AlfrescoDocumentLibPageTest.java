@@ -1844,4 +1844,23 @@ public class AlfrescoDocumentLibPageTest extends ReusableLibrary {
 					"Calculation Size for folder verification failed", Status.FAIL);
 		}
 	}
+	
+	// Check File is Published with green tick -Added for NALS project
+	public void verifyFilePublishedGreenTick(String fileName) {
+	try {
+	if (docLibPage.isDisplayedPublishedGreenTick(fileName)) {
+	report.updateTestLog("Verify green coloured 'tick' sign after publishing files in document library",
+	"User able to view the green coloured <b>'tick'</b> sign after publishing file:<b>" + fileName
+	+ "</b>",
+	Status.PASS);
+	} else {
+	report.updateTestLog("Verify green coloured 'tick' sign after publishing files in document library",
+	"User NOT able to view the green coloured <b>'tick'</b> sign after publishing file:<b>"
+	+ fileName + "</b>",
+	Status.FAIL);
+	}
+	} catch (Exception e) {
+	e.printStackTrace();
+	}
+	}
 }

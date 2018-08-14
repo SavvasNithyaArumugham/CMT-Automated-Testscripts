@@ -304,7 +304,7 @@ public class GmailVerificationPage extends ReusableLibrary {
 				List<WebElement> actionList = UIHelper.findListOfElementsbyXpath(recentMailActionXpath, driver);
 				List<WebElement> docList = UIHelper.findListOfElementsbyXpath(recentMailDocXpath, driver);
 
-				System.out.println(userList.size() + " " + userList.get(0));
+		
 				System.out.println(actionList + " " + actionList.get(0));
 				System.out.println(docList + " " + docList.get(0));
 

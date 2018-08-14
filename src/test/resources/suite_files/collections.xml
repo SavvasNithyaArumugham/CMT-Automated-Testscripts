@@ -4,10 +4,8 @@
 	thread-count="1">
 	<test name="Test">
 		<classes>
-		
-		
-		
-		<class name="testscripts.collections.ALFDEPLOY_2197_TC001" />
+						
+			 <class name="testscripts.collections.ALFDEPLOY_2197_TC001" />
 			<class name="testscripts.collections.ALFDEPLOY_2204_TC003" />
 			<class name="testscripts.collections.ALFDEPLOY_2205_TC001" />
 			<class name="testscripts.collections.ALFDEPLOY_2206_TC006" />
@@ -54,7 +52,7 @@
 			<class name="testscripts.collections.ALFDEPLOY_3206_TC001" /> 
 		
 			<!-- Release 1.9.1 -->
-			<class name="testscripts.collections.AUT_AG_001" /> 
+				<class name="testscripts.collections.AUT_AG_001" /> 
 				<class name="testscripts.collections.AUT_AG_002" /> 
 				<class name="testscripts.collections.AUT_AG_003" />
 				<class name="testscripts.collections.AUT_AG_004" />
@@ -114,7 +112,8 @@
 		<class name="testscripts.collections.ALFDEPLOY_3467_TC001" /> 
 		<class name="testscripts.collections.ALFDEPLOY_3468_TC001" /> 
 		<class name="testscripts.collections.ALFDEPLOY_4416_TC001" /> 
-		<class name="testscripts.collections.ALFDEPLOY_3816_TC001" />  
+		<class name="testscripts.collections.ALFDEPLOY_3816_TC001" /> 
+			
 		
 		</classes>
 	</test> <!-- Test -->

@@ -41,6 +41,7 @@ public class ALFDEPLOY_3816_TC001 extends TestCase {
 		testParameters.setIterationMode(IterationOptions.RunOneIterationOnly);
 		driverScript = new DriverScript(testParameters);
 		driverScript.driveTestExecution();
+		
 	}
 
 	@Override
@@ -66,17 +67,24 @@ public class ALFDEPLOY_3816_TC001 extends TestCase {
 		AlfrescoCollectionsPageTest collectionPgTest = new AlfrescoCollectionsPageTest(scriptHelper);		
 		String filePath = dataTable.getData("MyFiles", "FilePath");
 		String fileName = dataTable.getData("MyFiles", "FileName");		
-		String processingindicatorxpath = "//*[@title='Processing import spreadsheet']";		
+		String processingindicatorxpath = "//*[@title='Processing import spreadsheet']";
+		String sourceSiteName = dataTable.getData("Sites", "SiteName");
 		functionalLibrary.loginAsValidUser(signOnPage);
 		
 		//Create site	
 		UIHelper.waitFor(driver);
 		homePageObj.navigateToSitesTab();				
-		sitesPage.siteFinder("alignsite02");	
+		//sitesPage.siteFinder("alignsite02");
+		sitesPage.createSite(sourceSiteName, "Yes");
+		String siteName = sitesPage.getCreatedSiteName();
+		sitesPage.openSiteFromRecentSites(siteName);
 		
 		UIHelper.waitFor(driver);
 		homePageObj.navigateToSitesTab();					
-		sitesPage.siteFinder("alignsite01");
+		//sitesPage.siteFinder("alignsite01");
+		//sitesPage.createSite(sourceSiteName, "Yes");
+		//String siteName1 = sitesPage.getCreatedSiteName();
+		sitesPage.openSiteFromRecentSites(siteName+"1");
 		
 		// Go to collection UI
 		sitesPage.enterIntoDocumentLibrary();
@@ -148,7 +156,7 @@ public class ALFDEPLOY_3816_TC001 extends TestCase {
 		UIHelper.waitFor(driver);	
 		collectionPg.commonMethodForClickOnMoreSettingsOption("Blank State Unit 1", "Duplicate all to...");
 		UIHelper.waitFor(driver);	
-		collectionPg.mapSiteForDuplicateAllTo("alignsite02");
+		collectionPg.mapSiteForDuplicateAllTo(siteName);
 		UIHelper.waitFor(driver);
 		
 		collectionPg.clickOnMouseOverMenu("Blank State Unit 1-1","View Details");
@@ -160,7 +168,7 @@ public class ALFDEPLOY_3816_TC001 extends TestCase {
 		//Create site
 				
 				homePageObj.navigateToSitesTab();					
-				sitesPage.siteFinder("alignsite02");
+				sitesPage.siteFinder(siteName);
 				
 				// Go to collection UI
 				sitesPage.enterIntoDocumentLibrary();

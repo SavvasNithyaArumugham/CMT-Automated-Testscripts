@@ -12,7 +12,9 @@
 			<class name="testscripts.movetocopyto.AUT_AG_005P1" />
 			<class name="testscripts.movetocopyto.AUT_AG_005P2" />
 			<class name="testscripts.movetocopyto.AUT_AG_005P3" />
+			<!-- Not required for NALS regression
 			<class name="testscripts.movetocopyto.AUT_AG_006" />
+			 -->
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

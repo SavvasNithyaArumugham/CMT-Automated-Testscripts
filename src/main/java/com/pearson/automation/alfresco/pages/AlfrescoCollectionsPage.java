@@ -50,7 +50,11 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	private String tempXpathForCreateMenuItemLink = ".//*[contains(@id,'yui-gen')]/a/span[contains(.,'CRAFT')]";
 	private String nameFieldXpathInCreateObject = ".//*[contains(@id,'prop_cm_name')]";
 	private String titleXpath = ".//*[contains(@id,'prop_cm_title')]";
+	//Added rumbaprogramnameXpath as part of NALS 
+	private String rumbaprogramnameXpath = ".//*[contains(@id,'prop_cpnals_rumbaProgramName')]";
 	private String descriptionXpath = ".//*[contains(@id,'prop_cm_description')]";
+	//Added skillspathXpath as part of NALS  
+	private String skillspathXpath = ".//*[contains(@id,'prop_cpnals_skillsPath')]";
 	private String versionStateDropdownXpath = ".//*[contains(@id,'prop_cpnals_versionState') and @name='-']";
 	private String versioncountryDropdownXpath = ".//*[contains(@id,'prop_cpnals_versionCountry') and @name='-']";
 	private String versiondistricttextxpath = ".//*[contains(@id,'prop_cpnals_versionDistrict')]";
@@ -482,7 +486,8 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	public void createCollectionObjectsByBasicData(String objectType,
 			String splittedFileValues[]) {
 		try {
-			String name = "", title = "", description = "", courseAbbrevation = "", contentType = "", contribSource = "", realizeFileType = "", discipline = "",rumba ="", mediaType = "";
+			//Added rumba,skillspath as part of NALS
+			String name = "", title = "", description = "", courseAbbrevation = "", contentType = "", contribSource = "", realizeFileType = "", discipline = "",rumbaprogramname ="", skillspath = "",mediaType = "";
 
 			if (objectType.equalsIgnoreCase("Course")) {
 
@@ -496,13 +501,16 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 						splittedFileValues, "CourseAbbrevation:");
 				discipline = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "Discipline:");
-				rumba = getFieldValueFromExcelForCreateObjects(
-						splittedFileValues, "rumba:");
-
+			//	Added rumba,skillspath as part of NALS
+				rumbaprogramname = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "Rumba Program Name:");
+				skillspath = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "Skills path:");
+			//	Added rumba,skillspath as part of NALS
 				clickOnCreateButton();
 				clickOnCreateMenuItem(objectType);
 				enterBasicDataForCreateCourseObject(name, title, description,
-						courseAbbrevation, discipline, rumba);
+						courseAbbrevation, discipline, rumbaprogramname,skillspath);
 				clickOnSaveBtnForSubmitCreateObjectData();
 			} else if (objectType.equalsIgnoreCase("Sequence Object")) {
 
@@ -705,18 +713,21 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	}
 
 	// Create Collections Objects
+	//Added rumba,skillspath as part of NALS
 	public void createCollectionObjects(String createObjectType, String name,
 			String title, String description, String courseAbbrevation,
 			String contentType, String contribSource, String realizeFileType,
-			String mediaType, String discipline, String rumba) {
+			String mediaType, String discipline, String rumba,String skillspath) {
 
 		try {
 			switch (createObjectType) {
 			case "Course":
 				clickOnCreateButton();
 				clickOnCreateMenuItem(createObjectType);
+				//Added rumba,skillspath as part of NALS
 				enterBasicDataForCreateCourseObject(name, title, description,
-						courseAbbrevation, discipline, rumba);
+						courseAbbrevation, discipline, rumba,skillspath);
+				//Added rumba,skillspath as part of NALS
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			case "Sequence Object":
@@ -772,8 +783,9 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 
 	// Create Course objects from Create menu items
 	// Enter Data in fields
+	//Added rumba,skillspath as part of NALS
 	public void enterBasicDataForCreateCourseObject(String name, String title,
-			String description, String courseAbbrevation, String discipline,String rumba) {
+			String description, String courseAbbrevation, String discipline,String rumba,String skillspath) {
 
 		try {
 			UIHelper.waitForVisibilityOfEleByXpath(driver,
@@ -787,12 +799,20 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			if (!title.isEmpty()) {
 				UIHelper.sendKeysToAnElementByXpath(driver, titleXpath, title);
 			}
-
+			//Added rumba,skillspath as part of NALS
+			if (!rumba.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver, rumbaprogramnameXpath, rumba);
+			}
+			//Added rumba,skillspath as part of NALS
 			if (!description.isEmpty()) {
 				UIHelper.sendKeysToAnElementByXpath(driver, descriptionXpath,
 						description);
 			}
-
+			//Added rumba,skillspath as part of NALS
+			if (!skillspath.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver, skillspathXpath, skillspath);
+			}
+			//Added rumba,skillspath as part of NALS
 			if (!courseAbbrevation.isEmpty()) {
 				UIHelper.sendKeysToAnElementByXpath(driver,
 						courseskillpathXpathInCreateObject,
@@ -807,6 +827,12 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				UIHelper.selectbyVisibleText(driver,
 						disciplizeDropdownXpathInCreateObject, discipline);
 			}
+System.out.println("Input data to create 'Course' object"+
+		"User able to enter data for 'Course' object"
+				+ "<br>Name: " + name + ", " + "Title: " + title
+				+ ", <br>" + "Description: " + description
+				+ ", <br>Course Abbrevation: " + courseAbbrevation
+				+ "Discipline: " + discipline);
 
 			report.updateTestLog("Input data to create 'Course' object",
 					"User able to enter data for 'Course' object"
@@ -4491,7 +4517,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	public void createCollectionObjectsByBasicDataforcsv(String objectType,
 			String splittedFileValues[]) {
 		try {
-			String name = "", title = "", description = "", courseAbbrevation = "", contentType = "", contribSource = "", realizeFileType = "", discipline = "", mediaType = "", versionCountry = "", versionState = "", versionDistrict = "", versionStatement = "", downloadRestrictions = "";
+			String name = "", title = "", description = "", courseAbbrevation = "", contentType = "", contribSource = "", realizeFileType = "", discipline = "", mediaType = "", versionCountry = "", versionState = "", versionDistrict = "", versionStatement = "", downloadRestrictions = "",rumbaprogramname = "", skillpath="";
 
 			if (objectType.equalsIgnoreCase("Course")) {
 
@@ -4499,8 +4525,12 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 						splittedFileValues, "Name:");
 				title = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "Title:");
+				rumbaprogramname = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "RUMBA Program:");
 				description = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "Description:");
+				skillpath = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "Skills Path:");
 				courseAbbrevation = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "CourseAbbrevation:");
 				discipline = getFieldValueFromExcelForCreateObjects(
@@ -4513,11 +4543,14 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 						splittedFileValues, "VersionDistrict:");
 				versionStatement = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "VersionStatement:");
+								
 
 				clickOnCreateButton();
 				clickOnCreateMenuItem(objectType);
-				enterBasicDataForCreateCourseObjectforcsv(name, title,
-						description, courseAbbrevation, discipline,
+
+				//Added rumba,skillspath as part of NALS
+				enterBasicDataForCreateCourseObjectforcsv(name, title,rumbaprogramname,
+						description,skillpath,courseAbbrevation, discipline,
 						versionCountry, versionState, versionDistrict,
 						versionStatement);
 
@@ -4573,7 +4606,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 
 				clickOnCreateButton();
 				clickOnCreateMenuItem(objectType);
-				enterBasicDataForContainerforcsv(name, title, description,
+				enterBasicDataForContainerforcsv(name, title,rumbaprogramname, description,skillpath,
 						discipline, versionCountry, versionState,
 						versionDistrict, versionStatement);
 				clickOnSaveBtnForSubmitCreateObjectData();
@@ -4716,7 +4749,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 
 	// Create Collections Objects
 	public void createCollectionObjectsforcsv(String createObjectType,
-			String name, String title, String description,
+			String name, String title,String rumbaprogramname, String description,String skillpath,
 			String courseAbbrevation, String contentType, String contribSource,
 			String realizeFileType, String mediaType, String discipline,
 			String versionCountry, String versionState, String versionDistrict,
@@ -4727,8 +4760,8 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			case "Course":
 				clickOnCreateButton();
 				clickOnCreateMenuItem(createObjectType);
-				enterBasicDataForCreateCourseObjectforcsv(name, title,
-						description, courseAbbrevation, discipline,
+				enterBasicDataForCreateCourseObjectforcsv(name, title,rumbaprogramname,
+						description,skillpath, courseAbbrevation, discipline,
 						versionCountry, versionState, versionDistrict,
 						versionStatement);
 				clickOnSaveBtnForSubmitCreateObjectData();
@@ -4745,7 +4778,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			case "Container":
 				clickOnCreateButton();
 				clickOnCreateMenuItem(createObjectType);
-				enterBasicDataForContainerforcsv(name, title, description,
+				enterBasicDataForContainerforcsv(name, title,rumbaprogramname,description,skillpath,
 						discipline, versionCountry, versionState,
 						versionDistrict, versionStatement);
 				clickOnSaveBtnForSubmitCreateObjectData();
@@ -4796,8 +4829,10 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 
 	// Create Course objects from Create menu items
 	// Enter Data in fields
+
+	//Added rumba,skillspath as part of NALS
 	public void enterBasicDataForCreateCourseObjectforcsv(String name,
-			String title, String description, String courseAbbrevation,
+			String title,String rumbaprogramname, String description,String skillspath,String courseAbbrevation,
 			String discipline, String versionCountry, String versionState,
 			String versionDistrict, String versionStatement) {
 
@@ -4813,11 +4848,20 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			if (!title.isEmpty()) {
 				UIHelper.sendKeysToAnElementByXpath(driver, titleXpath, title);
 			}
-
+			//Added as part of NALS
+			if (!rumbaprogramname.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver, rumbaprogramnameXpath, rumbaprogramname);
+			}
+			//Added as part of NALS
 			if (!description.isEmpty()) {
 				UIHelper.sendKeysToAnElementByXpath(driver, descriptionXpath,
 						description);
 			}
+			//Added as part of NALS 
+			if (!skillspath.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver, skillspathXpath, skillspath);
+			}
+			//Added as part of NALS
 
 			if (!courseAbbrevation.isEmpty()) {
 				UIHelper.sendKeysToAnElementByXpath(driver,
@@ -4856,7 +4900,9 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			report.updateTestLog("Input data to create 'Course' object",
 					"User able to enter data for 'Course' object"
 							+ "<br>Name: " + name + ", " + "Title: " + title
+							+ "<br>rumbaprogramname: " + rumbaprogramname 
 							+ ", <br>" + "Description: " + description
+							+ "<br>skillspath: " + skillspath 
 							+ ", <br>Course Abbrevation: " + courseAbbrevation
 							+ "Discipline: " + discipline
 							+ "<br> Version State:" + versionState
@@ -4952,8 +4998,8 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 
 	// Create Container from Create menu items
 	// Enter Data in fields
-	public void enterBasicDataForContainerforcsv(String name, String title,
-			String description, String discipline, String versionCountry,
+	public void enterBasicDataForContainerforcsv(String name, String title,String rumbaprogramname,
+			String description,String skillpath, String discipline, String versionCountry,
 			String versionState, String versionDistrict, String versionStatement) {
 		try {
 			UIHelper.waitForVisibilityOfEleByXpath(driver,

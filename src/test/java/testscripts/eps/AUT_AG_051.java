@@ -116,11 +116,8 @@ private FunctionalLibrary functionalLibrary;
 			collectionPg.clickOnMoreSetting(fileName[0]);
 			epsPg.publishbutton(fileName[0], Option[0]);
 			epsPg.Publish(Instution[0], fileName[0], "one");
-			System.out.println("2");
 			collectionPg.clickOnMoreSetting(fileName[0]);
-			System.out.println("3");
 			epsPg.publishbutton(fileName[0], Option[0]);
-			System.out.println("4");
 			/*String url = epsPg.getPublishingURL("Publication", Instution[0]);
 
 			if (url != null && url.contains("player.html")) {

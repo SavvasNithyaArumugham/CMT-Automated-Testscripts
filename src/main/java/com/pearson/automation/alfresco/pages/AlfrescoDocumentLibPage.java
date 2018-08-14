@@ -294,6 +294,11 @@ public class AlfrescoDocumentLibPage extends ReusableLibrary {
 	public String sharedfilesXpath = "//a[@title='Shared Files' and contains(.,'Shared Files')]";
 	public String copy2itemsxpath = "//*[text()='Copy 2 items to...']";
 
+	// Added for NALS project
+	private String pubBtnXPathtest = "/html/body/div[2]/div[1]/div[2]/table/tbody/tr[2]/td[6]/img";
+	private String finalXpathForPublishGreenLink ="/html/body/div[9]/div[1]/div[2]/div[2]/div[2]/div/div/div[1]/div[2]/div[12]/table/tbody[2]/tr/td[3]/div/div/img";
+
+	
 	/*** New Upload ***/
 	private String uploadnewvalue = ".//div[@class='REPLACE-version element']//span[contains(text(),'CRAFT')]//following-sibling::span";
 
@@ -337,6 +342,8 @@ public class AlfrescoDocumentLibPage extends ReusableLibrary {
 	private String tempCalculatedSizeInDocLibXpath="//*[@class='filename']//a[text()='CRAFT']//ancestor::td//div[@class='detail']/span[@class='item'][2]";
 	private String loadingMessageTextXpath = "//div[@class='bd']/span[@class='message']/span";
 	
+
+
 
 	private String copyToRepoLayoutHeaderXpath="//*[@class='yui-panel-container yui-dialog shadow']//div[contains(@id,'default-copyMoveToRepository-title')]";
 	private String tempSelectRepositryXpath="//*[contains(@id,'copyMoveToRepository-treeview')]//span[@class='ygtvlabel' and contains(text(),'CRAFT')]";
@@ -1100,8 +1107,6 @@ public class AlfrescoDocumentLibPage extends ReusableLibrary {
 		try {
 			String finalXpathForCopyToFolderLink = tempXpathForMoreSettingsOptLink.replace("CRAFT", fileOrfolderName)
 					.replace("MORE_OPT", moreSettingsOptName);
-			System.out.println("tempXpathForMoreSettingsOptLink"+tempXpathForMoreSettingsOptLink);
-			System.out.println("finalXpathForCopyToFolderLink"+finalXpathForCopyToFolderLink); 
 			
 			/*
 			 * UIHelper.waitForVisibilityOfEleByXpath(driver,
@@ -1109,7 +1114,7 @@ public class AlfrescoDocumentLibPage extends ReusableLibrary {
 			 */
 
 			WebElement copyToElement = UIHelper.findAnElementbyXpath(driver, finalXpathForCopyToFolderLink);
-			System.out.println("copyToElement"+copyToElement);
+		
 			UIHelper.highlightElement(driver, copyToElement);
 			UIHelper.scrollToAnElement(copyToElement);
 			report.updateTestLog("Click on " + moreSettingsOptName, "User able to click the " + moreSettingsOptName,
@@ -2620,8 +2625,8 @@ public class AlfrescoDocumentLibPage extends ReusableLibrary {
 
 			UIHelper.waitForVisibilityOfEleByXpath(driver, pubPopchkXPath);
 			UIHelper.click(driver, pubPopchkXPath);
-			UIHelper.waitForVisibilityOfEleByXpath(driver, pubBtnXPath);
-			UIHelper.click(driver, pubBtnXPath);
+		//	UIHelper.waitForVisibilityOfEleByXpath(driver, pubBtnXPath);
+			UIHelper.click(driver, pubBtnXPathtest);
 			UIHelper.waitFor(driver);
 			UIHelper.waitFor(driver);
 
@@ -2681,6 +2686,9 @@ public class AlfrescoDocumentLibPage extends ReusableLibrary {
 		return isDisplayedPublishLink;
 	}
 
+	
+
+	
 	// Check Published Tick for File Or Folder
 	public boolean checkPublishedTick(String fileName) {
 		boolean isDisplayedPublishedTickForFileOrFolder = false;
@@ -5050,6 +5058,38 @@ public void verifyRemoveShareboxExclusionPopupContents(String cancelButtonText, 
 
 					return messageText;
 					
+				}
+				
+				// Added for NALS project
+				public boolean isDisplayedPublishedGreenTick(String fileName) {
+				try {
+				highlightTheDocLibSection(fileName);
+				String finalXpathForPublishGreenLink1 = finalXpathForPublishGreenLink;
+
+				// Thread.sleep(400000);
+				UIHelper.pageRefresh(driver);
+				UIHelper.waitFor(driver);
+				UIHelper.waitForPageToLoad(driver);
+				UIHelper.waitFor(driver);
+				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, tempPublishInProgressLinkXpath);
+
+				try {
+				UIHelper.waitForVisibilityOfEleByXpath(driver, finalXpathForPublishGreenLink1);
+				} catch (Exception e) {
+				}
+
+				if (UIHelper.checkForAnElementbyXpath(driver, finalXpathForPublishGreenLink1)) {
+				UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver, finalXpathForPublishGreenLink1));
+				UIHelper.highlightElement(driver, finalXpathForPublishGreenLink1);
+				isDisplayedPublishLink = true;
+				} else {
+				isDisplayedPublishLink = false;
+				}
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+
+				return isDisplayedPublishLink;
 				}
 				
 }

@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import com.pearson.automation.alfresco.functionllibs.FunctionalLibrary;
 import com.pearson.automation.alfresco.pages.AlfrescoDocumentDetailsPage;
 import com.pearson.automation.alfresco.pages.AlfrescoDocumentLibPage;
+import com.pearson.automation.alfresco.pages.AlfrescoEPSPage;
 import com.pearson.automation.alfresco.pages.AlfrescoHomePage;
 import com.pearson.automation.alfresco.pages.AlfrescoLoginPage;
 import com.pearson.automation.alfresco.pages.AlfrescoMyFilesPage;
@@ -56,10 +57,12 @@ private FunctionalLibrary functionalLibrary;
 		functionalLibrary.loginAsValidUser(signOnPage);
 		
 		AlfrescoHomePage homePage = new AlfrescoHomePage(scriptHelper);
+			
 		String sourceSiteName = dataTable.getData("Sites", "EPSSiteName");
 		AlfrescoSitesPage sitesPage = new AlfrescoSitesPage(scriptHelper);
 		AlfrescoDocumentLibPage docLibPg =new AlfrescoDocumentLibPage(scriptHelper);
 		String fileName = dataTable.getData("MyFiles", "FileName");
+		
 		String[] fileNames = fileName.split(",");
 		String folderName = dataTable.getData("MyFiles", "Version");
 		String filePath = dataTable.getData("MyFiles", "FilePath");
@@ -77,7 +80,8 @@ private FunctionalLibrary functionalLibrary;
 		UIHelper.waitFor(driver);
 		sitesPage.openSiteFromRecentSites(sourceSiteName);	
 		sitesPage.enterIntoDocumentLibrary();
-		if(sitesPage.Checkdocument(folderName)){
+		if(sitesPage.Checkdocument(folderName))
+		{
 			myFiles.openCreatedFolder(folderName);
 			if(docLibPg.isFileIsAvailable(fileNames[0])){
 				deleteFileOrFolder(fileNames[0], moreSettingsOptionNames[1]);
@@ -125,11 +129,6 @@ private FunctionalLibrary functionalLibrary;
 		publishAFile(fileNames[1], moreSettingsOptionNames[0]);
 	}
 	
-	@Override
-	public void tearDown()
-	{
-		// Nothing to do
-	}
 	
 	private void deleteFileOrFolder(String fileOrFolderName, String optionToDelete){
 		AlfrescoSitesPage sitesPage = new AlfrescoSitesPage(scriptHelper);
@@ -154,18 +153,32 @@ private FunctionalLibrary functionalLibrary;
 		AlfrescoSitesPage sitesPage = new AlfrescoSitesPage(scriptHelper);
 		AlfrescoDocumentLibPage docLibPg =new AlfrescoDocumentLibPage(scriptHelper);
 		AlfrescoHomePage homePage = new AlfrescoHomePage(scriptHelper);
-		sitesPage.clickOnMoreSetting(fileName);		
-		docLibPg.commonMethodForClickOnMoreSettingsOption(fileName, moreSettingsOptionName);
+		AlfrescoEPSPage epsPg = new AlfrescoEPSPage(scriptHelper);
+		sitesPage.clickOnMoreSetting(fileName);	
+	 
+		// Added for NALS project
+		epsPg.publishbutton(fileName, moreSettingsOptionName);
+		
+	//docLibPg.commonMethodForClickOnMoreSettingsOption(fileName, moreSettingsOptionName);
+		
 		UIHelper.waitFor(driver);
+		
 		docLibPg.clickPublishPopup();
+		//UIHelper.waitFor(driver);
 		UIHelper.waitFor(driver);
 		UIHelper.pageRefresh(driver);
 		
 		AlfrescoDocumentLibPageTest docLibPgTest = new AlfrescoDocumentLibPageTest(scriptHelper);
-		docLibPgTest.verifyFilePublished(fileName);
+		docLibPgTest.verifyFilePublishedGreenTick(fileName);
+		// Added for NALS project
+		UIHelper.waitFor(driver);
+		UIHelper.pageRefresh(driver);
+		sitesPage.clickOnMoreSetting(fileName);	
+		epsPg.publishbutton(fileName, moreSettingsOptionName);
 		
-		sitesPage.clickOnEditProperties(fileName);
-		sitesPage.checkPublishedURLfield();
+		//sitesPage.clickOnEditProperties(fileName);
+	//	sitesPage.checkPublishedURLfield();
+		/*
 		String publishedURL = sitesPage.getPublishedURL();
 		String accessToken = dataTable.getData("MyFiles", "AccessToken");
 		
@@ -198,5 +211,11 @@ private FunctionalLibrary functionalLibrary;
 		
 		homePage.switchtab(0);
 		UIHelper.waitFor(driver);
+		*/
 	}
+	@Override
+	public void tearDown() {
+
+	}
+
 }

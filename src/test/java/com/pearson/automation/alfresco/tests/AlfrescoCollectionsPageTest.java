@@ -181,11 +181,13 @@ public class AlfrescoCollectionsPageTest extends ReusableLibrary {
 					String splittedObjectValues[] = objectValues.split(",");
 
 					if (splittedObjectValues != null) {
+						
 						String objectType = splittedObjectValues[0].replace("ObjectType:", "");
-
+						
 						String objectName = splittedObjectValues[1].replace("Name:", "");
-
 						collectionObjNamesList.add(objectType + "-" + objectName);
+					
+						
 					}
 				}
 			} else {

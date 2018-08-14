@@ -286,7 +286,7 @@ public class AUT_AG_026 extends TestCase {
 						int count1=0;
 						if (values != null) 
 						{
-								System.out.println("SplittedFilevalue: "+values);								
+
 								for (String csvRow : csvFileRowDataList) 
 								{				
 									String splitedRow[] = null;

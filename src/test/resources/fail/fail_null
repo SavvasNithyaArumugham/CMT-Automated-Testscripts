@@ -1,7 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?><suite name="Alfresco_Automation_Failure_Suite" parallel="classes" thread-count="1">
     <test name="Test">
         <classes>
-            <class name="testscripts.eps.AUT_AG_051"/>
+            <class name="testscripts.search.AUT_AG_012"/>
+            <class name="testscripts.search.AUT_AG_025"/>
+            <class name="testscripts.search.AUT_AG_037"/>
+            <class name="testscripts.search.AUT_AG_050"/>
+            <class name="testscripts.search.AUT_AG_051"/>
+            <class name="testscripts.search.AUT_AG_052"/>
+            <class name="testscripts.search.AUT_AG_053"/>
+            <class name="testscripts.search.AUT_AG_054"/>
+            <class name="testscripts.search.AUT_AG_055"/>
+            <class name="testscripts.search.AUT_AG_056"/>
+            <class name="testscripts.search.AUT_AG_057"/>
+            <class name="testscripts.search.AUT_AG_058P1"/>
+            <class name="testscripts.search.AUT_AG_059"/>
+            <class name="testscripts.search.AUT_AG_060"/>
+            <class name="testscripts.search.AUT_AG_061"/>
+            <class name="testscripts.search.AUT_AG_062"/>
+            <class name="testscripts.search.AUT_AG_063"/>
+            <class name="testscripts.search.AUT_AG_064"/>
+            <class name="testscripts.search.AUT_AG_065"/>
+            <class name="testscripts.search.AUT_AG_068"/>
+            <class name="testscripts.search.AUT_AG_069"/>
+            <class name="testscripts.search.AUT_AG_070"/>
+            <class name="testscripts.search.AUT_AG_071"/>
+            <class name="testscripts.search.AUT_AG_081"/>
+            <class name="testscripts.search.AUT_AG_082"/>
+            <class name="testscripts.search.AUT_AG_083"/>
+            <class name="testscripts.search.AUT_AG_084"/>
+            <class name="testscripts.search.AUT_AG_085"/>
+            <class name="testscripts.search.AUT_AG_086"/>
+            <class name="testscripts.search.AUT_AG_088"/>
+            <class name="testscripts.search.AUT_AG_090"/>
+            <class name="testscripts.search.AUT_AG_091"/>
+            <class name="testscripts.search.AUT_AG_092"/>
+            <class name="testscripts.search.AUT_AG_093"/>
+            <class name="testscripts.search.AUT_AG_094"/>
+            <class name="testscripts.search.AUT_AG_095"/>
+            <class name="testscripts.search.AUT_AG_096"/>
+            <class name="testscripts.search.AUT_AG_103"/>
+            <class name="testscripts.search.AUT_AG_105"/>
+            <class name="testscripts.search.AUT_AG_161"/>
+            <class name="testscripts.search.AUT_AG_170P5"/>
         </classes>
     </test>
 </suite>

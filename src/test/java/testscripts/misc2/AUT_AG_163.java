@@ -54,7 +54,9 @@ public class AUT_AG_163 extends TestCase
 		GmailVerificationPage gmailobj = new GmailVerificationPage(scriptHelper);
 		gmailobj.enterCredentials();
 		gmailobj.searchRecentActivityMail();
-		
+		//Added part of NALS 
+		gmailobj.verifyRecActURL();
+		//Added part of NALS 
 		AlfrescoHomePage homePageObj = new AlfrescoHomePage(scriptHelper);
 		homePageObj.switchtab(1);
 		

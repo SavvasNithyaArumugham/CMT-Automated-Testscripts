@@ -103,6 +103,8 @@ public class AUT_AG_024 extends TestCase {
 		sitesPage.createSite(siteNameValue, "Yes");
 		String siteName = sitesPage.getCreatedSiteName();
 		sitesPage.openSiteFromRecentSites(siteName);
+		
+				
 
 		// Navigate to document library and click on a program>Program Object
 		sitesPage.enterIntoDocumentLibrary();

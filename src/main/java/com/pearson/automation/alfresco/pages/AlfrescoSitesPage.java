@@ -6656,5 +6656,26 @@ public class AlfrescoSitesPage extends ReusableLibrary {
 		}
 		return demotlifeCyclebuttonItems;
 	}
+	
+	
+	public void verifyMoreSettingsOptionForFileOrFolderItemNegativeCase(String fileOrFolderName,
+			String moreSettingsOptionName) {
+			try {
+			isDisplayedMoreSettingsOption = checkMoreSettingsOption(fileOrFolderName,
+			moreSettingsOptionName);
+
+			if (!isDisplayedMoreSettingsOption) {
+			report.updateTestLog(
+			"Verify " + moreSettingsOptionName + " option", "User is not able to see '"
+			+ moreSettingsOptionName + "' option by hovering mouse on any file/folder",
+			Status.PASS);
+			} else {
+			report.updateTestLog("Verify " + moreSettingsOptionName + " option",
+			"User able to see '" + moreSettingsOptionName + "' option by hovering mouse on any file/folder",
+			Status.FAIL);
+			}
+			} catch (Exception e) {
+			}
+			}
 
 }

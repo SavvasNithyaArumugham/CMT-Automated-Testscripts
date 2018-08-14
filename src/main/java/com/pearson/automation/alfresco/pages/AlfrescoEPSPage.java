@@ -244,7 +244,7 @@ public class AlfrescoEPSPage extends ReusableLibrary {
 			 * 
 			 * }
 			 */
-			System.out.println("1");
+
 			try {
 				for (int i = 0; i < 10; i++) {
 
@@ -322,11 +322,11 @@ public class AlfrescoEPSPage extends ReusableLibrary {
 		AlfrescoCollectionsPage collectionPg = new AlfrescoCollectionsPage(scriptHelper);
 		String finalXpathForCopyToFolderLink = collectionPg.tempXpathForpublishOptLink.replace("CRAFT", filename)
 				.replace("MORE_OPT", moreoptn);
-		System.out.println("finalXpathForCopyToFolderLink"+finalXpathForCopyToFolderLink);
+		
 		UIHelper.waitFor(driver);
 		WebElement moreSettingsOptElement = UIHelper.findAnElementbyXpath(driver, finalXpathForCopyToFolderLink);
 		UIHelper.highlightElement(driver, moreSettingsOptElement);
-		System.out.println("moreSettingsOptElement"+moreSettingsOptElement);
+	
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", moreSettingsOptElement);
 		UIHelper.waitForPageToLoad(driver);

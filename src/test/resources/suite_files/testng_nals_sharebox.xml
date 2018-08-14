@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Sharebox" parallel="classes" thread-count="1">
-
-<test name="Test">
-		<classes>
+    <test name="Test">
+        <classes>
 	<!-- root folder Update For 1hrmail, -->
 			<!-- 5272 _02 -->
 			<class name="testscripts.misc3.AUT_AG_306P11" />

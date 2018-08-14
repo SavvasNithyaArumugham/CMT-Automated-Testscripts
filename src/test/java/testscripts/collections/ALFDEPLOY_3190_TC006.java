@@ -143,7 +143,7 @@ public class ALFDEPLOY_3190_TC006 extends TestCase {
 		String fileName1 = folderNames[2] + "-" + currentDate;
 		String filename2 = collectionPg.CSVFilename(fileName1);
 
-		System.out.println("filename1 : " + fileName1); 
+
 		
 		new FileUtil().deleteIfFileExistsInDownloadPath(downloadFilePath,
 				filename2);
@@ -194,6 +194,7 @@ public class ALFDEPLOY_3190_TC006 extends TestCase {
 			CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, smartlink[5], 12 ,84);
 			report.updateTestLog( "In 'Recommendable No Test 1' change Recommendable value from 'No' to 'Yes'", "File: " + filename2
 					+ " updated sucessfully", Status.PASS);
+			
 			} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
