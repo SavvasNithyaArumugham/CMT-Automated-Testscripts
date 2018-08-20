@@ -46,16 +46,21 @@ public class AUT_AG_119P2 extends TestCase
 		AlfrescoLoginPage signOnPage = new AlfrescoLoginPage(scriptHelper);
 		functionalLibrary.loginAsValidUser(signOnPage);
 
-		String testOutputFilePath = "src/test/resources/AppTestData/TestOutput/SiteDetails.txt";
+		/*String testOutputFilePath = "src/test/resources/AppTestData/TestOutput/SiteDetails.txt";
 		String siteName = "";
 		try {
 			siteName = new FileUtil().readDataFromFile(testOutputFilePath);
 		} catch (Exception e1) {
 			e1.printStackTrace();
-		}		
+		}*/		
 		
 		AlfrescoSitesPage sitesPage = new AlfrescoSitesPage(scriptHelper);
-		sitesPage.siteFinder(siteName);
+		//Added as part of NALS Starts 
+		AlfrescoHomePage homePage = new AlfrescoHomePage(scriptHelper);
+		homePage.navigateToSitesTab();
+		String siteName = dataTable.getData("Sites", "SiteName");
+		sitesPage.openSiteFromRecentSites(siteName);
+		//Added as part of NALS Ends
 		AlfrescoSitesDashboardPage siteDashboardPage = new AlfrescoSitesDashboardPage(scriptHelper);
 		siteDashboardPage.toLeaveASite(siteName);
 	}

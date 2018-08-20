@@ -293,7 +293,7 @@ public class GmailVerificationPage extends ReusableLibrary {
 			UIHelper.waitFor(driver);
 			UIHelper.waitFor(driver);
 			List<WebElement> subjectList = UIHelper.findListOfElementsbyXpath(searchRecentActivityXpath, driver);
-
+			System.out.println(subjectList.size()+ ""+ subjectList.get(0));
 			UIHelper.waitFor(driver);
 			if (subjectList != null && subjectList.size() > 0) {
 				subjectList.get(0).click();
@@ -303,11 +303,11 @@ public class GmailVerificationPage extends ReusableLibrary {
 				List<WebElement> userList = UIHelper.findListOfElementsbyXpath(recentMailUserXpath, driver);
 				List<WebElement> actionList = UIHelper.findListOfElementsbyXpath(recentMailActionXpath, driver);
 				List<WebElement> docList = UIHelper.findListOfElementsbyXpath(recentMailDocXpath, driver);
-
-		
-				System.out.println(actionList + " " + actionList.get(0));
-				System.out.println(docList + " " + docList.get(0));
-
+				System.out.println("*********************************");
+				System.out.println(userList.size() + " " + userList.get(0).getText());
+				System.out.println(actionList.size() + " " + actionList.get(0));
+				System.out.println(docList.size() + " " + docList.get(0));
+				System.out.println("*********************************");
 				UIHelper.waitFor(driver);
 				if (userList != null && actionList != null && docList != null) {
 
@@ -315,7 +315,7 @@ public class GmailVerificationPage extends ReusableLibrary {
 							Status.PASS);
 
 					for (int i = 0; i < userList.size(); i++) {
-						if (userList.get(i).getText().contains("SSO")) {
+						if (userList.get(i).getText().contains("Kunal Mehrotra")) {
 							UIHelper.scrollToAnElement(userList.get(i));
 							UIHelper.highlightElement(driver, userList.get(i));
 							UIHelper.clickanElement(docList.get(i));

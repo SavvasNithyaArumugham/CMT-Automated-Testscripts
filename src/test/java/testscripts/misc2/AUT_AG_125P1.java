@@ -48,7 +48,7 @@ private FunctionalLibrary functionalLibrary;
 		homePage.navigateToSitesTab();
 		
 		String siteNameValue = dataTable.getData("Sites", "SiteName");
-		sitesPage.createSite(siteNameValue, "Yes");
+		sitesPage.createSite(siteNameValue, "No");
 		
 		sitesPage.performInviteUserToSite(siteNameValue);
 	}

@@ -77,8 +77,12 @@ private FunctionalLibrary functionalLibrary;
 		
 		myFilesTestObj.verifyCreatedFolder(folderDetails);
 		
+	
 		String fileName = dataTable.getData("MyFiles", "FileName");
-		
+		//Added as part of NALS
+		String filePath = dataTable.getData("MyFiles", "FilePath");
+		myFiles.uploadFileInMyFilesPage(filePath, fileName);
+		//Added as part of NALS
 		myFilesTestObj.verifyUploadedMultipleFiles(fileName);
 		
 		docLibPgObj.clickOnFollowOption(fileName);

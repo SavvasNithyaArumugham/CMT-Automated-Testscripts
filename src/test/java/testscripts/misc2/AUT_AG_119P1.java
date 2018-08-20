@@ -46,10 +46,11 @@ private FunctionalLibrary functionalLibrary;
 		AlfrescoHomePage homePage = new AlfrescoHomePage(scriptHelper);
 		AlfrescoSitesPage sitesPage = new AlfrescoSitesPage(scriptHelper);
 		homePage.navigateToSitesTab();
-		
 		String siteNameValue = dataTable.getData("Sites", "SiteName");
-		sitesPage.createSite(siteNameValue, "Yes");
-		
+		//Modified as part of NALS
+		//sitesPage.createSite(siteNameValue, "No");
+		sitesPage.openSiteFromRecentSites(siteNameValue);
+		//Modified as part of NALS
 		sitesPage.performInviteUserToSite(siteNameValue);
 	}
 	

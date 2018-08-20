@@ -68,7 +68,7 @@ public class AUT_AG_163 extends TestCase
 		}
 		String nowPageName=driver.getTitle();
 		
-		System.out.println(nowPageName);
+		
 		
 	}
 	
