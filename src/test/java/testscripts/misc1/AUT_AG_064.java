@@ -86,7 +86,7 @@ public class AUT_AG_064 extends TestCase {
 		AlfrescoSearchPageTest searchTestObj = new AlfrescoSearchPageTest(scriptHelper);
 		searchTestObj.verifyFolderInSearchResults();
 		
-		searchObj.clickOnSelectBtnAndSelectOptionFromSearchResultPage("All");
+		searchObj.clickOnSelectBtnAndSelectOptionFromSearchResultPage();
 		
 		searchObj.clickOnSelectedItemsDropdownInSearchResultsPage();
 		
