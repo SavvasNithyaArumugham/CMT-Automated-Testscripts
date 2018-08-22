@@ -9,24 +9,11 @@
 <class name="testscripts.healthcheck.AUT_AG_012" />
 <class name="testscripts.healthcheck.AUT_AG_030" />
 <class name="testscripts.healthcheck.AUT_AG_033" />
-
-<!-- TC added for NALS project smoke testing-->
-
-
 <class name="testscripts.search.AUT_AG_016" />
-<class name="testscripts.collections.AUT_AG_026" />
-<class name="testscripts.collections.ALFDEPLOY_3816_TC001" />  
-<!-- Added these as part of NALS to run 4655_TC_001 -->
-<class name="testscripts.collections.ALFDEPLOY_3191_TC017" /> 
-<class name="testscripts.collections.ALFDEPLOY_3191_TC027" />
-<class name="testscripts.collections.ALFDEPLOY_3191_TC001" />
-<class name="testscripts.collections.ALFDEPLOY_3191_TC002" />
-<!-- Added these as part of NALS  to run 4655_TC_001 -->
-  
-<class name="testscripts.collections.ALFDEPLOY_4655_TC001" />
  <class name="testscripts.misc2.AUT_AG_206P1" />
 <class name="testscripts.misc2.AUT_AG_206P2" />
 <class name="testscripts.eps.AUT_AG_020" />
+
 									
 		</classes>
 	</test> <!-- Test -->
