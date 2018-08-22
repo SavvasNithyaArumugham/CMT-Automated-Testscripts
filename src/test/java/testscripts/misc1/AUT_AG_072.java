@@ -110,8 +110,8 @@ public class AUT_AG_072 extends TestCase {
 		for (String folderName : folderNamesList) {
 			searchTestObj.commonMethodForVerifyFolderInSearchResults(folderName);
 		}
-		
-		searchObj.clickOnSelectBtnAndSelectOptionFromSearchResultPage("All");
+		//Added for NALS project
+		searchObj.clickOnSelectBtnAndSelectOptionFromSearchResultPage();
 		
 		searchObj.clickOnSelectedItemsDropdownInSearchResultsPage();
 		

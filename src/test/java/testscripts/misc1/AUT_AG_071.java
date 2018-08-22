@@ -106,8 +106,8 @@ public class AUT_AG_071 extends TestCase {
 		{
 			searchTestObj.commonMethodForVerifySearchResults(fileName);
 		}
-		
-		searchObj.clickOnSelectBtnAndSelectOptionFromSearchResultPage("All");
+		//Added for NALS project
+		searchObj.clickOnSelectBtnAndSelectOptionFromSearchResultPage();
 		searchObj.clickOnSelectedItemsDropdownInSearchResultsPage();
 		
 		String selectedItemMenuOptVal = dataTable.getData("Sites", "SelectedItemsMenuOption");

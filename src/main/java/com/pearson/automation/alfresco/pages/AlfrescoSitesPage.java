@@ -72,8 +72,8 @@ public class AlfrescoSitesPage extends ReusableLibrary {
 	private String tempsiteTypeDropdownXpath = ".//div[@id='CREATE_SITE_FIELD_PRESET_CONTROL_dropdown']//table[contains(@id,'CREATE_SITE_FIELD_PRESET_CONTROL')]//td[contains(@class,'MenuItemLabel')]";
 	private String siteRegionDropdownXpath = ".//*[contains(@id,'createSite-instance-location')]";
 	private String tempXpathForSiteVisibility = "//*[contains(@id,'createSite-instance-form')]//label[contains(.,'CRAFT')]//ancestor::div[1]/input";
-// revert after EDMS 	private String editOfflineXpath = ".//*[@id='onActionCustomEditOffline']/a/span";
-	private String editOfflineXpath = ".//*[@id='onActionEditOffline']/a/span";
+	private String editOfflineXpath = ".//*[@id='onActionCustomEditOffline']/a/span";
+//	private String editOfflineXpath = ".//*[@id='onActionEditOffline']/a/span";
 	private String okButtonXpath = ".//*[contains(@id,'createSite-instance-ok-button-button')]";
 	// private String cancelButtonXpathInCreateSiteDailog =
 	// ".//*[contains(@id,'createSite-instance-cancel-button-button')]";

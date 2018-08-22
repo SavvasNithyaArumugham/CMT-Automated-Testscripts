@@ -53,28 +53,23 @@ public class AUT_AG_051P1 extends TestCase
 		functionalLibrary.loginAsValidUser(signOnPage);
 		AlfrescoHomePage homePageObj = new AlfrescoHomePage(scriptHelper);
 		AlfrescoSitesPage sitesPage = new AlfrescoSitesPage(scriptHelper);
+		AlfrescoMyFilesPage myFiles = new AlfrescoMyFilesPage(scriptHelper);
+		AlfrescoDocumentLibPage docLibPage = new AlfrescoDocumentLibPage(scriptHelper);
+		AlfrescoDocumentDetailsPage docDetailsPage = new AlfrescoDocumentDetailsPage(scriptHelper);
 		String siteassertValue = dataTable.getData("Sites", "SiteName");
-		//String targetSiteName = dataTable.getData("Sites", "TargetSiteName");
+		String filePath = dataTable.getData("MyFiles", "FilePath");
+		String fileName = dataTable.getData("MyFiles", "FileName");
+	
 		homePageObj.navigateToSitesTab();
 		UIHelper.waitFor(driver);
 		sitesPage.siteFinder(siteassertValue);
-		sitesPage.documentlib();
+		//sitesPage.documentlib();
+		sitesPage.enterIntoDocumentLibrary();
 		UIHelper.waitFor(driver);
-		
-		AlfrescoMyFilesPage myFiles = new AlfrescoMyFilesPage(scriptHelper);
-		String filePath = dataTable.getData("MyFiles", "FilePath");
-		String file = dataTable.getData("Sites", "FileName");
-	
-		AlfrescoDocumentLibPage docLibPage = new AlfrescoDocumentLibPage(scriptHelper);
 		docLibPage.deleteAllFilesAndFolders();
-		docLibPage.deleteAllFilesAndFolders();
+		myFiles.uploadFile(filePath, fileName);
+		sitesPage.documentdetails(fileName);
 		
-		myFiles.uploadFile(filePath, file);
-		
-	
-	//	sitesPage.documentlib();
-		sitesPage.documentdetails(file);
-		AlfrescoDocumentDetailsPage docDetailsPage = new AlfrescoDocumentDetailsPage(scriptHelper);
 		docDetailsPage.deleteLockedFileInDownloadedPath(false);
 		sitesPage.editOffline();
 

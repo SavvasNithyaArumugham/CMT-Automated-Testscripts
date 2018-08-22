@@ -16,6 +16,7 @@ import com.pearson.automation.alfresco.tests.AlfrescoMyFilesPageTest;
 import com.pearson.automation.alfresco.tests.AlfrescoSearchPageTest;
 import com.pearson.automation.utils.DriverScript;
 import com.pearson.automation.utils.TestCase;
+import com.pearson.automation.utils.UIHelper;
 import com.pearson.framework.IterationOptions;
 import com.pearson.framework.Status;
 
@@ -106,16 +107,22 @@ public class AUT_AG_069 extends TestCase {
 		AlfrescoSearchPageTest searchTestObj = new AlfrescoSearchPageTest(scriptHelper);
 		searchTestObj.verifyFolderInSearchResults();
 		
-		searchObj.clickOnSelectBtnAndSelectOptionFromSearchResultPage("All");
+		searchObj.clickOnSelectBtnAndSelectOptionFromSearchResultPage();
 		
 		searchObj.clickOnSelectedItemsDropdownInSearchResultsPage();
+		UIHelper.waitFor(driver);
 		
-		String selectedItemMenuOptVal = dataTable.getData("Sites", "SelectedItemsMenuOption");
-		searchTestObj.verifySelectedItemsMenuOptionFromSearchResultsPage(selectedItemMenuOptVal);
-		
-		searchObj.commonMethodForPerformSelectedItemsOperation(selectedItemMenuOptVal);
-		
+		// Added for NALS project
+		searchObj.clickOnCalculateSizeOptionInDropDown();
+				
+		UIHelper.waitFor(driver);
 		docLibPgTestObj.verifyFolderSize();
+	/*	String selectedItemMenuOptVal = dataTable.getData("Sites", "SelectedItemsMenuOption");
+	   searchTestObj.verifySelectedItemsMenuOptionFromSearchResultsPage(selectedItemMenuOptVal);
+		searchObj.commonMethodForPerformSelectedItemsOperation(selectedItemMenuOptVal);
+		*/
+		
+		
 	}
 
 	@Override

@@ -219,67 +219,51 @@ public class AlfrescoSearchPage extends ReusableLibrary {
 	public String saveSrcNameXpath = ".//*[contains(@class,'alfresco-forms-controls-BaseFormControl wipe nameField')]";
 	public String saveSrcDescXpath = ".//*[contains(@class,'alfresco-forms-controls-BaseFormControl wipe descField')]";
 	public String saveSrcprivateXpath = ".//*[@class='dijitReset dijitCheckBoxInput' and @value='private']";
-
 	public String tempChkBoxXpathForSearchResultsItem = ".//*[contains(@id,'FCTSRCH_SEARCH_RESULTS_LIST')]//table//tbody//tr//td[3]//a[contains(.,'CRAFT')]//ancestor::tr//td[1]/span";
 	private String tempXpathForSearchResultsItem = ".//*[contains(@id,'FCTSRCH_SEARCH_RESULTS_LIST')]//table//tbody//tr//td[3]//a[contains(.,'CRAFT')]";
-
 	//private String selectItemsMenuXpath = ".//*[@id='FCTSRCH_SEARCH_LIST_MENU_BAR']//*[contains(@aria-disabled,'false')]/span[contains(.,'Selected items')]";
 	private String selectItemsMenuXpath = ".//*[@id='SELECTED_ITEMS_MENU']";
 	private String tempXpathForSelectItems = ".//*[contains(@style,'visible')]/*[contains(@class,'alf-menu-groups') and contains(@style,'visible')]//td[text()='CRAFT']";
-
 	// Bulk Download Popup Xapths
 	private String bulkDownloadHeaderXpathInPopup = ".//*[contains(@id,'uniqName')]//span[contains(.,'Bulk Download')]";
 	private String commentsFieldXpathInBulkDownloadPopup = ".//*[@id='EXPORT-commentTextField']";
 	private String okBtnXpathInBulkDownloadPopup = ".//*[contains(@id,'uniqName')]//span[text()='Ok']";
 	private String bchlocationDropdown = ".//*[@id='BCHLocationField']";
 	private String bchlocationDropdownvalue = ".//*[@id='BCHLocationField']//option[2]";
-
 	private String messageEleXpath = ".//*[@id='message']/div";
 	private String tempXpathForMessage = ".//*[@id='message']/div[contains(.,'CRAFT')]";
 	private String messageText;
-
 	// All Aspects Template
 	private String allAspectsTemplatePopupHeaderXpath = ".//*[contains(@id,'uniqName')]//span[contains(.,'Export Metadata')]";
 	private String selectAllBtnXpath = ".//*[contains(@id,'uniqName')]//span[text()='Select All']";
 	private String pickedAspectFirstItemXpath = ".//*[@id='CUSTOM_SEARCH_PICKEDITEMS_ITEMS']/tr[1]";
 	private String downloadBtnXpath = ".//*[contains(@id,'uniqName')]//span[text()='Download']";
-
 	// Saved Search
 	public String searchQueryTxtXpath = ".//*[@class='alfresco-forms-Form save-search']";
 	public String savedSearchTypesXpath = ".//*[contains(@class,'dashlet saved-searches')]//div[2]//span";
 	//public String selectOptionXpath = ".//*[@id='FCTSRCH_SEARCH_LIST_MENU_BAR']//div[contains(@id,'AlfSelectDocumentListItems')]";
 	public String selectOptionXpath = ".//*[@id='SELECTED_ITEMS_MENU_text']";
-
 	private String selectLinkXPath = ".//div[@id='SELECTED_LIST_ITEMS']//span[contains(@class,'arrow')]";
 	private String slctListValsXPath = ".//tbody[@class='dijitReset']/tr[contains(@id,'alfresco_menus_AlfMenuItem')]/td[2]";
 	private List<WebElement> lstVals;
 	private List<String> lstValsTxt;
 	private List<WebElement> lstValsSlctDrpdwn;
-
 	private String slctFilesCheckedXPath = ".//*[contains(@class,'alfresco-renderers-Selector alfresco-lists-ItemSelectionMixin--selected')]";
 	private String slctFilesUnCheckedXPath = ".//span[@class='alfresco-renderers-Selector']";
-	
-
 	private String dataLodingMoreXpathForSearch = ".//*[@id='FCTSRCH_SEARCH_RESULTS_LIST']//*[contains(@class,'data-loading-more') and contains(.,'Searching')]";
 	private String searchResultItemXpath = ".//*[contains(@id,'FCTSRCH_SEARCH_RESULTS_LIST')]//table//tbody//tr[1]//td[3]//a[contains(.,'CRAFT')]";
 	private String saveSrchBtnXPath = ".//*[@class='buttons']//span[text()='Save']";
 	private String NameSrchQry;
 	public String testOutputFilePathSveSrch = "src/test/resources/AppTestData/TestOutput/SaveSrchnme.txt";
-
 	// Create Filter Xpaths
 	private String createNewFilterPopupHeaderXpath = ".//*[contains(@class,'dijitDialogTitleBar')]//span[contains(.,'Create New Filter')]";
-
 	private String createdSearchFilterHeadings = ".//*[contains(@id,'FCTSRCH')]//h3";
-
 	private String loadingXpath = "//*[@id='SEARCH_CONFIG_FACET_LIST']/*[contains(.,'Loading...')]";
 	private String messageLoadXpath = ".//*[@id='SEARCH_CONFIG_FACET_LIST']/*[contains(.,'Please wait while the view is rendered')]";
-
 	private String cnfMessageForCreateFilterXpath = ".//*[contains(@id,'uniqName')]//span[contains(.,'Operation Completed Successfully')]";
 	private String cnfMessageForDeleteteFilterXpath = ".//*[contains(@id,'uniqName')]//span[contains(.,'Successfully deleted')]";
-
 	private String tempXpathForFirstFilterItem = ".//*[contains(@id,'FCTSRCH')]//*[contains(@class,'label alfresco-layout-Twister--open') and contains(.,'CRAFT')]//following-sibling::ul/li[1]/span[contains(@class,'details')]/span[1]";
 	private String tempXpathForFirstFilterItemTickMark = ".//*[contains(@id,'FCTSRCH')]//*[contains(@class,'label alfresco-layout-Twister--open') and contains(.,'CRAFT')]//following-sibling::ul/li[1]/span[contains(@class,'status')]/span[not(contains(@class,'hidden'))]/img";
-
 	// Delete Filter Xpaths
 	private String tempXpathForDeleteFilter = ".//*[@id='SEARCH_CONFIG_FACET_LIST_VIEW_ROW']//td[contains(.,'CRAFT')]//following-sibling::td[7]/span";
 	private String confirmYesOrNoPopupHeaderXpath = ".//*[@class='dijitDialogTitleBar']/*[contains(.,'Confirm Deletion')]";
@@ -301,28 +285,22 @@ public class AlfrescoSearchPage extends ReusableLibrary {
 	// "src/test/resources/AppTestData/TestOutput/SaveSrchnme.txt";
 	private String nextBtnXpath = ".//*[@id='paginator-container']//span[contains(Text(),'next')]";
 	private String modifiedDateXpath = ".//*[@class='yui-dt-first yui-dt-last']//th[5]//span/a";
-	/*
-	 * private String modifiedDateXpath =
-	 * ".//*[@class='yui-dt-first yui-dt-last']//th//span/a[contains(Text(),'Modified')]"
-	 * ;
-	 */
+	// private String modifiedDateXpath = ".//*[@class='yui-dt-first yui-dt-last']//th//span/a[contains(Text(),'Modified')]"
 	private String valXpath = ".//td[contains(@class,'searchDisplayName')]/div/a[contains(Text(),'CRAFT')]";
-
 	private String iIconXPath = ".//span[@title='Click to show more information about CRAFT']";
 	private String iIConDilgXPath = ".//span[text()='CRAFT'][@role='heading']";
-
 	private String srtDrpXPath = ".//*[@id='FCTSRCH_SORT_MENU']/span[2]";
 	private String modFDrpXPath = ".//td[text()='Modified date']";
 	private String srchEleAjaxXPath = ".//*[@id='FCTSRCH_SEARCH_RESULTS_LIST']/div[7]";
-
 	// Verify fileter values
 	private String filterTypeXpath = ".//*[@id='FCTSRCH_SEARCH_FACET_LIST']//div[1]//h3[contains(.,'CRAFT')]";
 	private String showMoreXpath = ".//*[@id='FCTSRCH_SEARCH_FACET_LIST']//div[1]//h3[contains(.,'CRAFT')]//ancestor::div[2]//li//span[contains(.,'Show More')]";
 	private String filterValListXpath = ".//*[@id='FCTSRCH_SEARCH_FACET_LIST']//div[1]//h3[contains(.,'CRAFT')]//ancestor::div[2]//li//span[2]//span[1]";
-
 	// public String NameSrchQry;
-
-	private String slectBtnXpathInSearchResultsPage = ".//*[@id='FCTSRCH_SEARCH_LIST_MENU_BAR']//*[contains(@id,'alfresco_documentlibrary_AlfSelectDocumentListItems') and contains(@aria-label,'Select')]";
+	//Added for NALS test
+//	private String slectBtnXpathInSearchResultsPage = ".//*[@id='SELECTED_LIST_ITEMS']//span[2]";
+	private String slectBtnXpathInSearchResultsPage = ".//*[@id='SELECTED_LIST_ITEMS']//*[@role='presentation']";
+	
 	private String tempXpathForSelectOption = ".//*[contains(@id,'alfresco_documentlibrary_AlfSelectDocumentListItems') and contains(@style,'visible')]//*[contains(@id,'alfresco_menus_AlfMenuItem') and contains(@title,'CRAFT')]//*[text()='CRAFT']";
 	private String selectedItemsMenuOptionXpath = ".//*[contains(@id,'CUSTOM_SELECTED_MENU_dropdown') and contains(@style,'visible')]/*[contains(@class,'alf-menu-groups') and contains(@style,'visible')]//*[contains(@class,'dijitMenuItemLabel')]";
 	private String selecteditemsoptionsXpath  = ".//*[@id='SELECTED_ITEMS_ACTIONS_GROUP']//tbody/tr";
@@ -330,6 +308,10 @@ public class AlfrescoSearchPage extends ReusableLibrary {
 	private String lookForFieldValueInAdvancedSearch = ".//*[@class='search']//*[contains(.,'Look for')]//*[contains(@class,'first-child') and contains(.,'Content')]";
 	private String tempXpathForLookForFieldVal = ".//*[contains(@id,'default-selected-form-list')]//*[@class='bd']//li/*[contains(@class,'orm-type-name') and contains(text(),'CRAFT')]";
 	private String actionsoptionsxpath  = "//*[@id='FCTSRCH_SEARCH_RESULT_ACTIONS_DROPDOWN']//tr";
+	// Added for NALS project
+	   	
+	private String selectCalculateSizeInMenuXpath ="//*[@id='SELECTED_ITEMS_ACTIONS_GROUP'] // tr[8]";	
+	
 	AlfrescoMyFilesPage myFiles = new AlfrescoMyFilesPage(scriptHelper);
 
 	/**
@@ -1734,17 +1716,14 @@ public class AlfrescoSearchPage extends ReusableLibrary {
 		}
 	}
 
-	// Select all folders & files
+	/* Select all folders & files
 	public void clickOnSelectBtnAndSelectOptionFromSearchResultPage(
 			String selecMenuOption) {
 		try {
-			String finalXpathForSelectOption = tempXpathForSelectOption
-					.replace("CRAFT", selecMenuOption);
-			UIHelper.waitForVisibilityOfEleByXpath(driver,
-					slectBtnXpathInSearchResultsPage);
+			String finalXpathForSelectOption = tempXpathForSelectOption.replace("CRAFT", selecMenuOption);
+			UIHelper.waitForVisibilityOfEleByXpath(driver,slectBtnXpathInSearchResultsPage);
 			UIHelper.click(driver, slectBtnXpathInSearchResultsPage);
-			UIHelper.waitForVisibilityOfEleByXpath(driver,
-					finalXpathForSelectOption);
+			UIHelper.waitForVisibilityOfEleByXpath(driver,finalXpathForSelectOption);
 			UIHelper.click(driver, finalXpathForSelectOption);
 			UIHelper.waitFor(driver);
 		} catch (Exception e) {
@@ -1752,6 +1731,22 @@ public class AlfrescoSearchPage extends ReusableLibrary {
 		}
 	}
 
+	*/
+	// Added for NALS project - Select all in search results page
+	public void clickOnSelectBtnAndSelectOptionFromSearchResultPage()
+	{
+		try {
+			
+			UIHelper.waitForVisibilityOfEleByXpath(driver,slectBtnXpathInSearchResultsPage);
+			UIHelper.click(driver, slectBtnXpathInSearchResultsPage);
+			UIHelper.waitFor(driver);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 	// Start Select Items operation from Search Results page
 	public void clickOnSelectedItemsDropdownInSearchResultsPage() {
 		try {
@@ -1818,6 +1813,23 @@ public class AlfrescoSearchPage extends ReusableLibrary {
 		}
 	}
 
+	//Added for NALS project 
+	
+	public void clickOnCalculateSizeOptionInDropDown()
+	{
+	try {
+		UIHelper.waitForVisibilityOfEleByXpath(driver, selectCalculateSizeInMenuXpath);
+
+		if (UIHelper.checkForAnElementbyXpath(driver, selectCalculateSizeInMenuXpath)) {
+			UIHelper.click(driver, selectCalculateSizeInMenuXpath);
+			UIHelper.waitFor(driver);
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+}
+
+	
 	// Start Select Items operation from Search Results page
 	public void commonMethodForPerformSelectedItemsOperation(
 			String selectItemMenuOptName) {
