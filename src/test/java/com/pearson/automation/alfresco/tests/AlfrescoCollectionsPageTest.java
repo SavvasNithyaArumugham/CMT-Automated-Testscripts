@@ -591,6 +591,7 @@ public class AlfrescoCollectionsPageTest extends ReusableLibrary {
 		try {
 			ArrayList<String> expectedChildReferencesFromExcel = getChildReferencesFromExcel(collectionObjectType,
 					assetTypes);
+			
 			expectedChildReferencesFromExcel.add("/Courses/Course");
 			ArrayList<String> actualChildReferencesList = appCollectionsPg.getChildreferencesFromDocDetailsPage();
 

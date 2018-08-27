@@ -65,31 +65,39 @@ public class ALFDEPLOY_2747_TC001_2_3_4 extends TestCase {
 		// create random site
 		homePageObj.navigateToSitesTab();
 		String siteNameValue = dataTable.getData("Sites", "SiteName");
+		
 		sitesPage.createSite(siteNameValue, "Yes");
 		String siteName = sitesPage.getCreatedSiteName();
-		// sitesPage.openSiteFromRecentSites(siteName);
+		
 
 		// enter collection UI
 		sitesPage.enterIntoDocumentLibrary();
+		
 		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
 		myFiles.openCreatedFolder(folderNames[0]);
 		myFiles.openCreatedFolder(folderNames[1]);
 		collectionPg.clickOnEditCollectionButton();
 
 		// enter into default course object
+		
 		String collectionObjectName = dataTable.getData("MyFiles", "CreateMenuItemsForCollection");
 		collectionPg.openCollectionObject(collectionObjectName);
 
 		// create collections objects
+	
 		String createObjectData = dataTable.getData("MyFiles", "CollectionObjectBasicData");
 		collectionPg.createBasicCollectionObjectFromCreateMenu(createObjectData);
 
 		// navigate back to program in collection UI
+	
 		driver.navigate().back();
 		UIHelper.waitForPageToLoad(driver);
 		collectionPg.clickOnEditCollectionButton();
 
+		
 		// click generate realize CSV on course and CMT content CSV
+		
+		
 		String moreSettingsOptionName = dataTable.getData("MyFiles", "MoreSettingsOption");
 		String moreSettingsOptionName2 = dataTable.getData("MyFiles", "MoreSettingsOption2");
 		collectionPg.clickOnMoreSetting(collectionObjectName);
@@ -134,7 +142,6 @@ public class ALFDEPLOY_2747_TC001_2_3_4 extends TestCase {
 							Status.PASS);
 					downloadFlag = true;
 					csvFileRowDataList = new CSVUtil().readLinesOfDataFromCSVFile(downloadFilePath + "/" + file);
-
 				} else {
 
 					report.updateTestLog("Verify download file", "File: " + file + " failed to download", Status.FAIL);
@@ -170,8 +177,8 @@ public class ALFDEPLOY_2747_TC001_2_3_4 extends TestCase {
 
 			for (String csvRow : csvFileRowDataList) {
 				String splitedRow[] = null;
-				splitedRow = csvRow.replace("\"", "").replace("", " ").split(",");
-
+				splitedRow = csvRow.replace("\"", "").replace("", " ").split(",");		
+				
 				if (splitedRow[0].replace(" ", "").contains("true") && splitedRow[13].contains(" ")) {
 					report.updateTestLog("Root: " + splitedRow[0].replace(" ", ""), "PD: " + splitedRow[13],
 							Status.PASS);
@@ -225,27 +232,29 @@ public class ALFDEPLOY_2747_TC001_2_3_4 extends TestCase {
 				}
 
 				if (splitedRow[0].replace(" ", "").contains("Root")) {
-					if (splitedRow[87].replace(" ", "").trim().equalsIgnoreCase("Asset(s)tolink")) {
+					//Modified the splitedRow[] as part of NALS
+					if (splitedRow[88].replace(" ", "").trim().equalsIgnoreCase("Asset(s)tolink")) {
 						report.updateTestLog("Verify 'Asset(s) to link' column from the CSV",
 								"'Asset(s) to link' column displayed successfully", Status.PASS);
 					} else {
 						report.updateTestLog("Verify 'Asset(s) to link' column from the CSV",
 								"'Asset(s) to link' column failed to display in CSV file", Status.FAIL);
 					}
-					if (splitedRow[88].replace(" ", "").trim().equalsIgnoreCase("Thumbnailtolink")) {
+					if (splitedRow[89].replace(" ", "").trim().equalsIgnoreCase("Thumbnailtolink")) {
 						report.updateTestLog("Verify 'Thumbnail to link' column from the CSV",
 								"'Thumbnail to link' column displayed successfully", Status.PASS);
 					} else {
 						report.updateTestLog("Verify 'Thumbnail to link' column from the CSV",
 								"'Thumbnail to link' column failed to display in CSV file", Status.FAIL);
 					}
-					if (splitedRow[89].replace(" ", "").trim().equalsIgnoreCase("GridThumbnailtolink")) {
+					if (splitedRow[90].replace(" ", "").trim().equalsIgnoreCase("GridThumbnailtolink")) {
 						report.updateTestLog("Verify 'Grid Thumbnail to link' column from the CSV",
 								"'Grid Thumbnail to link' column displayed successfully", Status.PASS);
 					} else {
 						report.updateTestLog("Verify 'Grid Thumbnail to link' column from the CSV",
 								"'Grid Thumbnail to link' column failed to display in CSV file", Status.FAIL);
 					}
+					
 				}
 			}
 
@@ -296,12 +305,13 @@ public class ALFDEPLOY_2747_TC001_2_3_4 extends TestCase {
 
 		String downloadedCSVFileANmeWithPath = downloadFilePath + "/" + downloadedCourseFileName;
 		try {
-			CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, fileName, 5, 87);
-			CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, fileName, 7, 87);
-			CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, thumbImgFileName, 5, 88);
-			CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, thumbImgFileName, 7, 88);
+			//Modified 88,89,90 from 87,88,89 as part of NALS
+			CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, fileName, 5, 88);
+			CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, fileName, 7, 88);
 			CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, thumbImgFileName, 5, 89);
 			CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, thumbImgFileName, 7, 89);
+			CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, thumbImgFileName, 5, 90);
+			CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, thumbImgFileName, 7, 90);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

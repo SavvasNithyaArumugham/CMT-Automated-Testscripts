@@ -89,8 +89,12 @@ public class ALFDEPLOY_2297_TC007 extends TestCase {
 		collectionPg.clickOnEditCollectionButton();
 
 		// Click on Generate Realize Csv for course object
-		collectionPg.clickOnBrowseActionsInCollectionUI(objectName, browseActionName);
-
+		//Modified as part of NALS Starts
+		//collectionPg.clickOnBrowseActionsInCollectionUI(objectName, browseActionName);
+				collectionPg.clickOnMoreSetting(objectName);
+				collectionPg.commonMethodForClickOnMoreSettingsOption(objectName, browseActionName);
+				collectionPg.clickonrealizebox();
+		//Modified as part of NALS Ends
 		// Navigate to Document library
 		sitesPage.enterIntoDocumentLibrary();
 

@@ -4,7 +4,7 @@
 	thread-count="1">
 	<test name="Test">
 		<classes>
-			<!-- <class name="testscripts.links.TC4" />
+			 <class name="testscripts.links.TC4" />
 			<class name="testscripts.links.TC5" />
 			<class name="testscripts.links.TC6_P1" />
 			<class name="testscripts.links.TC7" />
@@ -48,7 +48,7 @@
 			<class name="testscripts.links.TC310Part1_43" />
 			<class name="testscripts.links.TC310Part2_43" />
 			<class name="testscripts.links.TC310Part3_43" />
-			-->
+		
 			<class name="testscripts.links.TC311Part1_44" />
 			<class name="testscripts.links.TC311Part2_44" />
 			<class name="testscripts.links.TC314Part1_45" />

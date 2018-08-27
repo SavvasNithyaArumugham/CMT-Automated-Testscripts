@@ -54,12 +54,12 @@
 			<class name="testscripts.misc2.AUT_AG_154" />
 			<class name="testscripts.misc2.AUT_AG_159" />
 			<class name="testscripts.misc2.AUT_AG_160" />
-			<class name="testscripts.misc2.AUT_AG_163" />
+		<!-- 	<class name="testscripts.misc2.AUT_AG_163" />  -->
 			<class name="testscripts.misc2.AUT_AG_170P1" />
 			<class name="testscripts.misc2.AUT_AG_170P2" />
 			<class name="testscripts.misc2.AUT_AG_170P3" />
 			<class name="testscripts.misc2.AUT_AG_170P4" />
-			<class name="testscripts.misc2.AUT_AG_171" />
+	<!-- 		<class name="testscripts.misc2.AUT_AG_171" /> -->
 			<class name="testscripts.misc2.AUT_AG_172P1" />
 			<class name="testscripts.misc2.AUT_AG_172P2" />
 			<class name="testscripts.misc2.AUT_AG_172P3" />

@@ -1,4 +1,4 @@
-package testscripts.collections;
+package testscripts.sanity.usppewip;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,6 +11,7 @@ import com.pearson.automation.utils.TestCase;
 import com.pearson.automation.utils.UIHelper;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -37,16 +38,23 @@ import com.pearson.automation.utils.DriverScript;
 import com.pearson.framework.IterationOptions;
 import com.pearson.framework.Status;
 
-public class ALFDEPLOY_3190_TC003 extends TestCase {
+public class ALFDEPLOY_3191_TC017 extends TestCase {
 
 	private FunctionalLibrary functionalLibrary;
 
 	@Test
-	public void COLLECTIONS_005() {
+	public void COLLECTIONS_026() {
 		testParameters
-				.setCurrentTestDescription("ALFDEPLOY-3190_03_Confirm new metadata available in Alfresco property forms for Discipline and Version State"
-						+"<br>ALFDEPLOY-3190_04_Media Type has new values available"
-						+"<br>ALFDEPLOY-3190_05_Content Type and Genres have new values available");
+		.setCurrentTestDescription("ALFDEPLOY-3191_017_Confirm Text Features field was populated in import"
+				+"<br>ALFDEPLOY-3191_018_Confirm Text Features field in configured correctly"
+				+"<br>ALFDEPLOY-3191_019_Change Text Features field value"	
+				+"<br>ALFDEPLOY-3191_020_Confirm Content Areas field was populated in import"
+				+"<br>ALFDEPLOY-3191_021_Confirm Content Areas field in configured correctly"
+				+"<br>ALFDEPLOY-3191_022_Change Content Areas field value"
+				+"<br>ALFDEPLOY-3191_023_Confirm ISBN field was populated in import"
+				+"<br>ALFDEPLOY-3191_024Confirm ISBN field in configured correctly"
+				+"<br>ALFDEPLOY-3191_025_Confirm Author field was populated in import"
+				+"<br>ALFDEPLOY-3191_026_Confirm Author field in configured correctly");		
 		
 		testParameters.setIterationMode(IterationOptions.RunOneIterationOnly);
 		driverScript = new DriverScript(testParameters);
@@ -73,9 +81,7 @@ public class ALFDEPLOY_3190_TC003 extends TestCase {
 		AlfrescoMyFilesPage myFiles = new AlfrescoMyFilesPage(scriptHelper);
 		AlfrescoCollectionsPage collectionPg = new AlfrescoCollectionsPage(scriptHelper);
 		AlfrescoCollectionsPageTest collectionPgTest = new AlfrescoCollectionsPageTest(scriptHelper);	
-		AlfrescoSearchPage alfrescoSearchPage = new AlfrescoSearchPage(scriptHelper);
-		AlfrescoMyTasksPageTest alfrescoTaskPage= new AlfrescoMyTasksPageTest(scriptHelper);
-		
+	
 		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
 		String collectionsobj = dataTable.getData("MyFiles", "CreateFileDetails");
 		String siteNameValue =  dataTable.getData("Sites", "SiteName");
@@ -85,7 +91,12 @@ public class ALFDEPLOY_3190_TC003 extends TestCase {
 		String errorfile = dataTable.getData("MyFiles", "Subfolders1");
 		String Option[] = dataTable.getData("MyFiles", "MoreSettingsOption").split(";");
 		String[] Metadata = dataTable.getData("MyFiles", "FieldDataForAllProperties").split(";");	
-		
+		String allProperties = ".//a[contains(text(),'All Properties...')]";
+		String[] fieldData = dataTable.getData("MyFiles", "FieldDataForQuickEdit").split(";");
+		String downloadFilePath = properties.getProperty("DefaultDownloadPath");
+		String moreSettingsOptionName = dataTable.getData("MyFiles","MoreSettingsOption");
+		String[] filePath1 = dataTable.getData("MyFiles", "CreateFileDetails").split("/");
+		File downloadedFile = null;
 		boolean flag = false;
 		       // Log in Pearson Schools project
 			    functionalLibrary.loginAsValidUser(signOnPage);
@@ -94,32 +105,33 @@ public class ALFDEPLOY_3190_TC003 extends TestCase {
 			    //Create site
 			    homePageObj.navigateToSitesTab();
 				UIHelper.waitFor(driver);
-				/*
-				String siteName = sitesPage.getCreatedSiteName();				
-				sitesPage.openSiteFromRecentSites(siteName);
-				*/
+
+				/*String siteName = sitesPage.getCreatedSiteName();				
+				sitesPage.openSiteFromRecentSites(siteName);*/
+			 
 				sitesPage.createSite(siteNameValue, "Yes");
 				UIHelper.waitFor(driver);
-	
+			
 	         // Go to collection UI
 			sitesPage.enterIntoDocumentLibrary();
 		  
 			//go to Course plan
-			myFiles.openCreatedFolder("Data Imports");
-			myFiles.openCreatedFolder("Course Plan");
+				myFiles.openCreatedFolder("Data Imports");
+				myFiles.openCreatedFolder("Course Plan");
 	
 		     // upload course plan
-	
+				
 				collectionPg.uploadFileInCollectionSite(filePath, fileName);
+				UIHelper.waitForLong(driver);
 				UIHelper.waitForLong(driver);
 				UIHelper.pageRefresh(driver);
 				UIHelper.waitForLong(driver);
 				UIHelper.pageRefresh(driver);
 			    driver.navigate().refresh();
 			    sitesPage.enterIntoDocumentLibrary();
-			   
+			    
 			    //go to course object 1
-		         
+		          
 			    Date date = new Date();
 			    String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(date);
 	           	           
@@ -129,31 +141,29 @@ public class ALFDEPLOY_3190_TC003 extends TestCase {
 				myFiles.openCreatedFolder(currentDate.substring(5, 7));
 				myFiles.openCreatedFolder(currentDate.substring(8, 10));
 				report.updateTestLog("Check whether CSV file is uploaded" , "Status: "  +"CSV file is uploaded", Status.PASS);
-			
+				
 				// Go to Courses and navigate to Content Type
 				sitesPage.enterIntoDocumentLibrary();
 				sitesPage.documentdetailsColl(folderNames[0]);
 				sitesPage.documentdetailsColl(folderNames[1]);
 				collectionPg.clickOnEditCollectionButton();
 				UIHelper.waitForPageToLoad(driver);
-				
-				collectionPg.clickOnLeftSideFolderFromTreeView(folderNames[2]);
-				collectionPg.clickOnLeftSideFolderFromTreeView(folderNames[3]);
-				collectionPg.clickOnLeftSideFolderFromTreeView(folderNames[4]);
-				UIHelper.waitForLong(driver); 
-				
-				// Verify Property values in Edit All Properties form
-				
-				/***********************Confirm new metadata available in Alfresco property forms for Discipline and Version State***************/
-				/***********************Confirm new metadata available in Alfresco property forms for Media Type**************************/
-				/***********************Confirm new metadata available in Alfresco property forms for Content Type and Genres*****************/
-				collectionPg.verifyMetadataValuesInEditAllProperties(folderNames[5],Metadata[0],"No");
-				collectionPg.verifyMetadataValuesInEditAllProperties(folderNames[5],Metadata[1],"No");
-				collectionPg.verifyMetadataValuesInEditAllProperties(folderNames[5],Metadata[2],"No");
-				collectionPg.verifyMetadataValuesInEditAllProperties(folderNames[5],Metadata[3],"No");
-				collectionPg.verifyMetadataValuesInEditAllProperties(folderNames[5],Metadata[4],"No");
-				
-				
+									
+				/*****************Confirm Text Features field was populated in import***************/
+				/*****************Confirm Text Features field in configured correctly***************/
+				/*****************Change Text Features field value**********************************/
+				collectionPg.verifyMetadataValuesInEditAllProperties(folderNames[2],Metadata[0],"yes");
+				/*****************Confirm Content Areas field was populated in import***************/
+				/*****************Confirm Content Areas field in configured correctly***************/
+				/*****************Change Content Areas field value**********************************/				
+				collectionPg.verifyMetadataValuesInEditAllProperties(folderNames[3],Metadata[1],"yes");
+				/*******************Confirm ISBN field was populated in import*********************/
+				/*****************Confirm ISBN field in configured correctly***************/
+				collectionPg.confirmPropertyinImportAndSave(folderNames[4],Metadata[2],fieldData[0]);
+				/*******************Confirm Author field was populated in import*********************/
+				/*****************Confirm Author field in configured correctly***************/
+				collectionPg.confirmPropertyinImportAndSave(folderNames[5],Metadata[3],fieldData[1]);	
+			
 		}	  
 
 	@Override

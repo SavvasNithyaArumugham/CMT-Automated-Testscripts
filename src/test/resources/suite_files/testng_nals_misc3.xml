@@ -5,7 +5,7 @@
 		<classes>
 				
 		<!-- Miscellaneous Test Scripts 100 TC's -->
-		 					
+		  				
 			<class name="testscripts.misc3.AUT_AG_215" />
 			<class name="testscripts.misc3.AUT_AG_216" />  
 			<class name="testscripts.misc3.AUT_AG_220" />
@@ -65,6 +65,7 @@
 			<class name="testscripts.misc3.AUT_AG_292P2" />
 			<class name="testscripts.misc3.AUT_AG_293P1" />
 			<class name="testscripts.misc3.AUT_AG_293P2" />
+		
 			<class name="testscripts.misc3.AUT_AG_296P1" />
 			<class name="testscripts.misc3.AUT_AG_296P2" />
 			<class name="testscripts.misc3.AUT_AG_298P1" />

@@ -6,6 +6,7 @@
 			
 			
 			<!-- Refactored Testcases -->
+			
 			 <class name="testscripts.objectmodel.AUT_AG_001" />
 	     	<class name="testscripts.objectmodel.AUT_AG_002" />
 	     	<class name="testscripts.objectmodel.AUT_AG_003" />
@@ -48,9 +49,9 @@
 			<class name="testscripts.objectmodel.AUT_AG_018P3" /> 
 			
 		 <!--  	Release 1.9.6 -->	
-		 
+
 			<class name="testscripts.objectmodel.AUT_AG_019"/>
-		
+	
 			<class name="testscripts.objectmodel.AUT_AG_020P1" />
 			<class name="testscripts.objectmodel.AUT_AG_020P2" />
 			<class name="testscripts.objectmodel.AUT_AG_020P3" />

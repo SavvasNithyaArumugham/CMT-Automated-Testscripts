@@ -64,12 +64,6 @@ public class ALFDEPLOY_2242_TC001 extends TestCase {
 
 		String siteNameValue = dataTable.getData("Sites", "SiteName");
 		sitesPage.createSite(siteNameValue, "Yes");
-	//	String siteName = sitesPage.getCreatedSiteName();
-
-		//sitesPage.siteFinder(siteName);
-
-		// Navigate to site document library
-
 		sitesPage.enterIntoDocumentLibrary();
 
 		String[] folderNames = dataTable.getData("MyFiles", "CreateFolder").split(",");
@@ -112,22 +106,17 @@ public class ALFDEPLOY_2242_TC001 extends TestCase {
 		// Check that the "Child Reference" association to the the uploaded file
 		// is present in the relationship viewer
 		myFiles.openCreatedFolder(folderNames[0]);
-	//	sitesPage.clickOnViewDetails(folderNames[1]);
+		//Modified as part of NALS Starts
+		sitesPage.clickOnViewDetails(folderNames[1]);
 		
 		collectionPg.verifyListOfReferenveValue("Course", "outgoing","Child Reference","AlfrescoMP3File.mp3");
 		collectionPg.verifyListOfReferenveValue("Course", "outgoing","Child Reference","AlfrescoMP4File.mp4");
 		collectionPg.verifyListOfReferenveValue("Course", "outgoing","Child Reference","AlfrescoJPEGFile.jpg");
 		
-
-	//	collectionPgTest.verifyChildReferencesForUploadedFiles("Assets", assetTypes);
 		
-		
-		
-		
-		
-		
-		
-		
+		collectionPgTest.verifyChildReferencesForUploadedFiles("Assets", assetTypes);
+		//Modified as part of NALS Ends
+	
 
 	}
 

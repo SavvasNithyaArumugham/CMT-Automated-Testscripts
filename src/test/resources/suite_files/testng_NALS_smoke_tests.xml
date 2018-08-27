@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Health_Check_Sanity" parallel="classes" thread-count="1">
+<suite name="Health_Check_Sanity_USPPEWIP" parallel="classes" thread-count="1">
 	<test name="Test">
 		<classes>
 			<!-- Health check Test cases-->
 
-<class name="testscripts.healthcheck.AUT_AG_001" />
-<class name="testscripts.healthcheck.AUT_AG_012" />
-<class name="testscripts.healthcheck.AUT_AG_030" />
-<class name="testscripts.healthcheck.AUT_AG_033" />
-<class name="testscripts.search.AUT_AG_016" />
- <class name="testscripts.misc2.AUT_AG_206P1" />
-<class name="testscripts.misc2.AUT_AG_206P2" />
-<class name="testscripts.eps.AUT_AG_020" />
+<class name="testscripts.sanity.usppewip.AUT_AG_001" />
+<class name="testscripts.sanity.usppewip.AUT_AG_012" />
+<class name="testscripts.sanity.usppewip.AUT_AG_030" />
+<class name="testscripts.sanity.usppewip.AUT_AG_033" />
+<class name="testscripts.sanity.usppewip.AUT_AG_016" />
+ <class name="testscripts.sanity.usppewip.AUT_AG_206P1" />
+<class name="testscripts.sanity.usppewip.AUT_AG_206P2" />
+<class name="testscripts.sanity.usppewip.AUT_AG_020" />
 
 									
 		</classes>

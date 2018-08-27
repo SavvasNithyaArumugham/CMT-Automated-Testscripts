@@ -5,7 +5,7 @@
 		<classes>
 			<!-- AMTS Test Scripts -->
 			<!-- Release 1.9.3 -->
-			
+			<!-- 
 		 	<class name="testscripts.amts.AUT_AG_001" />
 			<class name="testscripts.amts.AUT_AG_002" />
 			<class name="testscripts.amts.AUT_AG_003" />
@@ -68,6 +68,7 @@
 				
 			<class name="testscripts.amts.AUT_AG_776" />
 			<class name="testscripts.amts.AUT_AG_777" />
+			
 			<class name="testscripts.amts.AUT_AG_778" />
 			<class name="testscripts.amts.AUT_AG_779" />
 			<class name="testscripts.amts.AUT_AG_780" />
@@ -84,6 +85,7 @@
 			<class name="testscripts.amts.AUT_AG_800" />
 			<class name="testscripts.amts.AUT_AG_802" />
 			<class name="testscripts.amts.AUT_AG_803" />
+			-->
 			<class name="testscripts.amts.AUT_AG_804" />
 			<class name="testscripts.amts.AUT_AG_805" /> 
 			<class name="testscripts.amts.AUT_AG_806" /> 

@@ -4,8 +4,8 @@
 	thread-count="1">
 	<test name="Test">
 		<classes>
-		
-		<class name="testscripts.collections.ALFDEPLOY_2197_TC001" />
+		 
+			<class name="testscripts.collections.ALFDEPLOY_2197_TC001" />
 			<class name="testscripts.collections.ALFDEPLOY_2204_TC003" />
 			<class name="testscripts.collections.ALFDEPLOY_2205_TC001" />
 			<class name="testscripts.collections.ALFDEPLOY_2206_TC006" />
@@ -22,7 +22,7 @@
 			<class name="testscripts.collections.ALFDEPLOY_2237_TC002" />
 			<class name="testscripts.collections.ALFDEPLOY_2237_TC006" />
 			<class name="testscripts.collections.ALFDEPLOY_2241_TC001" />
-			<class name="testscripts.collections.ALFDEPLOY_2242_TC001" />
+			<!--  <class name="testscripts.collections.ALFDEPLOY_2242_TC001" /> Duplicate testcase -->
 			<class name="testscripts.collections.ALFDEPLOY_2297_TC002P1" />
 			<class name="testscripts.collections.ALFDEPLOY_2297_TC002P2" />
 			<class name="testscripts.collections.ALFDEPLOY_2297_TC003" />
@@ -35,7 +35,9 @@
 			<class name="testscripts.collections.ALFDEPLOY_2761_TC001" />
 			<class name="testscripts.collections.ALFDEPLOY_2762_TC001" />
 			<class name="testscripts.collections.ALFDEPLOY_2763_TC001" /> 
+		
 		<!-- descoped due to limited no of user	<class name="testscripts.collections.ALFDEPLOY_2765_TC001" /> -->
+			
 			 <class name="testscripts.collections.ALFDEPLOY_2767_TC001_P1" />
 			<class name="testscripts.collections.ALFDEPLOY_2767_TC001_P2" />
 			<class name="testscripts.collections.ALFDEPLOY_2755_TC001" />
@@ -51,7 +53,7 @@
 			<class name="testscripts.collections.ALFDEPLOY_3206_TC001" /> 
 		
 			<!-- Release 1.9.1 -->
-			 <class name="testscripts.collections.AUT_AG_001" /> 
+			 <!-- <class name="testscripts.collections.AUT_AG_001" />  --> 
 				<class name="testscripts.collections.AUT_AG_002" /> 
 				<class name="testscripts.collections.AUT_AG_003" />
 				<class name="testscripts.collections.AUT_AG_004" />

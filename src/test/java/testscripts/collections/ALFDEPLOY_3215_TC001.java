@@ -109,6 +109,9 @@ public class ALFDEPLOY_3215_TC001 extends TestCase {
 				String moreSettingsOptionName = dataTable.getData("MyFiles", "MoreSettingsOption");
 				collectionPg.clickOnMoreSetting(collectionObjectName);
 				collectionPg.commonMethodForClickOnMoreSettingsOption(collectionObjectName, moreSettingsOptionName);
+				//Modified as part of NALS Starts
+				collectionPg.clickonrealizebox();
+				//Modified as part of NALS Ends
 				
 		//Download generated realize CSV
 				sitesPage.enterIntoDocumentLibrary();

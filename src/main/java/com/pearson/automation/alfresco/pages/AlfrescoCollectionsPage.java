@@ -52,9 +52,9 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	private String titleXpath = ".//*[contains(@id,'prop_cm_title')]";
 	//Added rumbaprogramnameXpath as part of NALS 
 	private String rumbaprogramnameXpath = ".//*[contains(@id,'prop_cpnals_rumbaProgramName')]";
-	private String descriptionXpath = ".//*[contains(@id,'prop_cm_description')]";
-	//Added skillspathXpath as part of NALS  
 	private String skillspathXpath = ".//*[contains(@id,'prop_cpnals_skillsPath')]";
+	//Added skillspathXpath as part of NALS  
+	private String descriptionXpath = ".//*[contains(@id,'prop_cm_description')]";
 	private String versionStateDropdownXpath = ".//*[contains(@id,'prop_cpnals_versionState') and @name='-']";
 	private String versioncountryDropdownXpath = ".//*[contains(@id,'prop_cpnals_versionCountry') and @name='-']";
 	private String versiondistricttextxpath = ".//*[contains(@id,'prop_cpnals_versionDistrict')]";
@@ -205,8 +205,11 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	private String appliedfiltersxpath = "//*[@class='filterValue']";
 	///********************************Added by Sangeetha****************************//
 		public String metadataSearchTitleXpath = "//*[@class='set-bordered-panel-body']//span[@class='viewmode-value']";
+		//Modified as part of NALS
 		private String versionstateProperty = "//*[contains(@id,'versionState-entry')]";
 		private String tempPropertyXpath = ".//*[@name='CRAFT']";
+		private String tempPropertyXpath1 = "//*[contains(@id,'CRAFT')]";
+		
 		private String saveButton = "//*[contains(@id,'default-form-submit-button')]";
 		private String documentLibraryXpath = ".//*[@id='HEADER_SITE_DOCUMENTLIBRARY_text']/a";
 		private String editMetadataViewXpath = ".//*[contains(@id,'edit-metadata-mgr')]/div/h1";
@@ -438,11 +441,10 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 					String splittedFileValues[] = fileValues.split(",");
 
 					if (splittedFileValues != null) {
-						System.out.println("SplittedFilevalue"
-								+ splittedFileValues[0]);
+						
 						String objectType = splittedFileValues[0].replace(
 								"ObjectType:", "");
-						System.out.println(objectType);
+						
 						createCollectionObjectsByBasicData(objectType,
 								splittedFileValues);
 
@@ -503,7 +505,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 						splittedFileValues, "Discipline:");
 			//	Added rumba,skillspath as part of NALS
 				rumbaprogramname = getFieldValueFromExcelForCreateObjects(
-						splittedFileValues, "Rumba Program Name:");
+						splittedFileValues, "RUMBA Program:");
 				skillspath = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "Skills path:");
 			//	Added rumba,skillspath as part of NALS
@@ -803,7 +805,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			if (!rumba.isEmpty()) {
 				UIHelper.sendKeysToAnElementByXpath(driver, rumbaprogramnameXpath, rumba);
 			}
-			//Added rumba,skillspath as part of NALS
+			
 			if (!description.isEmpty()) {
 				UIHelper.sendKeysToAnElementByXpath(driver, descriptionXpath,
 						description);
@@ -813,27 +815,21 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				UIHelper.sendKeysToAnElementByXpath(driver, skillspathXpath, skillspath);
 			}
 			//Added rumba,skillspath as part of NALS
-			if (!courseAbbrevation.isEmpty()) {
+			//Modified as part of NALS
+			/*if (!courseAbbrevation.isEmpty()) {
 				UIHelper.sendKeysToAnElementByXpath(driver,
 						courseskillpathXpathInCreateObject,
 						courseAbbrevation);
-				
-				UIHelper.sendKeysToAnElementByXpath(driver,
+				//Modified as part of NALS
+					UIHelper.sendKeysToAnElementByXpath(driver,
 						courserumbaXpathInCreateObject,
 						rumba);
-			}
+			}*/
 
 			if (!discipline.isEmpty()) {
 				UIHelper.selectbyVisibleText(driver,
 						disciplizeDropdownXpathInCreateObject, discipline);
 			}
-System.out.println("Input data to create 'Course' object"+
-		"User able to enter data for 'Course' object"
-				+ "<br>Name: " + name + ", " + "Title: " + title
-				+ ", <br>" + "Description: " + description
-				+ ", <br>Course Abbrevation: " + courseAbbrevation
-				+ "Discipline: " + discipline);
-
 			report.updateTestLog("Input data to create 'Course' object",
 					"User able to enter data for 'Course' object"
 							+ "<br>Name: " + name + ", " + "Title: " + title
@@ -1506,7 +1502,6 @@ System.out.println("Input data to create 'Course' object"+
 						"Realize CSV filter options is available", Status.DONE);
 				String[] values = dataTable.getData("MyFiles",
 						"CSVFilteroptions").split("-");
-
 				for (String options : values) {
 					UIHelper.selectbyVisibleText(driver, realizecsvvaluesxpath,
 							options);
@@ -6348,23 +6343,20 @@ System.out.println("Input data to create 'Course' object"+
 			clickOnMouseOverMenu(foldername,"Edit Properties");
 			UIHelper.click(driver, allProperties);
 				UIHelper.waitForPageToLoad(driver);
-				if(metadata1[0].equalsIgnoreCase("Discipline")||metadata1[0].equalsIgnoreCase("MediaType")||metadata1[0].equalsIgnoreCase("contentType")||metadata1[0].equalsIgnoreCase("genres")
-						||metadata1[0].equalsIgnoreCase("textFeatures")||metadata1[0].equalsIgnoreCase("contentAreas"))
+				//Modified as part of NALS Removed genres and text features from the IF condition 3190_TC003
+				if(metadata1[0].equalsIgnoreCase("Discipline")||metadata1[0].equalsIgnoreCase("MediaType")||metadata1[0].equalsIgnoreCase("contentType")||metadata1[0].equalsIgnoreCase("contentAreas"))
 				{
  				int[] Discipline_Flag = new int[metadata2.length];
- 				
  				String finalPropertyXpath = tempPropertyXpath.replace("CRAFT", "prop_cpnals_"+metadata1[0]);
 				Select oSelect = new Select(driver.findElement(By.xpath(finalPropertyXpath)));
 				UIHelper.click(driver, finalPropertyXpath);
 				UIHelper.waitFor(driver);
 				List <WebElement> options = oSelect.getOptions();
-				
  				for(int j=0;j<metadata2.length;j++)
 				{
  					for (WebElement option : options) {
  						if(metadata2[j].equalsIgnoreCase(option.getText()))
  						{
- 							
  							Discipline_Flag[j] = 1;
  							break;
  						}
@@ -6384,30 +6376,48 @@ System.out.println("Input data to create 'Course' object"+
  					}
  				}
 				}
-				else if(metadata1[0].equalsIgnoreCase("Version"))
+				//Modified as part of NALS Included genres and text features in the IF condition 3190_TC003
+				else if(metadata1[0].equalsIgnoreCase("Version")||metadata1[0].equalsIgnoreCase("genres")
+						||metadata1[0].equalsIgnoreCase("textFeatures"))
 				{
-					Select oSelect = new Select(driver.findElement(By.xpath(versionstateProperty)));
-					UIHelper.click(driver, versionstateProperty);
-				List <WebElement> options = oSelect.getOptions();
-				UIHelper.highlightElement(driver, versionstateProperty);
-				UIHelper.waitFor(driver);
+					int[] Discipline_Flag = new int[metadata2.length];
+					//Modified as part of NALS Starts 3190_TC003 Starts
+					String Xpath = ""; 
+					if(metadata1[0].equalsIgnoreCase("Version")) {
+						Xpath = versionstateProperty;
+					}
+					else {
+						Xpath = tempPropertyXpath1.replace("CRAFT", "prop_cpnals_"+metadata1[0]+"-entry");
+					}
+					Select oSelect = new Select(driver.findElement(By.xpath(Xpath)));
+					UIHelper.click(driver, Xpath);
+					List <WebElement> options = oSelect.getOptions();
+					UIHelper.waitFor(driver);
+					
 				for(int j=0;j<metadata2.length;j++)
 				{
  					for (WebElement option : options) {
  						if(metadata2[j].equalsIgnoreCase(option.getText()))
  						{
- 							report.updateTestLog("Verify that the value : "+  metadata2[j] +" is displayed in the property form as the first option for "+metadata1[0]+" property",
-									 metadata2[j] + " is displayed in the property form as the first option for "+metadata1[0]+" property ", Status.PASS);	 							
- 							break;
- 						}
- 						else
- 						{
- 							report.updateTestLog("Verify that the value : "+  metadata2[j] +" is displayed in the property form as the first option for "+metadata1[0]+" property",
-									 metadata2[j] + " is not displayed in the property form as the first option for "+metadata1[0]+" property ", Status.FAIL);	 
+ 							Discipline_Flag[j] = 1;
  							break;
  						}
  					}
  				}
+ 				for (int i=0;i<Discipline_Flag.length;i++)
+ 				{
+ 					if(Discipline_Flag[i]==1)
+ 					{
+ 						report.updateTestLog("Verify that the value : "+  metadata2[i] +" is displayed in the property form for "+metadata1[0]+" property",
+								 metadata2[i] + " is displayed in the property form  for "+metadata1[0]+" property ", Status.PASS);
+	 					}
+ 					else
+ 					{
+ 						report.updateTestLog("Verify that the value : "+  metadata2[i] +" is displayed in the property form for "+metadata1[0]+" property",
+								 metadata2[i] + " is not displayed in the property form  for "+metadata1[0]+" property ", Status.FAIL);
+ 					}
+ 				}
+ 				//Modified as part of NALS Ends 3190_TC003 Ends
 				}
 				if(verifyPropertyVal.equalsIgnoreCase("Yes"))
 				{
