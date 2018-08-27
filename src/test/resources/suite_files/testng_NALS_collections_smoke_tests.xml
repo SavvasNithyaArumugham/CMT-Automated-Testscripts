@@ -4,12 +4,12 @@
 	<test name="Test">
 		<classes>
 
-<class name="testscripts.sanityusppewip.AUT_AG_026" />
-<class name="testscripts.sanityusppewip.ALFDEPLOY_3816_TC001" />  
+<class name="testscripts.sanity.usppewip.AUT_AG_026" />
+<class name="testscripts.sanity.usppewip.ALFDEPLOY_3816_TC001" />  
  
 <!-- Added these as part of NALS to run 4655_TC_001 -->
 <!-- <class name="testscripts.sanity.usppewip.ALFDEPLOY_3191_TC017" /> --> 
-<class name="testscripts.sanityusppewip.ALFDEPLOY_3191_TC027" />
+<class name="testscripts.sanity.usppewip.ALFDEPLOY_3191_TC027" />
 
 <!-- <class name="testscripts.sanity.usppewip.ALFDEPLOY_3191_TC001" />
 <class name="testscripts.sanity.usppewip.ALFDEPLOY_3191_TC002" />-->
