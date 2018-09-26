@@ -89,7 +89,7 @@ public class ALFDEPLOY_4556_TC001 extends TestCase {
 		myFiles.openCreatedFolder("CCP QA Thumbnail Test set - ALFDEPLOY-4655");
 		UIHelper.waitFor(driver);
 		myFiles.openCreatedFolder("CCP QA Thumbnail Test set - ALFDEPLOY-4655");
-	//	collectionPg.uploadFileInCollectionSite(filePath, fileName);				
+	//;			
 		
 		// Go to collection UI
 		//sitesPage.enterIntoDocumentLibrary();

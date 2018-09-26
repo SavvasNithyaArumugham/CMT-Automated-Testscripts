@@ -66,7 +66,7 @@ private FunctionalLibrary functionalLibrary;
 		String siteName = dataTable.getData("Sites", "SiteName");
 
 		homePageObj.navigateToSitesTab();
-		sitesPage.createSite(siteName, "Yes");
+		sitesPage.createSite(siteName, "No");
 		sitesPage.inviteUserForSite();
 
 		sitesPage.openSiteFromRecentSites(siteName);

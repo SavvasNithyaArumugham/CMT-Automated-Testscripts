@@ -51,6 +51,7 @@ public class AUT_AG_183 extends TestCase{
 		
 		AlfrescoSitesPage sitesPage = new AlfrescoSitesPage(scriptHelper);
 		homePage.navigateToSitesTab();
+		//sitesPage.openSiteFromRecentSites(siteName+properties.getProperty("SiteNumber"));//Added SiteNo as part of NALS
 		sitesPage.openSiteFromRecentSites(siteName);
 		
 		homePage.navigateToHomePage();

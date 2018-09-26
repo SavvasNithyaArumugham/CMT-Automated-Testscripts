@@ -76,7 +76,7 @@ public class AUT_AG_272 extends TestCase
 		String XmlfileName = dataTable.getData("MyFiles", "Version");	
 		String fileLink = dataTable.getData("Document_Details", "FileName");
 		String fileNameVerfiy =dataTable.getData("MyFiles", "CreateFileFieldName").split(",")[0];
-		String htmlFileName=dataTable.getData("MyFiles", "CreateFileFieldName").split(",")[1];
+	//	String htmlFileName=dataTable.getData("MyFiles", "CreateFileFieldName").split(",")[1];
 		
 		/*homePageObj.navigateToRepositoryPage();
 		if(sitesPage.Checkdocument(folderName)){
@@ -133,9 +133,9 @@ public class AUT_AG_272 extends TestCase
 		 homePageObj.switchtab(0);
 		 Date date = new Date();
          String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(date);
-         String htmlFileNameVerify=htmlFileName+currentDate;
+        /* String htmlFileNameVerify=htmlFileName+currentDate;
          String finalhtmlFileNameVerify= sitesPage.documentname(htmlFileNameVerify);
-         docLibPg.checkFileIsAvailable(finalhtmlFileNameVerify);
+         docLibPg.checkFileIsAvailable(finalhtmlFileNameVerify);*/
          myFiles.openFolder(folderName1);
 		 docLibPg.checkFileIsAvailable(fileNameVerfiy);
 		

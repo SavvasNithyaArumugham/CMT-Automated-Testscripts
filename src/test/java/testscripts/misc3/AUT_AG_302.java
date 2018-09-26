@@ -26,12 +26,12 @@ public class AUT_AG_302 extends TestCase {
 	@Test
 	public void misc3_006() {
 		testParameters
-				.setCurrentTestDescription("ALFDEPLOY-2732_Validate Collections user able to download a folder as zip  which contains multiple  different types of files.<br>" + 
-						"ALFDEPLOY-2732_Validate Collections user able to download a folder as zip  which contains different types of  files through  mouse Hover option.<br>" + 
-						"ALFDEPLOY-2732_Validate Collections user able to download pdf files as zip file.<br>" + 
-						"ALFDEPLOY-2732_Validate Collections user able to download different types files as zip file.<br>" + 
-						"ALFDEPLOY-2732_Validate Collections user able to download a folder as zip  which contains multiple pdf files.<br>" + 
-						"ALFDEPLOY-2732_Validate Collections user able to download a folder as zip  which contains multiple pdf files through  mouse Hover option.<br>" );
+				.setCurrentTestDescription("ALFDEPLOY-2732_Validate non Collections user able to download a folder as zip  which contains multiple  different types of files.<br>" + 
+						"ALFDEPLOY-2732_Validate non Collections user able to download a folder as zip  which contains different types of  files through  mouse Hover option.<br>" + 
+						"ALFDEPLOY-2732_Validate non Collections user able to download pdf files as zip file.<br>" + 
+						"ALFDEPLOY-2732_Validate non Collections user able to download different types files as zip file.<br>" + 
+						"ALFDEPLOY-2732_Validate non Collections user able to download a folder as zip  which contains multiple pdf files.<br>" + 
+						"ALFDEPLOY-2732_Validate non Collections user able to download a folder as zip  which contains multiple pdf files through  mouse Hover option.<br>" );
 		testParameters.setIterationMode(IterationOptions.RunOneIterationOnly);
 
 		driverScript = new DriverScript(testParameters);

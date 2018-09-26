@@ -107,6 +107,7 @@ public class AUT_AG_120 extends TestCase{
 			myFiles.createFile(fileDetails);
 			docDetailsPage.likeADocument(fileName);
 
+		docLibPage.deleteAllFilesAndFolders();//Modified as part of NALS
 		
 		homePage.navigateToHomePage();
 		

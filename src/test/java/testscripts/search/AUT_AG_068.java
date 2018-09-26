@@ -75,7 +75,14 @@ public class AUT_AG_068 extends TestCase
 				
 				AlfrescoMyFilesPage myFiles = new AlfrescoMyFilesPage(scriptHelper);
 				String fileDetails = dataTable.getData("MyFiles", "CreateFileDetails");
-				
+				AlfrescoDocumentLibPage docLibPg = new AlfrescoDocumentLibPage(scriptHelper);
+				try{
+					docLibPg.deleteAllFilesAndFolders();
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}
 				myFiles.createFile(fileDetails);
 				sitesPage.documentlib();
 			}

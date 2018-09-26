@@ -63,9 +63,9 @@ public class AUT_AG_184 extends TestCase{
 		
 		homePage.filterSitesInMySitesDashlet(sitesFilterOptionVal);
 		
-		homePageTest.verifySiteInMySitesDashlet(siteName);
+		homePageTest.verifySiteInMySitesDashlet(siteName);//Added SiteNo as part of NALS
 		
-		homePage.removeSiteFromFavorites(siteName);
+		homePage.removeSiteFromFavorites(siteName);//Added SiteNo as part of NALS
 	}
 
 	@Override

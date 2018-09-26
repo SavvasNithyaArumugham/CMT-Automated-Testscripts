@@ -4,10 +4,10 @@
 	<test name="Test">
 		<classes>
 			<!-- AMTS Test Scripts -->
-			<!-- Release 1.9.3 -->
-			<!-- 
+			<!-- Release 1.9.3  -->
+			
 		 	<class name="testscripts.amts.AUT_AG_001" />
-			<class name="testscripts.amts.AUT_AG_002" />
+			<!-- <class name="testscripts.amts.AUT_AG_002" /> --><!-- duplicate of 001 -->
 			<class name="testscripts.amts.AUT_AG_003" />
 			<class name="testscripts.amts.AUT_AG_004" />
 			<class name="testscripts.amts.AUT_AG_005" />
@@ -32,6 +32,7 @@
 			<class name="testscripts.amts.AUT_AG_073" />			
 			<class name="testscripts.amts.AUT_AG_075" />
 			<class name="testscripts.amts.AUT_AG_076" />
+		
 			<class name="testscripts.amts.AUT_AG_078" />
 			<class name="testscripts.amts.AUT_AG_079" />
 			<class name="testscripts.amts.AUT_AG_080" />
@@ -85,7 +86,7 @@
 			<class name="testscripts.amts.AUT_AG_800" />
 			<class name="testscripts.amts.AUT_AG_802" />
 			<class name="testscripts.amts.AUT_AG_803" />
-			-->
+			
 			<class name="testscripts.amts.AUT_AG_804" />
 			<class name="testscripts.amts.AUT_AG_805" /> 
 			<class name="testscripts.amts.AUT_AG_806" /> 

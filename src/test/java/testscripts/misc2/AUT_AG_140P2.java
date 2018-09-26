@@ -63,7 +63,8 @@ private FunctionalLibrary functionalLibrary;
 		AlfrescoDocumentLibPage docLibPgObj = new AlfrescoDocumentLibPage(scriptHelper);
 		AlfrescoDocumentLibPageTest docLibPgTest = new AlfrescoDocumentLibPageTest(scriptHelper);
 
-		String siteName=sitesPage.getCreatedSiteName();
+		//String siteName=sitesPage.getCreatedSiteName();
+		String siteName = dataTable.getData("Sites", "SiteName");
 		
 		homePageObj.navigateToSitesTab();
 		sitesPage.openSiteFromRecentSites(siteName);
