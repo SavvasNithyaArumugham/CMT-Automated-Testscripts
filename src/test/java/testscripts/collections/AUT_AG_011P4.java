@@ -79,7 +79,7 @@ public class AUT_AG_011P4 extends TestCase {
 		String siteName = sitesPage.getCreatedSiteName();
 		sitesPage.siteFinder(siteName);
 		sitesPage.enterIntoDocumentLibrary();
-		sitesPage.documentdetails(folderName);
+	//	sitesPage.documentdetails(folderName);
 		AlfrescoSitesPageTest sitePageTest = new AlfrescoSitesPageTest(scriptHelper);
 		//sitePageTest.verifyBrowseActionNameForFileOrFolderInNegativeCase(fileName, "Download");
 		try {

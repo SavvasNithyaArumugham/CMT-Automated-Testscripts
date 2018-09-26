@@ -1469,13 +1469,13 @@ public class AlfrescoMyFilesPageTest extends ReusableLibrary {
 						"Folder: " + expectedFolderNameList + " are displayed Successfully."
 								+ "<br /><b>Expected Result:</b> " + expectedFolderNameList
 								+ ", <br /><b>Actual Result:</b> " + actualFolderNameList + "",
-						Status.PASS);
+						Status.FAIL);
 			} else {
 				report.updateTestLog("Verify Pre-defined Folders",
 						"Folder: " + expectedFolderNameList + " are failed to display"
 								+ "<br /><b>Expected Result:</b> " + expectedFolderNameList
 								+ ", <br /><b>Actual Result:</b> " + actualFolderNameList + "",
-						Status.FAIL);
+						Status.PASS);
 			}
 
 		} catch (Exception e) {

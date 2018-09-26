@@ -3,8 +3,7 @@
 <suite name="Miscellaneous3" parallel="classes" thread-count="1">
 	<test name="Test">
 		<classes>
-				
-		<!-- Miscellaneous Test Scripts 100 TC's -->
+				<!-- Miscellaneous Test Scripts 100 TC's -->
 		  				
 			<class name="testscripts.misc3.AUT_AG_215" />
 			<class name="testscripts.misc3.AUT_AG_216" />  
@@ -76,24 +75,30 @@
 			<class name="testscripts.misc3.AUT_AG_300P2" />
 			<class name="testscripts.misc3.AUT_AG_301" />
 			<class name="testscripts.misc3.AUT_AG_302" />
-			 
+			  
 								
 			<!-- Scripts to rerun after issue raised is fixed  -->
 			
 			<class name="testscripts.misc3.AUT_AG_244P1" />
 			<class name="testscripts.misc3.AUT_AG_244P2" />
 			<class name="testscripts.misc3.AUT_AG_272" />
+			
+			 
 			<class name="testscripts.misc3.AUT_AG_304P1" />
 			<class name="testscripts.misc3.AUT_AG_304P2" />
 			<class name="testscripts.misc3.AUT_AG_304P3" />
 			<class name="testscripts.misc3.AUT_AG_304P4" />
 			<class name="testscripts.misc3.AUT_AG_304P5" />
+			
 			<class name="testscripts.misc3.AUT_AG_259" /> 
 			<class name="testscripts.misc3.AUT_AG_261" />
 			<class name="testscripts.misc3.AUT_AG_263" />
 			<class name="testscripts.misc3.AUT_AG_264" />
 			<class name="testscripts.misc3.AUT_AG_265" />
-			<class name="testscripts.misc3.AUT_AG_303" />
+			
+			<!--Modidified as part of NALS Duplicate Case of 302<class name="testscripts.misc3.AUT_AG_303" /> -->
+		
+			
 			 
 			
 		</classes>

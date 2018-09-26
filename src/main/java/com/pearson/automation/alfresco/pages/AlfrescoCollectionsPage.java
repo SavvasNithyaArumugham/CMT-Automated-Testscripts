@@ -507,7 +507,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				rumbaprogramname = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "RUMBA Program:");
 				skillspath = getFieldValueFromExcelForCreateObjects(
-						splittedFileValues, "Skills path:");
+						splittedFileValues, "Skills Path:");
 			//	Added rumba,skillspath as part of NALS
 				clickOnCreateButton();
 				clickOnCreateMenuItem(objectType);
@@ -5720,11 +5720,12 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				try{
 						
 					editPropInputXpathTemp = editPropInputXpath.replace("CRAFT", fieldName);
+					System.out.println("editPropInputXpathTemp"+editPropInputXpathTemp);
 					WebElement PropertyEle = driver.findElement(By.xpath(editPropInputXpathTemp));				
 					UIHelper.sendKeysToAnWebElement(driver, PropertyEle, fieldValue);		
 					UIHelper.waitFor(driver);
 					UIHelper.waitFor(driver);
-					if(PropertyEle.getAttribute("title").contains("value")){
+					if(PropertyEle.getAttribute("title").contains("Value")){
 						report.updateTestLog("Validate the presence of warning message for invalid data for " + fieldName +" ", "Warning message is displayed for invalid data", Status.PASS);
 					}else
 					{
@@ -6441,6 +6442,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 		{
 			
 			String finalPropertyXpath = tempPropertyXpath.replace("CRAFT", "prop_cpnals_"+strPropertyName);
+			System.out.println("finalPropertyXpath"+finalPropertyXpath);
 			Select oSelect = new Select(driver.findElement(By.xpath(finalPropertyXpath)));
 			UIHelper.highlightElement(driver, finalPropertyXpath);
 			UIHelper.click(driver, finalPropertyXpath);

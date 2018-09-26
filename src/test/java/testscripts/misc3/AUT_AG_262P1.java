@@ -60,14 +60,14 @@ public class AUT_AG_262P1 extends TestCase {
 		AlfrescoMyFilesPage myFiles = new AlfrescoMyFilesPage(scriptHelper);
 		
 		AlfrescoDocumentLibPage docLibPage = new AlfrescoDocumentLibPage(scriptHelper);
-		if(!docLibPage.checkFileIsAvailable(fileName)){
+		//if(!docLibPage.checkFileIsAvailable(fileName)){
 			myFiles.deleteUploadedFile(fileName);
 			
 			myFiles.uploadFileInMyFilesPage(filePath, fileName);
 			
 			AlfrescoMyFilesPageTest myFilesTestObj = new AlfrescoMyFilesPageTest(scriptHelper);
 			myFilesTestObj.verifyUploadedFile(fileName,"");
-		}
+		//}
 		docLibPage.openAFile(fileName);
 		
 		if(!(docLibPage.isFileLocked())){

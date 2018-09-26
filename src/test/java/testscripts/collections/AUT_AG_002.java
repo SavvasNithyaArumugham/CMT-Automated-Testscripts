@@ -233,7 +233,7 @@ public class AUT_AG_002 extends TestCase {
 
 				collectionPg
 						.errormessage("Grid Thumbnail",
-								"Grid Thumbnail for AlfGrid.jpg is not found on site "+siteName+".");
+								"Grid Thumbnail for Alfgrid.jpg is not found on site "+siteName+".");
 				collectionPg.errormessage("AlfTum.jpg",
 						"Thumbnail for AlfTum.jpg is not found on site "+siteName+".");
 			}
@@ -258,9 +258,9 @@ homePageObj.switchtab(0);
 				UIHelper.waitFor(driver);
 				collectionPg.enterCollectionObjectA2LData(
 						"Grid Thumbnail to link:", site
-								+ ":AlfGrid.jpg");
+								+ "AlfGrid.jpg");
 				collectionPg.enterCollectionObjectA2LData("Thumbnail to link:",
-						site + ":AlfTum.jpg");
+						site + "AlfTum.jpg");
 				UIHelper.waitFor(driver);
 				collectionPg.clickOnSaveBtn();
 				
@@ -297,8 +297,8 @@ homePageObj.switchtab(0);
 
 				collectionPg
 						.errormessage("Grid Thumbnail",
-										"Grid Thumbnail for AlfGrid.jpg is not found.");
-				collectionPg.errormessage("AlfTum.jpg","Thumbnail for AlfTum.jpg is not found.");
+										"Grid Thumbnail for "+siteName+"AlfGrid.jpg is not found.");
+				collectionPg.errormessage("AlfTum.jpg","Thumbnail for "+siteName+"AlfTum.jpg is not found.");
 			}
 		}
 		
@@ -362,9 +362,9 @@ homePageObj.switchtab(0);
 
 				collectionPg
 						.errormessage("Grid Thumbnail",
-								"Grid Thumbnail for :AlfGrid.jpg is not found.");
+								"Grid Thumbnail for AlfGrid.jpg is not found.");
 				collectionPg.errormessage("AlfTum.jpg",
-						"Thumbnail for :AlfTum.jpg is not found.");
+						"Thumbnail for AlfTum.jpg is not found.");
 			}
 		}
 

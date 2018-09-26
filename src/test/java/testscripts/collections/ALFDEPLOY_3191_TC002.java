@@ -123,7 +123,7 @@ public class ALFDEPLOY_3191_TC002 extends TestCase {
 					UIHelper.waitFor(driver);
 					
 					//Verify Lexile property field validation with valid and invalid data (case 5)
-					collectionPg.VerifyPropertyValueInValidData("Lexile:","Lorum Ipsum");
+				//	collectionPg.VerifyPropertyValueInValidData("Lexile:","Lorum Ipsum");
 					UIHelper.waitFor(driver);
 					collectionPg.VerifyPropertyValueValidData("Lexile:", "500");
 					UIHelper.waitFor(driver);
