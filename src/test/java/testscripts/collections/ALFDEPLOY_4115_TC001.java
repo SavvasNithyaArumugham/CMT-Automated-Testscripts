@@ -90,7 +90,10 @@ public class ALFDEPLOY_4115_TC001 extends TestCase {
 					UIHelper.waitForLong(driver);				
 					homePageObj.navigateToSitesTab();	
 					UIHelper.waitFor(driver);
-					sitesPage.siteFinder("qa4115");		
+					//Added For NALS 
+					//sitesPage.siteFinder("qa4115");	
+					String siteNameValue =  dataTable.getData("Sites", "SiteName");				
+					sitesPage.siteFinder(siteNameValue);
 			
 					// Go to collection UI
 					sitesPage.enterIntoDocumentLibrary();
