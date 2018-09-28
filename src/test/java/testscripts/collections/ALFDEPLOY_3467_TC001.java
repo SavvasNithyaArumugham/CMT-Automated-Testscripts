@@ -74,8 +74,9 @@ public class ALFDEPLOY_3467_TC001 extends TestCase {
 		UIHelper.waitForLong(driver);
 		homePageObj.navigateToSitesTab();
 		String siteNameValue =  dataTable.getData("Sites", "SiteName");				
-		sitesPage.siteFinder("qaphase1");	
-		
+		//sitesPage.siteFinder("qaphase1");	
+		sitesPage.createSite(siteNameValue, "Yes");
+		UIHelper.waitFor(driver);
 		// Go to collection UI
 		sitesPage.enterIntoDocumentLibrary();	
 		UIHelper.waitFor(driver);

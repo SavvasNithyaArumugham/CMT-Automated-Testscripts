@@ -188,7 +188,9 @@ public class ALFDEPLOY_3440_TC001 extends TestCase {
 				
 				String downloadedCSVFileANmeWithPath = downloadFilePath + "/" + filename2;
 				try {
-					if(CSVUtil.verifyDataInCell(downloadedCSVFileANmeWithPath,"Discuss changed value",2,81))
+					//Added for NALS
+					if(CSVUtil.verifyDataInCell(downloadedCSVFileANmeWithPath,"Discuss changed value",2,82))
+						
 						{
 						report.updateTestLog("Confirm Discussion Prompt is exporting correctly ",
 								"Discussion Prompt column displays 'Discuss changed value' as its value'", Status.PASS);

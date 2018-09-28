@@ -129,7 +129,8 @@ public class ALFDEPLOY_3191_TC001 extends TestCase {
 					collectionPg.errormessagecontains("Leveled Reader Test - Invalid Text Features","Invalid Text Features");				
 					collectionPg.errormessagecontains("Leveled Reader Test - Invalid Content Areas","Invalid Content Areas");	
 					collectionPg.errormessagecontains("Leveled Reader Test - Invalid Comprehension Skills","Invalid Comprehension Skills");
-					collectionPg.errormessagecontains("Leveled Reader Test - Invalid Lexile","Invalid Lexile");
+					//Added for NALS 
+					//collectionPg.errormessagecontains("Leveled Reader Test - Invalid Lexile","Invalid Lexile");
 					collectionPg.errormessagecontains("Leveled Reader Test - Invalid DRA","Invalid DRA");
 					collectionPg.VerifyErrorNotINUI("Guided Reading");
 					collectionPg.VerifyErrorNotINUI("Reading Maturity Metric");

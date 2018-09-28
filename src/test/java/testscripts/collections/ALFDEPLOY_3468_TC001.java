@@ -71,8 +71,11 @@ public class ALFDEPLOY_3468_TC001 extends TestCase {
 		String processingindicatorxpath = "//*[@title='Processing import spreadsheet']";	
 		functionalLibrary.loginAsValidUser(signOnPage);		
 		//UIHelper.waitForLong(driver);
-		homePageObj.navigateToSitesTab();					
-		sitesPage.siteFinder("qa3468");	
+		homePageObj.navigateToSitesTab();
+		//Modified as part of NALS
+		//sitesPage.siteFinder("qa3468");	
+		String siteNameValue =  dataTable.getData("Sites", "SiteName");	
+		sitesPage.createSite(siteNameValue, "Yes");
 		UIHelper.waitFor(driver);
 	   
 

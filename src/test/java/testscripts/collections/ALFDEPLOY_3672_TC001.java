@@ -90,7 +90,11 @@ public class ALFDEPLOY_3672_TC001 extends TestCase {
 					//UIHelper.waitForLong(driver);					
 					homePageObj.navigateToSitesTab();	
 					UIHelper.waitFor(driver);
-					sitesPage.siteFinder("qa3672");	
+					//Modified as part of NALS
+					//sitesPage.siteFinder("qa3672");
+					String siteNameValue =  dataTable.getData("Sites", "SiteName");				
+					sitesPage.createSite(siteNameValue, "Yes");
+					UIHelper.waitFor(driver);
 					sitesPage.enterIntoDocumentLibrary();
 				
 					myFiles.openCreatedFolder("Courses");	
@@ -256,8 +260,9 @@ public class ALFDEPLOY_3672_TC001 extends TestCase {
 													{				
 														String splitedRow[] = null;
 														splitedRow = csvRow.split(",",-1);
-														System.out.println("splitedRow[68]=="+splitedRow[68]);
-														if(values.equals(splitedRow[68].replace("\"", ""))){												
+														//Added for NALS
+														System.out.println("splitedRow[69]=="+splitedRow[69]);
+														if(values.equals(splitedRow[69].replace("\"", ""))){												
 															count1++;
 															break;
 														}else{

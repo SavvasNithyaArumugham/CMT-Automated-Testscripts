@@ -78,7 +78,8 @@ public class ALFDEPLOY_4556_TC001 extends TestCase {
 		UIHelper.waitForLong(driver);
 		homePageObj.navigateToSitesTab();
 		String siteNameValue =  dataTable.getData("Sites", "SiteName");				
-		sitesPage.siteFinder(siteNameValue);
+		sitesPage.createSite(siteNameValue, "Yes");
+		UIHelper.waitFor(driver);
 		
 		//upload lockednode file
 		sitesPage.enterIntoDocumentLibrary();
@@ -89,7 +90,8 @@ public class ALFDEPLOY_4556_TC001 extends TestCase {
 		myFiles.openCreatedFolder("CCP QA Thumbnail Test set - ALFDEPLOY-4655");
 		UIHelper.waitFor(driver);
 		myFiles.openCreatedFolder("CCP QA Thumbnail Test set - ALFDEPLOY-4655");
-	//;			
+		//Added for NALS
+		collectionPg.uploadFileInCollectionSite(filePath, fileName);				
 		
 		// Go to collection UI
 		//sitesPage.enterIntoDocumentLibrary();

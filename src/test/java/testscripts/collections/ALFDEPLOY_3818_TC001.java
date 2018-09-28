@@ -83,9 +83,11 @@ public class ALFDEPLOY_3818_TC001 extends TestCase {
 		functionalLibrary.loginAsValidUser(signOnPage);		
 		
 		//UIHelper.waitForLong(driver);
-		homePageObj.navigateToSitesTab();					
-		sitesPage.siteFinder("qa3818");	
-		UIHelper.waitFor(driver);	
+		homePageObj.navigateToSitesTab();	
+		//Modified as part of NALS
+		String siteNameValue =  dataTable.getData("Sites", "SiteName");				
+		sitesPage.createSite(siteNameValue, "Yes");
+		UIHelper.waitFor(driver);
 		
 		// Go to collection UI
 	    sitesPage.enterIntoDocumentLibrary();	
@@ -200,7 +202,8 @@ public class ALFDEPLOY_3818_TC001 extends TestCase {
 				//Create site
 				homePageObj.navigateToSitesTab();
 				UIHelper.waitFor(driver);
-				String siteNameValue =  dataTable.getData("Sites", "SiteName");
+			//Added for NALS
+				sitesPage.siteFinder(siteNameValue);
 				sitesPage.createSite(siteNameValue, "Yes");
 				UIHelper.waitFor(driver);
 				
