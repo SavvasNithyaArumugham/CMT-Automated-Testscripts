@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Collections Part2" parallel="classes"
+	thread-count="1">
+	<test name="Test">
+		<classes>
+		
+			
+			 <!-- PART 2 Starts -->
+			<class name="testscripts.collections.ALFDEPLOY_2297_TC002P1" />
+			<class name="testscripts.collections.ALFDEPLOY_2297_TC002P2" />
+			<class name="testscripts.collections.ALFDEPLOY_2297_TC003" />
+			<class name="testscripts.collections.ALFDEPLOY_2297_TC004" />
+			<class name="testscripts.collections.ALFDEPLOY_2297_TC007" />
+			<class name="testscripts.collections.ALFDEPLOY_2421_TC001" />
+			<class name="testscripts.collections.ALFDEPLOY_2747_TC001_2_3_4" /><!-- Fail case -->
+	 		<class name="testscripts.collections.ALFDEPLOY_2760_TC002" />
+			<!-- <class name="testscripts.collections.ALFDEPLOY_2761_TC001" /> Duplicate Case -->
+			<!-- <class name="testscripts.collections.ALFDEPLOY_2762_TC001" />Duplicate Case -->
+			<class name="testscripts.collections.ALFDEPLOY_2763_TC001" /> <!-- long run fail -->
+		<!-- descoped due to limited no of user	<class name="testscripts.collections.ALFDEPLOY_2765_TC001" /> -->
+			<!-- PART 2 Ends -->
+			
+			
+			
+	
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

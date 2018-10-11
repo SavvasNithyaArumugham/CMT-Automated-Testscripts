@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Collections Part6" parallel="classes"
+	thread-count="1">
+	<test name="Test">
+		<classes>
+		
+			
+			 <!-- Part 6 Starts -->
+			 <class name="testscripts.collections6.ALFDEPLOY_2767_TC001_P1" />  <!-- long run fail-->
+			<class name="testscripts.collections6.ALFDEPLOY_2767_TC001_P2" />
+			 <class name="testscripts.collections6.ALFDEPLOY_2755_TC001" /> <!-- Completed folder created with a delay fail-->
+			
+		 	 <class name="testscripts.collections6.ALFDEPLOY_3190_TC001" /> 
+			<class name="testscripts.collections6.ALFDEPLOY_3190_TC003" /> 
+			 <class name="testscripts.collections6.ALFDEPLOY_3190_TC006" /><!-- Map issue--> 
+			
+		 <class name="testscripts.collections6.ALFDEPLOY_3191_TC017" /> 
+			<class name="testscripts.collections6.ALFDEPLOY_3191_TC027" />  
+			<class name="testscripts.collections6.ALFDEPLOY_3440_TC001" />
+			<class name="testscripts.collections6.ALFDEPLOY_4588_TC001" />
+			
+		  <class name="testscripts.collections6.ALFDEPLOY_3191_TC001" />
+		<class name="testscripts.collections6.ALFDEPLOY_3191_TC002" />
+		<class name="testscripts.collections6.ALFDEPLOY_4655_TC001" /> 
+		<class name="testscripts.collections6.ALFDEPLOY_4556_TC001" />
+		<!-- Part 6 Ends -->
+		
+		
+	
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

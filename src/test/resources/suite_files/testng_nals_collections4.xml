@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Collections Part4" parallel="classes"
+	thread-count="1">
+	<test name="Test">
+		<classes>
+		
+			
+			<!-- Part 4 Starts -->
+			 	<!-- <class name="testscripts.collections.AUT_AG_001" />  Duplicate  Case-->
+			  	<class name="testscripts.collections4.AUT_AG_002" /> 
+				<class name="testscripts.collections4.AUT_AG_003" />
+				<class name="testscripts.collections4.AUT_AG_004" />
+				<class name="testscripts.collections4.AUT_AG_005" /> 
+				<class name="testscripts.collections4.AUT_AG_006" /> 
+				<!-- <class name="testscripts.collections4.AUT_AG_007" /> --><!-- Remove Duplicate Case -->
+				<class name="testscripts.collections4.AUT_AG_008" />
+				<class name="testscripts.collections4.AUT_AG_009" /> 
+				<class name="testscripts.collections4.AUT_AG_010" /> 
+	<!-- Part 4 Ends -->
+		
+		
+	
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
