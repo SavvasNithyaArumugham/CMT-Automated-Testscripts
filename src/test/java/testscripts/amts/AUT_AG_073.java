@@ -86,8 +86,10 @@ public class AUT_AG_073 extends TestCase{
 		sitesPage.clickOnMoreSetting(folderName);
 		
 		docLibPg.commonMethodForClickOnMoreSettingsOption(folderName, docActionVal);
-		
-		mediaTransPage.verifyNotifcationWithoutPrefTextAndFolder(message);
+		//Modified as part of NALS AUT_AG_073 Starts
+		mediaTransPage.applyTransformationByFileBasedWithoutpreTxt(folderName, "",message);
+	//	mediaTransPage.verifyNotifcationWithoutPrefTextAndFolder(message);
+		//Modified as part of NALS AUT_AG_073 Ends
 		
 	}
 

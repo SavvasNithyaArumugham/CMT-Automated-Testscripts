@@ -3467,39 +3467,47 @@ public class AlfrescoDocumentDetailsPage extends ReusableLibrary {
 	// Add comment to a selected document
 	public void Addcomment(String fileName) {
 		try {
+			System.out.println("1");
 			UIHelper.waitForVisibilityOfEleByXpath(driver, addCommentXpath);
-
+			System.out.println("2");
 			WebElement addCommentEle = UIHelper.findAnElementbyXpath(driver, addCommentXpath);
+			System.out.println("3");
 			UIHelper.highlightElement(driver, addCommentEle);
 			UIHelper.scrollToAnElement(addCommentEle);
 
 			try {
 				deleteCommentsForDoc();
+				System.out.println("4");
 			} catch (Exception e) {
 
 			}
-
+			System.out.println("5");
 			UIHelper.click(driver, addCommentXpath);
 			UIHelper.waitFor(driver);
-
+			System.out.println("6");
 			WebElement noCommentsSecEle = UIHelper.findAnElementbyXpath(driver, noCommentsSecXpath);
+			System.out.println("7");
 			UIHelper.scrollToAnElement(noCommentsSecEle);
-
+			System.out.println("8");
 			String comment = dataTable.getData("Document_Details", "Comments");
+			System.out.println("11");
 			driver.switchTo().frame(driver.findElement(By.xpath(inputCommentXpath)));
-
+			System.out.println("12");
 			UIHelper.waitFor(driver);
 
 			WebElement iframeCommentsFieldEle = UIHelper.findAnElementbyXpath(driver, iframeCommentsFieldXpath);
+			System.out.println("13");
 			UIHelper.highlightElement(driver, iframeCommentsFieldEle);
 			UIHelper.scrollToAnElement(iframeCommentsFieldEle);
 			UIHelper.mouseOverandclickanElement(driver, iframeCommentsFieldEle);
-
+			System.out.println("14");
 			RobotUtil.pasteDataIntoInputField(comment);
-
+			System.out.println("15");
 			driver.switchTo().defaultContent();
 			UIHelper.waitFor(driver);
+			System.out.println("16");
 			UIHelper.click(driver, saveCommentXpath);
+			System.out.println("17");
 			UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, commentWaitXpath);
 			UIHelper.waitForVisibilityOfEleByXpath(driver, commentXpath);
 			if (UIHelper.findAnElementbyXpath(driver, commentXpath).isDisplayed()) {

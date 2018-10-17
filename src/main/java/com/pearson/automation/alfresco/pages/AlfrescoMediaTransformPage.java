@@ -4154,6 +4154,49 @@ public class AlfrescoMediaTransformPage extends ReusableLibrary {
 				e.printStackTrace();
 			}
 		}
+		//Added as part of NALS AUT_AG_073 
+		public void applyTransformationByFileBasedWithoutpreTxt(String fileName, String prefTxt,String message) {
+			try {
+				UIHelper.waitFor(driver);
+				UIHelper.waitForPageToLoad(driver);
+				UIHelper.waitForVisibilityOfEleByXpath(driver, filNmeYesXPath);
+				UIHelper.highlightElement(driver, filNmeYesXPath);
+				UIHelper.click(driver, filNmeYesXPath);
+
+				UIHelper.waitForVisibilityOfEleByXpath(driver, nxtBtnXPath);
+				UIHelper.click(driver, nxtBtnXPath);
+				UIHelper.waitForPageToLoad(driver);
+				UIHelper.waitForVisibilityOfEleByXpath(driver, pvtNmeTxtXPath);
+				driver.findElement(By.xpath(pvtNmeTxtXPath)).sendKeys(prefTxt);
+				UIHelper.waitForVisibilityOfEleByXpath(driver, finBtnXPath);
+				UIHelper.click(driver, finBtnXPath);
+				//UIHelper.waitForVisibilityOfEleByXpath(driver, okBtnPrfConXPath);
+				/*if (UIHelper.isWebElementDisplayed(UIHelper.findAnElementbyXpath(driver, okBtnPrfConXPath))) {
+					report.updateTestLog("Apply File based Transformation",
+							"Transformation applied succesfully" + "<br><b> File Name : </b>" + fileName, Status.PASS);
+				} else {
+					report.updateTestLog("Apply File based Transformation",
+							"Transformation not applied" + "<br><b> File Name : </b>" + fileName, Status.FAIL);
+				}*/
+				
+				UIHelper.waitForPageToLoad(driver);
+				if (UIHelper.getTextFromWebElement(driver, notificationXpath).contains(message)) {
+
+					UIHelper.highlightElement(driver, notificationXpath);
+					report.updateTestLog("Verify notification message", "Notification message displayed successfully.",
+							Status.PASS);
+				} else {
+					report.updateTestLog("Verify notification message", "Notification message is not displayed.",
+							Status.FAIL);
+				}
+				UIHelper.click(driver, okBtnPrfConXPath);
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				report.updateTestLog("Verify notification message", "Verify notification message Failed",
+						Status.FAIL);
+			}
+		}
 		
 
 }
