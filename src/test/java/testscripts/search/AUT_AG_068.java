@@ -66,26 +66,16 @@ public class AUT_AG_068 extends TestCase
 			AlfrescoSitesPage sitesPage = new AlfrescoSitesPage(scriptHelper);
 			String siteassertValue = dataTable.getData("Sites", "SiteName");
 			String fileName = dataTable.getData("MyFiles", "FileName");
+			AlfrescoMyFilesPage myFiles = new AlfrescoMyFilesPage(scriptHelper);
+			String fileDetails = dataTable.getData("MyFiles", "CreateFileDetails");
+			AlfrescoDocumentLibPage docLibPg = new AlfrescoDocumentLibPage(scriptHelper);
+			
 			sitesPage.siteFinder(siteassertValue);
 			sitesPage.documentlib();
+			docLibPg.deleteAllFilesAndFolders();
+			myFiles.createFile(fileDetails);
+			sitesPage.documentlib();
 			
-			if(sitesPage.Checkdocument(fileName)){
-				
-			}else {
-				
-				AlfrescoMyFilesPage myFiles = new AlfrescoMyFilesPage(scriptHelper);
-				String fileDetails = dataTable.getData("MyFiles", "CreateFileDetails");
-				AlfrescoDocumentLibPage docLibPg = new AlfrescoDocumentLibPage(scriptHelper);
-				try{
-					docLibPg.deleteAllFilesAndFolders();
-				}
-				catch(Exception e)
-				{
-					e.printStackTrace();
-				}
-				myFiles.createFile(fileDetails);
-				sitesPage.documentlib();
-			}
 			
 			/*sitesPage.documentdetails(fileName);
 			appAdminToolsPg.createTagMgmt();
