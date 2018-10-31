@@ -281,7 +281,7 @@ public class AUT_AG_823 extends TestCase {
 		docLibPg.commonMethodForClickOnMoreSettingsOption(fileNme,
 				docActionVal);
 		mediaTransPage.applyTransformationToTargetFolder(profName, fileNme, TargetFolderName, "out", sourceSiteName);	
-
+		UIHelper.pageRefresh(driver);
 		// Check whether the files are converted:
 		sitesPage.enterIntoDocumentLibrary();
 		myFiles.openCreatedFolder(TargetFolderName);
@@ -291,7 +291,7 @@ public class AUT_AG_823 extends TestCase {
 				+ "." + "png";
 		String fileNames2 = files1[0] + "_" + subAsstCode + "-" + "out"
 				+ "." + "jpg";
-
+		UIHelper.pageRefresh(driver);
 		if (mediaTransPage.isTransferredFileIsAvailable(fileNames1)) {
 			report.updateTestLog(
 					"Verify Image profile applied Successfully to the Folder "
@@ -304,7 +304,7 @@ public class AUT_AG_823 extends TestCase {
 							+ fileNames1, "Image profile is not applied."
 							+ "<br><b>File  Name : </br>", Status.FAIL);
 		}
-		
+		UIHelper.pageRefresh(driver);
 		if (mediaTransPage.isTransferredFileIsAvailable(fileNames2)) {
 			report.updateTestLog(
 					"Verify Image profile applied Successfully to the Folder "

@@ -6,7 +6,7 @@
 				<!-- Miscellaneous Test Scripts 100 TC's -->
 		  				
 			<class name="testscripts.misc3.AUT_AG_215" />
-			<class name="testscripts.misc3.AUT_AG_216" />  
+			<!-- <class name="testscripts.misc3.AUT_AG_216" /> Admin Rights Case-->  
 			<class name="testscripts.misc3.AUT_AG_220" />
 			<class name="testscripts.misc3.AUT_AG_221" />
 			<class name="testscripts.misc3.AUT_AG_222" />
@@ -35,7 +35,7 @@
 			<class name="testscripts.misc3.AUT_AG_243" />
 			<class name="testscripts.misc3.AUT_AG_245" />
 			<class name="testscripts.misc3.AUT_AG_246" />
-			<class name="testscripts.misc3.AUT_AG_247" />
+			<!-- <class name="testscripts.misc3.AUT_AG_247" /> Duplicate-->
 			<class name="testscripts.misc3.AUT_AG_248" />
 			<class name="testscripts.misc3.AUT_AG_253" />
 			<class name="testscripts.misc3.AUT_AG_254" />
@@ -57,11 +57,11 @@
 			<class name="testscripts.misc3.AUT_AG_282" />
 			<class name="testscripts.misc3.AUT_AG_285P1" />
 			<class name="testscripts.misc3.AUT_AG_285P2" />
-			<class name="testscripts.misc3.AUT_AG_290" />
+			<!-- <class name="testscripts.misc3.AUT_AG_290" />Duplicate-->
 			<class name="testscripts.misc3.AUT_AG_291P1" />
 			<class name="testscripts.misc3.AUT_AG_291P2" />
-			<class name="testscripts.misc3.AUT_AG_292P1" />
-			<class name="testscripts.misc3.AUT_AG_292P2" />
+			<!-- <class name="testscripts.misc3.AUT_AG_292P1" />Duplicate-->
+			<!-- <class name="testscripts.misc3.AUT_AG_292P2" />Duplicate-->
 			<class name="testscripts.misc3.AUT_AG_293P1" />
 			<class name="testscripts.misc3.AUT_AG_293P2" />
 		

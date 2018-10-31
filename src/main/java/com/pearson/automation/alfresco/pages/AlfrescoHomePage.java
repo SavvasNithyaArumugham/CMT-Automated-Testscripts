@@ -49,7 +49,9 @@ public class AlfrescoHomePage extends ReusableLibrary {
 
 	private String taskMenuXpath = ".//*[@id='HEADER_TASKS_text']";
 
-	private String taskMyTasksXpath = ".//*[@id='HEADER_MY_TASKS_text']/a";
+	//Modified as part of NALS
+	//private String taskMyTasksXpath = ".//*[@id='HEADER_MY_TASKS_text']/a";
+	private String taskMyTasksXpath = ".//*[@id='HEADER_MY_WORKFLOWS_text']/a";
 
 	private String mySiteXpath = ".//*[@class='sticky-wrapper']//*[@class='yui-gd grid columnSize2']//table[@id='yuievtautoid-0']//*[@class='yui-dt-data']";
 

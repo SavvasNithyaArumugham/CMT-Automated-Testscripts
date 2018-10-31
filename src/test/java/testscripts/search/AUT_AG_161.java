@@ -89,13 +89,13 @@ public class AUT_AG_161 extends TestCase
 		
 		myFiles.uploadFileInMyFilesPage(filePath, fileName);
 		myFiles.createFile(fileDetails);
-		
-		sitesPage.siteFinder(siteassertValue);
+		//Modified as part of NALS
+		/*sitesPage.siteFinder(siteassertValue);
 		sitesPage.enterIntoDocumentLibrary();
 		docLibPg.deleteAllFilesAndFolders();
 		
 		myFiles.uploadFileInMyFilesPage(filePath, fileName);
-		myFiles.createFile(fileDetails);
+		myFiles.createFile(fileDetails);*/
 		
 		
 		sitesPage.enterIntoDocumentLibraryWithoutReport();
@@ -112,8 +112,8 @@ public class AUT_AG_161 extends TestCase
 
 		
 			}
-			
-			for (String fileValues : splittedFileDetailas) {
+			//Modified as part of NALS
+			/*for (String fileValues : splittedFileDetailas) {
 				
 				
 				homePageObj.IntelliSensesearch(fileValues);
@@ -122,7 +122,7 @@ public class AUT_AG_161 extends TestCase
 				UIHelper.waitForPageToLoad(driver);
 
 				
-					}
+					}*/
 			
 		}
 		

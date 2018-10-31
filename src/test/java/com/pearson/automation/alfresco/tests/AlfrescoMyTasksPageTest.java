@@ -14,9 +14,10 @@ public class AlfrescoMyTasksPageTest extends ReusableLibrary {
 	private String myTaskLastVersionXpath = ".//*[@id='template_x002e_document-versions_x002e_document-details_x0023_default-latestVersion']/div[1]/span";
 	private String assetSectionXpath = ".//*[contains(@id,'default_assoc_packageItems-cntrl-currentValueDisplay')]";
 	private String assetViewMoreXpath = ".//*[contains(@id,'default_assoc_packageItems-cntrl-currentValueDisplay')]//td[2]//h3//a[text()='CRAFT']//ancestor::tr//td[3]//div[1]/a";
-	private String assetXpath = ".//*[contains(@id,'default_assoc_packageItems-cntrl-currentValueDisplay')]//td[2]//h3//a[text()='CRAFT']";
+	//Modified as part of NALS
+	//private String assetXpath = ".//*[contains(@id,'default_assoc_packageItems-cntrl-currentValueDisplay')]//td[2]//h3//a[text()='CRAFT']";
+	private String assetXpath = ".//*[contains(@id,'default-WorkflowForm-alf-id1_assoc_packageItems-cntrl')]//td[2]//h3//a[text()='CRAFT']";
 	
-
 	
 	public AlfrescoMyTasksPageTest(ScriptHelper scriptHelper) {
 		super(scriptHelper);
@@ -48,21 +49,23 @@ public class AlfrescoMyTasksPageTest extends ReusableLibrary {
 	
 	public void verifyAssetinWFTask(String fileName, String Msg){
 		try{
+			//Modified as part of NALS
 			
-			//String Msg = dataTable.getData("Workflow", "Message");
 			String finalassetXpath = assetXpath
 					.replace("CRAFT",fileName );
+			
 			UIHelper.waitForVisibilityOfEleByXpath(driver, finalassetXpath);
 			UIHelper.mouseOveranElement(driver, UIHelper.findAnElementbyXpath(driver, finalassetXpath));
-			String finalassetViewMoreXpath = assetViewMoreXpath
+			
+			/*String finalassetViewMoreXpath = assetViewMoreXpath
 					.replace("CRAFT",fileName );
 			UIHelper.waitForVisibilityOfEleByXpath(driver, finalassetViewMoreXpath);
-			UIHelper.highlightElement(driver, finalassetViewMoreXpath);
-			
+			UIHelper.highlightElement(driver, finalassetViewMoreXpath);*/
 			report.updateTestLog("Verify Asset in WF task", "Verify Asset in WF task Suessfully"
 					+ "<br /><b> Asset Name : </b> " 
 					+fileName, Status.PASS);
-			UIHelper.click(driver, assetViewMoreXpath);
+			UIHelper.click(driver, finalassetXpath);
+			
 			UIHelper.waitForPageToLoad(driver);
 			UIHelper.waitFor(driver);
 			

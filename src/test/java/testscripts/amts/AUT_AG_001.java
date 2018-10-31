@@ -186,8 +186,8 @@ public class AUT_AG_001 extends TestCase {
 								+ fileName, "Image profile is not applied."
 								+ "<br><b>File  Name : </br>", Status.FAIL);
 			}
-			
-			sitesPage.documentdetails(fileName);
+			//Modified as part of NALS
+			//sitesPage.documentdetails(fileName);
 			docDetailsPageTest.verifyAddedRelationshipData(rename);
 
 		}

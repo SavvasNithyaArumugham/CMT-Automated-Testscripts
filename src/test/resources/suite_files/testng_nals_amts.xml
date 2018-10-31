@@ -83,7 +83,7 @@
 			<class name="testscripts.amts.AUT_AG_796" />
 			<class name="testscripts.amts.AUT_AG_797" />
 			<class name="testscripts.amts.AUT_AG_799" />
-			<class name="testscripts.amts.AUT_AG_800" />
+			<!-- <class name="testscripts.amts.AUT_AG_800" /> Dupliacte Case-->
 			<class name="testscripts.amts.AUT_AG_802" />
 			<class name="testscripts.amts.AUT_AG_803" />
 			

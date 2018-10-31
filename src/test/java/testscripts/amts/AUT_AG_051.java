@@ -101,13 +101,22 @@ public class AUT_AG_051 extends TestCase {
 				"BasedOnFile");
 		String watchFldr = dataTable.getData("Media_Transform", "WatchFolder");
 
-		mediaTransPage.navigateToMediaTransPage();
+		/*mediaTransPage.navigateToMediaTransPage();
 		//mediaTransPage.navigateToProfilePage(profName);
 		mediaTransPage.deleteProfileFrmMediaTransPg(profName);
 		UIHelper.waitFor(driver);
 		mediaTransPage.clickOnCreateImageProfBtn();
 		mediaTransPage.commonMethodForEnterImageProfDetails(profName, profDesc,
+				macCode, subAsstCode, filePathForUploadFile, fileNameForUpload);*/
+		
+		mediaTransPage.navigateToMediaTransPage();
+		//mediaTransPage.navigateToProfilePage(profName);
+		mediaTransPage.deleteProfileFrmMediaTransPg(profName);
+		UIHelper.pageRefresh(driver);
+		mediaTransPage.clickOnCreateImageProfBtn();
+		mediaTransPage.commonMethodForEnterImageProfDetails(profName, profDesc,
 				macCode, subAsstCode, filePathForUploadFile, fileNameForUpload);
+		
 		if (mediaTransPage.clickOnAddImageProfBtn()) {
 
 			report.updateTestLog("Verify Image profile details",
