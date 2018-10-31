@@ -1773,7 +1773,6 @@ public class AlfrescoSearchPageTest extends ReusableLibrary {
 					isDisplayedSelectedItem = false;
 				}
 			}
-      System.out.println("option"+selectedItemsMenuValues);
 
 			if (isDisplayedSelectedItem) {
 				report.updateTestLog(

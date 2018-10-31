@@ -86,7 +86,7 @@ public class AUT_AG_053 extends TestCase
 		
 		AlfrescoDocumentDetailsPage docDetailsPage = new AlfrescoDocumentDetailsPage(scriptHelper);
 		docDetailsPage.deleteFileInDownloadedPath(false);
-	//	docDetailsPage.downloadFilefromactionmenu();
+		//docDetailsPage.downloadFilefromactionmenu();
 		
 		AlfrescoDocumentDetailsPageTest docDetailsTestPage = new AlfrescoDocumentDetailsPageTest(scriptHelper);
 		docDetailsTestPage.verifyDownloadedFile(false, null);

@@ -59,7 +59,7 @@ public class AUT_AG_012 extends TestCase
 		AlfrescoSitesPage sitesPage = new AlfrescoSitesPage(scriptHelper);
 		AlfrescoDocumentLibPage docLibPage = new AlfrescoDocumentLibPage(scriptHelper);
 		String siteassertValue = dataTable.getData("Sites", "SiteName");
-	//	String fileName = dataTable.getData("MyFiles", "FileName");
+		String fileName = dataTable.getData("MyFiles", "FileName");
 		sitesPage.siteFinder(siteassertValue);
 		sitesPage.enterIntoDocumentLibrary();
 		docLibPage.deleteAllFilesAndFolders();
@@ -69,7 +69,6 @@ public class AUT_AG_012 extends TestCase
 		String fileDetails = dataTable.getData("MyFiles", "CreateFileDetails");
 			
 		myFiles.createFile(fileDetails);
-	//	myFiles.createFile(fileDetails);
 			
 		AlfrescoHomePage homePageObj = new AlfrescoHomePage(scriptHelper);
 		String searchQuery = dataTable.getData("Search", "FullText");

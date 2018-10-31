@@ -150,9 +150,7 @@ public class AUT_AG_170P1 extends TestCase {
 			}
 			
 		
-		homePage.navigateToAdvSearch();
-		appSearchPg.inputFileNameAdvSearchparam(fileName[1]);
-		appSearchPg.clickSearch();
+		
 		
 		ArrayList<String> actionsoptions = new ArrayList<String>();
 		fileName[1]=fileName[1].replace(".txt", "");

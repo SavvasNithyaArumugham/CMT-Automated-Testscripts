@@ -48,7 +48,7 @@ public class AlfrescoSearchPage extends ReusableLibrary {
 	private String searchListNames = ".//*[contains(@id,'FCTSRCH_SEARCH_RESULTS_LIST')]//table//tbody//tr//td[3]//a";
 	public String tempBreadcrumblabel = ".//span[@class='label']/a[contains(text(),'CRAFT')]";
 	public String tempsearchresultclick = ".//*[contains(@id,'FCTSRCH_SEARCH_RESULTS_LIST')]//table//tbody//tr//td[3]//a//*[contains(text(),'CRAFT')]";
-	//*[@class='nameAndTitleCell']//a//span[@class='value']";
+			//*[@class='nameAndTitleCell']//a//span[@class='value']";
 	public String tempFileNameNames = ".//*[contains(@id,'FCTSRCH_SEARCH_RESULTS_LIST')]//table//tbody//tr//td[3]//a//*[text()='CRAFT']";
 	private String tempFiletitleXpath = ".//*[contains(@id,'FCTSRCH_SEARCH_RESULTS_LIST')]//table//tbody//tr//td[3]//a//*[text()='CRAFT']//ancestor::tr//td//span[@id='FCTSRCH_SEARCH_RESULT_TITLE']//span[@class='value']";
 	private String tempFileDescXpath = ".//*[contains(@id,'FCTSRCH_SEARCH_RESULTS_LIST')]//table//tbody//tr//td[3]//a//*[text()='CRAFT']//ancestor::tr//td//span[@id='FCTSRCH_SEARCH_RESULT_DESCRIPTION']//span[@class='value']";
@@ -126,7 +126,7 @@ public class AlfrescoSearchPage extends ReusableLibrary {
 	public String actionloadingXpath = ".//*[contains(@id,'FCTSRCH_SEARCH_RESULT_ACTIONS')]//span[text()='Loading...']";
 	private String deleteActionXpath = ".//*[@id='ALF_DELETE_CONTENT_DIALOG']//span[text()='Delete']";
 	private String moveCopyActionXpath = ".//div[@id='FCTSRCH_SEARCH_RESULT_ACTIONS_MENU_dropdown']//tr[contains(@aria-label,'CRAFT')]";
-	//*[@class='alf-menu-groups']//tr//td[text()[contains(.,'CRAFT')]]";
+		//*[@class='alf-menu-groups']//tr//td[text()[contains(.,'CRAFT')]]";
 	//.//*[contains(@id,'FCTSRCH_SEARCH_RESULT_ACTIONS')]//*[@class='alf-menu-groups']//tr//td[2][text()='CRAFT']
 	private String targetFolderActionXpath = ".//*[@class='dijitTreeLabel'][text()='My Files']";
 	private String MyfilesXpath = ".//*[@id='ALF_COPY_MOVE_DIALOG']//*[@aria-label='My Files ']";
@@ -322,697 +322,695 @@ public class AlfrescoSearchPage extends ReusableLibrary {
 	 *            {@link DriverScript}
 	 */
 	public AlfrescoSearchPage(ScriptHelper scriptHelper) {
-	super(scriptHelper);
+		super(scriptHelper);
 	}
 
 	public AlfrescoSearchPage performSearch() {
-	String fileName = dataTable.getData("Search", "FullText");
-	try {
+		String fileName = dataTable.getData("Search", "FullText");
+		try {
 
-	commonMethodForPerformSimpleSearch(fileName);
+			commonMethodForPerformSimpleSearch(fileName);
 
-	} catch (Exception e) {
-	report.updateTestLog("Perform Search",
-	"Search using uploaded file: " + "FileName = " + fileName,
-	Status.FAIL);
-	e.printStackTrace();
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+		} catch (Exception e) {
+			report.updateTestLog("Perform Search",
+					"Search using uploaded file: " + "FileName = " + fileName,
+					Status.FAIL);
+			e.printStackTrace();
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	public void commonMethodForPerformSimpleSearch(String fileName) {
-	try {
-	UIHelper.waitForVisibilityOfEleByXpath(driver, searchFieldXpath);
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, searchFieldXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, searchFieldXpath,
-	fileName);
-	UIHelper.waitFor(driver);
-	UIHelper.findAnElementbyXpath(driver, searchFieldXpath).sendKeys(
-	Keys.ENTER);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	dataLodingMoreXpathForSearch);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, searchButtonXpath);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	searchResultsContainerXpath);
-	UIHelper.mouseOveranElement(driver, UIHelper.findAnElementbyXpath(
-	driver, searchResultsContainerXpath));
+		try {
+			UIHelper.waitForVisibilityOfEleByXpath(driver, searchFieldXpath);
+			UIHelper.highlightElement(driver,
+					UIHelper.findAnElementbyXpath(driver, searchFieldXpath));
+			UIHelper.sendKeysToAnElementByXpath(driver, searchFieldXpath,
+					fileName);
+			UIHelper.waitFor(driver);
+			UIHelper.findAnElementbyXpath(driver, searchFieldXpath).sendKeys(
+					Keys.ENTER);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+					dataLodingMoreXpathForSearch);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, searchButtonXpath);
+			UIHelper.waitForVisibilityOfEleByXpath(driver,
+					searchResultsContainerXpath);
+			UIHelper.mouseOveranElement(driver, UIHelper.findAnElementbyXpath(
+					driver, searchResultsContainerXpath));
 
-	report.updateTestLog("Perform Search",
-	"Search using uploaded file: " + "FileName = " + fileName,
-	Status.DONE);
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+			report.updateTestLog("Perform Search",
+					"Search using uploaded file: " + "FileName = " + fileName,
+					Status.DONE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public AlfrescoSearchPage performAdvancedSearch() {
-	try {
-	String fileName = dataTable.getData("Search", "FullText");
-	UIHelper.waitForVisibilityOfEleByXpath(driver, searchFieldXpath);
-	UIHelper.click(driver, searchImageIconXpath);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, advancedSearchXpath);
-	UIHelper.click(driver, advancedSearchXpath);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	loadingApsectsXpath);
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, fullTextXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, fullTextXpath, fileName);
-	UIHelper.waitFor(driver);
-	UIHelper.click(driver, searchBtnXpath);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	dataLodingMoreXpathForSearch);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, searchButtonXpath);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	searchResultsContainerXpath);
-	UIHelper.mouseOveranElement(driver, UIHelper.findAnElementbyXpath(
-	driver, searchResultsContainerXpath));
+		try {
+			String fileName = dataTable.getData("Search", "FullText");
+			UIHelper.waitForVisibilityOfEleByXpath(driver, searchFieldXpath);
+			UIHelper.click(driver, searchImageIconXpath);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, advancedSearchXpath);
+			UIHelper.click(driver, advancedSearchXpath);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+					loadingApsectsXpath);
+			UIHelper.highlightElement(driver,
+					UIHelper.findAnElementbyXpath(driver, fullTextXpath));
+			UIHelper.sendKeysToAnElementByXpath(driver, fullTextXpath, fileName);
+			UIHelper.waitFor(driver);
+			UIHelper.click(driver, searchBtnXpath);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+					dataLodingMoreXpathForSearch);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, searchButtonXpath);
+			UIHelper.waitForVisibilityOfEleByXpath(driver,
+					searchResultsContainerXpath);
+			UIHelper.mouseOveranElement(driver, UIHelper.findAnElementbyXpath(
+					driver, searchResultsContainerXpath));
 
-	report.updateTestLog("Perform Advanced Search",
-	"Search using uploaded file: " + "FileName = " + fileName,
-	Status.DONE);
-	} catch (Exception e) {
+			report.updateTestLog("Perform Advanced Search",
+					"Search using uploaded file: " + "FileName = " + fileName,
+					Status.DONE);
+		} catch (Exception e) {
 
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// Get uploaded file/folder name from My Files Page
 	public ArrayList<String> getSearchResultsTitle() {
-	try {
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	
-	List<WebElement> searchResultsListEle;
-	
-	searchResultsListEle = driver.findElements(By
-	.xpath(searchResultsListXpath));
-	for (WebElement ele : searchResultsListEle) {
-	searchResultsList.add(ele.getText());
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+		try {
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			
+			List<WebElement> searchResultsListEle;
+		
+			searchResultsListEle = driver.findElements(By
+					.xpath(searchResultsListXpath));
+			for (WebElement ele : searchResultsListEle) {
+				searchResultsList.add(ele.getText());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-	return searchResultsList;
+		return searchResultsList;
 	}
 
 	public void openSearchResult() {
-	try {
-	String fileName = dataTable.getData("MyFiles", "FileName");
-	UIHelper.waitFor(driver);
-	List<WebElement> searchResultsListEle = driver.findElements(By
-	.xpath(searchResultsListXpath));
+		try {
+			String fileName = dataTable.getData("MyFiles", "FileName");
+			UIHelper.waitFor(driver);
+			List<WebElement> searchResultsListEle = driver.findElements(By
+					.xpath(searchResultsListXpath));
 
-	for (WebElement ele : searchResultsListEle) {
-	if (ele.getText().equalsIgnoreCase(fileName)) {
-	ele.click();
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, loadingImage);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	loadingImage);
-	UIHelper.waitFor(driver);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	openedDocHeaderXpath);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	openedDocumentContainerLayerXpath);
+			for (WebElement ele : searchResultsListEle) {
+				if (ele.getText().equalsIgnoreCase(fileName)) {
+					ele.click();
+					UIHelper.waitForPageToLoad(driver);
+					UIHelper.waitForPageToLoad(driver);
+					UIHelper.waitForVisibilityOfEleByXpath(driver, loadingImage);
+					UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+							loadingImage);
+					UIHelper.waitFor(driver);
+					UIHelper.waitForVisibilityOfEleByXpath(driver,
+							openedDocHeaderXpath);
+					UIHelper.waitForVisibilityOfEleByXpath(driver,
+							openedDocumentContainerLayerXpath);
 
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
+					UIHelper.waitFor(driver);
+					UIHelper.waitFor(driver);
 
-	}
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// Get file/folder name from Search result and put in into a Map with
 	// details
 	public Map<String, ArrayList<String>> getSearchListValues() {
-	try {
-	
-	searchNames = getSearchResultsTitle();
-	
-	UIHelper.findandAddElementsToaListforMap(driver, searchNames,
-	tempFiletitleXpath, titleName);
-	UIHelper.findandAddElementsToaListforMap(driver, searchNames,
-	tempFileDescXpath, descvalue);
-	UIHelper.findandAddElementsToaListforMap(driver, searchNames,
-	tempFileLastModifiedXpath, lastModified);
-	UIHelper.findandAddElementsToaListforMap(driver, searchNames,
-	tempFileModifierXpath, modifier);
-	UIHelper.findandAddElementsToaListforMap(driver, searchNames,
-	tempFileSizeXpath, filesize);
-	UIHelper.findandAddElementsToaListforMap(driver, searchNames,
-	tempFilePathXpath, location);
-	UIHelper.findandAddElementsToaListforMap(driver, searchNames,
-	tempFileSiteXpath, siteName);
+		try {
+			
+			searchNames = getSearchResultsTitle();
+		
+			UIHelper.findandAddElementsToaListforMap(driver, searchNames,
+					tempFiletitleXpath, titleName);
+			UIHelper.findandAddElementsToaListforMap(driver, searchNames,
+					tempFileDescXpath, descvalue);
+			UIHelper.findandAddElementsToaListforMap(driver, searchNames,
+					tempFileLastModifiedXpath, lastModified);
+			UIHelper.findandAddElementsToaListforMap(driver, searchNames,
+					tempFileModifierXpath, modifier);
+			UIHelper.findandAddElementsToaListforMap(driver, searchNames,
+					tempFileSizeXpath, filesize);
+			UIHelper.findandAddElementsToaListforMap(driver, searchNames,
+					tempFilePathXpath, location);
+			UIHelper.findandAddElementsToaListforMap(driver, searchNames,
+					tempFileSiteXpath, siteName);
 
-	searchValues.put("Names", searchNames);
-	searchValues.put("Title", titleName);
-	searchValues.put("Desc", descvalue);
-	searchValues.put("LastModified", lastModified);
-	searchValues.put("Modifier", modifier);
-	searchValues.put("Size", filesize);
-	searchValues.put("Path", location);
-	searchValues.put("Site", siteName);
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
-	return searchValues;
+			searchValues.put("Names", searchNames);
+			searchValues.put("Title", titleName);
+			searchValues.put("Desc", descvalue);
+			searchValues.put("LastModified", lastModified);
+			searchValues.put("Modifier", modifier);
+			searchValues.put("Size", filesize);
+			searchValues.put("Path", location);
+			searchValues.put("Site", siteName);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return searchValues;
 	}
 
 	// Advanced search with User Name
 	public AlfrescoSearchPage searchWithUserName() {
-	try {
+		try {
 
-	String SearchUser = dataTable.getData("Search", "Query");
-	UIHelper.waitForVisibilityOfEleByXpath(driver, searchmodifierXpath);
-	if (UIHelper.findAnElementbyXpath(driver, searchmodifierXpath)
-	.isDisplayed()) {
-	UIHelper.findAnElementbyXpath(driver, searchmodifierXpath)
-	.sendKeys(SearchUser);
-	UIHelper.waitFor(driver);
-	report.updateTestLog("Perform Advanced Search",
-	"Search using User Name "
-	+ "<br /><b> User Name Query : </b>"
-	+ SearchUser, Status.DONE);
-	}
-	} catch (Exception e) {
-	report.updateTestLog("Perform Advanced Search",
-	"Search using User Name failed.No search result found",
-	Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+			String SearchUser = dataTable.getData("Search", "Query");
+			UIHelper.waitForVisibilityOfEleByXpath(driver, searchmodifierXpath);
+			if (UIHelper.findAnElementbyXpath(driver, searchmodifierXpath)
+					.isDisplayed()) {
+				UIHelper.findAnElementbyXpath(driver, searchmodifierXpath)
+						.sendKeys(SearchUser);
+				UIHelper.waitFor(driver);
+				report.updateTestLog("Perform Advanced Search",
+						"Search using User Name "
+								+ "<br /><b> User Name Query : </b>"
+								+ SearchUser, Status.DONE);
+			}
+		} catch (Exception e) {
+			report.updateTestLog("Perform Advanced Search",
+					"Search using User Name failed.No search result found",
+					Status.FAIL);
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// Perform File Name search
 	public AlfrescoSearchPage fileNamesearch() {
-	try {
-	UIHelper.waitFor(driver);
-	String searchQuery = dataTable.getData("Search", "Query");
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, searchNameXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, searchNameXpath,
-	searchQuery);
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, searchBtnXpath));
-	UIHelper.click(driver, searchBtnXpath);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	report.updateTestLog("Perform Search", "Search using fileName "
-	+ "Query = " + searchQuery, Status.DONE);
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+		try {
+			UIHelper.waitFor(driver);
+			String searchQuery = dataTable.getData("Search", "Query");
+			UIHelper.highlightElement(driver,
+					UIHelper.findAnElementbyXpath(driver, searchNameXpath));
+			UIHelper.sendKeysToAnElementByXpath(driver, searchNameXpath,
+					searchQuery);
+			UIHelper.highlightElement(driver,
+					UIHelper.findAnElementbyXpath(driver, searchBtnXpath));
+			UIHelper.click(driver, searchBtnXpath);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitFor(driver);
+			report.updateTestLog("Perform Search", "Search using fileName "
+					+ "Query = " + searchQuery, Status.DONE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// input File Name in Advanced search
 	public AlfrescoSearchPage inputFileNameAdvSearch() {
-	String searchQuery = dataTable.getData("Search", "FileName");
-	try {
-	UIHelper.waitFor(driver);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, searchNameXpath);
-	if (UIHelper.findAnElementbyXpath(driver, searchNameXpath)
-	.isDisplayed()) {
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, searchNameXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, searchNameXpath,
-	searchQuery);
-	report.updateTestLog("Input File Name",
-	"Search using fileName "
-	+ " <br /><b>FileName Query: </b>"
-	+ searchQuery, Status.DONE);
-	}
+		String searchQuery = dataTable.getData("Search", "FileName");
+		try {
+			UIHelper.waitFor(driver);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, searchNameXpath);
+			if (UIHelper.findAnElementbyXpath(driver, searchNameXpath)
+					.isDisplayed()) {
+				UIHelper.highlightElement(driver,
+						UIHelper.findAnElementbyXpath(driver, searchNameXpath));
+				UIHelper.sendKeysToAnElementByXpath(driver, searchNameXpath,
+						searchQuery);
+				report.updateTestLog("Input File Name",
+						"Search using fileName "
+								+ " <br /><b>FileName Query: </b>"
+								+ searchQuery, Status.DONE);
+			}
 
-	} catch (Exception e) {
-	report.updateTestLog("Input File Name",
-	"Search using fileName failed", Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+		} catch (Exception e) {
+			report.updateTestLog("Input File Name",
+					"Search using fileName failed", Status.FAIL);
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// input keyword Name in Advanced search
 	public AlfrescoSearchPage inputKeywordSearch() {
-	String searchQuery = dataTable.getData("Search", "Query");
-	try {
-	UIHelper.waitFor(driver);
-	if (UIHelper.findAnElementbyXpath(driver, fullTextXpath)
-	.isDisplayed()) {
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, fullTextXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, fullTextXpath,
-	searchQuery);
+		String searchQuery = dataTable.getData("Search", "Query");
+		try {
+			UIHelper.waitFor(driver);
+			if (UIHelper.findAnElementbyXpath(driver, fullTextXpath)
+					.isDisplayed()) {
+				UIHelper.highlightElement(driver,
+						UIHelper.findAnElementbyXpath(driver, fullTextXpath));
+				UIHelper.sendKeysToAnElementByXpath(driver, fullTextXpath,
+						searchQuery);
 
-	report.updateTestLog("Input keyword Name",
-	"Search using keyword " + "<br /><b>Query : </b>"
-	+ searchQuery, Status.DONE);
-	}
+				report.updateTestLog("Input keyword Name",
+						"Search using keyword " + "<br /><b>Query : </b>"
+								+ searchQuery, Status.DONE);
+			}
 
-	} catch (Exception e) {
-	report.updateTestLog("Input keyword Name",
-	"Search using keyword failed", Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+		} catch (Exception e) {
+			report.updateTestLog("Input keyword Name",
+					"Search using keyword failed", Status.FAIL);
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// Select search Scope Name in Advanced search
 	public AlfrescoSearchPage searchScope() {
-	try {
-	UIHelper.waitFor(driver);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, selectAdvScopeXpath);
-	UIHelper.click(driver, selectAdvScopeXpath);
-	UIHelper.waitFor(driver);
-	String searchscope = dataTable.getData("Search", "Actions");
-	String finalselectscopeXpath = selectScopeXpath.replace("CRAFT",
-	searchscope);
-	UIHelper.click(driver, finalselectscopeXpath);
-	UIHelper.waitFor(driver);
+		try {
+			UIHelper.waitFor(driver);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, selectAdvScopeXpath);
+			UIHelper.click(driver, selectAdvScopeXpath);
+			UIHelper.waitFor(driver);
+			String searchscope = dataTable.getData("Search", "Actions");
+			String finalselectscopeXpath = selectScopeXpath.replace("CRAFT",
+					searchscope);
+			UIHelper.click(driver, finalselectscopeXpath);
+			UIHelper.waitFor(driver);
 
-	report.updateTestLog("Select Search Scope", "Search scope selected"
-	+ searchscope, Status.DONE);
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+			report.updateTestLog("Select Search Scope", "Search scope selected"
+					+ searchscope, Status.DONE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// input Title in Advanced search
 	public AlfrescoSearchPage inputTitleAdvSearch() {
-	try {
-	UIHelper.waitFor(driver);
-	String searchTitle = dataTable.getData("Search", "Title");
-	if (UIHelper.findAnElementbyXpath(driver, searchTitleXpath)
-	.isDisplayed()) {
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, searchTitleXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, searchTitleXpath,
-	searchTitle);
+		try {
+			UIHelper.waitFor(driver);
+			String searchTitle = dataTable.getData("Search", "Title");
+			if (UIHelper.findAnElementbyXpath(driver, searchTitleXpath)
+					.isDisplayed()) {
+				UIHelper.highlightElement(driver,
+						UIHelper.findAnElementbyXpath(driver, searchTitleXpath));
+				UIHelper.sendKeysToAnElementByXpath(driver, searchTitleXpath,
+						searchTitle);
 
-	report.updateTestLog("Input Title ",
-	"Search using Title completed "
-	+ "<br /><b>Title Query : </b>" + searchTitle,
-	Status.DONE);
-	}
-	} catch (Exception e) {
-	report.updateTestLog("Input Title ", "Search using Title failed ",
-	Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+				report.updateTestLog("Input Title ",
+						"Search using Title completed "
+								+ "<br /><b>Title Query : </b>" + searchTitle,
+						Status.DONE);
+			}
+		} catch (Exception e) {
+			report.updateTestLog("Input Title ", "Search using Title failed ",
+					Status.FAIL);
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// input Desc in Advanced search
 	public AlfrescoSearchPage inputDescAdvSearch() {
-	try {
-	UIHelper.waitFor(driver);
-	String searchDesc = dataTable.getData("Search", "Description");
-	if (UIHelper.findAnElementbyXpath(driver, searchAssetXpath)
-	.isDisplayed()) {
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, searchDescXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, searchDescXpath,
-	searchDesc);
+		try {
+			UIHelper.waitFor(driver);
+			String searchDesc = dataTable.getData("Search", "Description");
+			if (UIHelper.findAnElementbyXpath(driver, searchAssetXpath)
+					.isDisplayed()) {
+				UIHelper.highlightElement(driver,
+						UIHelper.findAnElementbyXpath(driver, searchDescXpath));
+				UIHelper.sendKeysToAnElementByXpath(driver, searchDescXpath,
+						searchDesc);
 
-	report.updateTestLog("Input Desc ", "Search using Desc "
-	+ " <br /><b>Desc Query : </b>" + searchDesc,
-	Status.DONE);
-	}
-	} catch (Exception e) {
-	report.updateTestLog("Input Desc ", "Search using Desc failed",
-	Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+				report.updateTestLog("Input Desc ", "Search using Desc "
+						+ " <br /><b>Desc Query : </b>" + searchDesc,
+						Status.DONE);
+			}
+		} catch (Exception e) {
+			report.updateTestLog("Input Desc ", "Search using Desc failed",
+					Status.FAIL);
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// Input Asset in Advanced search
 	public AlfrescoSearchPage inputAssetAdvSearch() {
-	try {
-	String Asset = dataTable.getData("Search", "AssetType");
-	if (UIHelper.findAnElementbyXpath(driver, searchAssetXpath)
-	.isDisplayed()) {
-	UIHelper.highlightElement(driver,
+		try {
+			String Asset = dataTable.getData("Search", "AssetType");
+			if (UIHelper.findAnElementbyXpath(driver, searchAssetXpath)
+					.isDisplayed()) {
+				UIHelper.highlightElement(driver,
 
-	UIHelper.findAnElementbyXpath(driver, searchAssetXpath));
-	Select selectBox = new Select(driver.findElement(By
-	.xpath(searchAssetXpath)));
-	selectBox.selectByVisibleText(Asset);
-	report.updateTestLog("Input Asset Name",
-	"Search using Asset Name successfully"
-	+ "<br /><b> Asset type Query : </b>" + Asset,
-	Status.DONE);
-	}
-	} catch (Exception e) {
-	report.updateTestLog("Input Asset Name",
-	"Search using Asset Name failed", Status.FAIL);
-	}
+				UIHelper.findAnElementbyXpath(driver, searchAssetXpath));
+				Select selectBox = new Select(driver.findElement(By
+						.xpath(searchAssetXpath)));
+				selectBox.selectByVisibleText(Asset);
+				report.updateTestLog("Input Asset Name",
+						"Search using Asset Name successfully"
+								+ "<br /><b> Asset type Query : </b>" + Asset,
+						Status.DONE);
+			}
+		} catch (Exception e) {
+			report.updateTestLog("Input Asset Name",
+					"Search using Asset Name failed", Status.FAIL);
+		}
 
-	return new AlfrescoSearchPage(scriptHelper);
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// Click search button in Advanced search
 	public AlfrescoSearchPage clickSearch() {
-	try {
-	UIHelper.waitForVisibilityOfEleByXpath(driver, searchBtnXpath);
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, searchBtnXpath));
-	UIHelper.click(driver, searchBtnXpath);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	//	UIHelper.waitForVisibilityOfEleByXpath(driver, searchingXpath);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, searchingXpath);
-	UIHelper.waitforPresenceOfAllElements(driver, searchCountXpath);
-	UIHelper.waitForVisibilityOfEleByXpathForLongTime(driver,
-	searchCountXpath);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	
+		try {
+			UIHelper.waitForVisibilityOfEleByXpath(driver, searchBtnXpath);
+			UIHelper.highlightElement(driver,
+					UIHelper.findAnElementbyXpath(driver, searchBtnXpath));
+			UIHelper.click(driver, searchBtnXpath);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitFor(driver);
+		//	UIHelper.waitForVisibilityOfEleByXpath(driver, searchingXpath);
+			UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, searchingXpath);
+			UIHelper.waitforPresenceOfAllElements(driver, searchCountXpath);
+			UIHelper.waitForVisibilityOfEleByXpathForLongTime(driver,
+					searchCountXpath);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			
 
-	if (UIHelper.checkForAnElementbyXpath(driver, searchCountXpath)) {
-	report.updateTestLog(
-	"Perform Adv Search",
-	"Adv Search Performed"
-	+ "<br /><b>No of search result found :</b> "
-	+ UIHelper.findAnElementbyXpath(driver,
-	searchCountXpath).getText(),
-	Status.PASS);
-	}
-	} catch (Exception e) {
-	report.updateTestLog("Perform Adv Search",
-	"Adv Search results not found", Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+			if (UIHelper.checkForAnElementbyXpath(driver, searchCountXpath)) {
+				report.updateTestLog(
+						"Perform Adv Search",
+						"Adv Search Performed"
+								+ "<br /><b>No of search result found :</b> "
+								+ UIHelper.findAnElementbyXpath(driver,
+										searchCountXpath).getText(),
+						Status.PASS);
+			}
+		} catch (Exception e) {
+			report.updateTestLog("Perform Adv Search",
+					"Adv Search results not found", Status.FAIL);
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// Click delete button in is search result
 	public AlfrescoSearchPage clickDeleteinActionMenu() {
-	try {
-	UIHelper.waitForVisibilityOfEleByXpath(driver, deleteActionXpath);
-	UIHelper.findAnElementbyXpath(driver, deleteActionXpath);
-	UIHelper.click(driver, deleteActionXpath);
-	/*
-	 * UIHelper.waitForPageToLoad(driver); UIHelper.waitFor(driver);
-	 */
-	} catch (Exception e) {
-	// e.printStackTrace();
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+		try {
+			UIHelper.waitForVisibilityOfEleByXpath(driver, deleteActionXpath);
+			UIHelper.findAnElementbyXpath(driver, deleteActionXpath);
+			UIHelper.click(driver, deleteActionXpath);
+			/*
+			 * UIHelper.waitForPageToLoad(driver); UIHelper.waitFor(driver);
+			 */
+		} catch (Exception e) {
+			// e.printStackTrace();
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// Move or copy in search result
 	public AlfrescoSearchPage moveorCopyinActionMenu() {
-	try {
-	UIHelper.waitForVisibilityOfEleByXpath(driver, MyfilesXpath);
-	UIHelper.click(driver, MyfilesXpath);
-	UIHelper.waitFor(driver);
-	UIHelper.click(driver, targetFolderActionXpath);
-	UIHelper.waitFor(driver);
-	UIHelper.click(driver, moveCopyBtnXpath);
+		try {
+			UIHelper.waitForVisibilityOfEleByXpath(driver, MyfilesXpath);
+			UIHelper.click(driver, MyfilesXpath);
+			UIHelper.waitFor(driver);
+			UIHelper.click(driver, targetFolderActionXpath);
+			UIHelper.waitFor(driver);
+			UIHelper.click(driver, moveCopyBtnXpath);
 
-	} catch (Exception e) {
-	// e.printStackTrace();
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+		} catch (Exception e) {
+			// e.printStackTrace();
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// Get Metadata value search
 	public String getMetadata(String FileName, String Metadata) {
-	String MetadataValue = "";
-	try {
-	String Resultfile = tempFileNameNames.replace("CRAFT", FileName);
-	UIHelper.click(driver, Resultfile);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	if (UIHelper.checkForAnElementbyXpath(driver, docpropTwisterCloseXpath)) {
-	UIHelper.click(driver, docpropTwisterCloseXpath);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, docpropTwisterOpenXpath);
-	UIHelper.waitFor(driver);
-	}
-	String FinalMetadataValueXpath = tempMetadataValueXpath.replace(
-	"CRAFT", Metadata);
-	UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
-	FinalMetadataValueXpath));
-	UIHelper.highlightElement(driver, FinalMetadataValueXpath);
-	MetadataValue = UIHelper.findAnElementbyXpath(driver,
-	FinalMetadataValueXpath).getText();
-	} catch (Exception e) {
-	// e.printStackTrace();
-	}
-	return MetadataValue;
+		String MetadataValue = "";
+		try {
+			String Resultfile = tempFileNameNames.replace("CRAFT", FileName);
+			UIHelper.click(driver, Resultfile);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitFor(driver);
+			if (UIHelper.checkForAnElementbyXpath(driver, docpropTwisterCloseXpath)) {
+				UIHelper.click(driver, docpropTwisterCloseXpath);
+				UIHelper.waitForVisibilityOfEleByXpath(driver, docpropTwisterOpenXpath);
+				UIHelper.waitFor(driver);
+			}
+			String FinalMetadataValueXpath = tempMetadataValueXpath.replace(
+					"CRAFT", Metadata);
+			UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
+					FinalMetadataValueXpath));
+			UIHelper.highlightElement(driver, FinalMetadataValueXpath);
+			MetadataValue = UIHelper.findAnElementbyXpath(driver,
+					FinalMetadataValueXpath).getText();
+		} catch (Exception e) {
+			// e.printStackTrace();
+		}
+		return MetadataValue;
 	}
 
 	// Input Aspect in Advanced search
 	public AlfrescoSearchPage inputAspectAdvSearch() {
-	String Aspect = null;
-	try {
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	aspectPanelXpath);
-	WebElement dropdownEle = UIHelper.findAnElementbyXpath(driver,
-	AspectDropDownXpath);
-	
-/*	if(properties.getProperty("ApplicationUrl").contains("pearsoncms")) {*/
-	 Aspect = dataTable.getData("Search", "Aspect");
-	/*	}else {
-	 Aspect = dataTable.getData("Search", "AWSAspect");
-	}*/
-	
-	String AspectProp = dataTable.getData("Search", "AspectProp");
-	String Aspectvalue = dataTable.getData("Search", "Query");
-	Select selectBox = new Select(dropdownEle);
-	selectBox.selectByVisibleText(Aspect);
-	Select selectpropBox = new Select(driver.findElement(By
-	.xpath(AspectPropDropDownXpath)));
-	selectpropBox.selectByVisibleText(AspectProp);
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, AspectValueXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, AspectValueXpath,
-	Aspectvalue);
-	if (UIHelper.findAnElementbyXpath(driver, AspectPropDropDownXpath)
-	.isEnabled()) {
-	report.updateTestLog("Input Aspect Name",
-	"Search using Aspect Name "
-	+ "<br /><b>Aspect Name :</b>" + Aspect
-	+ "<br /><b>Aspect Properties :</b>"
-	+ AspectProp + "<br /><b>Aspect Value :</b>"
-	+ Aspectvalue, Status.DONE);
-	} else {
-	report.updateTestLog("Input Aspect Name",
-	"Input aspect value in Adv search Failed ", Status.FAIL);
-	}
+		String Aspect = null;
+		try {
+			UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+					aspectPanelXpath);
+			WebElement dropdownEle = UIHelper.findAnElementbyXpath(driver,
+					AspectDropDownXpath);
+			
+/*			if(properties.getProperty("ApplicationUrl").contains("pearsoncms")) {*/
+				 Aspect = dataTable.getData("Search", "Aspect");
+		/*	}else {
+				 Aspect = dataTable.getData("Search", "AWSAspect");
+			}*/
+			
+			String AspectProp = dataTable.getData("Search", "AspectProp");
+			String Aspectvalue = dataTable.getData("Search", "Query");
+			Select selectBox = new Select(dropdownEle);
+			selectBox.selectByVisibleText(Aspect);
+			Select selectpropBox = new Select(driver.findElement(By
+					.xpath(AspectPropDropDownXpath)));
+			selectpropBox.selectByVisibleText(AspectProp);
+			UIHelper.highlightElement(driver,
+					UIHelper.findAnElementbyXpath(driver, AspectValueXpath));
+			UIHelper.sendKeysToAnElementByXpath(driver, AspectValueXpath,
+					Aspectvalue);
+			if (UIHelper.findAnElementbyXpath(driver, AspectPropDropDownXpath)
+					.isEnabled()) {
+				report.updateTestLog("Input Aspect Name",
+						"Search using Aspect Name "
+								+ "<br /><b>Aspect Name :</b>" + Aspect
+								+ "<br /><b>Aspect Properties :</b>"
+								+ AspectProp + "<br /><b>Aspect Value :</b>"
+								+ Aspectvalue, Status.DONE);
+			} else {
+				report.updateTestLog("Input Aspect Name",
+						"Input aspect value in Adv search Failed ", Status.FAIL);
+			}
 
-	} catch (Exception e) {
-	report.updateTestLog("Input Aspect Name",
-	"Input aspect value in Adv search Failed ", Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+		} catch (Exception e) {
+			report.updateTestLog("Input Aspect Name",
+					"Input aspect value in Adv search Failed ", Status.FAIL);
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// Input Aspect in Advanced search
 	public void inputAspectAdvSearch(String aspect, String aspectProp,
-	String aspectvalue) {
-	try {
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	aspectPanelXpath);
-	WebElement dropdownEle = UIHelper.findAnElementbyXpath(driver,
-	AspectDropDownXpath);
+			String aspectvalue) {
+		try {
+			UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+					aspectPanelXpath);
+			WebElement dropdownEle = UIHelper.findAnElementbyXpath(driver,
+					AspectDropDownXpath);
 
-	Select selectBox = new Select(dropdownEle);
-	selectBox.selectByVisibleText(aspect);
-	Select selectpropBox = new Select(driver.findElement(By
-	.xpath(AspectPropDropDownXpath)));
-	selectpropBox.selectByVisibleText(aspectProp);
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, AspectValueXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, AspectValueXpath,
-	aspectvalue);
-	if (UIHelper.findAnElementbyXpath(driver, AspectPropDropDownXpath)
-	.isEnabled()) {
-	report.updateTestLog("Input Aspect Name",
-	"Search using Aspect Name "
-	+ "<br /><b>Aspect Name :</b>" + aspect
-	+ "<br /><b>Aspect Properties :</b>"
-	+ aspectProp + "<br /><b>Aspect Value :</b>"
-	+ aspectvalue, Status.DONE);
-	} else {
-	report.updateTestLog("Input Aspect Name",
-	"Input aspect value in Adv search Failed ", Status.FAIL);
-	}
+			Select selectBox = new Select(dropdownEle);
+			selectBox.selectByVisibleText(aspect);
+			Select selectpropBox = new Select(driver.findElement(By
+					.xpath(AspectPropDropDownXpath)));
+			selectpropBox.selectByVisibleText(aspectProp);
+			UIHelper.highlightElement(driver,
+					UIHelper.findAnElementbyXpath(driver, AspectValueXpath));
+			UIHelper.sendKeysToAnElementByXpath(driver, AspectValueXpath,
+					aspectvalue);
+			if (UIHelper.findAnElementbyXpath(driver, AspectPropDropDownXpath)
+					.isEnabled()) {
+				report.updateTestLog("Input Aspect Name",
+						"Search using Aspect Name "
+								+ "<br /><b>Aspect Name :</b>" + aspect
+								+ "<br /><b>Aspect Properties :</b>"
+								+ aspectProp + "<br /><b>Aspect Value :</b>"
+								+ aspectvalue, Status.DONE);
+			} else {
+				report.updateTestLog("Input Aspect Name",
+						"Input aspect value in Adv search Failed ", Status.FAIL);
+			}
 
-	} catch (Exception e) {
-	report.updateTestLog("Input Aspect Name",
-	"Input aspect value in Adv search Failed ", Status.FAIL);
-	}
+		} catch (Exception e) {
+			report.updateTestLog("Input Aspect Name",
+					"Input aspect value in Adv search Failed ", Status.FAIL);
+		}
 	}
 
 	// Input Aspect2 in Advanced search
 	public AlfrescoSearchPage inputMultiAspectAdvSearch() {
-	String Aspect,Aspect1 =null;
-	try {
-	UIHelper.waitForVisibilityOfEleByXpath(driver, AspectDropDown1Xpath);
-	
-	
-	if(properties.getProperty("ApplicationUrl").contains("pearsoncms")) {
-	 Aspect = dataTable.getData("Search", "Aspect");
-	}else {
-	 Aspect = dataTable.getData("Search", "AWSAspect");
-	}
-	
-	if(properties.getProperty("ApplicationUrl").contains("pearsoncms")) {
-	 Aspect1 = dataTable.getData("Search", "Aspect1");
-	}else {
-	 Aspect1 = dataTable.getData("Search", "AWSAspect1");
-	}
-	
-	
-	String Aspect1Prop = dataTable.getData("Search", "AspectProp1");
-	String Aspectvalue = dataTable.getData("Search", "Query");
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, AspectDropDown1Xpath));
-	Select selectBox = new Select(driver.findElement(By
-	.xpath(AspectDropDown1Xpath)));
-	selectBox.selectByVisibleText(Aspect);
-	Select selectpropBox = new Select(driver.findElement(By
-	.xpath(AspectPropDropDown1Xpath)));
-	selectpropBox.selectByVisibleText(Aspect1Prop);
-	UIHelper.sendKeysToAnElementByXpath(driver, AspectValue1Xpath,
-	Aspectvalue);
-	if (UIHelper.findAnElementbyXpath(driver, AspectValue1Xpath)
-	.isEnabled()) {
-	report.updateTestLog("Input Multi Aspect Name",
-	"Search using Aspect Name "
-	+ "<br /><b>Aspect Name :</b>" + Aspect
-	+ "<br /><b>Aspect Properties :</b>"
-	+ Aspect1Prop + "<br /><b>Aspect Value :</b>"
-	+ Aspectvalue, Status.DONE);
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	report.updateTestLog("Input Multi Aspect Name",
-	"Search using Aspect Name Failed ", Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+		String Aspect,Aspect1 =null;
+		try {
+			UIHelper.waitForVisibilityOfEleByXpath(driver, AspectDropDown1Xpath);
+			
+			
+			if(properties.getProperty("ApplicationUrl").contains("pearsoncms")) {
+				 Aspect = dataTable.getData("Search", "Aspect");
+			}else {
+				 Aspect = dataTable.getData("Search", "AWSAspect");
+			}
+			
+			if(properties.getProperty("ApplicationUrl").contains("pearsoncms")) {
+				 Aspect1 = dataTable.getData("Search", "Aspect1");
+			}else {
+				 Aspect1 = dataTable.getData("Search", "AWSAspect1");
+			}
+			
+			
+			String Aspect1Prop = dataTable.getData("Search", "AspectProp1");
+			String Aspectvalue = dataTable.getData("Search", "Query");
+			UIHelper.highlightElement(driver,
+					UIHelper.findAnElementbyXpath(driver, AspectDropDown1Xpath));
+			Select selectBox = new Select(driver.findElement(By
+					.xpath(AspectDropDown1Xpath)));
+			selectBox.selectByVisibleText(Aspect);
+			Select selectpropBox = new Select(driver.findElement(By
+					.xpath(AspectPropDropDown1Xpath)));
+			selectpropBox.selectByVisibleText(Aspect1Prop);
+			UIHelper.sendKeysToAnElementByXpath(driver, AspectValue1Xpath,
+					Aspectvalue);
+			if (UIHelper.findAnElementbyXpath(driver, AspectValue1Xpath)
+					.isEnabled()) {
+				report.updateTestLog("Input Multi Aspect Name",
+						"Search using Aspect Name "
+								+ "<br /><b>Aspect Name :</b>" + Aspect
+								+ "<br /><b>Aspect Properties :</b>"
+								+ Aspect1Prop + "<br /><b>Aspect Value :</b>"
+								+ Aspectvalue, Status.DONE);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Input Multi Aspect Name",
+					"Search using Aspect Name Failed ", Status.FAIL);
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// Click add aspect button in Advanced search
 	public AlfrescoSearchPage clickAddAspectBtn() {
-	try {
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, addAspectXpath));
-	UIHelper.click(driver, addAspectXpath);
+		try {
+			UIHelper.highlightElement(driver,
+					UIHelper.findAnElementbyXpath(driver, addAspectXpath));
+			UIHelper.click(driver, addAspectXpath);
 
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 
 	// Click action in search result.
 	public AlfrescoSearchPage performActionBtn() {
-	try {
-	getSearchListValues();
-	UIHelper.waitFor(driver);
-	String fileName = dataTable.getData("Search", "FileName");
-	String action = dataTable.getData("Search", "Actions");
-	
-	if (searchNames.size() > 0) {
-	for (String fileResult : searchNames) {
-	if (fileResult.equalsIgnoreCase(fileName)) {
-	
-	String Resultfile = tempactionMouseXpath.replace("CRAFT", fileResult);
-	
-	UIHelper.mouseOveranElement(driver, UIHelper.findAnElementbyXpath(driver, Resultfile));
-	
-	String finalactionMenuXpath = tempactionMenuXpath.replace("CRAFT", fileResult);
-	
-	UIHelper.findAnElementbyXpath(driver,finalactionMenuXpath).click();
-	UIHelper.waitFor(driver);
-	String finalactionSubitemXpath = actionSubitemXpath.replace("CRAFT", action);
-	
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, actionloadingXpath);
-	
-	UIHelper.waitForVisibilityOfEleByXpath(driver, finalactionSubitemXpath);
-	
-	UIHelper.click(driver, finalactionSubitemXpath);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
+		try {
+			getSearchListValues();
+			UIHelper.waitFor(driver);
+			String fileName = dataTable.getData("Search", "FileName");
+			String action = dataTable.getData("Search", "Actions");
+			if (searchNames.size() > 0) {
+				for (String fileResult : searchNames) {
+					if (fileResult.equalsIgnoreCase(fileName)) {
+						String Resultfile = tempactionMouseXpath.replace(
+								"CRAFT", fileResult);
+						UIHelper.mouseOveranElement(driver, UIHelper
+								.findAnElementbyXpath(driver, Resultfile));
+						String finalactionMenuXpath = tempactionMenuXpath
+								.replace("CRAFT", fileResult);
+						UIHelper.findAnElementbyXpath(driver,
+								finalactionMenuXpath).click();
+						UIHelper.waitFor(driver);
+						String finalactionSubitemXpath = actionSubitemXpath
+								.replace("CRAFT", action);
+						UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, actionloadingXpath);
+						UIHelper.waitForVisibilityOfEleByXpath(driver, finalactionSubitemXpath);
+						
+						UIHelper.click(driver, finalactionSubitemXpath);
+						UIHelper.waitForPageToLoad(driver);
+						UIHelper.waitFor(driver);
 
-	report.updateTestLog("Verify " +action +" search result",
-	
-	"Seacrh result is retireved and " + action
-	+ " is preformed", Status.PASS);
-	}
-	break;
-	}
+						report.updateTestLog("Verify " +action +" search result",
+								
+								"Seacrh result is retireved and " + action
+										+ " is preformed", Status.PASS);
+					}
+					break;
+				}
 
-	} else {
-	report.updateTestLog("Verify search result",
-	"Seacrh result is empty", Status.FAIL);
-	}
+			} else {
+				report.updateTestLog("Verify search result",
+						"Seacrh result is empty", Status.FAIL);
+			}
 
-	} catch (Exception e) {
-	report.updateTestLog("Verify search result",
-	"Seacrh result is empty", Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+		} catch (Exception e) {
+			report.updateTestLog("Verify search result",
+					"Seacrh result is empty", Status.FAIL);
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// Click Move Copy action in search result.
 	public AlfrescoSearchPage performMoveCopyActionBtn() {
-	try {
-	getSearchListValues();
-	UIHelper.waitFor(driver);
-	String fileName = dataTable.getData("Search", "FileName");
-	String action = dataTable.getData("Search", "Actions");
-	if (searchNames.size() > 0) {
-	for (String fileResult : searchNames) {
-	if (fileResult.equalsIgnoreCase(fileName)) {
-	String Resultfile = tempactionMouseXpath.replace(
-	"CRAFT", fileResult);
-	UIHelper.mouseOveranElement(driver, UIHelper
-	.findAnElementbyXpath(driver, Resultfile));
-	String finalactionMenuXpath = tempactionMenuXpath
-	.replace("CRAFT", fileResult);
-	UIHelper.findAnElementbyXpath(driver,
-	finalactionMenuXpath).click();
-	UIHelper.waitFor(driver);
-	String finalactionSubitemXpath = actionSubitemXpathNew
-	.replace("CRAFT", action);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, actionloadingXpath);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, finalactionSubitemXpath);
-	
-	UIHelper.click(driver, finalactionSubitemXpath);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
+		try {
+			getSearchListValues();
+			UIHelper.waitFor(driver);
+			String fileName = dataTable.getData("Search", "FileName");
+			String action = dataTable.getData("Search", "Actions");
+			if (searchNames.size() > 0) {
+				for (String fileResult : searchNames) {
+					if (fileResult.equalsIgnoreCase(fileName)) {
+						String Resultfile = tempactionMouseXpath.replace(
+								"CRAFT", fileResult);
+						UIHelper.mouseOveranElement(driver, UIHelper
+								.findAnElementbyXpath(driver, Resultfile));
+						String finalactionMenuXpath = tempactionMenuXpath
+								.replace("CRAFT", fileResult);
+						UIHelper.findAnElementbyXpath(driver,
+								finalactionMenuXpath).click();
+						UIHelper.waitFor(driver);
+						String finalactionSubitemXpath = actionSubitemXpathNew
+								.replace("CRAFT", action);
+						UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, actionloadingXpath);
+						UIHelper.waitForVisibilityOfEleByXpath(driver, finalactionSubitemXpath);
+						
+						UIHelper.click(driver, finalactionSubitemXpath);
+						UIHelper.waitForPageToLoad(driver);
+						UIHelper.waitFor(driver);
 
-	report.updateTestLog("Verify " +action +" search result",
-	
-	"Seacrh result is retireved and " + action
-	+ " is preformed", Status.PASS);
-	}
-	break;
-	}
+						report.updateTestLog("Verify " +action +" search result",
+								
+								"Seacrh result is retireved and " + action
+										+ " is preformed", Status.PASS);
+					}
+					break;
+				}
 
-	} else {
-	report.updateTestLog("Verify search result",
-	"Seacrh result is empty", Status.FAIL);
-	}
+			} else {
+				report.updateTestLog("Verify search result",
+						"Seacrh result is empty", Status.FAIL);
+			}
 
-	} catch (Exception e) {
-	report.updateTestLog("Perform Copy/Move action",
-	"Perform Copy/Move action failed", Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+		} catch (Exception e) {
+			report.updateTestLog("Perform Copy/Move action",
+					"Perform Copy/Move action failed", Status.FAIL);
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	/**
@@ -1023,796 +1021,796 @@ public class AlfrescoSearchPage extends ReusableLibrary {
 	 * @author 412766
 	 */
 	public boolean isThumbnailDisplayed() {
-	boolean flag = false;
-	try {
-	UIHelper.waitFor(driver);
-	List<WebElement> searchThumbnailListEle = driver.findElements(By
-	.xpath(searchThumbnailListXpath));
-	for (WebElement webElement : searchThumbnailListEle) {
-	UIHelper.highlightElement(driver, webElement);
-	if (UIHelper.isWebElementDisplayed(webElement)) {
-	String src = webElement.getAttribute("src");
-	if (src.contains("thumbnails")) {
-	flag = true;
-	} else {
-	flag = false;
-	break;
-	}
-	}
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
-	return flag;
+		boolean flag = false;
+		try {
+			UIHelper.waitFor(driver);
+			List<WebElement> searchThumbnailListEle = driver.findElements(By
+					.xpath(searchThumbnailListXpath));
+			for (WebElement webElement : searchThumbnailListEle) {
+				UIHelper.highlightElement(driver, webElement);
+				if (UIHelper.isWebElementDisplayed(webElement)) {
+					String src = webElement.getAttribute("src");
+					if (src.contains("thumbnails")) {
+						flag = true;
+					} else {
+						flag = false;
+						break;
+					}
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
 	}
 
 	// Get the result of search sorted
 	public void sortingOfResult() {
-	try {
-	UIHelper.waitFor(driver);
-	UIHelper.highlightElement(driver, relevanceXpath);
-	UIHelper.click(driver, relevanceXpath);
-	UIHelper.waitFor(driver);
-	UIHelper.highlightElement(driver, nameSortXpath);
-	UIHelper.click(driver, nameSortXpath);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	getSearchListValues();
-	UIHelper.waitFor(driver);
-	if (searchNames.size() > 0) {
-	report.updateTestLog("Sort search result",
-	"Search result sorted by Name", Status.DONE);
-	} else {
-	report.updateTestLog("Sort search result",
-	"Search result not sorted", Status.FAIL);
-	}
-	} catch (Exception e) {
-	report.updateTestLog("Sort search result",
-	"Search result not sorted", Status.FAIL);
-	}
+		try {
+			UIHelper.waitFor(driver);
+			UIHelper.highlightElement(driver, relevanceXpath);
+			UIHelper.click(driver, relevanceXpath);
+			UIHelper.waitFor(driver);
+			UIHelper.highlightElement(driver, nameSortXpath);
+			UIHelper.click(driver, nameSortXpath);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitFor(driver);
+			getSearchListValues();
+			UIHelper.waitFor(driver);
+			if (searchNames.size() > 0) {
+				report.updateTestLog("Sort search result",
+						"Search result sorted by Name", Status.DONE);
+			} else {
+				report.updateTestLog("Sort search result",
+						"Search result not sorted", Status.FAIL);
+			}
+		} catch (Exception e) {
+			report.updateTestLog("Sort search result",
+					"Search result not sorted", Status.FAIL);
+		}
 
 	}
 
 	// select search result view
 	public void selectGalleryView() {
-	try {
-	UIHelper.waitFor(driver);
-	UIHelper.click(driver, viewBtnXpath);
-	UIHelper.waitFor(driver);
-	UIHelper.click(driver, galleryViewXpath);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	if (UIHelper.findAnElementbyXpath(driver, galleryResultXpath)
-	.isDisplayed()) {
-	report.updateTestLog("Gallery View",
-	"Seacrh result displayed in Gallery View", Status.DONE);
-	} else {
-	report.updateTestLog("Gallery View",
-	"Seacrh result displayed in Gallery View", Status.FAIL);
-	}
-	} catch (Exception e) {
-	report.updateTestLog("Gallery View",
-	"Seacrh result displayed in Gallery View", Status.FAIL);
-	}
+		try {
+			UIHelper.waitFor(driver);
+			UIHelper.click(driver, viewBtnXpath);
+			UIHelper.waitFor(driver);
+			UIHelper.click(driver, galleryViewXpath);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitFor(driver);
+			if (UIHelper.findAnElementbyXpath(driver, galleryResultXpath)
+					.isDisplayed()) {
+				report.updateTestLog("Gallery View",
+						"Seacrh result displayed in Gallery View", Status.DONE);
+			} else {
+				report.updateTestLog("Gallery View",
+						"Seacrh result displayed in Gallery View", Status.FAIL);
+			}
+		} catch (Exception e) {
+			report.updateTestLog("Gallery View",
+					"Seacrh result displayed in Gallery View", Status.FAIL);
+		}
 
 	}
 
 	// select search result view
 	public void selectdetailedView() {
-	try {
-	UIHelper.waitFor(driver);
-	UIHelper.click(driver, viewBtnXpath);
-	UIHelper.waitFor(driver);
-	UIHelper.click(driver, detailedViewXpath);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	getSearchListValues();
-	UIHelper.waitFor(driver);
-	if (searchNames.size() > 0) {
-	report.updateTestLog("Detailed View",
-	"Seacrh result displayed in Detailed View", Status.DONE);
-	} else {
-	report.updateTestLog("Detailed View",
-	"Seacrh result not displayed in Detailed View",
-	Status.FAIL);
-	}
-	} catch (Exception e) {
-	report.updateTestLog("Detailed View",
-	"Seacrh result not displayed in Detailed View", Status.FAIL);
-	}
+		try {
+			UIHelper.waitFor(driver);
+			UIHelper.click(driver, viewBtnXpath);
+			UIHelper.waitFor(driver);
+			UIHelper.click(driver, detailedViewXpath);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitFor(driver);
+			getSearchListValues();
+			UIHelper.waitFor(driver);
+			if (searchNames.size() > 0) {
+				report.updateTestLog("Detailed View",
+						"Seacrh result displayed in Detailed View", Status.DONE);
+			} else {
+				report.updateTestLog("Detailed View",
+						"Seacrh result not displayed in Detailed View",
+						Status.FAIL);
+			}
+		} catch (Exception e) {
+			report.updateTestLog("Detailed View",
+					"Seacrh result not displayed in Detailed View", Status.FAIL);
+		}
 
 	}
 
 	// Select tag in Advanced search
 	public AlfrescoSearchPage tagSearch() {
-	try {
-	UIHelper.waitFor(driver);
-	String searchTag = dataTable.getData("Search", "Query");
-	/*String finalselectTagXpath = selectTagXpath.replace("CRAFT",
-	searchTag);*/
-	UIHelper.click(driver, selectTagBtnXpath);
-	UIHelper.waitFor(driver);
-	UIHelper.click(driver, selectTagXpath);
-	UIHelper.waitFor(driver);
-	UIHelper.click(driver, TagOKBtnXpath);
-	UIHelper.waitForPageToLoad(driver);
-	if (UIHelper.findAnElementbyXpath(driver, selectedTagXpath)
-	.isDisplayed()) {
+		try {
+			UIHelper.waitFor(driver);
+			String searchTag = dataTable.getData("Search", "Query");
+			/*String finalselectTagXpath = selectTagXpath.replace("CRAFT",
+					searchTag);*/
+			UIHelper.click(driver, selectTagBtnXpath);
+			UIHelper.waitFor(driver);
+			UIHelper.click(driver, selectTagXpath);
+			UIHelper.waitFor(driver);
+			UIHelper.click(driver, TagOKBtnXpath);
+			UIHelper.waitForPageToLoad(driver);
+			if (UIHelper.findAnElementbyXpath(driver, selectedTagXpath)
+					.isDisplayed()) {
 
-	report.updateTestLog("Tag seleted", "Search using " + "Tag = "
-	+ searchTag, Status.DONE);
-	} else {
-	report.updateTestLog("Tag seleted", "Search using " + "Tag = "
-	+ searchTag, Status.FAIL);
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+				report.updateTestLog("Tag seleted", "Search using " + "Tag = "
+						+ searchTag, Status.DONE);
+			} else {
+				report.updateTestLog("Tag seleted", "Search using " + "Tag = "
+						+ searchTag, Status.FAIL);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// Blank space followed by numbers Name in Advanced search
 	public AlfrescoSearchPage blankSpacesSearch() {
-	try {
-	UIHelper.waitFor(driver);
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, fullTextXpath));
-	UIHelper.click(driver, fullTextXpath);
-	RobotUtil.pressSpaces();
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
+		try {
+			UIHelper.waitFor(driver);
+			UIHelper.highlightElement(driver,
+					UIHelper.findAnElementbyXpath(driver, fullTextXpath));
+			UIHelper.click(driver, fullTextXpath);
+			RobotUtil.pressSpaces();
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitFor(driver);
 
-	report.updateTestLog("Blank search follwed by query",
-	"Blank search follwed by query successfully", Status.DONE);
+			report.updateTestLog("Blank search follwed by query",
+					"Blank search follwed by query successfully", Status.DONE);
 
-	} catch (Exception e) {
-	report.updateTestLog("Blank search follwed by query",
-	"Blank search follwed by query failed", Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+		} catch (Exception e) {
+			report.updateTestLog("Blank search follwed by query",
+					"Blank search follwed by query failed", Status.FAIL);
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// input Start Date in Advanced search
 	public AlfrescoSearchPage inputModifiedStartDate(String Value) {
-	try {
-	UIHelper.waitFor(driver);
-	if (UIHelper.findAnElementbyXpath(driver, fromDateXpath)
-	.isDisplayed()) {
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, fromDateXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, fromDateXpath,
-	Value);
-	report.updateTestLog("Input Start Date",
-	"Search using Start Date " + "Query = " + Value,
-	Status.DONE);
-	} else {
+		try {
+			UIHelper.waitFor(driver);
+			if (UIHelper.findAnElementbyXpath(driver, fromDateXpath)
+					.isDisplayed()) {
+				UIHelper.highlightElement(driver,
+						UIHelper.findAnElementbyXpath(driver, fromDateXpath));
+				UIHelper.sendKeysToAnElementByXpath(driver, fromDateXpath,
+						Value);
+				report.updateTestLog("Input Start Date",
+						"Search using Start Date " + "Query = " + Value,
+						Status.DONE);
+			} else {
 
-	frameworkParameters.setStopExecution(true);
-	report.updateTestLog("Input Start Date",
-	"Search using Start Date " + "Query = " + Value,
-	Status.FAIL);
-	}
-	} catch (Exception e) {
-	frameworkParameters.setStopExecution(true);
-	report.updateTestLog("Input Start Date", "Search using Start Date "
-	+ "Query = " + Value, Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+				frameworkParameters.setStopExecution(true);
+				report.updateTestLog("Input Start Date",
+						"Search using Start Date " + "Query = " + Value,
+						Status.FAIL);
+			}
+		} catch (Exception e) {
+			frameworkParameters.setStopExecution(true);
+			report.updateTestLog("Input Start Date", "Search using Start Date "
+					+ "Query = " + Value, Status.FAIL);
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// Get Folder Metadata value search
 	public String getFolderMetadata(String FileName, String Metadata) {
-	String MetadataValue = "";
-	try {
-	String resultfile = tempFileNameNames.replace("CRAFT", FileName);
-	UIHelper.click(driver, resultfile);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	String viewDetails = breadcrumbXpath.replace("CRAFT", FileName);
-	UIHelper.click(driver, viewDetails);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	String FinalMetadataValueXpath = tempMetadataValueXpath.replace(
-	"CRAFT", Metadata);
-	UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
-	FinalMetadataValueXpath));
-	UIHelper.highlightElement(driver, FinalMetadataValueXpath);
-	MetadataValue = UIHelper.findAnElementbyXpath(driver,
-	FinalMetadataValueXpath).getText();
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
-	return MetadataValue;
+		String MetadataValue = "";
+		try {
+			String resultfile = tempFileNameNames.replace("CRAFT", FileName);
+			UIHelper.click(driver, resultfile);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitFor(driver);
+			String viewDetails = breadcrumbXpath.replace("CRAFT", FileName);
+			UIHelper.click(driver, viewDetails);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitFor(driver);
+			String FinalMetadataValueXpath = tempMetadataValueXpath.replace(
+					"CRAFT", Metadata);
+			UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
+					FinalMetadataValueXpath));
+			UIHelper.highlightElement(driver, FinalMetadataValueXpath);
+			MetadataValue = UIHelper.findAnElementbyXpath(driver,
+					FinalMetadataValueXpath).getText();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return MetadataValue;
 	}
 
 	// Filter data
 	public void searchUsingFilter() {
-	try {
-	String filter = dataTable.getData("Search", "Actions");
-	System.out.println(filter);
-	UIHelper.waitFor(driver);
-	String type = dataTable.getData("Search", "Result");
-	System.out.println(type);
-	WebElement Filtername = driver
-	.findElement(By
-	.xpath("//div[@class='alfresco-layout-Twister alfresco-documentlibrary-AlfDocumentFilters separated']//h3[contains(text(),'"
-	+ filter + "')]"));
-	Filtername.click();
-	Filtername.click();
-	WebElement Filtervalue = driver.findElement(By
-	.xpath("//span[@class='filterLabel' and text() = '" + type
-	+ "']"));
-	Filtervalue.click();
-	report.updateTestLog("Input Filter",
-	"Search using filter and type " + "type=+type"
-	+ "filter = " + filter, Status.DONE);
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+		try {
+			String filter = dataTable.getData("Search", "Actions");
+			System.out.println(filter);
+			UIHelper.waitFor(driver);
+			String type = dataTable.getData("Search", "Result");
+			System.out.println(type);
+			WebElement Filtername = driver
+					.findElement(By
+							.xpath("//div[@class='alfresco-layout-Twister alfresco-documentlibrary-AlfDocumentFilters separated']//h3[contains(text(),'"
+									+ filter + "')]"));
+			Filtername.click();
+			Filtername.click();
+			WebElement Filtervalue = driver.findElement(By
+					.xpath("//span[@class='filterLabel' and text() = '" + type
+							+ "']"));
+			Filtervalue.click();
+			report.updateTestLog("Input Filter",
+					"Search using filter and type " + "type=+type"
+							+ "filter = " + filter, Status.DONE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	public void verifyResult() {
-	String filternametresult = driver.findElement(By.xpath(filterby))
-	.getText();
-	UIHelper.waitFor(driver);
-	String searchresult = driver.findElement(By.xpath(resultby)).getText();
-	if (filternametresult.equals(searchresult)) {
-	report.updateTestLog(
-	"Verify that the  number of search results populated ",
-	"Number of search results populated is tracked "
-	+ "<br /><b> filternametresult : </b>"
-	+ "<br /><b> searchresult : </b>"
-	+ UIHelper.findAnElementbyXpath(driver, filterby)
-	.getText(), Status.PASS);
+		String filternametresult = driver.findElement(By.xpath(filterby))
+				.getText();
+		UIHelper.waitFor(driver);
+		String searchresult = driver.findElement(By.xpath(resultby)).getText();
+		if (filternametresult.equals(searchresult)) {
+			report.updateTestLog(
+					"Verify that the  number of search results populated ",
+					"Number of search results populated is tracked "
+							+ "<br /><b> filternametresult : </b>"
+							+ "<br /><b> searchresult : </b>"
+							+ UIHelper.findAnElementbyXpath(driver, filterby)
+									.getText(), Status.PASS);
 
-	} else {
+		} else {
 
-	report.updateTestLog(
-	"Verify that the number of search results populated ",
-	"Failed to display search results"
-	+ "<br /><b> filternametresult : </b>"
-	+ "<br /><b> searchresult : </b>"
-	+ UIHelper.findAnElementbyXpath(driver, filterby)
-	.getText(), Status.FAIL);
-	}
+			report.updateTestLog(
+					"Verify that the number of search results populated ",
+					"Failed to display search results"
+							+ "<br /><b> filternametresult : </b>"
+							+ "<br /><b> searchresult : </b>"
+							+ UIHelper.findAnElementbyXpath(driver, filterby)
+									.getText(), Status.FAIL);
+		}
 	}
 
 	public void searchManager() {
-	UIHelper.click(driver, searchmanager);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	report.updateTestLog("SearchManager",
-	"searchmanager clicked sucessfully ", Status.DONE);
+		UIHelper.click(driver, searchmanager);
+		UIHelper.waitForPageToLoad(driver);
+		UIHelper.waitFor(driver);
+		report.updateTestLog("SearchManager",
+				"searchmanager clicked sucessfully ", Status.DONE);
 	}
 
 	public void createNewFilter() {
-	try {
-	UIHelper.click(driver, createnewfilterxpath);
-	UIHelper.waitFor(driver);
-	String Query = dataTable.getData("Search", "Query");
-	String actions = dataTable.getData("Search", "Actions");
-	UIHelper.sendKeysToAnElementByXpath(driver, filterID, Query);
-	UIHelper.sendKeysToAnElementByXpath(driver, filtername, actions);
-	UIHelper.waitFor(driver);
-	driver.findElement(By.xpath(cnfsave)).click();
-	UIHelper.waitFor(driver);
-	String str = driver.findElement(By.xpath(filtername)).getAttribute(
-	"value");
-	ArrayList<String> filterNameList = new ArrayList<String>();
-	UIHelper.findandAddElementsToaListforBulk(driver,
-	".//*[@id='SEARCH_CONFIG_FACET_LIST_VIEW_ITEMS']//td[3]",
-	filterNameList);
-	if (filterNameList.contains(str)) {
-	report.updateTestLog(
-	"Verify  the  CreateNewFilter ",
-	"Verify the NewFilter is Created "
-	+ "<br /><b> filterNameList : </b>"
-	+ UIHelper.findAnElementbyXpath(driver,
-	filternamelist).getText(), Status.PASS);
+		try {
+			UIHelper.click(driver, createnewfilterxpath);
+			UIHelper.waitFor(driver);
+			String Query = dataTable.getData("Search", "Query");
+			String actions = dataTable.getData("Search", "Actions");
+			UIHelper.sendKeysToAnElementByXpath(driver, filterID, Query);
+			UIHelper.sendKeysToAnElementByXpath(driver, filtername, actions);
+			UIHelper.waitFor(driver);
+			driver.findElement(By.xpath(cnfsave)).click();
+			UIHelper.waitFor(driver);
+			String str = driver.findElement(By.xpath(filtername)).getAttribute(
+					"value");
+			ArrayList<String> filterNameList = new ArrayList<String>();
+			UIHelper.findandAddElementsToaListforBulk(driver,
+					".//*[@id='SEARCH_CONFIG_FACET_LIST_VIEW_ITEMS']//td[3]",
+					filterNameList);
+			if (filterNameList.contains(str)) {
+				report.updateTestLog(
+						"Verify  the  CreateNewFilter ",
+						"Verify the NewFilter is Created "
+								+ "<br /><b> filterNameList : </b>"
+								+ UIHelper.findAnElementbyXpath(driver,
+										filternamelist).getText(), Status.PASS);
 
-	} else {
-	report.updateTestLog(
-	"Verify  the  CreateNewFilter ",
-	"Verify the NewFilter is Created "
-	+ "<br /><b> filterNameList : </b>"
-	+ UIHelper.findAnElementbyXpath(driver,
-	filternamelist).getText(), Status.FAIL);
+			} else {
+				report.updateTestLog(
+						"Verify  the  CreateNewFilter ",
+						"Verify the NewFilter is Created "
+								+ "<br /><b> filterNameList : </b>"
+								+ UIHelper.findAnElementbyXpath(driver,
+										filternamelist).getText(), Status.FAIL);
 
-	}
-	String searchQuery = dataTable.getData("Search", "FileName");
-	driver.findElement(By.xpath(searchby)).sendKeys(searchQuery,
-	Keys.ENTER);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
+			}
+			String searchQuery = dataTable.getData("Search", "FileName");
+			driver.findElement(By.xpath(searchby)).sendKeys(searchQuery,
+					Keys.ENTER);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
 
-	WebElement filtersearch = driver
-	.findElement(By
-	.xpath("//div[@class='alfresco-layout-Twister alfresco-documentlibrary-AlfDocumentFilters separated']//h3[contains(text(),'"
-	+ str + "')]"));
-	if (filtersearch.isDisplayed()) {
-	report.updateTestLog("Create Filter",
-	"Created Filter is dispalyed Successfully ",
-	Status.DONE);
+			WebElement filtersearch = driver
+					.findElement(By
+							.xpath("//div[@class='alfresco-layout-Twister alfresco-documentlibrary-AlfDocumentFilters separated']//h3[contains(text(),'"
+									+ str + "')]"));
+			if (filtersearch.isDisplayed()) {
+				report.updateTestLog("Create Filter",
+						"Created Filter is dispalyed Successfully ",
+						Status.DONE);
 
-	} else {
-	report.updateTestLog("Create Filter",
-	"Created Filter is dispalyed Successfully ",
-	Status.FAIL);
-	}
+			} else {
+				report.updateTestLog("Create Filter",
+						"Created Filter is dispalyed Successfully ",
+						Status.FAIL);
+			}
 
-	}
+		}
 
-	catch (Exception e) {
-	e.printStackTrace();
-	}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void verifyDeleteImg() {
-	try {
-	UIHelper.click(driver, createnewfilterxpath);
-	UIHelper.waitFor(driver);
-	String Query = dataTable.getData("Search", "Query");
-	String actions = dataTable.getData("Search", "Actions");
-	UIHelper.sendKeysToAnElementByXpath(driver, filterID, Query);
-	UIHelper.sendKeysToAnElementByXpath(driver, filtername, actions);
-	UIHelper.waitFor(driver);
-	driver.findElement(By.xpath(cnfsave)).click();
-	String filname = driver.findElement(By.xpath(filtername))
-	.getAttribute("value");
-	System.out.println(filname);
-	UIHelper.waitFor(driver);
-	String searchQuery = dataTable.getData("Search", "FileName");
-	driver.findElement(By.xpath(searchby)).sendKeys(searchQuery,
-	Keys.ENTER);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	WebElement filtersearch = driver
-	.findElement(By
-	.xpath("//div[@class='alfresco-layout-Twister alfresco-documentlibrary-AlfDocumentFilters separated']//h3[contains(text(),'"
-	+ filname + "')]"));
-	if (filtersearch.isDisplayed()) {
-	report.updateTestLog("Created Filter",
-	"Created Filter is dispalyed Successfully ",
-	Status.DONE);
+		try {
+			UIHelper.click(driver, createnewfilterxpath);
+			UIHelper.waitFor(driver);
+			String Query = dataTable.getData("Search", "Query");
+			String actions = dataTable.getData("Search", "Actions");
+			UIHelper.sendKeysToAnElementByXpath(driver, filterID, Query);
+			UIHelper.sendKeysToAnElementByXpath(driver, filtername, actions);
+			UIHelper.waitFor(driver);
+			driver.findElement(By.xpath(cnfsave)).click();
+			String filname = driver.findElement(By.xpath(filtername))
+					.getAttribute("value");
+			System.out.println(filname);
+			UIHelper.waitFor(driver);
+			String searchQuery = dataTable.getData("Search", "FileName");
+			driver.findElement(By.xpath(searchby)).sendKeys(searchQuery,
+					Keys.ENTER);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			WebElement filtersearch = driver
+					.findElement(By
+							.xpath("//div[@class='alfresco-layout-Twister alfresco-documentlibrary-AlfDocumentFilters separated']//h3[contains(text(),'"
+									+ filname + "')]"));
+			if (filtersearch.isDisplayed()) {
+				report.updateTestLog("Created Filter",
+						"Created Filter is dispalyed Successfully ",
+						Status.DONE);
 
-	} else {
-	report.updateTestLog("Create Filter",
-	"Created Filter is dispalyed Successfully ",
-	Status.FAIL);
-	}
+			} else {
+				report.updateTestLog("Create Filter",
+						"Created Filter is dispalyed Successfully ",
+						Status.FAIL);
+			}
 
-	searchManager();
-	UIHelper.waitFor(driver);
-	ArrayList<String> bulkIDList = new ArrayList<String>();
-	UIHelper.findandAddElementsToaListforBulk(driver, "filternamelist",
-	bulkIDList);
-	System.out.println(bulkIDList);
-	if (bulkIDList.contains(filname)) {
-	report.updateTestLog(
-	"Verify  the  CreateNewFilter ",
-	"Verify the NewFilter is Created "
-	+ "<br /><b> filname : </b>"
-	+ UIHelper.findAnElementbyXpath(driver,
-	filternamelist).getText(), Status.PASS);
+			searchManager();
+			UIHelper.waitFor(driver);
+			ArrayList<String> bulkIDList = new ArrayList<String>();
+			UIHelper.findandAddElementsToaListforBulk(driver, "filternamelist",
+					bulkIDList);
+			System.out.println(bulkIDList);
+			if (bulkIDList.contains(filname)) {
+				report.updateTestLog(
+						"Verify  the  CreateNewFilter ",
+						"Verify the NewFilter is Created "
+								+ "<br /><b> filname : </b>"
+								+ UIHelper.findAnElementbyXpath(driver,
+										filternamelist).getText(), Status.PASS);
 
-	} else {
-	report.updateTestLog(
-	"Verify  the  CreateNewFilter ",
-	"Verify the NewFilter is Created "
-	+ "<br /><b> filname : </b>"
-	+ UIHelper.findAnElementbyXpath(driver,
-	filternamelist).getText(), Status.FAIL);
+			} else {
+				report.updateTestLog(
+						"Verify  the  CreateNewFilter ",
+						"Verify the NewFilter is Created "
+								+ "<br /><b> filname : </b>"
+								+ UIHelper.findAnElementbyXpath(driver,
+										filternamelist).getText(), Status.FAIL);
 
-	}
+			}
 
-	String filtername = dataTable.getData("Search", "Query");
-	String finalDelIconXpath = tempDelIconXpath.replace("Filterbytest",
-	filtername);
+			String filtername = dataTable.getData("Search", "Query");
+			String finalDelIconXpath = tempDelIconXpath.replace("Filterbytest",
+					filtername);
 
-	if (UIHelper.findAnElementbyXpath(driver, finalDelIconXpath)
-	.isDisplayed()) {
-	report.updateTestLog(
-	"Verify  the  Delete Option ",
-	"Verify the Delete Option is Displayed "
-	+ "<br /><b> filtername : </b>"
-	+ UIHelper.findAnElementbyXpath(driver,
-	finalDelIconXpath).getText(),
-	Status.PASS);
-	} else {
-	report.updateTestLog(
-	"Verify  the  Delete Option ",
-	"Verify the Delete Option is Displayed "
-	+ "<br /><b> filtername : </b>"
-	+ UIHelper.findAnElementbyXpath(driver,
-	finalDelIconXpath).getText(),
-	Status.FAIL);
+			if (UIHelper.findAnElementbyXpath(driver, finalDelIconXpath)
+					.isDisplayed()) {
+				report.updateTestLog(
+						"Verify  the  Delete Option ",
+						"Verify the Delete Option is Displayed "
+								+ "<br /><b> filtername : </b>"
+								+ UIHelper.findAnElementbyXpath(driver,
+										finalDelIconXpath).getText(),
+						Status.PASS);
+			} else {
+				report.updateTestLog(
+						"Verify  the  Delete Option ",
+						"Verify the Delete Option is Displayed "
+								+ "<br /><b> filtername : </b>"
+								+ UIHelper.findAnElementbyXpath(driver,
+										finalDelIconXpath).getText(),
+						Status.FAIL);
 
-	}
+			}
 
-	}
+		}
 
-	catch (Exception e) {
-	e.printStackTrace();
-	}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void verifyDelete() {
-	try {
-	UIHelper.click(driver, createnewfilterxpath);
-	UIHelper.waitFor(driver);
-	String Query = dataTable.getData("Search", "Query");
-	String actions = dataTable.getData("Search", "Actions");
-	UIHelper.sendKeysToAnElementByXpath(driver, filterID, Query);
-	UIHelper.sendKeysToAnElementByXpath(driver, filtername, actions);
-	UIHelper.waitFor(driver);
-	driver.findElement(By.xpath(cnfsave)).click();
-	String filname = driver.findElement(By.xpath(filtername))
-	.getAttribute("value");
-	UIHelper.waitFor(driver);
-	String searchQuery = dataTable.getData("Search", "FileName");
-	driver.findElement(By.xpath(searchby)).sendKeys(searchQuery,
-	Keys.ENTER);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	WebElement filtersearch = driver
-	.findElement(By
-	.xpath("//div[@class='alfresco-layout-Twister alfresco-documentlibrary-AlfDocumentFilters separated']//h3[contains(text(),'"
-	+ filname + "')]"));
-	if (filtersearch.isDisplayed()) {
-	report.updateTestLog("Create Filter",
-	"Created Filter is dispalyed Successfully ",
-	Status.DONE);
+		try {
+			UIHelper.click(driver, createnewfilterxpath);
+			UIHelper.waitFor(driver);
+			String Query = dataTable.getData("Search", "Query");
+			String actions = dataTable.getData("Search", "Actions");
+			UIHelper.sendKeysToAnElementByXpath(driver, filterID, Query);
+			UIHelper.sendKeysToAnElementByXpath(driver, filtername, actions);
+			UIHelper.waitFor(driver);
+			driver.findElement(By.xpath(cnfsave)).click();
+			String filname = driver.findElement(By.xpath(filtername))
+					.getAttribute("value");
+			UIHelper.waitFor(driver);
+			String searchQuery = dataTable.getData("Search", "FileName");
+			driver.findElement(By.xpath(searchby)).sendKeys(searchQuery,
+					Keys.ENTER);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			WebElement filtersearch = driver
+					.findElement(By
+							.xpath("//div[@class='alfresco-layout-Twister alfresco-documentlibrary-AlfDocumentFilters separated']//h3[contains(text(),'"
+									+ filname + "')]"));
+			if (filtersearch.isDisplayed()) {
+				report.updateTestLog("Create Filter",
+						"Created Filter is dispalyed Successfully ",
+						Status.DONE);
 
-	} else {
-	report.updateTestLog("Create Filter",
-	"Created Filter is dispalyed Successfully ",
-	Status.FAIL);
-	}
+			} else {
+				report.updateTestLog("Create Filter",
+						"Created Filter is dispalyed Successfully ",
+						Status.FAIL);
+			}
 
-	searchManager();
-	UIHelper.waitFor(driver);
-	ArrayList<String> bulkIDList = new ArrayList<String>();
-	UIHelper.findandAddElementsToaListforBulk(driver, filternamelist,
-	bulkIDList);
-	if (bulkIDList.contains(filname)) {
-	report.updateTestLog("Verify  the  CreateNewFilter",
-	"Verify the NewFilter is Created " + "Filtername = "
-	+ filname, Status.DONE);
+			searchManager();
+			UIHelper.waitFor(driver);
+			ArrayList<String> bulkIDList = new ArrayList<String>();
+			UIHelper.findandAddElementsToaListforBulk(driver, filternamelist,
+					bulkIDList);
+			if (bulkIDList.contains(filname)) {
+				report.updateTestLog("Verify  the  CreateNewFilter",
+						"Verify the NewFilter is Created " + "Filtername = "
+								+ filname, Status.DONE);
 
-	} else {
-	report.updateTestLog("Verify  the  CreateNewFilter",
-	"Verify the NewFilter is Created " + "Filtername = "
-	+ filname, Status.FAIL);
+			} else {
+				report.updateTestLog("Verify  the  CreateNewFilter",
+						"Verify the NewFilter is Created " + "Filtername = "
+								+ filname, Status.FAIL);
 
-	}
-	String filtername = dataTable.getData("Search", "Query");
-	String finalDelbuttonxpath = tempDelbuttonxpath.replace(
-	"Filterbycreate", filtername);
-	if (UIHelper.findAnElementbyXpath(driver, tempDelbuttonxpath)
-	.isDisplayed()) {
-	UIHelper.findAnElementbyXpath(driver, finalDelbuttonxpath)
-	.click();
-	UIHelper.waitFor(driver);
-	UIHelper.findAnElementbyXpath(driver, alertconfirm).click();
-	UIHelper.waitFor(driver);
-	ArrayList<String> bulkIDLists = new ArrayList<String>();
-	UIHelper.findandAddElementsToaListforBulk(
-	driver,
-	".//*[@id='SEARCH_CONFIG_FACET_LIST_VIEW_ITEMS']//td[3]",
-	bulkIDList);
-	UIHelper.waitFor(driver);
-	if (bulkIDLists.contains(filname)) {
-	report.updateTestLog("Verify Deleted CreateNewFilter",
-	"Verify the NewFilter is Deleted "
-	+ "Filtername = " + filname, Status.FAIL);
+			}
+			String filtername = dataTable.getData("Search", "Query");
+			String finalDelbuttonxpath = tempDelbuttonxpath.replace(
+					"Filterbycreate", filtername);
+			if (UIHelper.findAnElementbyXpath(driver, tempDelbuttonxpath)
+					.isDisplayed()) {
+				UIHelper.findAnElementbyXpath(driver, finalDelbuttonxpath)
+						.click();
+				UIHelper.waitFor(driver);
+				UIHelper.findAnElementbyXpath(driver, alertconfirm).click();
+				UIHelper.waitFor(driver);
+				ArrayList<String> bulkIDLists = new ArrayList<String>();
+				UIHelper.findandAddElementsToaListforBulk(
+						driver,
+						".//*[@id='SEARCH_CONFIG_FACET_LIST_VIEW_ITEMS']//td[3]",
+						bulkIDList);
+				UIHelper.waitFor(driver);
+				if (bulkIDLists.contains(filname)) {
+					report.updateTestLog("Verify Deleted CreateNewFilter",
+							"Verify the NewFilter is Deleted "
+									+ "Filtername = " + filname, Status.FAIL);
 
-	} else {
-	report.updateTestLog("Verify Deleted CreateNewFilter",
-	"Verify the NewFilter is Deleted "
-	+ "Filtername = " + filname, Status.DONE);
+				} else {
+					report.updateTestLog("Verify Deleted CreateNewFilter",
+							"Verify the NewFilter is Deleted "
+									+ "Filtername = " + filname, Status.DONE);
 
-	}
+				}
 
-	}
+			}
 
-	}
+		}
 
-	catch (Exception e) {
-	e.printStackTrace();
-	}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	public void VerifyAppletHeader() {
-	try {
-	UIHelper.waitFor(driver);
-	ArrayList<String> bulkIDList = new ArrayList<String>();
-	ArrayList<String> filterNameList = new ArrayList<String>();
-	UIHelper.findandAddElementsToaListforBulk(driver, tableheader,
-	bulkIDList);
-	String folderDetails = dataTable.getData("MyFiles", "CreateFolder");
-	ArrayList<String> folderNamesList = myFiles
-	.getFolderNames(folderDetails);
-	UIHelper.findandAddElementsToaListforBulk(driver,
-	".//*[@id='SEARCH_CONFIG_FACET_LIST_VIEW_ITEMS']//td[2]",
-	filterNameList);
-	if (bulkIDList.contains("Filter ID")) {
-	report.updateTestLog(
-	"Verify  the  Table Header ",
-	"Table Header is Displayed is tracked "
-	+ "<br /><b> filternametresult : </b>"
-	+ "<br /><b> searchresult : </b>"
-	+ UIHelper.findAnElementbyXpath(driver,
-	folderDetails).getText(), Status.PASS);
+		try {
+			UIHelper.waitFor(driver);
+			ArrayList<String> bulkIDList = new ArrayList<String>();
+			ArrayList<String> filterNameList = new ArrayList<String>();
+			UIHelper.findandAddElementsToaListforBulk(driver, tableheader,
+					bulkIDList);
+			String folderDetails = dataTable.getData("MyFiles", "CreateFolder");
+			ArrayList<String> folderNamesList = myFiles
+					.getFolderNames(folderDetails);
+			UIHelper.findandAddElementsToaListforBulk(driver,
+					".//*[@id='SEARCH_CONFIG_FACET_LIST_VIEW_ITEMS']//td[2]",
+					filterNameList);
+			if (bulkIDList.contains("Filter ID")) {
+				report.updateTestLog(
+						"Verify  the  Table Header ",
+						"Table Header is Displayed is tracked "
+								+ "<br /><b> filternametresult : </b>"
+								+ "<br /><b> searchresult : </b>"
+								+ UIHelper.findAnElementbyXpath(driver,
+										folderDetails).getText(), Status.PASS);
 
-	}
+			}
 
-	else {
-	report.updateTestLog(
-	"Verify  the  Table Header ",
-	"Table Header is Displayed is tracked "
-	+ "<br /><b> filternametresult : </b>"
-	+ "<br /><b> searchresult : </b>"
-	+ UIHelper.findAnElementbyXpath(driver,
-	folderDetails).getText(), Status.FAIL);
-	}
+			else {
+				report.updateTestLog(
+						"Verify  the  Table Header ",
+						"Table Header is Displayed is tracked "
+								+ "<br /><b> filternametresult : </b>"
+								+ "<br /><b> searchresult : </b>"
+								+ UIHelper.findAnElementbyXpath(driver,
+										folderDetails).getText(), Status.FAIL);
+			}
 
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	public void sorttable() {
-	UIHelper.click(driver, createnewfilterxpath);
-	UIHelper.waitFor(driver);
-	String Query = dataTable.getData("Search", "Query");
-	String actions = dataTable.getData("Search", "Actions");
-	UIHelper.sendKeysToAnElementByXpath(driver, filterID, Query);
-	UIHelper.sendKeysToAnElementByXpath(driver, filtername, actions);
-	UIHelper.waitFor(driver);
-	driver.findElement(By.xpath(cnfsave)).click();
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	ArrayList<String> filterNameList = new ArrayList<String>();
-	ArrayList<String> filterNameList1 = new ArrayList<String>();
-	UIHelper.highlightElement(
-	driver,
-	".//*[@id='SEARCH_CONFIG_FACET_LIST']//tr//span[text()='filter_creator']//ancestor::tr//td[1]//*[contains(@src,'move-down.png')]");
-	UIHelper.click(
-	driver,
-	".//*[@id='SEARCH_CONFIG_FACET_LIST']//tr//span[text()='filter_creator']//ancestor::tr//td[1]//*[contains(@src,'move-down.png')]");
-	UIHelper.waitForVisibilityOfEleByXpath(
-	driver,
-	".//*[@id='SEARCH_CONFIG_FACET_LIST']//tr//span[text()='filter_creator']//ancestor::tr//td[1]//*[contains(@src,'move-up.png')]");
+		UIHelper.click(driver, createnewfilterxpath);
+		UIHelper.waitFor(driver);
+		String Query = dataTable.getData("Search", "Query");
+		String actions = dataTable.getData("Search", "Actions");
+		UIHelper.sendKeysToAnElementByXpath(driver, filterID, Query);
+		UIHelper.sendKeysToAnElementByXpath(driver, filtername, actions);
+		UIHelper.waitFor(driver);
+		driver.findElement(By.xpath(cnfsave)).click();
+		UIHelper.waitFor(driver);
+		UIHelper.waitFor(driver);
+		ArrayList<String> filterNameList = new ArrayList<String>();
+		ArrayList<String> filterNameList1 = new ArrayList<String>();
+		UIHelper.highlightElement(
+				driver,
+				".//*[@id='SEARCH_CONFIG_FACET_LIST']//tr//span[text()='filter_creator']//ancestor::tr//td[1]//*[contains(@src,'move-down.png')]");
+		UIHelper.click(
+				driver,
+				".//*[@id='SEARCH_CONFIG_FACET_LIST']//tr//span[text()='filter_creator']//ancestor::tr//td[1]//*[contains(@src,'move-down.png')]");
+		UIHelper.waitForVisibilityOfEleByXpath(
+				driver,
+				".//*[@id='SEARCH_CONFIG_FACET_LIST']//tr//span[text()='filter_creator']//ancestor::tr//td[1]//*[contains(@src,'move-up.png')]");
 
-	UIHelper.findandAddElementsToaListforBulk(driver,
-	".//*[@id='SEARCH_CONFIG_FACET_LIST_VIEW_ITEMS']//td[2]",
-	filterNameList1);
-	UIHelper.waitFor(driver);
+		UIHelper.findandAddElementsToaListforBulk(driver,
+				".//*[@id='SEARCH_CONFIG_FACET_LIST_VIEW_ITEMS']//td[2]",
+				filterNameList1);
+		UIHelper.waitFor(driver);
 
-	UIHelper.waitForVisibilityOfEleByXpath(
-	driver,
-	".//*[@id='SEARCH_CONFIG_FACET_LIST']//tr//span[text()='filter_creator']//ancestor::tr//td[1]//*[contains(@src,'move-up.png')]");
+		UIHelper.waitForVisibilityOfEleByXpath(
+				driver,
+				".//*[@id='SEARCH_CONFIG_FACET_LIST']//tr//span[text()='filter_creator']//ancestor::tr//td[1]//*[contains(@src,'move-up.png')]");
 
-	if (filterNameList.indexOf("aaa") != filterNameList1
-	.indexOf("aaafilter")) {
-	// System.out.println("pass");
-	} else {
-	// System.out.println("fail");
-	}
+		if (filterNameList.indexOf("aaa") != filterNameList1
+				.indexOf("aaafilter")) {
+			// System.out.println("pass");
+		} else {
+			// System.out.println("fail");
+		}
 
-	UIHelper.waitFor(driver);
+		UIHelper.waitFor(driver);
 	}
 
 	// Click on the select document to delete it
 	public void deletedocument(String file) {
-	try {
-	UIHelper.waitFor(driver);
-	Thread.sleep(2000);
-	String finalFileXpath = tempFileXpath.replace("CRAFT", file);
-	UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
-	finalFileXpath));
-	UIHelper.mouseOveranElement(driver,
-	UIHelper.findAnElementbyXpath(driver, finalFileXpath));
-	String finalactionMenuXpath = tempmoreMenuDocXpath.replace("CRAFT",
-	file);
-	UIHelper.findAnElementbyXpath(driver, finalactionMenuXpath).click();
-	UIHelper.waitFor(driver);
-	String finalmoreDeleteXpath = moreDeleteXpath
-	.replace("CRAFT", file);
-	UIHelper.click(driver, finalmoreDeleteXpath);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, confirmDeleteXpath);
-	UIHelper.click(driver, confirmDeleteXpath);
-	Thread.sleep(4000);
-	UIHelper.waitFor(driver);
+		try {
+			UIHelper.waitFor(driver);
+			Thread.sleep(2000);
+			String finalFileXpath = tempFileXpath.replace("CRAFT", file);
+			UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
+					finalFileXpath));
+			UIHelper.mouseOveranElement(driver,
+					UIHelper.findAnElementbyXpath(driver, finalFileXpath));
+			String finalactionMenuXpath = tempmoreMenuDocXpath.replace("CRAFT",
+					file);
+			UIHelper.findAnElementbyXpath(driver, finalactionMenuXpath).click();
+			UIHelper.waitFor(driver);
+			String finalmoreDeleteXpath = moreDeleteXpath
+					.replace("CRAFT", file);
+			UIHelper.click(driver, finalmoreDeleteXpath);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, confirmDeleteXpath);
+			UIHelper.click(driver, confirmDeleteXpath);
+			Thread.sleep(4000);
+			UIHelper.waitFor(driver);
 
-	report.updateTestLog("Delete Document", "Delete Existing Document "
-	+ "<br /><b> Doc Name : </b>" + file, Status.DONE);
-	}
+			report.updateTestLog("Delete Document", "Delete Existing Document "
+					+ "<br /><b> Doc Name : </b>" + file, Status.DONE);
+		}
 
-	catch (Exception e) {
+		catch (Exception e) {
 
-	}
+		}
 	}
 
 	// Click Show more Aspect in Advanced search
 	public void aspectvalueShowMore() {
-	try {
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	loadingApsectsXpath);
+		try {
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+					loadingApsectsXpath);
 
-	WebElement dropdownEle = UIHelper.findAnElementbyXpath(driver,
-	AspectDropDownXpath);
-	String Aspect = dataTable.getData("Search", "Aspect");
-	String finalAspectDP = clickAspectOpt.replace("CRAFT", Aspect);
-	/*
-	 * Select selectBox = new Select(dropdownEle);
-	 * selectBox.selectByVisibleText(Aspect);
-	 */
-	dropdownEle.click();
-	Thread.sleep(1000);
-	// UIHelper.highlightElement(driver, finalAspectDP);
-	UIHelper.click(driver, finalAspectDP);
+			WebElement dropdownEle = UIHelper.findAnElementbyXpath(driver,
+					AspectDropDownXpath);
+			String Aspect = dataTable.getData("Search", "Aspect");
+			String finalAspectDP = clickAspectOpt.replace("CRAFT", Aspect);
+			/*
+			 * Select selectBox = new Select(dropdownEle);
+			 * selectBox.selectByVisibleText(Aspect);
+			 */
+			dropdownEle.click();
+			Thread.sleep(1000);
+			// UIHelper.highlightElement(driver, finalAspectDP);
+			UIHelper.click(driver, finalAspectDP);
 
-	/*
-	 * UIHelper.mouseOverandclickanElement(driver,
-	 * UIHelper.findAnElementbyXpath(driver, finalAspectDP));
-	 */
-	// UIHelper.findAnElementbyXpath(driver, finalAspectDP).click();
+			/*
+			 * UIHelper.mouseOverandclickanElement(driver,
+			 * UIHelper.findAnElementbyXpath(driver, finalAspectDP));
+			 */
+			// UIHelper.findAnElementbyXpath(driver, finalAspectDP).click();
 
-	dropdownEle.click();
-	Thread.sleep(2000);
+			dropdownEle.click();
+			Thread.sleep(2000);
 
-	report.updateTestLog("Verify Aspect Dropdown",
-	"Aspect Dropdown expands on click successfully",
-	Status.PASS);
+			report.updateTestLog("Verify Aspect Dropdown",
+					"Aspect Dropdown expands on click successfully",
+					Status.PASS);
 
-	} catch (Exception e) {
-	report.updateTestLog("Verify Aspect Dropdown",
-	"Aspect Dropdown expands on click successfully",
-	Status.FAIL);
-	}
+		} catch (Exception e) {
+			report.updateTestLog("Verify Aspect Dropdown",
+					"Aspect Dropdown expands on click successfully",
+					Status.FAIL);
+		}
 
 	}
 
 	// saved search functionality
 	public void saveSearch() {
-	try {
+		try {
 
-	String Name = dataTable.getData("Search", "SavedSearchName");
-	String Desc = dataTable.getData("Search", "SavedSearchDesc");
-	String visiblity = dataTable.getData("Search", "Visibility");
-	String finalSaveSrcVisiblityXpath = saveSearchVisiblitycXpath
-	.replace("CRAFT", visiblity);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, rightGadgetXpath);
-	UIHelper.findAnElementbyXpath(driver, saveSearchNameXpath).clear();
-	UIHelper.sendKeysToAnElementByXpath(driver, saveSearchNameXpath,
-	Name);
-	UIHelper.findAnElementbyXpath(driver, saveSearchDescXpath).clear();
-	UIHelper.sendKeysToAnElementByXpath(driver, saveSearchDescXpath,
-	Desc);
+			String Name = dataTable.getData("Search", "SavedSearchName");
+			String Desc = dataTable.getData("Search", "SavedSearchDesc");
+			String visiblity = dataTable.getData("Search", "Visibility");
+			String finalSaveSrcVisiblityXpath = saveSearchVisiblitycXpath
+					.replace("CRAFT", visiblity);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, rightGadgetXpath);
+			UIHelper.findAnElementbyXpath(driver, saveSearchNameXpath).clear();
+			UIHelper.sendKeysToAnElementByXpath(driver, saveSearchNameXpath,
+					Name);
+			UIHelper.findAnElementbyXpath(driver, saveSearchDescXpath).clear();
+			UIHelper.sendKeysToAnElementByXpath(driver, saveSearchDescXpath,
+					Desc);
 
-	UIHelper.findAnElementbyXpath(driver, finalSaveSrcVisiblityXpath)
-	.click();
-	UIHelper.findAnElementbyXpath(driver, saveSearchBtnXpath).click();
+			UIHelper.findAnElementbyXpath(driver, finalSaveSrcVisiblityXpath)
+					.click();
+			UIHelper.findAnElementbyXpath(driver, saveSearchBtnXpath).click();
 
-	/*	UIHelper.waitForPageToLoad(driver);*/
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, messageEleXpath);
+		/*	UIHelper.waitForPageToLoad(driver);*/
+			UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, messageEleXpath);
 
-	report.updateTestLog("Save the search query",
-	"Search query saved successfully"
-	+ "<br><b>Saved Search Name : </br>" + Name,
-	Status.PASS);
+			report.updateTestLog("Save the search query",
+					"Search query saved successfully"
+							+ "<br><b>Saved Search Name : </br>" + Name,
+					Status.PASS);
 
-	/*	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
+		/*	UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
 */
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/* Select all folders & files
 	public void clickOnSelectBtnAndSelectOptionFromSearchResultPage(
-	String selecMenuOption) {
-	try {
-	String finalXpathForSelectOption = tempXpathForSelectOption.replace("CRAFT", selecMenuOption);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,slectBtnXpathInSearchResultsPage);
-	UIHelper.click(driver, slectBtnXpathInSearchResultsPage);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,finalXpathForSelectOption);
-	UIHelper.click(driver, finalXpathForSelectOption);
-	UIHelper.waitFor(driver);
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+			String selecMenuOption) {
+		try {
+			String finalXpathForSelectOption = tempXpathForSelectOption.replace("CRAFT", selecMenuOption);
+			UIHelper.waitForVisibilityOfEleByXpath(driver,slectBtnXpathInSearchResultsPage);
+			UIHelper.click(driver, slectBtnXpathInSearchResultsPage);
+			UIHelper.waitForVisibilityOfEleByXpath(driver,finalXpathForSelectOption);
+			UIHelper.click(driver, finalXpathForSelectOption);
+			UIHelper.waitFor(driver);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	*/
 	// Added for NALS project - Select all in search results page
 	public void clickOnSelectBtnAndSelectOptionFromSearchResultPage()
 	{
-	try {
-	
-	UIHelper.waitForVisibilityOfEleByXpath(driver,slectBtnXpathInSearchResultsPage);
-	UIHelper.click(driver, slectBtnXpathInSearchResultsPage);
-	UIHelper.waitFor(driver);
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+		try {
+			
+			UIHelper.waitForVisibilityOfEleByXpath(driver,slectBtnXpathInSearchResultsPage);
+			UIHelper.click(driver, slectBtnXpathInSearchResultsPage);
+			UIHelper.waitFor(driver);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
 	
 	// Start Select Items operation from Search Results page
 	public void clickOnSelectedItemsDropdownInSearchResultsPage() {
-	try {
-	UIHelper.waitForVisibilityOfEleByXpath(driver, selectItemsMenuXpath);
+		try {
+			UIHelper.waitForVisibilityOfEleByXpath(driver, selectItemsMenuXpath);
 
-	if (UIHelper.checkForAnElementbyXpath(driver, selectItemsMenuXpath)) {
-	UIHelper.click(driver, selectItemsMenuXpath);
-	UIHelper.waitFor(driver);
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+			if (UIHelper.checkForAnElementbyXpath(driver, selectItemsMenuXpath)) {
+				UIHelper.click(driver, selectItemsMenuXpath);
+				UIHelper.waitFor(driver);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// check Select Items from Search Results page
 	public ArrayList<String> getSelectedItemMenuOption() {
-	ArrayList<String> selectedItemsMenuValues = new ArrayList<String>();
-	try {
-	List<WebElement> selectedItemsMenuList = UIHelper
-	.findListOfElementsbyXpath(selectedItemsMenuOptionXpath,
-	driver);
+		ArrayList<String> selectedItemsMenuValues = new ArrayList<String>();
+		try {
+			List<WebElement> selectedItemsMenuList = UIHelper
+					.findListOfElementsbyXpath(selectedItemsMenuOptionXpath,
+							driver);
 
-	for (WebElement selectedItemOptEle : selectedItemsMenuList) {
-	selectedItemsMenuValues.add(selectedItemOptEle.getText());
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+			for (WebElement selectedItemOptEle : selectedItemsMenuList) {
+				selectedItemsMenuValues.add(selectedItemOptEle.getText());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-	return selectedItemsMenuValues;
+		return selectedItemsMenuValues;
 	}
 
 	// Start Select Items operation from Search Results page
 	public void commonMethodForPerformSelectedItemsOperation(String fileName,
-	String selectedItemsOptionName) {
-	try {
-	String finalChkBoxXpathForSearchResultsItem = tempChkBoxXpathForSearchResultsItem
-	.replace("CRAFT", fileName);
-	String finalXpathForSelectItems = tempXpathForSelectItems.replace(
-	"CRAFT", selectedItemsOptionName);
+			String selectedItemsOptionName) {
+		try {
+			String finalChkBoxXpathForSearchResultsItem = tempChkBoxXpathForSearchResultsItem
+					.replace("CRAFT", fileName);
+			String finalXpathForSelectItems = tempXpathForSelectItems.replace(
+					"CRAFT", selectedItemsOptionName);
 
-	if (UIHelper.checkForAnElementbyXpath(driver,
-	finalChkBoxXpathForSearchResultsItem)) {
-	UIHelper.click(driver, finalChkBoxXpathForSearchResultsItem);
+			if (UIHelper.checkForAnElementbyXpath(driver,
+					finalChkBoxXpathForSearchResultsItem)) {
+				UIHelper.click(driver, finalChkBoxXpathForSearchResultsItem);
 
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	selectItemsMenuXpath);
+				UIHelper.waitForVisibilityOfEleByXpath(driver,
+						selectItemsMenuXpath);
 
-	if (UIHelper.checkForAnElementbyXpath(driver,
-	selectItemsMenuXpath)) {
-	UIHelper.click(driver, selectItemsMenuXpath);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	finalXpathForSelectItems);
+				if (UIHelper.checkForAnElementbyXpath(driver,
+						selectItemsMenuXpath)) {
+					UIHelper.click(driver, selectItemsMenuXpath);
+					UIHelper.waitForVisibilityOfEleByXpath(driver,
+							finalXpathForSelectItems);
 
-	UIHelper.click(driver, finalXpathForSelectItems);
-	
-	report.updateTestLog("Click on " + selectedItemsOptionName,
-	"User able to click the 'Selected Items' option:" + selectedItemsOptionName,
-	Status.DONE);
-	}
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+					UIHelper.click(driver, finalXpathForSelectItems);
+					
+					report.updateTestLog("Click on " + selectedItemsOptionName,
+							"User able to click the 'Selected Items' option:" + selectedItemsOptionName,
+							Status.DONE);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	//Added for NALS project 
@@ -1820,270 +1818,270 @@ public class AlfrescoSearchPage extends ReusableLibrary {
 	public void clickOnCalculateSizeOptionInDropDown()
 	{
 	try {
-	UIHelper.waitForVisibilityOfEleByXpath(driver, selectCalculateSizeInMenuXpath);
+		UIHelper.waitForVisibilityOfEleByXpath(driver, selectCalculateSizeInMenuXpath);
 
-	if (UIHelper.checkForAnElementbyXpath(driver, selectCalculateSizeInMenuXpath)) {
-	UIHelper.click(driver, selectCalculateSizeInMenuXpath);
-	UIHelper.waitFor(driver);
-	}
+		if (UIHelper.checkForAnElementbyXpath(driver, selectCalculateSizeInMenuXpath)) {
+			UIHelper.click(driver, selectCalculateSizeInMenuXpath);
+			UIHelper.waitFor(driver);
+		}
 	} catch (Exception e) {
-	e.printStackTrace();
+		e.printStackTrace();
 	}
 }
 
 	
 	// Start Select Items operation from Search Results page
 	public void commonMethodForPerformSelectedItemsOperation(
-	String selectItemMenuOptName) {
-	try {
-	boolean isDisplayedExpecteOption = false;
-	List<WebElement> selectedItemsMenuList = UIHelper
-	.findListOfElementsbyXpath(selectedItemsMenuOptionXpath,
-	driver);
+			String selectItemMenuOptName) {
+		try {
+			boolean isDisplayedExpecteOption = false;
+			List<WebElement> selectedItemsMenuList = UIHelper
+					.findListOfElementsbyXpath(selectedItemsMenuOptionXpath,
+							driver);
 
-	for (WebElement selectedItemOptEle : selectedItemsMenuList) {
-	if (selectedItemOptEle.getText().equalsIgnoreCase(
-	selectItemMenuOptName)
-	|| selectedItemOptEle.getText().contains(
-	selectItemMenuOptName)) {
-	isDisplayedExpecteOption = true;
-	UIHelper.highlightElement(driver, selectedItemOptEle);
+			for (WebElement selectedItemOptEle : selectedItemsMenuList) {
+				if (selectedItemOptEle.getText().equalsIgnoreCase(
+						selectItemMenuOptName)
+						|| selectedItemOptEle.getText().contains(
+								selectItemMenuOptName)) {
+					isDisplayedExpecteOption = true;
+					UIHelper.highlightElement(driver, selectedItemOptEle);
 
-	selectedItemOptEle.click();
-	UIHelper.waitForPageToLoad(driver);
-	break;
+					selectedItemOptEle.click();
+					UIHelper.waitForPageToLoad(driver);
+					break;
 
-	} else {
-	isDisplayedExpecteOption = false;
-	}
-	}
+				} else {
+					isDisplayedExpecteOption = false;
+				}
+			}
 
-	if (isDisplayedExpecteOption) {
-	report.updateTestLog("Click on " + selectItemMenuOptName,
-	"User able to perform the " + selectItemMenuOptName,
-	Status.DONE);
-	} else {
-	report.updateTestLog(
-	"Click on " + selectItemMenuOptName,
-	"User not able to perform the " + selectItemMenuOptName,
-	Status.FAIL);
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+			if (isDisplayedExpecteOption) {
+				report.updateTestLog("Click on " + selectItemMenuOptName,
+						"User able to perform the " + selectItemMenuOptName,
+						Status.DONE);
+			} else {
+				report.updateTestLog(
+						"Click on " + selectItemMenuOptName,
+						"User not able to perform the " + selectItemMenuOptName,
+						Status.FAIL);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// Start Select Items operation from Search Results page
 	public void openFileOrFolderFromSearchResultsPage(String fileName) {
-	try {
-	String finalXpathForSearchResultsItem = tempXpathForSearchResultsItem
-	.replace("CRAFT", fileName);
+		try {
+			String finalXpathForSearchResultsItem = tempXpathForSearchResultsItem
+					.replace("CRAFT", fileName);
 
-	if (UIHelper.checkForAnElementbyXpath(driver,
-	finalXpathForSearchResultsItem)) {
-	UIHelper.click(driver, finalXpathForSearchResultsItem);
+			if (UIHelper.checkForAnElementbyXpath(driver,
+					finalXpathForSearchResultsItem)) {
+				UIHelper.click(driver, finalXpathForSearchResultsItem);
 
-	UIHelper.waitForPageToLoad(driver);
+				UIHelper.waitForPageToLoad(driver);
 
-	UIHelper.waitFor(driver);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	messageEleXpath);
-	UIHelper.waitFor(driver);
-	report.updateTestLog(
-	"Click on File/Folder in Search Results Page",
-	"User clicked the File/Folder:" + fileName, Status.DONE);
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+				UIHelper.waitFor(driver);
+				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+						messageEleXpath);
+				UIHelper.waitFor(driver);
+				report.updateTestLog(
+						"Click on File/Folder in Search Results Page",
+						"User clicked the File/Folder:" + fileName, Status.DONE);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// Perform Bulk Or Metadata Template Download operation
 	public void performBulkOrMetadataTemplateDownload(String comments) {
-	try {
-	String place = "";
-	String appURL = properties.getProperty("ApplicationUrl");
-	if(appURL.contains("appp"))
-	  {   
-	place = "Singapore";
-	 }
-	else
-	{
-	place = dataTable.getData("Search", "Result");
-	}
-	
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	bulkDownloadHeaderXpathInPopup);
+		try {
+			String place = "";
+			String appURL = properties.getProperty("ApplicationUrl");
+			if(appURL.contains("appp"))
+		  {   
+					place = "Singapore";
+			 }
+			else
+			{
+				place = dataTable.getData("Search", "Result");
+			}
+			
+			UIHelper.waitForVisibilityOfEleByXpath(driver,
+					bulkDownloadHeaderXpathInPopup);
 
-	if (UIHelper.checkForAnElementbyXpath(driver,
-	bulkDownloadHeaderXpathInPopup)) {
-	UIHelper.sendKeysToAnElementByXpath(driver,
-	commentsFieldXpathInBulkDownloadPopup, comments);
-	UIHelper.highlightElement(driver, bchlocationDropdown);
-	UIHelper.click(driver, bchlocationDropdown);
-	UIHelper.waitFor(driver);
-	UIHelper.click(driver, bchlocationDropdownvalue);
-	//	UIHelper.selectbyVisibleText(driver, bchlocationDropdown, place.trim());
-	/*String finalbchlocationDpdvalue = bchlocationDropdownvalue
-	.replace("CRAFT", place);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	finalbchlocationDpdvalue);
-	UIHelper.highlightElement(driver, finalbchlocationDpdvalue);
-	UIHelper.click(driver, finalbchlocationDpdvalue);*/
-	UIHelper.highlightElement(driver, okBtnXpathInBulkDownloadPopup);
-	UIHelper.click(driver, okBtnXpathInBulkDownloadPopup);
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+			if (UIHelper.checkForAnElementbyXpath(driver,
+					bulkDownloadHeaderXpathInPopup)) {
+				UIHelper.sendKeysToAnElementByXpath(driver,
+						commentsFieldXpathInBulkDownloadPopup, comments);
+				UIHelper.highlightElement(driver, bchlocationDropdown);
+				UIHelper.click(driver, bchlocationDropdown);
+				UIHelper.waitFor(driver);
+				UIHelper.click(driver, bchlocationDropdownvalue);
+			//	UIHelper.selectbyVisibleText(driver, bchlocationDropdown, place.trim());
+				/*String finalbchlocationDpdvalue = bchlocationDropdownvalue
+						.replace("CRAFT", place);
+				UIHelper.waitForVisibilityOfEleByXpath(driver,
+						finalbchlocationDpdvalue);
+				UIHelper.highlightElement(driver, finalbchlocationDpdvalue);
+				UIHelper.click(driver, finalbchlocationDpdvalue);*/
+				UIHelper.highlightElement(driver, okBtnXpathInBulkDownloadPopup);
+				UIHelper.click(driver, okBtnXpathInBulkDownloadPopup);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// Perform All Aspects Template Download operation
 	public void performAllAspectsTemplateDownload(String comments) {
-	try {
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	allAspectsTemplatePopupHeaderXpath);
+		try {
+			UIHelper.waitForVisibilityOfEleByXpath(driver,
+					allAspectsTemplatePopupHeaderXpath);
 
-	if (UIHelper.checkForAnElementbyXpath(driver,
-	allAspectsTemplatePopupHeaderXpath)) {
+			if (UIHelper.checkForAnElementbyXpath(driver,
+					allAspectsTemplatePopupHeaderXpath)) {
 
-	UIHelper.click(driver, selectAllBtnXpath);
+				UIHelper.click(driver, selectAllBtnXpath);
 
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	pickedAspectFirstItemXpath);
-	UIHelper.waitFor(driver);
+				UIHelper.waitForVisibilityOfEleByXpath(driver,
+						pickedAspectFirstItemXpath);
+				UIHelper.waitFor(driver);
 
-	UIHelper.sendKeysToAnElementByXpath(driver,
-	commentsFieldXpathInBulkDownloadPopup, comments);
+				UIHelper.sendKeysToAnElementByXpath(driver,
+						commentsFieldXpathInBulkDownloadPopup, comments);
 
-	UIHelper.highlightElement(driver, bchlocationDropdown);
-	String finalbchlocationDpdvalue = bchlocationDropdownvalue
-	.replace("CRAFT", "Slough");
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	finalbchlocationDpdvalue);
-	UIHelper.highlightElement(driver, finalbchlocationDpdvalue);
-	UIHelper.click(driver, finalbchlocationDpdvalue);
-	UIHelper.highlightElement(driver, okBtnXpathInBulkDownloadPopup);
+				UIHelper.highlightElement(driver, bchlocationDropdown);
+				String finalbchlocationDpdvalue = bchlocationDropdownvalue
+						.replace("CRAFT", "Slough");
+				UIHelper.waitForVisibilityOfEleByXpath(driver,
+						finalbchlocationDpdvalue);
+				UIHelper.highlightElement(driver, finalbchlocationDpdvalue);
+				UIHelper.click(driver, finalbchlocationDpdvalue);
+				UIHelper.highlightElement(driver, okBtnXpathInBulkDownloadPopup);
 
-	UIHelper.click(driver, downloadBtnXpath);
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+				UIHelper.click(driver, downloadBtnXpath);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// Get the message from confirmation box
 	public String getTheMessageText(String expectedMessageVal) {
-	try {
-	if (expectedMessageVal != null && !expectedMessageVal.isEmpty()) {
-	String finalXpathForMessage = tempXpathForMessage.replace(
-	"CRAFT", expectedMessageVal);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	finalXpathForMessage);
-	UIHelper.waitForPageToLoad(driver);
-	report.updateTestLog("Verify Messge Box",
-	"Message box is displayed", Status.PASS);
-	messageText = UIHelper.getTextFromWebElement(driver,
-	finalXpathForMessage);
-	} else {
-	UIHelper.waitForVisibilityOfEleByXpath(driver, messageEleXpath);
-	UIHelper.waitForPageToLoad(driver);
-	report.updateTestLog("Verify Messge Box",
-	"Message box is displayed", Status.PASS);
-	messageText = UIHelper.getTextFromWebElement(driver,
-	messageEleXpath);
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+		try {
+			if (expectedMessageVal != null && !expectedMessageVal.isEmpty()) {
+				String finalXpathForMessage = tempXpathForMessage.replace(
+						"CRAFT", expectedMessageVal);
+				UIHelper.waitForVisibilityOfEleByXpath(driver,
+						finalXpathForMessage);
+				UIHelper.waitForPageToLoad(driver);
+				report.updateTestLog("Verify Messge Box",
+						"Message box is displayed", Status.PASS);
+				messageText = UIHelper.getTextFromWebElement(driver,
+						finalXpathForMessage);
+			} else {
+				UIHelper.waitForVisibilityOfEleByXpath(driver, messageEleXpath);
+				UIHelper.waitForPageToLoad(driver);
+				report.updateTestLog("Verify Messge Box",
+						"Message box is displayed", Status.PASS);
+				messageText = UIHelper.getTextFromWebElement(driver,
+						messageEleXpath);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-	return messageText;
+		return messageText;
 	}
 
 	// Select the dropdown value from the Select Option search results page
 	public void selValFrmSerchResultDrpDow(String fltrVal) {
 
-	try {
-	
-	UIHelper.waitForVisibilityOfEleByXpath(driver, selectLinkXPath);
+		try {
+			
+			UIHelper.waitForVisibilityOfEleByXpath(driver, selectLinkXPath);
 
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, selectLinkXPath));
-	UIHelper.click(driver, selectLinkXPath);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, slctListValsXPath);
-	lstValsSlctDrpdwn = driver
-	.findElements(By.xpath(slctListValsXPath));
-	System.out.println("" + lstValsSlctDrpdwn.size());
+			UIHelper.highlightElement(driver,
+					UIHelper.findAnElementbyXpath(driver, selectLinkXPath));
+			UIHelper.click(driver, selectLinkXPath);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, slctListValsXPath);
+			lstValsSlctDrpdwn = driver
+					.findElements(By.xpath(slctListValsXPath));
+			System.out.println("" + lstValsSlctDrpdwn.size());
 
-	for (WebElement availVal : lstValsSlctDrpdwn) {
+			for (WebElement availVal : lstValsSlctDrpdwn) {
 
-	if (availVal.getText().trim().equalsIgnoreCase(fltrVal)) {
-	availVal.click();
-	UIHelper.waitForPageToLoad(driver);
-	report.updateTestLog("Select the dropdown -> " + fltrVal
-	+ " Value from Select Dropdown", "Dropdown Value "
-	+ fltrVal + " selected successfully", Status.PASS);
-	break;
-	}
+				if (availVal.getText().trim().equalsIgnoreCase(fltrVal)) {
+					availVal.click();
+					UIHelper.waitForPageToLoad(driver);
+					report.updateTestLog("Select the dropdown -> " + fltrVal
+							+ " Value from Select Dropdown", "Dropdown Value "
+							+ fltrVal + " selected successfully", Status.PASS);
+					break;
+				}
 
-	}
+			}
 
-	} catch (Exception e) {
-	report.updateTestLog("Select the dropdown -> " + fltrVal
-	+ " Value from Select Dropdown", "Dropdown Value "
-	+ fltrVal + " NOT selected successfully", Status.FAIL);
-	}
+		} catch (Exception e) {
+			report.updateTestLog("Select the dropdown -> " + fltrVal
+					+ " Value from Select Dropdown", "Dropdown Value "
+					+ fltrVal + " NOT selected successfully", Status.FAIL);
+		}
 
 	}
 
 	// Return no of files selected after choosing the Valu from Select drop down
 	public int retCntFilesChkd() {
 
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitforPresenceOfAllElements(driver, slctFilesCheckedXPath);
+		UIHelper.waitForPageToLoad(driver);
+		UIHelper.waitforPresenceOfAllElements(driver, slctFilesCheckedXPath);
 	//	UIHelper.waitForVisibilityOfEleByXpath(driver, slctFilesCheckedXPath);
-	List<WebElement> lstFilesChkd = driver.findElements(By
-	.xpath(slctFilesCheckedXPath));
-	return lstFilesChkd.size();
+		List<WebElement> lstFilesChkd = driver.findElements(By
+				.xpath(slctFilesCheckedXPath));
+		return lstFilesChkd.size();
 
 	}
 
 	// Return no of files selected after choosing the Valu from Select drop down
 	public int retCntFilesUnChkd() {
 
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitforPresenceOfAllElements(driver, slctFilesUnCheckedXPath);
+		UIHelper.waitForPageToLoad(driver);
+		UIHelper.waitforPresenceOfAllElements(driver, slctFilesUnCheckedXPath);
 	//	UIHelper.waitForVisibilityOfEleByXpath(driver, slctFilesCheckedXPath);
-	List<WebElement> lstFilesChkd = driver.findElements(By
-	.xpath(slctFilesUnCheckedXPath));
-	return lstFilesChkd.size();
+		List<WebElement> lstFilesChkd = driver.findElements(By
+				.xpath(slctFilesUnCheckedXPath));
+		return lstFilesChkd.size();
 
 	}
 
 	// Open document from Search Results page
 	public void commonMethodForOpenSearchResultsItem(String fileName) {
-	try {
-	String finalSearchResultItemXpath = searchResultItemXpath.replace(
-	"CRAFT", fileName);
+		try {
+			String finalSearchResultItemXpath = searchResultItemXpath.replace(
+					"CRAFT", fileName);
 
-	if (UIHelper.checkForAnElementbyXpath(driver,
-	finalSearchResultItemXpath)) {
-	UIHelper.click(driver, finalSearchResultItemXpath);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	openedDocHeaderXpath);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	openedDocumentContainerLayerXpath);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	}
+			if (UIHelper.checkForAnElementbyXpath(driver,
+					finalSearchResultItemXpath)) {
+				UIHelper.click(driver, finalSearchResultItemXpath);
+				UIHelper.waitForPageToLoad(driver);
+				UIHelper.waitForPageToLoad(driver);
+				UIHelper.waitFor(driver);
+				UIHelper.waitForVisibilityOfEleByXpath(driver,
+						openedDocHeaderXpath);
+				UIHelper.waitForVisibilityOfEleByXpath(driver,
+						openedDocumentContainerLayerXpath);
+				UIHelper.waitFor(driver);
+				UIHelper.waitFor(driver);
+			}
 
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*
@@ -2124,1195 +2122,1195 @@ public class AlfrescoSearchPage extends ReusableLibrary {
 
 	// Click On Search Manager
 	public void clickOnSearchManager() {
-	try {
-	if (UIHelper.checkForAnElementbyXpath(driver, searchmanager)) {
-	WebElement searchmanagerEle = UIHelper.findAnElementbyXpath(
-	driver, searchmanager);
-	UIHelper.highlightElement(driver, searchmanagerEle);
+		try {
+			if (UIHelper.checkForAnElementbyXpath(driver, searchmanager)) {
+				WebElement searchmanagerEle = UIHelper.findAnElementbyXpath(
+						driver, searchmanager);
+				UIHelper.highlightElement(driver, searchmanagerEle);
 
-	UIHelper.click(driver, searchmanager);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	createnewfilterxpath);
+				UIHelper.click(driver, searchmanager);
+				UIHelper.waitForPageToLoad(driver);
+				UIHelper.waitForVisibilityOfEleByXpath(driver,
+						createnewfilterxpath);
 
-	report.updateTestLog("Click on Search Manager",
-	"Page displays all search filters already created",
-	Status.DONE);
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+				report.updateTestLog("Click on Search Manager",
+						"Page displays all search filters already created",
+						Status.DONE);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// Create New Filter
 	public void createNewFilter(String createfilterDetails) {
-	try {
-	if (createfilterDetails.contains(",")) {
-	String splittedFiltereDetailas[] = createfilterDetails
-	.split(",");
+		try {
+			if (createfilterDetails.contains(",")) {
+				String splittedFiltereDetailas[] = createfilterDetails
+						.split(",");
 
-	String filterIDVal = splittedFiltereDetailas[0].replace(
-	"FilterID:", "");
+				String filterIDVal = splittedFiltereDetailas[0].replace(
+						"FilterID:", "");
 
-	String filterNameVal = splittedFiltereDetailas[1].replace(
-	"FilterName:", "");
-	
-	String filterPropertyVal = splittedFiltereDetailas[2].replace(
-	"FilterProperty:", "");
-	UIHelper.waitForVisibilityOfEleByXpath(driver, createnewfilterxpath);
-	UIHelper.click(driver, createnewfilterxpath);
-	
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	createNewFilterPopupHeaderXpath);
+				String filterNameVal = splittedFiltereDetailas[1].replace(
+						"FilterName:", "");
+				
+				String filterPropertyVal = splittedFiltereDetailas[2].replace(
+						"FilterProperty:", "");
+				UIHelper.waitForVisibilityOfEleByXpath(driver, createnewfilterxpath);
+				UIHelper.click(driver, createnewfilterxpath);
+				
+				UIHelper.waitForVisibilityOfEleByXpath(driver,
+						createNewFilterPopupHeaderXpath);
 
-	UIHelper.sendKeysToAnElementByXpath(driver, filterID, filterIDVal);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, filternamewait);
-	UIHelper.sendKeysToAnElementByXpath(driver, filtername,
-	filterNameVal);
-	UIHelper.sendKeysToAnElementByXpath(driver, filterproperty,
-	filterPropertyVal);
+				UIHelper.sendKeysToAnElementByXpath(driver, filterID, filterIDVal);
+				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, filternamewait);
+				UIHelper.sendKeysToAnElementByXpath(driver, filtername,
+						filterNameVal);
+				UIHelper.sendKeysToAnElementByXpath(driver, filterproperty,
+						filterPropertyVal);
 
-	UIHelper.waitFor(driver);
+				UIHelper.waitFor(driver);
 
-	UIHelper.click(driver, filtersave);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	loadingXpath);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	messageLoadXpath);
+				UIHelper.click(driver, filtersave);
+				UIHelper.waitForPageToLoad(driver);
+				UIHelper.waitFor(driver);
+				UIHelper.waitFor(driver);
+				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+						loadingXpath);
+				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+						messageLoadXpath);
 
-	ArrayList<String> filterid = new ArrayList<String>();
-	UIHelper.findandAddElementsToaListforBulk(
-	driver,
-	".//td[contains(@id,'SEARCH_CONFIG_FILTER_ID_CELL_ITEM')]//span[@class='value']",
-	filterid);
-	if (filterid.contains(filterIDVal)) {
-	report.updateTestLog(
-	"Verify the create filter is exists in Search Manager Page",
-	"Create Filter is already exists in Search Manager Page"
-	+ "<br /><b> Filter Name: </b>"
-	+ filterNameVal, Status.DONE);
+				ArrayList<String> filterid = new ArrayList<String>();
+				UIHelper.findandAddElementsToaListforBulk(
+						driver,
+						".//td[contains(@id,'SEARCH_CONFIG_FILTER_ID_CELL_ITEM')]//span[@class='value']",
+						filterid);
+				if (filterid.contains(filterIDVal)) {
+					report.updateTestLog(
+							"Verify the create filter is exists in Search Manager Page",
+							"Create Filter is already exists in Search Manager Page"
+									+ "<br /><b> Filter Name: </b>"
+									+ filterNameVal, Status.DONE);
 
-	} else {
-	createFilter(filterIDVal, filterNameVal);
-	}
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+				} else {
+					createFilter(filterIDVal, filterNameVal);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void createFilter(String filterIDVal, String filterNameVal) {
-	try {
-	UIHelper.click(driver, createnewfilterxpath);
+		try {
+			UIHelper.click(driver, createnewfilterxpath);
 
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	createNewFilterPopupHeaderXpath);
+			UIHelper.waitForVisibilityOfEleByXpath(driver,
+					createNewFilterPopupHeaderXpath);
 
-	UIHelper.sendKeysToAnElementByXpath(driver, filterID, filterIDVal);
-	UIHelper.sendKeysToAnElementByXpath(driver, filtername,
-	filterNameVal);
+			UIHelper.sendKeysToAnElementByXpath(driver, filterID, filterIDVal);
+			UIHelper.sendKeysToAnElementByXpath(driver, filtername,
+					filterNameVal);
 
-	UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
 
-	UIHelper.click(driver, cnfsave);
-	UIHelper.waitForPageToLoad(driver);
+			UIHelper.click(driver, cnfsave);
+			UIHelper.waitForPageToLoad(driver);
 
-	try {
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	cnfMessageForCreateFilterXpath);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	loadingXpath);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	messageLoadXpath);
-	} catch (Exception e) {
+			try {
+				UIHelper.waitForVisibilityOfEleByXpath(driver,
+						cnfMessageForCreateFilterXpath);
+				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+						loadingXpath);
+				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+						messageLoadXpath);
+			} catch (Exception e) {
 
-	}
+			}
 
-	UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
 
-	ArrayList<String> filterNameList = new ArrayList<String>();
-	UIHelper.findandAddElementsToaListforBulk(driver,
-	".//*[@id='SEARCH_CONFIG_FACET_LIST_VIEW_ITEMS']//td[3]",
-	filterNameList);
-	if (filterNameList.contains(filterNameVal)) {
-	report.updateTestLog(
-	"Verify the Newly created filter in Search Manager Page",
-	"Newly created filter is displayed successfully in Search Manager Page"
-	+ "<br /><b> Filter Name: </b>" + filterNameVal,
-	Status.PASS);
+			ArrayList<String> filterNameList = new ArrayList<String>();
+			UIHelper.findandAddElementsToaListforBulk(driver,
+					".//*[@id='SEARCH_CONFIG_FACET_LIST_VIEW_ITEMS']//td[3]",
+					filterNameList);
+			if (filterNameList.contains(filterNameVal)) {
+				report.updateTestLog(
+						"Verify the Newly created filter in Search Manager Page",
+						"Newly created filter is displayed successfully in Search Manager Page"
+								+ "<br /><b> Filter Name: </b>" + filterNameVal,
+						Status.PASS);
 
-	} else {
-	report.updateTestLog(
-	"Verify the Newly created filter in Search Manager Page",
-	"Newly created filter is failed to display in Search Manager Page"
-	+ "<br /><b> Filter Name: </b>" + filterNameVal,
-	Status.FAIL);
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+			} else {
+				report.updateTestLog(
+						"Verify the Newly created filter in Search Manager Page",
+						"Newly created filter is failed to display in Search Manager Page"
+								+ "<br /><b> Filter Name: </b>" + filterNameVal,
+						Status.FAIL);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// Get the filter Headings
 	public ArrayList<String> getFilterHeadings() {
-	ArrayList<String> filterHeadingNamesList = new ArrayList<String>();
+		ArrayList<String> filterHeadingNamesList = new ArrayList<String>();
 
-	try {
-	List<WebElement> filterHeadingsEle = UIHelper
-	.findListOfElementsbyXpath(createdSearchFilterHeadings,
-	driver);
+		try {
+			List<WebElement> filterHeadingsEle = UIHelper
+					.findListOfElementsbyXpath(createdSearchFilterHeadings,
+							driver);
 
-	for (WebElement ele : filterHeadingsEle) {
-	filterHeadingNamesList.add(ele.getText().trim());
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+			for (WebElement ele : filterHeadingsEle) {
+				filterHeadingNamesList.add(ele.getText().trim());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-	return filterHeadingNamesList;
+		return filterHeadingNamesList;
 	}
 
 	// Filter the search results with filter
 	public void filterSearchResults(String createfilterDetails) {
-	try {
-	if (createfilterDetails.contains(",")) {
-	String splittedFiltereDetailas[] = createfilterDetails
-	.split(",");
+		try {
+			if (createfilterDetails.contains(",")) {
+				String splittedFiltereDetailas[] = createfilterDetails
+						.split(",");
 
-	String filterNameVal = splittedFiltereDetailas[1].replace(
-	"FilterName:", "");
+				String filterNameVal = splittedFiltereDetailas[1].replace(
+						"FilterName:", "");
 
-	String finalXpathForFirstFilterItem = tempXpathForFirstFilterItem
-	.replace("CRAFT", filterNameVal);
-	String finalXpathForFirstFilterItemTickMark = tempXpathForFirstFilterItemTickMark
-	.replace("CRAFT", filterNameVal);
+				String finalXpathForFirstFilterItem = tempXpathForFirstFilterItem
+						.replace("CRAFT", filterNameVal);
+				String finalXpathForFirstFilterItemTickMark = tempXpathForFirstFilterItemTickMark
+						.replace("CRAFT", filterNameVal);
 
-	if (UIHelper.checkForAnElementbyXpath(driver,
-	finalXpathForFirstFilterItem)) {
-	UIHelper.click(driver, finalXpathForFirstFilterItem);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	finalXpathForFirstFilterItemTickMark);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
+				if (UIHelper.checkForAnElementbyXpath(driver,
+						finalXpathForFirstFilterItem)) {
+					UIHelper.click(driver, finalXpathForFirstFilterItem);
+					UIHelper.waitForVisibilityOfEleByXpath(driver,
+							finalXpathForFirstFilterItemTickMark);
+					UIHelper.waitFor(driver);
+					UIHelper.waitFor(driver);
 
-	report.updateTestLog("Apply Filter", "Filter:"
-	+ filterNameVal
-	+ " applied successfully to the search results"
-	+ "<br /><b> Applied Filter Name: </b>"
-	+ filterNameVal, Status.DONE);
-	}
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+					report.updateTestLog("Apply Filter", "Filter:"
+							+ filterNameVal
+							+ " applied successfully to the search results"
+							+ "<br /><b> Applied Filter Name: </b>"
+							+ filterNameVal, Status.DONE);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// Delete Filter
 	public void deleteCreatedFileter(String filterName) {
-	try {
-	String finalXpathForDeleteFilter = tempXpathForDeleteFilter
-	.replace("CRAFT", filterName);
-	UIHelper.waitFor(driver);
+		try {
+			String finalXpathForDeleteFilter = tempXpathForDeleteFilter
+					.replace("CRAFT", filterName);
+			UIHelper.waitFor(driver);
 
-	if (UIHelper.checkForAnElementbyXpath(driver,
-	finalXpathForDeleteFilter)) {
-	commonMethodForDeleteFilter(filterName,
-	finalXpathForDeleteFilter);
-	} else {
-	String filterID = dataTable.getData("Search", "type");
-	createFilter(filterID, filterName);
-	commonMethodForDeleteFilter(filterName,
-	finalXpathForDeleteFilter);
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+			if (UIHelper.checkForAnElementbyXpath(driver,
+					finalXpathForDeleteFilter)) {
+				commonMethodForDeleteFilter(filterName,
+						finalXpathForDeleteFilter);
+			} else {
+				String filterID = dataTable.getData("Search", "type");
+				createFilter(filterID, filterName);
+				commonMethodForDeleteFilter(filterName,
+						finalXpathForDeleteFilter);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void commonMethodForDeleteFilter(String filterName,
-	String finalXpathForDeleteFilter) {
-	try {
-	UIHelper.click(driver, finalXpathForDeleteFilter);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	confirmYesOrNoPopupHeaderXpath);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, deleteYesBtnXpath);
+			String finalXpathForDeleteFilter) {
+		try {
+			UIHelper.click(driver, finalXpathForDeleteFilter);
+			UIHelper.waitForVisibilityOfEleByXpath(driver,
+					confirmYesOrNoPopupHeaderXpath);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, deleteYesBtnXpath);
 
-	if (UIHelper.checkForAnElementbyXpath(driver, deleteYesBtnXpath)) {
-	UIHelper.click(driver, deleteYesBtnXpath);
+			if (UIHelper.checkForAnElementbyXpath(driver, deleteYesBtnXpath)) {
+				UIHelper.click(driver, deleteYesBtnXpath);
 
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	cnfMessageForDeleteteFilterXpath);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	loadingXpath);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	messageLoadXpath);
+				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+						cnfMessageForDeleteteFilterXpath);
+				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+						loadingXpath);
+				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+						messageLoadXpath);
 
-	UIHelper.waitFor(driver);
+				UIHelper.waitFor(driver);
 
-	ArrayList<String> filterNameList = new ArrayList<String>();
-	UIHelper.findandAddElementsToaListforBulk(
-	driver,
-	".//*[@id='SEARCH_CONFIG_FACET_LIST_VIEW_ITEMS']//td[3]",
-	filterNameList);
-	if (!filterNameList.contains(filterName)) {
-	report.updateTestLog(
-	"Verify the newly created filter deletion",
-	"Newly created filter:" + filterName
-	+ " deleted successfully"
-	+ "<br /><b> Deleted Filter Name: </b>"
-	+ filterName, Status.PASS);
+				ArrayList<String> filterNameList = new ArrayList<String>();
+				UIHelper.findandAddElementsToaListforBulk(
+						driver,
+						".//*[@id='SEARCH_CONFIG_FACET_LIST_VIEW_ITEMS']//td[3]",
+						filterNameList);
+				if (!filterNameList.contains(filterName)) {
+					report.updateTestLog(
+							"Verify the newly created filter deletion",
+							"Newly created filter:" + filterName
+									+ " deleted successfully"
+									+ "<br /><b> Deleted Filter Name: </b>"
+									+ filterName, Status.PASS);
 
-	} else {
-	report.updateTestLog(
-	"Verify the newly created filter deletion",
-	"Newly created filter:" + filterName
-	+ " failed to delete", Status.FAIL);
-	}
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+				} else {
+					report.updateTestLog(
+							"Verify the newly created filter deletion",
+							"Newly created filter:" + filterName
+									+ " failed to delete", Status.FAIL);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// Select List values from All searches
 	public void selectValFrmDetailedSearches(String srchQryVal) {
 
-	try {
-	UIHelper.waitFor(driver);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, moreSrchXPath);
-	UIHelper.click(driver, moreSrchXPath);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, modifiedDateXpath);
-	UIHelper.highlightElement(driver, modifiedDateXpath);
-	UIHelper.click(driver, modifiedDateXpath);
-	UIHelper.click(driver, modifiedDateXpath);
+		try {
+			UIHelper.waitFor(driver);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, moreSrchXPath);
+			UIHelper.click(driver, moreSrchXPath);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, modifiedDateXpath);
+			UIHelper.highlightElement(driver, modifiedDateXpath);
+			UIHelper.click(driver, modifiedDateXpath);
+			UIHelper.click(driver, modifiedDateXpath);
 
-	List<WebElement> listOfValues = driver.findElements(By
-	.xpath(lstAllSrchXPath));
-	System.out.println("" + listOfValues.size());
-	UIHelper.waitFor(driver);
-	for (WebElement values : listOfValues) {
+			List<WebElement> listOfValues = driver.findElements(By
+					.xpath(lstAllSrchXPath));
+			System.out.println("" + listOfValues.size());
+			UIHelper.waitFor(driver);
+			for (WebElement values : listOfValues) {
 
-	System.out.println("" + values.getText());
-	if (values.getText().equalsIgnoreCase(srchQryVal)) {
+				System.out.println("" + values.getText());
+				if (values.getText().equalsIgnoreCase(srchQryVal)) {
 
-	values.click();
-	report.updateTestLog(
-	"open Existing Saved search from All Searches",
-	"Existing saved search opened successfully",
-	Status.PASS);
-	UIHelper.waitForPageToLoad(driver);
-	break;
+					values.click();
+					report.updateTestLog(
+							"open Existing Saved search from All Searches",
+							"Existing saved search opened successfully",
+							Status.PASS);
+					UIHelper.waitForPageToLoad(driver);
+					break;
 
-	}
-	}
+				}
+			}
 
-	} catch (Exception e) {
-	e.printStackTrace();
-	report.updateTestLog(
-	"open Existing Saved search from All Searches",
-	"Existing saved search NOT opened successfully",
-	Status.FAIL);
-	}
+		} catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog(
+					"open Existing Saved search from All Searches",
+					"Existing saved search NOT opened successfully",
+					Status.FAIL);
+		}
 	}
 
 	// saved search functionality
 	public String saveSearchwithUniqueNme() {
-	try {
-	Calendar cal = Calendar.getInstance();
-	SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-	System.out.println("" + sdf.format(cal.getTime()));
+		try {
+			Calendar cal = Calendar.getInstance();
+			SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+			System.out.println("" + sdf.format(cal.getTime()));
 
-	NameSrchQry = dataTable.getData("Search", "SavedSearchName");
-	NameSrchQry = NameSrchQry + sdf.format(cal.getTime());
+			NameSrchQry = dataTable.getData("Search", "SavedSearchName");
+			NameSrchQry = NameSrchQry + sdf.format(cal.getTime());
 
-	NameSrchQry = NameSrchQry.replaceAll(":", "@");
-	new FileUtil().writeTextToFile(NameSrchQry,
-	testOutputFilePathSveSrch);
+			NameSrchQry = NameSrchQry.replaceAll(":", "@");
+			new FileUtil().writeTextToFile(NameSrchQry,
+					testOutputFilePathSveSrch);
 
-	String Desc = dataTable.getData("Search", "SavedSearchDesc");
-	String visiblity = dataTable.getData("Search", "Visibility");
-	String finalSaveSrcVisiblityXpath = saveSearchVisiblitycXpath
-	.replace("CRAFT", visiblity);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, rightGadgetXpath);
-	UIHelper.findAnElementbyXpath(driver, saveSearchNameXpath).clear();
-	UIHelper.sendKeysToAnElementByXpath(driver, saveSearchNameXpath,
-	NameSrchQry);
-	UIHelper.findAnElementbyXpath(driver, saveSearchDescXpath).clear();
-	UIHelper.sendKeysToAnElementByXpath(driver, saveSearchDescXpath,
-	Desc);
-	report.updateTestLog("Save the search query",
-	"Search query saved successfully."
-	+ "<br>Saved search name :</br>" + NameSrchQry,
-	Status.DONE);
+			String Desc = dataTable.getData("Search", "SavedSearchDesc");
+			String visiblity = dataTable.getData("Search", "Visibility");
+			String finalSaveSrcVisiblityXpath = saveSearchVisiblitycXpath
+					.replace("CRAFT", visiblity);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, rightGadgetXpath);
+			UIHelper.findAnElementbyXpath(driver, saveSearchNameXpath).clear();
+			UIHelper.sendKeysToAnElementByXpath(driver, saveSearchNameXpath,
+					NameSrchQry);
+			UIHelper.findAnElementbyXpath(driver, saveSearchDescXpath).clear();
+			UIHelper.sendKeysToAnElementByXpath(driver, saveSearchDescXpath,
+					Desc);
+			report.updateTestLog("Save the search query",
+					"Search query saved successfully."
+							+ "<br>Saved search name :</br>" + NameSrchQry,
+					Status.DONE);
 
-	UIHelper.findAnElementbyXpath(driver, finalSaveSrcVisiblityXpath)
-	.click();
-	UIHelper.findAnElementbyXpath(driver, saveSrchBtnXPath).click();
+			UIHelper.findAnElementbyXpath(driver, finalSaveSrcVisiblityXpath)
+					.click();
+			UIHelper.findAnElementbyXpath(driver, saveSrchBtnXPath).click();
 
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
 
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
-	return NameSrchQry;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return NameSrchQry;
 
 	}
 
 	// Select List values from All searches
 	public boolean checkSavedSearchAvail(String srchQryVal) {
-	boolean flag = false;
-	try {
-	UIHelper.waitFor(driver);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, moreSrchXPath);
-	UIHelper.click(driver, moreSrchXPath);
-	UIHelper.waitForPageToLoad(driver);
+		boolean flag = false;
+		try {
+			UIHelper.waitFor(driver);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, moreSrchXPath);
+			UIHelper.click(driver, moreSrchXPath);
+			UIHelper.waitForPageToLoad(driver);
 
-	UIHelper.waitForVisibilityOfEleByXpath(driver, modifiedDateXpath);
-	UIHelper.highlightElement(driver, modifiedDateXpath);
-	UIHelper.click(driver, modifiedDateXpath);
-	UIHelper.click(driver, modifiedDateXpath);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, modifiedDateXpath);
+			UIHelper.highlightElement(driver, modifiedDateXpath);
+			UIHelper.click(driver, modifiedDateXpath);
+			UIHelper.click(driver, modifiedDateXpath);
 
-	List<WebElement> listOfValues = driver.findElements(By
-	.xpath(lstAllSrchXPath));
-	System.out.println("" + listOfValues.size());
-	UIHelper.waitFor(driver);
-	for (WebElement values : listOfValues) {
+			List<WebElement> listOfValues = driver.findElements(By
+					.xpath(lstAllSrchXPath));
+			System.out.println("" + listOfValues.size());
+			UIHelper.waitFor(driver);
+			for (WebElement values : listOfValues) {
 
-	System.out.println("" + values.getText());
-	if (values.getText().equalsIgnoreCase(srchQryVal)) {
+				System.out.println("" + values.getText());
+				if (values.getText().equalsIgnoreCase(srchQryVal)) {
 
-	flag = true;
+					flag = true;
 
-	}
+				}
 
-	UIHelper.waitForPageToLoad(driver);
+				UIHelper.waitForPageToLoad(driver);
 
-	}
+			}
 
-	} catch (Exception e) {
-	e.printStackTrace();
-	flag = false;
-	}
-	return flag;
+		} catch (Exception e) {
+			e.printStackTrace();
+			flag = false;
+		}
+		return flag;
 	}
 
 	// Select List values from All searches
 	public boolean checkUserAvail(String Name) {
-	boolean flag = false;
-	try {
-	UIHelper.waitFor(driver);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, moreSrchXPath);
-	UIHelper.click(driver, moreSrchXPath);
-	UIHelper.waitForPageToLoad(driver);
+		boolean flag = false;
+		try {
+			UIHelper.waitFor(driver);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, moreSrchXPath);
+			UIHelper.click(driver, moreSrchXPath);
+			UIHelper.waitForPageToLoad(driver);
 
-	UIHelper.waitForVisibilityOfEleByXpath(driver, modifiedDateXpath);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, modifiedDateXpath);
 
-	List<WebElement> listOfValues = driver.findElements(By
-	.xpath(userListXPath));
-	System.out.println("" + listOfValues.size());
-	UIHelper.waitFor(driver);
-	for (WebElement values : listOfValues) {
-	System.out.println("" + values.getText());
-	if (values.getText().equalsIgnoreCase(Name)) {
-	flag = true;
-	} else {
-	flag = false;
-	break;
-	}
-	}
+			List<WebElement> listOfValues = driver.findElements(By
+					.xpath(userListXPath));
+			System.out.println("" + listOfValues.size());
+			UIHelper.waitFor(driver);
+			for (WebElement values : listOfValues) {
+				System.out.println("" + values.getText());
+				if (values.getText().equalsIgnoreCase(Name)) {
+					flag = true;
+				} else {
+					flag = false;
+					break;
+				}
+			}
 
-	} catch (Exception e) {
-	e.printStackTrace();
-	flag = false;
-	}
-	return flag;
+		} catch (Exception e) {
+			e.printStackTrace();
+			flag = false;
+		}
+		return flag;
 	}
 
 	// saved search functionality
 	public String overWriteSavedSearch() {
-	try {
+		try {
 
-	UIHelper.waitForVisibilityOfEleByXpath(driver, overWriteBtnXpath);
-	UIHelper.click(driver, overWriteBtnXpath);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	report.updateTestLog("Click on Overwrite button",
-	"Overwrite button clicked successfully.", Status.PASS);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, overWriteBtnXpath);
+			UIHelper.click(driver, overWriteBtnXpath);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			report.updateTestLog("Click on Overwrite button",
+					"Overwrite button clicked successfully.", Status.PASS);
 
-	} catch (Exception e) {
-	e.printStackTrace();
-	report.updateTestLog("Click on Overwrite button",
-	"Failed to click Overwrite button", Status.FAIL);
-	}
-	return NameSrchQry;
+		} catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Click on Overwrite button",
+					"Failed to click Overwrite button", Status.FAIL);
+		}
+		return NameSrchQry;
 
 	}
 
 	// click on Info Icon for File
 	public boolean clickInfoIconForFile(String fileNme) {
-	boolean flag = false;
-	try {
-	UIHelper.waitFor(driver);
-	String iIconXPathFinal = iIconXPath.replace("CRAFT", fileNme);
-	String iIConDilgXPathFinal = iIConDilgXPath.replace("CRAFT",
-	fileNme);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, iIconXPathFinal);
-	UIHelper.highlightElement(driver, iIconXPathFinal);
-	UIHelper.click(driver, iIconXPathFinal);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, iIConDilgXPathFinal);
+		boolean flag = false;
+		try {
+			UIHelper.waitFor(driver);
+			String iIconXPathFinal = iIconXPath.replace("CRAFT", fileNme);
+			String iIConDilgXPathFinal = iIConDilgXPath.replace("CRAFT",
+					fileNme);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, iIconXPathFinal);
+			UIHelper.highlightElement(driver, iIconXPathFinal);
+			UIHelper.click(driver, iIconXPathFinal);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, iIConDilgXPathFinal);
 
-	if (UIHelper.isWebElementDisplayed(UIHelper.findAnElementbyXpath(
-	driver, iIConDilgXPathFinal))) {
-	report.updateTestLog("Verify i - Icon ",
-	"i - Information Icon displayed successfully for the file "
-	+ fileNme
-	+ " with related Actions and details.",
-	Status.PASS);
-	} else {
-	report.updateTestLog("Verify i - Icon ",
-	"i - Information Icon NOT displayed successfully for the file "
-	+ fileNme
-	+ " with related Actions and details.",
-	Status.FAIL);
-	}
+			if (UIHelper.isWebElementDisplayed(UIHelper.findAnElementbyXpath(
+					driver, iIConDilgXPathFinal))) {
+				report.updateTestLog("Verify i - Icon ",
+						"i - Information Icon displayed successfully for the file "
+								+ fileNme
+								+ " with related Actions and details.",
+						Status.PASS);
+			} else {
+				report.updateTestLog("Verify i - Icon ",
+						"i - Information Icon NOT displayed successfully for the file "
+								+ fileNme
+								+ " with related Actions and details.",
+						Status.FAIL);
+			}
 
-	} catch (Exception e) {
-	e.printStackTrace();
-	flag = false;
-	}
-	return flag;
+		} catch (Exception e) {
+			e.printStackTrace();
+			flag = false;
+		}
+		return flag;
 	}
 
 	// Select search result Scope Name in Advanced search
 	public void searchResultScope(String Xpath, String name) {
-	try {
-	UIHelper.waitFor(driver);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, selectResultlocXpath);
-	UIHelper.click(driver, selectResultlocXpath);
-	UIHelper.waitFor(driver);
-	// String searchscope = dataTable.getData("Search", "Actions");
-	/*
-	 * String finalselectscopeXpath = selectScopeXpath.replace("CRAFT",
-	 * searchscope);
-	 */
-	UIHelper.highlightElement(driver, Xpath);
-	UIHelper.click(driver, Xpath);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	report.updateTestLog("Select Search Result Location",
-	"Search result location selected " + name, Status.DONE);
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+		try {
+			UIHelper.waitFor(driver);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, selectResultlocXpath);
+			UIHelper.click(driver, selectResultlocXpath);
+			UIHelper.waitFor(driver);
+			// String searchscope = dataTable.getData("Search", "Actions");
+			/*
+			 * String finalselectscopeXpath = selectScopeXpath.replace("CRAFT",
+			 * searchscope);
+			 */
+			UIHelper.highlightElement(driver, Xpath);
+			UIHelper.click(driver, Xpath);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitFor(driver);
+			report.updateTestLog("Select Search Result Location",
+					"Search result location selected " + name, Status.DONE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	// Select filter for searched results in results page
 	public String selectfilters(String filter, String value, String type) {
-	try {
-	String finalsearchFiltersXpath = searchFiltersXpath.replace(
-	"CRAFT", type);
-	String finalselectFiltersXpath = selectFiltersXpath.replace(
-	"FILTER", filter).replace("CRAFT", value);
-	String finalselectFilterValXpath = selectFilterValXpath.replace(
-	"FILTER", filter).replace("CRAFT", value);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	finalsearchFiltersXpath);
-	
-	noofhits = UIHelper.findAnElementbyXpath(driver,
-	finalselectFilterValXpath).getText();
-	UIHelper.click(driver, finalselectFiltersXpath);
-	UIHelper.waitFor(driver);
-	UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
-	finalselectFiltersXpath));
-	UIHelper.highlightElement(driver, finalsearchFiltersXpath);
-	UIHelper.highlightElement(driver, finalselectFiltersXpath);
-	UIHelper.highlightElement(driver, finalselectFilterValXpath);
-	report.updateTestLog("Select Search Filter",
-	"Search filter selected" + "<br><b>Filter Name :</b>"
-	+ value + "<br><b>No of Hits for Filter :</b>"
-	+ noofhits, Status.PASS);
-	} catch (Exception e) {
-	e.printStackTrace();
-	report.updateTestLog("Select Search Filter",
-	"Search filter selected" + "<br><b>Filter Name :</b>"
-	+ value + "<br><b>No of Hits for Filter :</b>"
-	+ noofhits, Status.FAIL);
-	}
-	return noofhits;
+		try {
+			String finalsearchFiltersXpath = searchFiltersXpath.replace(
+					"CRAFT", type);
+			String finalselectFiltersXpath = selectFiltersXpath.replace(
+					"FILTER", filter).replace("CRAFT", value);
+			String finalselectFilterValXpath = selectFilterValXpath.replace(
+					"FILTER", filter).replace("CRAFT", value);
+			UIHelper.waitForVisibilityOfEleByXpath(driver,
+					finalsearchFiltersXpath);
+
+			noofhits = UIHelper.findAnElementbyXpath(driver,
+					finalselectFilterValXpath).getText();
+			UIHelper.click(driver, finalselectFiltersXpath);
+			UIHelper.waitFor(driver);
+			UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
+					finalselectFiltersXpath));
+			UIHelper.highlightElement(driver, finalsearchFiltersXpath);
+			UIHelper.highlightElement(driver, finalselectFiltersXpath);
+			UIHelper.highlightElement(driver, finalselectFilterValXpath);
+			report.updateTestLog("Select Search Filter",
+					"Search filter selected" + "<br><b>Filter Name :</b>"
+							+ value + "<br><b>No of Hits for Filter :</b>"
+							+ noofhits, Status.PASS);
+		} catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Select Search Filter",
+					"Search filter selected" + "<br><b>Filter Name :</b>"
+							+ value + "<br><b>No of Hits for Filter :</b>"
+							+ noofhits, Status.FAIL);
+		}
+		return noofhits;
 	}
 
 	// saved search functionality
 	public void saveSearchParam(String Name) {
-	try {
+		try {
 
-	// String Name = dataTable.getData("Search", "SavedSearchName");
-	String Desc = dataTable.getData("Search", "SavedSearchDesc");
-	String visiblity = dataTable.getData("Search", "Visibility");
-	String finalSaveSrcVisiblityXpath = saveSearchVisiblitycXpath
-	.replace("CRAFT", visiblity);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, rightGadgetXpath);
-	UIHelper.findAnElementbyXpath(driver, saveSearchNameXpath).clear();
-	UIHelper.sendKeysToAnElementByXpath(driver, saveSearchNameXpath,
-	Name);
-	UIHelper.findAnElementbyXpath(driver, saveSearchDescXpath).clear();
-	UIHelper.sendKeysToAnElementByXpath(driver, saveSearchDescXpath,
-	Desc);
-	report.updateTestLog("Save the search query",
-	"Search query saved successfully"
-	+ "<br><b>Saved Search Name : </br>" + Name,
-	Status.DONE);
+			// String Name = dataTable.getData("Search", "SavedSearchName");
+			String Desc = dataTable.getData("Search", "SavedSearchDesc");
+			String visiblity = dataTable.getData("Search", "Visibility");
+			String finalSaveSrcVisiblityXpath = saveSearchVisiblitycXpath
+					.replace("CRAFT", visiblity);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, rightGadgetXpath);
+			UIHelper.findAnElementbyXpath(driver, saveSearchNameXpath).clear();
+			UIHelper.sendKeysToAnElementByXpath(driver, saveSearchNameXpath,
+					Name);
+			UIHelper.findAnElementbyXpath(driver, saveSearchDescXpath).clear();
+			UIHelper.sendKeysToAnElementByXpath(driver, saveSearchDescXpath,
+					Desc);
+			report.updateTestLog("Save the search query",
+					"Search query saved successfully"
+							+ "<br><b>Saved Search Name : </br>" + Name,
+					Status.DONE);
 
-	UIHelper.findAnElementbyXpath(driver, finalSaveSrcVisiblityXpath)
-	.click();
-	UIHelper.findAnElementbyXpath(driver, saveSearchBtnXpath).click();
+			UIHelper.findAnElementbyXpath(driver, finalSaveSrcVisiblityXpath)
+					.click();
+			UIHelper.findAnElementbyXpath(driver, saveSearchBtnXpath).click();
 
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
+			UIHelper.waitFor(driver);
 
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// Verify save search button is disabled
 	public void savebutton(String Name, String Desc, String visiblity) {
-	try {
+		try {
 
-	String finalSaveSrcVisiblityXpath = saveSearchVisiblitycXpath
-	.replace("CRAFT", visiblity);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, rightGadgetXpath);
-	UIHelper.findAnElementbyXpath(driver, saveSearchNameXpath).clear();
-	UIHelper.sendKeysToAnElementByXpath(driver, saveSearchNameXpath,
-	Name);
-	UIHelper.findAnElementbyXpath(driver, saveSearchDescXpath).clear();
-	UIHelper.sendKeysToAnElementByXpath(driver, saveSearchDescXpath,
-	Desc);
+			String finalSaveSrcVisiblityXpath = saveSearchVisiblitycXpath
+					.replace("CRAFT", visiblity);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, rightGadgetXpath);
+			UIHelper.findAnElementbyXpath(driver, saveSearchNameXpath).clear();
+			UIHelper.sendKeysToAnElementByXpath(driver, saveSearchNameXpath,
+					Name);
+			UIHelper.findAnElementbyXpath(driver, saveSearchDescXpath).clear();
+			UIHelper.sendKeysToAnElementByXpath(driver, saveSearchDescXpath,
+					Desc);
 
-	String condition = UIHelper.findAnElementbyXpath(driver,
-	saveSearchBtnXpath).getAttribute("disabled");
-	if (condition.equalsIgnoreCase("true")) {
-	UIHelper.highlightElement(driver, saveSearchBtnXpath);
-	report.updateTestLog("Verify Save search Disable",
-	"Save Search button disable", Status.PASS);
-	} else {
-	report.updateTestLog("Verify Save search Disable",
-	"Save Search button not disable", Status.FAIL);
-	}
+			String condition = UIHelper.findAnElementbyXpath(driver,
+					saveSearchBtnXpath).getAttribute("disabled");
+			if (condition.equalsIgnoreCase("true")) {
+				UIHelper.highlightElement(driver, saveSearchBtnXpath);
+				report.updateTestLog("Verify Save search Disable",
+						"Save Search button disable", Status.PASS);
+			} else {
+				report.updateTestLog("Verify Save search Disable",
+						"Save Search button not disable", Status.FAIL);
+			}
 
-	} catch (Exception e) {
-	e.printStackTrace();
-	report.updateTestLog("Verify Save search Disable",
-	"Verify Save Search button failed", Status.FAIL);
-	}
+		} catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Verify Save search Disable",
+					"Verify Save Search button failed", Status.FAIL);
+		}
 	}
 
 	// Input Aspect in Advanced search parameterised
 	public AlfrescoSearchPage inputAspectAdvSearchParam(String Aspect,
-	String AspectProp, String Aspectvalue) {
-	try {
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	aspectPanelXpath);
-	WebElement dropdownEle = UIHelper.findAnElementbyXpath(driver,
-	AspectDropDownXpath);
-	/*
-	 * String Aspect = dataTable.getData("Search", "Aspect"); String
-	 * AspectProp = dataTable.getData("Search", "AspectProp"); String
-	 * Aspectvalue = dataTable.getData("Search", "Query");
-	 */
-	Select selectBox = new Select(dropdownEle);
-	selectBox.selectByVisibleText(Aspect);
-	Select selectpropBox = new Select(driver.findElement(By
-	.xpath(AspectPropDropDownXpath)));
-	selectpropBox.selectByVisibleText(AspectProp);
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, AspectValueXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, AspectValueXpath,
-	Aspectvalue);
-	if (UIHelper.findAnElementbyXpath(driver, AspectPropDropDownXpath)
-	.isEnabled()) {
-	report.updateTestLog("Input Aspect Name",
-	"Search using Aspect Name "
-	+ "<br /><b>Aspect Name :</b>" + Aspect
-	+ "<br /><b>Aspect Properties :</b>"
-	+ AspectProp + "<br /><b>Aspect Value :</b>"
-	+ Aspectvalue, Status.DONE);
-	} else {
-	report.updateTestLog("Input Aspect Name",
-	"Input aspect value in Adv search Failed ", Status.FAIL);
-	}
+			String AspectProp, String Aspectvalue) {
+		try {
+			UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+					aspectPanelXpath);
+			WebElement dropdownEle = UIHelper.findAnElementbyXpath(driver,
+					AspectDropDownXpath);
+			/*
+			 * String Aspect = dataTable.getData("Search", "Aspect"); String
+			 * AspectProp = dataTable.getData("Search", "AspectProp"); String
+			 * Aspectvalue = dataTable.getData("Search", "Query");
+			 */
+			Select selectBox = new Select(dropdownEle);
+			selectBox.selectByVisibleText(Aspect);
+			Select selectpropBox = new Select(driver.findElement(By
+					.xpath(AspectPropDropDownXpath)));
+			selectpropBox.selectByVisibleText(AspectProp);
+			UIHelper.highlightElement(driver,
+					UIHelper.findAnElementbyXpath(driver, AspectValueXpath));
+			UIHelper.sendKeysToAnElementByXpath(driver, AspectValueXpath,
+					Aspectvalue);
+			if (UIHelper.findAnElementbyXpath(driver, AspectPropDropDownXpath)
+					.isEnabled()) {
+				report.updateTestLog("Input Aspect Name",
+						"Search using Aspect Name "
+								+ "<br /><b>Aspect Name :</b>" + Aspect
+								+ "<br /><b>Aspect Properties :</b>"
+								+ AspectProp + "<br /><b>Aspect Value :</b>"
+								+ Aspectvalue, Status.DONE);
+			} else {
+				report.updateTestLog("Input Aspect Name",
+						"Input aspect value in Adv search Failed ", Status.FAIL);
+			}
 
-	} catch (Exception e) {
-	report.updateTestLog("Input Aspect Name",
-	"Input aspect value in Adv search Failed ", Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
+		} catch (Exception e) {
+			report.updateTestLog("Input Aspect Name",
+					"Input aspect value in Adv search Failed ", Status.FAIL);
+		}
+		return new AlfrescoSearchPage(scriptHelper);
 	}
 
 	// Click Show more Aspect in Advanced search
 	public void clickShowMore() {
-	try {
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	loadingApsectsXpath);
+		try {
+			UIHelper.waitForPageToLoad(driver);
+			UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+					loadingApsectsXpath);
 
-	WebElement dropdownEle = UIHelper.findAnElementbyXpath(driver,
-	AspectDropDownXpath);
-	String Aspect = dataTable.getData("Search", "Aspect1");
-	String finalAspectDP = clickAspectOpt.replace("CRAFT", Aspect);
-	/*
-	 * Select selectBox = new Select(dropdownEle);
-	 * selectBox.selectByVisibleText(Aspect);
-	 */
-	dropdownEle.click();
-	Thread.sleep(1000);
-	// UIHelper.highlightElement(driver, finalAspectDP);
-	UIHelper.click(driver, finalAspectDP);
+			WebElement dropdownEle = UIHelper.findAnElementbyXpath(driver,
+					AspectDropDownXpath);
+			String Aspect = dataTable.getData("Search", "Aspect1");
+			String finalAspectDP = clickAspectOpt.replace("CRAFT", Aspect);
+			/*
+			 * Select selectBox = new Select(dropdownEle);
+			 * selectBox.selectByVisibleText(Aspect);
+			 */
+			dropdownEle.click();
+			Thread.sleep(1000);
+			// UIHelper.highlightElement(driver, finalAspectDP);
+			UIHelper.click(driver, finalAspectDP);
 
-	/*
-	 * UIHelper.mouseOverandclickanElement(driver,
-	 * UIHelper.findAnElementbyXpath(driver, finalAspectDP));
-	 */
-	// UIHelper.findAnElementbyXpath(driver, finalAspectDP).click();
+			/*
+			 * UIHelper.mouseOverandclickanElement(driver,
+			 * UIHelper.findAnElementbyXpath(driver, finalAspectDP));
+			 */
+			// UIHelper.findAnElementbyXpath(driver, finalAspectDP).click();
 
-	dropdownEle.click();
-	Thread.sleep(2000);
+			dropdownEle.click();
+			Thread.sleep(2000);
 
-	report.updateTestLog("Verify Aspect Dropdown",
-	"Aspect Dropdown expands on click successfully",
-	Status.PASS);
+			report.updateTestLog("Verify Aspect Dropdown",
+					"Aspect Dropdown expands on click successfully",
+					Status.PASS);
 
-	} catch (Exception e) {
-	report.updateTestLog("Verify Aspect Dropdown",
-	"Aspect Dropdown expands on click successfully",
-	Status.FAIL);
-	}
+		} catch (Exception e) {
+			report.updateTestLog("Verify Aspect Dropdown",
+					"Aspect Dropdown expands on click successfully",
+					Status.FAIL);
+		}
 
 	}
 
 	public void sortByModifiedDate() {
 
-	UIHelper.waitForVisibilityOfEleByXpathForLongTime(driver, srtDrpXPath);
-	UIHelper.findAnElementbyXpath(driver, srtDrpXPath).click();
-	UIHelper.waitForVisibilityOfEleByXpath(driver, modFDrpXPath);
-	UIHelper.findAnElementbyXpath(driver, modFDrpXPath).click();
+		UIHelper.waitForVisibilityOfEleByXpathForLongTime(driver, srtDrpXPath);
+		UIHelper.findAnElementbyXpath(driver, srtDrpXPath).click();
+		UIHelper.waitForVisibilityOfEleByXpath(driver, modFDrpXPath);
+		UIHelper.findAnElementbyXpath(driver, modFDrpXPath).click();
 
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, srchEleAjaxXPath);
-	/*
-	 * UIHelper.waitFor(driver); UIHelper.waitFor(driver);
-	 * UIHelper.waitFor(driver);
-	 */
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
-	UIHelper.waitFor(driver);
+		UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, srchEleAjaxXPath);
+		/*
+		 * UIHelper.waitFor(driver); UIHelper.waitFor(driver);
+		 * UIHelper.waitFor(driver);
+		 */
+		UIHelper.waitFor(driver);
+		UIHelper.waitFor(driver);
+		UIHelper.waitFor(driver);
 
 	}
 
 	// Verify fileter values
 	public boolean verifyFilterValues(String filter, String value) {
-	boolean flag = false;
-	try {
+		boolean flag = false;
+		try {
 
-	String finalselectFiltersXpath = filterTypeXpath.replace("CRAFT",
-	filter);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	finalselectFiltersXpath);
-	UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
-	finalselectFiltersXpath));
-	UIHelper.highlightElement(driver, finalselectFiltersXpath);
-	String finalShowMoreXpath = showMoreXpath.replace("CRAFT", filter);
-	if (UIHelper.checkForAnElementbyXpath(driver, finalShowMoreXpath)) {
-	UIHelper.click(driver, finalShowMoreXpath);
-	}
-	String finalFilterValListXpath = filterValListXpath.replace(
-	"CRAFT", filter);
+			String finalselectFiltersXpath = filterTypeXpath.replace("CRAFT",
+					filter);
+			UIHelper.waitForVisibilityOfEleByXpath(driver,
+					finalselectFiltersXpath);
+			UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
+					finalselectFiltersXpath));
+			UIHelper.highlightElement(driver, finalselectFiltersXpath);
+			String finalShowMoreXpath = showMoreXpath.replace("CRAFT", filter);
+			if (UIHelper.checkForAnElementbyXpath(driver, finalShowMoreXpath)) {
+				UIHelper.click(driver, finalShowMoreXpath);
+			}
+			String finalFilterValListXpath = filterValListXpath.replace(
+					"CRAFT", filter);
 
-	List<WebElement> listOfValues = driver.findElements(By
-	.xpath(finalFilterValListXpath));
-	for (WebElement element : listOfValues) {
-	if (element.getText().contains(value)) {
-	flag = true;
-	} else {
-	flag = false;
-	}
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
-	return flag;
+			List<WebElement> listOfValues = driver.findElements(By
+					.xpath(finalFilterValListXpath));
+			for (WebElement element : listOfValues) {
+				if (element.getText().contains(value)) {
+					flag = true;
+				} else {
+					flag = false;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
 	}
 
 	// Check Folder size
 	public String getMessageForFileOnceClickedCalculateSize() {
-	String promptMessageVal = "";
-	try {
-	try {
-	UIHelper.waitForVisibilityOfEleByXpath(driver, messageEleXpath);
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+		String promptMessageVal = "";
+		try {
+			try {
+				UIHelper.waitForVisibilityOfEleByXpath(driver, messageEleXpath);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
-	if (UIHelper.checkForAnElementbyXpath(driver, messageEleXpath)) {
-	promptMessageVal = UIHelper.getTextFromWebElement(driver,
-	messageEleXpath);
-	} else {
-	promptMessageVal = "'Please select folder only' not get displayed for selected file";
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+			if (UIHelper.checkForAnElementbyXpath(driver, messageEleXpath)) {
+				promptMessageVal = UIHelper.getTextFromWebElement(driver,
+						messageEleXpath);
+			} else {
+				promptMessageVal = "'Please select folder only' not get displayed for selected file";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-	return promptMessageVal;
+		return promptMessageVal;
 	}
 
 	// Get Metadata value search for collection
 	public String getMetadata(String Metadata) {
-	String MetadataValue = "";
-	try {
-	// String Resultfile = tempFileNameNames.replace("CRAFT", FileName);
-	// UIHelper.click(driver, Resultfile);
-	UIHelper.waitForPageToLoad(driver);
-	// UIHelper.waitFor(driver);
-	String FinalMetadataValueXpath = tempMetadataValueXpath.replace(
-	"CRAFT", Metadata);
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	FinalMetadataValueXpath);
-	UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
-	FinalMetadataValueXpath));
-	UIHelper.highlightElement(driver, FinalMetadataValueXpath);
-	MetadataValue = UIHelper.findAnElementbyXpath(driver,
-	FinalMetadataValueXpath).getText();
-	System.out.println(MetadataValue);
+		String MetadataValue = "";
+		try {
+			// String Resultfile = tempFileNameNames.replace("CRAFT", FileName);
+			// UIHelper.click(driver, Resultfile);
+			UIHelper.waitForPageToLoad(driver);
+			// UIHelper.waitFor(driver);
+			String FinalMetadataValueXpath = tempMetadataValueXpath.replace(
+					"CRAFT", Metadata);
+			UIHelper.waitForVisibilityOfEleByXpath(driver,
+					FinalMetadataValueXpath);
+			UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
+					FinalMetadataValueXpath));
+			UIHelper.highlightElement(driver, FinalMetadataValueXpath);
+			MetadataValue = UIHelper.findAnElementbyXpath(driver,
+					FinalMetadataValueXpath).getText();
+			System.out.println(MetadataValue);
 
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
-	return MetadataValue;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return MetadataValue;
 	}
 
 	// Check Look for field value in 'Advanced Search' Page
 	public boolean checkLookForFieldValue() {
-	boolean isDisplayedLookForFieldValue = false;
+		boolean isDisplayedLookForFieldValue = false;
 
-	try {
-	if (UIHelper.checkForAnElementbyXpath(driver,
-	lookForFieldValueInAdvancedSearch)) {
-	isDisplayedLookForFieldValue = false;
-	} else {
-	isDisplayedLookForFieldValue = false;
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+		try {
+			if (UIHelper.checkForAnElementbyXpath(driver,
+					lookForFieldValueInAdvancedSearch)) {
+				isDisplayedLookForFieldValue = false;
+			} else {
+				isDisplayedLookForFieldValue = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-	return isDisplayedLookForFieldValue;
+		return isDisplayedLookForFieldValue;
 	}
 
 	// Select 'Look for' option
 	public void selectLookForFieldOption(String optionName) {
-	try {
-	String finalXpathForLookForFieldVal = tempXpathForLookForFieldVal
-	.replace("CRAFT", optionName);
+		try {
+			String finalXpathForLookForFieldVal = tempXpathForLookForFieldVal
+					.replace("CRAFT", optionName);
 
-	if (UIHelper.checkForAnElementbyXpath(driver,
-	lookForFieldValueInAdvancedSearch)) {
-	UIHelper.click(driver, lookForFieldValueInAdvancedSearch);
+			if (UIHelper.checkForAnElementbyXpath(driver,
+					lookForFieldValueInAdvancedSearch)) {
+				UIHelper.click(driver, lookForFieldValueInAdvancedSearch);
 
-	try {
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	finalXpathForLookForFieldVal);
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+				try {
+					UIHelper.waitForVisibilityOfEleByXpath(driver,
+							finalXpathForLookForFieldVal);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 
-	UIHelper.click(driver, finalXpathForLookForFieldVal);
-	UIHelper.waitFor(driver);
+				UIHelper.click(driver, finalXpathForLookForFieldVal);
+				UIHelper.waitFor(driver);
 
-	report.updateTestLog("Select 'Look for' field option",
-	"'Look for' field option:" + optionName
-	+ " selected successfully", Status.DONE);
-	} else if (UIHelper.checkForAnElementbyXpath(driver,
-	finalXpathForLookForFieldVal)) {
-	report.updateTestLog("Select 'Look for' field option",
-	"'Look for' field option:" + optionName
-	+ " selected successfully", Status.DONE);
-	} else {
-	report.updateTestLog("Select 'Look for' field option",
-	"Failed to select 'Look for' field option:"
-	+ optionName, Status.DONE);
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+				report.updateTestLog("Select 'Look for' field option",
+						"'Look for' field option:" + optionName
+								+ " selected successfully", Status.DONE);
+			} else if (UIHelper.checkForAnElementbyXpath(driver,
+					finalXpathForLookForFieldVal)) {
+				report.updateTestLog("Select 'Look for' field option",
+						"'Look for' field option:" + optionName
+								+ " selected successfully", Status.DONE);
+			} else {
+				report.updateTestLog("Select 'Look for' field option",
+						"Failed to select 'Look for' field option:"
+								+ optionName, Status.DONE);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
 	// Get Metadata value search
-	public void getMetavalue(String metadata, String expectedval) {
-	String MetadataValue = "";
-	try {
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	if (UIHelper.checkForAnElementbyXpath(driver, docpropTwisterCloseXpath)) {
-	UIHelper.click(driver, docpropTwisterCloseXpath);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, docpropTwisterOpenXpath);
-	UIHelper.waitFor(driver);
-	}
-	String FinalMetadataValueXpath = tempMetadataValueXpath.replace(
-	"CRAFT", metadata);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, FinalMetadataValueXpath);
-	UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
-	FinalMetadataValueXpath));
-	UIHelper.highlightElement(driver, FinalMetadataValueXpath);
-	MetadataValue = UIHelper.findAnElementbyXpath(driver,
-	FinalMetadataValueXpath).getText();
-	if(MetadataValue.equalsIgnoreCase(expectedval)){
-	report.updateTestLog("Verify " + metadata + " attributes in Property Section",
-	metadata + "attributes are displayed in Property Section. Value : " +MetadataValue, Status.PASS);
-	}else{
-	report.updateTestLog("Verify " + metadata + " attributes in Property Section",
-	metadata + "attributes are not displayed in Property Section. Value : " +MetadataValue, Status.FAIL);
-	}
-	} catch (Exception e) {
-	// e.printStackTrace();
-	report.updateTestLog("Verify " + metadata + " attributes in Property Section",
-	metadata + "attributes are not displayed in Property Section.", Status.FAIL);
-	}
-	}
-	
-	// Get file/folder name from Search result and put in into a Map with
-	// details
-	public Map<String, ArrayList<String>> getSearchListValuesNew() {
-	try {
+		public void getMetavalue(String metadata, String expectedval) {
+			String MetadataValue = "";
+			try {
+				UIHelper.waitForPageToLoad(driver);
+				UIHelper.waitFor(driver);
+				if (UIHelper.checkForAnElementbyXpath(driver, docpropTwisterCloseXpath)) {
+					UIHelper.click(driver, docpropTwisterCloseXpath);
+					UIHelper.waitForVisibilityOfEleByXpath(driver, docpropTwisterOpenXpath);
+					UIHelper.waitFor(driver);
+				}
+				String FinalMetadataValueXpath = tempMetadataValueXpath.replace(
+						"CRAFT", metadata);
+				UIHelper.waitForVisibilityOfEleByXpath(driver, FinalMetadataValueXpath);
+				UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
+						FinalMetadataValueXpath));
+				UIHelper.highlightElement(driver, FinalMetadataValueXpath);
+				MetadataValue = UIHelper.findAnElementbyXpath(driver,
+						FinalMetadataValueXpath).getText();
+			if(MetadataValue.equalsIgnoreCase(expectedval)){
+				report.updateTestLog("Verify " + metadata + " attributes in Property Section",
+						metadata + "attributes are displayed in Property Section. Value : " +MetadataValue, Status.PASS);
+			}else{
+				report.updateTestLog("Verify " + metadata + " attributes in Property Section",
+						metadata + "attributes are not displayed in Property Section. Value : " +MetadataValue, Status.FAIL);
+			}
+			} catch (Exception e) {
+				// e.printStackTrace();
+				report.updateTestLog("Verify " + metadata + " attributes in Property Section",
+						metadata + "attributes are not displayed in Property Section.", Status.FAIL);
+			}
+		}
+		
+		// Get file/folder name from Search result and put in into a Map with
+		// details
+		public Map<String, ArrayList<String>> getSearchListValuesNew() {
+			try {
 
-	/*	UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
-	tempNameXpathNew, searchNames);
-	UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
-	tempFiletitleXpathNew, titleName);
-	UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
-	tempFileDescXpathNew, descvalue);
-	UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
-	tempFileLastModifiedXpathNew, lastModified);
-	UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
-	tempFileModifierXpathNew, modifier);
-	UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
-	tempFileSizeXpathNew, filesize);
-	UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
-	tempFilePathXpathNew, location);
-	UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
-	tempFileSiteXpathNew, siteName);*/
+			/*	UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
+						tempNameXpathNew, searchNames);
+				UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
+						tempFiletitleXpathNew, titleName);
+				UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
+						tempFileDescXpathNew, descvalue);
+				UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
+						tempFileLastModifiedXpathNew, lastModified);
+				UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
+						tempFileModifierXpathNew, modifier);
+				UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
+						tempFileSizeXpathNew, filesize);
+				UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
+						tempFilePathXpathNew, location);
+				UIHelper.findandAddElementsToaListforMap(driver, searchListNamesNew,
+						tempFileSiteXpathNew, siteName);*/
 
-	searchValues.put("Names", searchNames);
-	searchValues.put("Title", titleName);
-	searchValues.put("Desc", descvalue);
-	searchValues.put("LastModified", lastModified);
-	searchValues.put("Modifier", modifier);
-	searchValues.put("Size", filesize);
-	searchValues.put("Path", location);
-	searchValues.put("Site", siteName);
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
-	return searchValues;
-	}
-	
-	
-	// Get Metadata value search
-	public String getMetadataNew(String FileName, String Metadata) {
-	String MetadataValue = "";
-	try {
-	String Resultfile = tempFileNameNamesNew.replace("CRAFT", FileName);
-	UIHelper.click(driver, Resultfile);
-	UIHelper.waitForPageToLoad(driver);
-	UIHelper.waitFor(driver);
-	if (UIHelper.checkForAnElementbyXpath(driver, docpropTwisterCloseXpath)) {
-	UIHelper.click(driver, docpropTwisterCloseXpath);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, docpropTwisterOpenXpath);
-	UIHelper.waitFor(driver);
-	}
-	String FinalMetadataValueXpath = tempMetadataValueXpath.replace(
-	"CRAFT", Metadata);
-	UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
-	FinalMetadataValueXpath));
-	UIHelper.highlightElement(driver, FinalMetadataValueXpath);
-	MetadataValue = UIHelper.findAnElementbyXpath(driver,
-	FinalMetadataValueXpath).getText();
-	} catch (Exception e) {
-	// e.printStackTrace();
-	}
-	return MetadataValue;
-	}
+				searchValues.put("Names", searchNames);
+				searchValues.put("Title", titleName);
+				searchValues.put("Desc", descvalue);
+				searchValues.put("LastModified", lastModified);
+				searchValues.put("Modifier", modifier);
+				searchValues.put("Size", filesize);
+				searchValues.put("Path", location);
+				searchValues.put("Site", siteName);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return searchValues;
+		}
+		
+		
+		// Get Metadata value search
+		public String getMetadataNew(String FileName, String Metadata) {
+			String MetadataValue = "";
+			try {
+				String Resultfile = tempFileNameNamesNew.replace("CRAFT", FileName);
+				UIHelper.click(driver, Resultfile);
+				UIHelper.waitForPageToLoad(driver);
+				UIHelper.waitFor(driver);
+				if (UIHelper.checkForAnElementbyXpath(driver, docpropTwisterCloseXpath)) {
+					UIHelper.click(driver, docpropTwisterCloseXpath);
+					UIHelper.waitForVisibilityOfEleByXpath(driver, docpropTwisterOpenXpath);
+					UIHelper.waitFor(driver);
+				}
+				String FinalMetadataValueXpath = tempMetadataValueXpath.replace(
+						"CRAFT", Metadata);
+				UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
+						FinalMetadataValueXpath));
+				UIHelper.highlightElement(driver, FinalMetadataValueXpath);
+				MetadataValue = UIHelper.findAnElementbyXpath(driver,
+						FinalMetadataValueXpath).getText();
+			} catch (Exception e) {
+				// e.printStackTrace();
+			}
+			return MetadataValue;
+		}
 
-	
+		
 
 	// Start Select Items operation from Search Results page
 	public void commonMethodForsearchselectedoption(String selectedItemsOptionName) {
-	try {
-	String finalXpathForSelectItems = tempXpathForSelectItems.replace("CRAFT", selectedItemsOptionName);
+		try {
+			String finalXpathForSelectItems = tempXpathForSelectItems.replace("CRAFT", selectedItemsOptionName);
 
-	UIHelper.waitForVisibilityOfEleByXpath(driver, selectItemsMenuXpath);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, selectItemsMenuXpath);
 
-	if (UIHelper.checkForAnElementbyXpath(driver, selectItemsMenuXpath)) {
-	UIHelper.click(driver, selectItemsMenuXpath);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, finalXpathForSelectItems);
+			if (UIHelper.checkForAnElementbyXpath(driver, selectItemsMenuXpath)) {
+				UIHelper.click(driver, selectItemsMenuXpath);
+				UIHelper.waitForVisibilityOfEleByXpath(driver, finalXpathForSelectItems);
 
-	UIHelper.click(driver, finalXpathForSelectItems);
+				UIHelper.click(driver, finalXpathForSelectItems);
 
-	report.updateTestLog("Click on " + selectedItemsOptionName,
-	"User able to click the 'Selected Items' option:" + selectedItemsOptionName, Status.DONE);
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	report.updateTestLog("Click on " + selectedItemsOptionName,
-	"User unable to click the 'Selected Items' option:" + selectedItemsOptionName, Status.FAIL);
-	}
+				report.updateTestLog("Click on " + selectedItemsOptionName,
+						"User able to click the 'Selected Items' option:" + selectedItemsOptionName, Status.DONE);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			report.updateTestLog("Click on " + selectedItemsOptionName,
+					"User unable to click the 'Selected Items' option:" + selectedItemsOptionName, Status.FAIL);
+		}
 	}
 	
 	
 
 	// Start Select Items operation from Search Results page
 	public void commonMethodtoselectsearchcheck(String fileName)
-	 {
-	try {
-	String finalChkBoxXpathForSearchResultsItem = tempChkBoxXpathForSearchResultsItem
-	.replace("CRAFT", fileName);
-	
+			 {
+		try {
+			String finalChkBoxXpathForSearchResultsItem = tempChkBoxXpathForSearchResultsItem
+					.replace("CRAFT", fileName);
+			
 
-	if (UIHelper.checkForAnElementbyXpath(driver,
-	finalChkBoxXpathForSearchResultsItem)) {
-	UIHelper.click(driver, finalChkBoxXpathForSearchResultsItem);
+			if (UIHelper.checkForAnElementbyXpath(driver,
+					finalChkBoxXpathForSearchResultsItem)) {
+				UIHelper.click(driver, finalChkBoxXpathForSearchResultsItem);
 
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	selectItemsMenuXpath);
+				UIHelper.waitForVisibilityOfEleByXpath(driver,
+						selectItemsMenuXpath);
 
-	
-	report.updateTestLog("Click on " ,
-	"User able to click the check box of "+fileName ,
-	Status.DONE);
-	
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+			
+					report.updateTestLog("Click on " ,
+							"User able to click the check box of "+fileName ,
+							Status.DONE);
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
 	// input File Name in Advanced search
-	public AlfrescoSearchPage inputFileNameAdvSearchparam(String searchQuery) {
-	
-	try {
-	UIHelper.waitFor(driver);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, searchNameXpath);
-	if (UIHelper.findAnElementbyXpath(driver, searchNameXpath)
-	.isDisplayed()) {
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, searchNameXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, searchNameXpath,
-	searchQuery);
-	report.updateTestLog("Input File Name",
-	"Search using fileName "
-	+ " <br /><b>FileName Query: </b>"
-	+ searchQuery, Status.DONE);
-	}
+		public AlfrescoSearchPage inputFileNameAdvSearchparam(String searchQuery) {
+			
+			try {
+				UIHelper.waitFor(driver);
+				UIHelper.waitForVisibilityOfEleByXpath(driver, searchNameXpath);
+				if (UIHelper.findAnElementbyXpath(driver, searchNameXpath)
+						.isDisplayed()) {
+					UIHelper.highlightElement(driver,
+							UIHelper.findAnElementbyXpath(driver, searchNameXpath));
+					UIHelper.sendKeysToAnElementByXpath(driver, searchNameXpath,
+							searchQuery);
+					report.updateTestLog("Input File Name",
+							"Search using fileName "
+									+ " <br /><b>FileName Query: </b>"
+									+ searchQuery, Status.DONE);
+				}
 
-	} catch (Exception e) {
-	report.updateTestLog("Input File Name",
-	"Search using fileName failed", Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
-	}
-	
-	// input Title in Advanced search
-	public AlfrescoSearchPage inputTitleAdvSearch(String searchTitle) {
-	try {
-	UIHelper.waitFor(driver);
-	
-	if (UIHelper.findAnElementbyXpath(driver, searchTitleXpath)
-	.isDisplayed()) {
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, searchTitleXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, searchTitleXpath,
-	searchTitle);
+			} catch (Exception e) {
+				report.updateTestLog("Input File Name",
+						"Search using fileName failed", Status.FAIL);
+			}
+			return new AlfrescoSearchPage(scriptHelper);
+		}
+		
+		// input Title in Advanced search
+		public AlfrescoSearchPage inputTitleAdvSearch(String searchTitle) {
+			try {
+				UIHelper.waitFor(driver);
+				
+				if (UIHelper.findAnElementbyXpath(driver, searchTitleXpath)
+						.isDisplayed()) {
+					UIHelper.highlightElement(driver,
+							UIHelper.findAnElementbyXpath(driver, searchTitleXpath));
+					UIHelper.sendKeysToAnElementByXpath(driver, searchTitleXpath,
+							searchTitle);
 
-	report.updateTestLog("Input Title ",
-	"Search using Title completed "
-	+ "<br /><b>Title Query : </b>" + searchTitle,
-	Status.DONE);
-	}
-	} catch (Exception e) {
-	report.updateTestLog("Input Title ", "Search using Title failed ",
-	Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
-	}
+					report.updateTestLog("Input Title ",
+							"Search using Title completed "
+									+ "<br /><b>Title Query : </b>" + searchTitle,
+							Status.DONE);
+				}
+			} catch (Exception e) {
+				report.updateTestLog("Input Title ", "Search using Title failed ",
+						Status.FAIL);
+			}
+			return new AlfrescoSearchPage(scriptHelper);
+		}
 
-	// input Desc in Advanced search
-	public AlfrescoSearchPage inputDescAdvSearch(String searchDesc) {
-	try {
-	UIHelper.waitFor(driver);
-	
-	if (UIHelper.findAnElementbyXpath(driver, searchAssetXpath)
-	.isDisplayed()) {
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, searchDescXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, searchDescXpath,
-	searchDesc);
+		// input Desc in Advanced search
+		public AlfrescoSearchPage inputDescAdvSearch(String searchDesc) {
+			try {
+				UIHelper.waitFor(driver);
+			
+				if (UIHelper.findAnElementbyXpath(driver, searchAssetXpath)
+						.isDisplayed()) {
+					UIHelper.highlightElement(driver,
+							UIHelper.findAnElementbyXpath(driver, searchDescXpath));
+					UIHelper.sendKeysToAnElementByXpath(driver, searchDescXpath,
+							searchDesc);
 
-	report.updateTestLog("Input Desc ", "Search using Desc "
-	+ " <br /><b>Desc Query : </b>" + searchDesc,
-	Status.DONE);
-	}
-	} catch (Exception e) {
-	report.updateTestLog("Input Desc ", "Search using Desc failed",
-	Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
-	}
-	
-	// input keyword Name in Advanced search
-	public AlfrescoSearchPage inputKeywordSearch(String searchQuery) {
-	
-	try {
-	UIHelper.waitFor(driver);
-	if (UIHelper.findAnElementbyXpath(driver, fullTextXpath)
-	.isDisplayed()) {
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, fullTextXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, fullTextXpath,
-	searchQuery);
+					report.updateTestLog("Input Desc ", "Search using Desc "
+							+ " <br /><b>Desc Query : </b>" + searchDesc,
+							Status.DONE);
+				}
+			} catch (Exception e) {
+				report.updateTestLog("Input Desc ", "Search using Desc failed",
+						Status.FAIL);
+			}
+			return new AlfrescoSearchPage(scriptHelper);
+		}
+		
+		// input keyword Name in Advanced search
+		public AlfrescoSearchPage inputKeywordSearch(String searchQuery) {
+		
+			try {
+				UIHelper.waitFor(driver);
+				if (UIHelper.findAnElementbyXpath(driver, fullTextXpath)
+						.isDisplayed()) {
+					UIHelper.highlightElement(driver,
+							UIHelper.findAnElementbyXpath(driver, fullTextXpath));
+					UIHelper.sendKeysToAnElementByXpath(driver, fullTextXpath,
+							searchQuery);
 
-	report.updateTestLog("Input keyword Name",
-	"Search using keyword " + "<br /><b>Query : </b>"
-	+ searchQuery, Status.DONE);
-	}
+					report.updateTestLog("Input keyword Name",
+							"Search using keyword " + "<br /><b>Query : </b>"
+									+ searchQuery, Status.DONE);
+				}
 
-	} catch (Exception e) {
-	report.updateTestLog("Input keyword Name",
-	"Search using keyword failed", Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
-	}
-	
-	
-	public AlfrescoSearchPage inputAspectAdvSearchparam(String Aspect, String AspectProp, String Aspectvalue ) {
-	try {
-	UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
-	aspectPanelXpath);
-	WebElement dropdownEle = UIHelper.findAnElementbyXpath(driver,
-	AspectDropDownXpath);
-	/*String Aspect = dataTable.getData("Search", "Aspect");
-	String AspectProp = dataTable.getData("Search", "AspectProp");
-	String Aspectvalue = dataTable.getData("Search", "Query");*/
-	Select selectBox = new Select(dropdownEle);
-	selectBox.selectByVisibleText(Aspect);
-	Select selectpropBox = new Select(driver.findElement(By
-	.xpath(AspectPropDropDownXpath)));
-	selectpropBox.selectByVisibleText(AspectProp);
-	UIHelper.highlightElement(driver,
-	UIHelper.findAnElementbyXpath(driver, AspectValueXpath));
-	UIHelper.sendKeysToAnElementByXpath(driver, AspectValueXpath,
-	Aspectvalue);
-	if (UIHelper.findAnElementbyXpath(driver, AspectPropDropDownXpath)
-	.isEnabled()) {
-	report.updateTestLog("Input Aspect Name",
-	"Search using Aspect Name "
-	+ "<br /><b>Aspect Name :</b>" + Aspect
-	+ "<br /><b>Aspect Properties :</b>"
-	+ AspectProp + "<br /><b>Aspect Value :</b>"
-	+ Aspectvalue, Status.DONE);
-	} else {
-	report.updateTestLog("Input Aspect Name",
-	"Input aspect value in Adv search Failed ", Status.FAIL);
-	}
+			} catch (Exception e) {
+				report.updateTestLog("Input keyword Name",
+						"Search using keyword failed", Status.FAIL);
+			}
+			return new AlfrescoSearchPage(scriptHelper);
+		}
+		
+		
+		public AlfrescoSearchPage inputAspectAdvSearchparam(String Aspect, String AspectProp, String Aspectvalue ) {
+			try {
+				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver,
+						aspectPanelXpath);
+				WebElement dropdownEle = UIHelper.findAnElementbyXpath(driver,
+						AspectDropDownXpath);
+				/*String Aspect = dataTable.getData("Search", "Aspect");
+				String AspectProp = dataTable.getData("Search", "AspectProp");
+				String Aspectvalue = dataTable.getData("Search", "Query");*/
+				Select selectBox = new Select(dropdownEle);
+				selectBox.selectByVisibleText(Aspect);
+				Select selectpropBox = new Select(driver.findElement(By
+						.xpath(AspectPropDropDownXpath)));
+				selectpropBox.selectByVisibleText(AspectProp);
+				UIHelper.highlightElement(driver,
+						UIHelper.findAnElementbyXpath(driver, AspectValueXpath));
+				UIHelper.sendKeysToAnElementByXpath(driver, AspectValueXpath,
+						Aspectvalue);
+				if (UIHelper.findAnElementbyXpath(driver, AspectPropDropDownXpath)
+						.isEnabled()) {
+					report.updateTestLog("Input Aspect Name",
+							"Search using Aspect Name "
+									+ "<br /><b>Aspect Name :</b>" + Aspect
+									+ "<br /><b>Aspect Properties :</b>"
+									+ AspectProp + "<br /><b>Aspect Value :</b>"
+									+ Aspectvalue, Status.DONE);
+				} else {
+					report.updateTestLog("Input Aspect Name",
+							"Input aspect value in Adv search Failed ", Status.FAIL);
+				}
 
-	} catch (Exception e) {
-	report.updateTestLog("Input Aspect Name",
-	"Input aspect value in Adv search Failed ", Status.FAIL);
-	}
-	return new AlfrescoSearchPage(scriptHelper);
-	}
-	
-	// Select all folders & files
-	public void clickOnSelectitemsfromSearchResultPage() {
-	try {
-	
-	UIHelper.waitForVisibilityOfEleByXpath(driver,
-	slectBtnXpathInSearchResultsPage);
-	UIHelper.click(driver, slectBtnXpathInSearchResultsPage);
-	//selecteditemsoptionsXpath
-	/*UIHelper.click(driver, finalXpathForSelectOption);
-	UIHelper.waitFor(driver);*/
-	
-	//*[@id='FCTSRCH_SEARCH_RESULT_ACTIONS_DROPDOWN']//tr
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
-	}
-	
-	public ArrayList<String> getSelectedItemsoptions() {
-	ArrayList<String> selectedItemsMenuValues = new ArrayList<String>();
-	try {
-	List<WebElement> selectedItemsMenuList = UIHelper
-	.findListOfElementsbyXpath(selecteditemsoptionsXpath,
-	driver);
+			} catch (Exception e) {
+				report.updateTestLog("Input Aspect Name",
+						"Input aspect value in Adv search Failed ", Status.FAIL);
+			}
+			return new AlfrescoSearchPage(scriptHelper);
+		}
+		
+		// Select all folders & files
+		public void clickOnSelectitemsfromSearchResultPage() {
+			try {
+				
+				UIHelper.waitForVisibilityOfEleByXpath(driver,
+						slectBtnXpathInSearchResultsPage);
+				UIHelper.click(driver, slectBtnXpathInSearchResultsPage);
+				//selecteditemsoptionsXpath
+				/*UIHelper.click(driver, finalXpathForSelectOption);
+				UIHelper.waitFor(driver);*/
+				
+				//*[@id='FCTSRCH_SEARCH_RESULT_ACTIONS_DROPDOWN']//tr
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		public ArrayList<String> getSelectedItemsoptions() {
+			ArrayList<String> selectedItemsMenuValues = new ArrayList<String>();
+			try {
+				List<WebElement> selectedItemsMenuList = UIHelper
+						.findListOfElementsbyXpath(selecteditemsoptionsXpath,
+								driver);
 
-	for (WebElement selectedItemOptEle : selectedItemsMenuList) {
-	selectedItemsMenuValues.add(selectedItemOptEle.getAttribute("title"));
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+				for (WebElement selectedItemOptEle : selectedItemsMenuList) {
+					selectedItemsMenuValues.add(selectedItemOptEle.getAttribute("title"));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
-	return selectedItemsMenuValues;
-	}
-	
-	public ArrayList<String> getactionsoptions(String filename) {
-	
-	String Resultfile = tempactionMouseXpath.replace(
-	"CRAFT", filename);	
-	//System.out.println(Resultfile);
-	UIHelper.waitForVisibilityOfEleByXpath(driver, Resultfile);
-	//UIHelper.mouseOveranElement(driver, UIHelper
-	//	.findAnElementbyXpath(driver, Resultfile));
-	String finalactionMenuXpath = tempactionMenuXpath
-	.replace("CRAFT", filename);
-	UIHelper.findAnElementbyXpath(driver,
-	finalactionMenuXpath).click();
-	UIHelper.waitFor(driver);
-	
-	ArrayList<String> selectedItemsMenuValues = new ArrayList<String>();
-	try {
-	List<WebElement> selectedItemsMenuList = UIHelper
-	.findListOfElementsbyXpath(actionsoptionsxpath,
-	driver);
+			return selectedItemsMenuValues;
+		}
+		
+		public ArrayList<String> getactionsoptions(String filename) {
+			
+			String Resultfile = tempactionMouseXpath.replace(
+					"CRAFT", filename);	
+			//System.out.println(Resultfile);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, Resultfile);
+			//UIHelper.mouseOveranElement(driver, UIHelper
+			//		.findAnElementbyXpath(driver, Resultfile));
+			String finalactionMenuXpath = tempactionMenuXpath
+					.replace("CRAFT", filename);
+			UIHelper.findAnElementbyXpath(driver,
+					finalactionMenuXpath).click();
+			UIHelper.waitFor(driver);
+			
+			ArrayList<String> selectedItemsMenuValues = new ArrayList<String>();
+			try {
+				List<WebElement> selectedItemsMenuList = UIHelper
+						.findListOfElementsbyXpath(actionsoptionsxpath,
+								driver);
 
-	for (WebElement selectedItemOptEle : selectedItemsMenuList) {
-	selectedItemsMenuValues.add(selectedItemOptEle.getAttribute("title"));
-	}
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
+				for (WebElement selectedItemOptEle : selectedItemsMenuList) {
+					selectedItemsMenuValues.add(selectedItemOptEle.getAttribute("title"));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
-	return selectedItemsMenuValues;
-	}
-	
+			return selectedItemsMenuValues;
+		}
+		
 }

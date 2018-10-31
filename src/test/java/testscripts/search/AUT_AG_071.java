@@ -78,6 +78,11 @@ public class AUT_AG_071 extends TestCase
 		docLibPg.deleteAllFilesAndFolders();
 		
 		AlfrescoMyFilesPage myFiles = new AlfrescoMyFilesPage(scriptHelper);
+
+	
+		
+
+		
 		String fileDetails = dataTable.getData("MyFiles", "CreateFileDetails");
 		
 		myFiles.createFile(fileDetails);

@@ -67,12 +67,10 @@ private FunctionalLibrary functionalLibrary;
 		
 		
 		try {
-		
-			/*String finalChkBoxXpathForSearchResultsItem = searchObj.tempChkBoxXpathForSearchResultsItem
-					.replace("CRAFT", fileName);*/
-			//Added for NALS 
-		String	finalChkBoxXpathForSearchResultsItem =".//div[@id='FCTSRCH_SEARCH_ADVICE_NO_RESULTS']//tr[2]//td";
-			if(UIHelper.checkForAnElementbyXpath(driver, finalChkBoxXpathForSearchResultsItem)){
+			String finalChkBoxXpathForSearchResultsItem = searchObj.tempChkBoxXpathForSearchResultsItem
+					.replace("CRAFT", fileName);
+			
+			if(!UIHelper.checkForAnElementbyXpath(driver, finalChkBoxXpathForSearchResultsItem)){
 				
 				report.updateTestLog(
 						"Verify reviewer cannot perform Download as Zip via selected items in Search Results",

@@ -59,6 +59,19 @@ public class AUT_AG_050 extends TestCase {
 	@Override
 	public void executeTest() {
 
+	/*	AlfrescoLoginPage signOnPage = new AlfrescoLoginPage(scriptHelper);
+		functionalLibrary.loginAsValidUser(signOnPage);
+
+		AlfrescoHomePage homePageObj = new AlfrescoHomePage(scriptHelper);
+		homePageObj.navigateToAdvSearch();
+		AlfrescoSearchPage appSearchPg = new AlfrescoSearchPage(scriptHelper);
+		appSearchPg.inputFileNameAdvSearch();
+		UIHelper.waitFor(driver);
+		appSearchPg.clickSearch();
+		UIHelper.waitFor(driver);
+		appSearchPg.searchManager();
+		appSearchPg.verifyDeleteImg();*/
+		
 		AlfrescoLoginPage signOnPage = new AlfrescoLoginPage(scriptHelper);
 		functionalLibrary.loginAsValidUser(signOnPage);
 		
