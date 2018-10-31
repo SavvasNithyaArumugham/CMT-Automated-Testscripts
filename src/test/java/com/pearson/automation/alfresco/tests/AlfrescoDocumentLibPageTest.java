@@ -1684,7 +1684,7 @@ public class AlfrescoDocumentLibPageTest extends ReusableLibrary {
 			UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, popupXPath);
 			UIHelper.waitForPageToLoad(driver);
 		} catch (Exception e) {
-			report.updateTestLog("Verify Delete Pop up Window", "Delete Pop up window not displayed ", Status.FAIL);
+			report.updateTestLog("Verify Pop up Window", "Pop up window not displayed ", Status.FAIL);//Modified as part of NALS
 		}
 	}
 

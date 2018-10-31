@@ -97,8 +97,11 @@ public class AUT_AG_52 extends TestCase {
 		//Image Upload in the Target Site:
 		functionalLibrary.loginAsValidUser(signOnPage);
 		UIHelper.waitFor(driver);
-		sitesPage.navigateToSitesTab();
-		sitesPage.siteFinder(targetSiteName);
+		//Modified as part of NALS
+		//sitesPage.navigateToSitesTab();
+		//sitesPage.siteFinder(targetSiteName);
+		sitesPage.openSiteFromRecentSites(targetSiteName);
+		
 		sitesPage.enterIntoDocumentLibrary();	
 		docLibPg.deleteAllFilesAndFolders();		
 		collectionPg.uploadFileInCollectionSite(filePath, fileName[0]);

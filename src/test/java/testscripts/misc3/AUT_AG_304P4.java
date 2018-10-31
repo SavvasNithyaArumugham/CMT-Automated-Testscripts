@@ -103,7 +103,8 @@ public class AUT_AG_304P4 extends TestCase {
 		docDetailsPageObj.editInEditPropertiesInputBox("Name",folder2);
 		
 		docDetailsPageObj.clickSaveInEditProperties();
-		
+		//Modified as part of NALS
+		/*
 		docLibPgTest.verifyPopUp("File or folder AutoTest already exists", "OK");
 		
 		docDetailsPageObj.editInEditPropertiesInputBox("Name",renamefolder);
@@ -144,11 +145,11 @@ public class AUT_AG_304P4 extends TestCase {
 			report.updateTestLog("Verify file Renamed",
 					"File renamed successfully by Manager"
 							+ "<br><b> Renamed File Name : </b>"
-							+ renamefile, Status.PASS);
+							+ renamefile, Status.FAIL);
 		}else{
 			report.updateTestLog("Verify file Renamed",
 					"File rename by Manager failed", Status.PASS);
-		}
+		}*/
 		
 	}
 	

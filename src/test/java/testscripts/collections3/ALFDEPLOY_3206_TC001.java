@@ -97,7 +97,8 @@ public class ALFDEPLOY_3206_TC001 extends TestCase {
 				
 		//enter into default course object
 				String collectionObjectName = dataTable.getData("MyFiles", "CreateMenuItemsForCollection");
-				collectionPg.openCollectionObject(collectionObjectName);
+				//Modified as part of NALS
+				/*collectionPg.openCollectionObject(collectionObjectName);*/
 				
 
 		// create collections objects

@@ -8,7 +8,7 @@
 			
 			 <!-- Part 6 Starts -->
 			 <class name="testscripts.collections6.ALFDEPLOY_2767_TC001_P1" />  <!-- long run fail-->
-			<class name="testscripts.collections6.ALFDEPLOY_2767_TC001_P2" />
+			<!-- <class name="testscripts.collections6.ALFDEPLOY_2767_TC001_P2" /> -->
 			 <class name="testscripts.collections6.ALFDEPLOY_2755_TC001" /> <!-- Completed folder created with a delay fail-->
 			
 		 	 <class name="testscripts.collections6.ALFDEPLOY_3190_TC001" /> 
