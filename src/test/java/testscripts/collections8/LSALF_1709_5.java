@@ -1,72 +1,34 @@
-package testscripts.releasesow7;
+package testscripts.collections8;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.Test;
-
-
-
-
-
-
-
-
-
-
-
-
-
-import au.com.bytecode.opencsv.CSVReader;
-
-import com.pearson.automation.utils.CSVUtil;
-import com.pearson.automation.utils.FileUtil;
-import com.pearson.automation.utils.TestCase;
-import com.pearson.automation.utils.UIHelper;
-
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+
+import org.testng.annotations.Test;
 
 import com.pearson.automation.alfresco.functionllibs.FunctionalLibrary;
 import com.pearson.automation.alfresco.pages.AlfrescoCollectionsPage;
-import com.pearson.automation.alfresco.pages.AlfrescoDocumentDetailsPage;
-import com.pearson.automation.alfresco.pages.AlfrescoDocumentLibPage;
 import com.pearson.automation.alfresco.pages.AlfrescoHomePage;
 import com.pearson.automation.alfresco.pages.AlfrescoLoginPage;
 import com.pearson.automation.alfresco.pages.AlfrescoMediaTransformPage;
 import com.pearson.automation.alfresco.pages.AlfrescoMyFilesPage;
-import com.pearson.automation.alfresco.pages.AlfrescoSearchPage;
-import com.pearson.automation.alfresco.pages.AlfrescoSiteMembersPage;
 import com.pearson.automation.alfresco.pages.AlfrescoSitesPage;
-import com.pearson.automation.alfresco.tests.AlfrescoCollectionsPageTest;
-import com.pearson.automation.alfresco.tests.AlfrescoSearchPageTest;
-import com.pearson.automation.alfresco.tests.AlfrescoSiteMembersPageTest;
-import com.pearson.automation.alfresco.tests.AlfrescoSitesPageTest;
+import com.pearson.automation.utils.CSVUtil;
 import com.pearson.automation.utils.DriverScript;
+import com.pearson.automation.utils.FileUtil;
+import com.pearson.automation.utils.TestCase;
 import com.pearson.framework.IterationOptions;
-import com.pearson.framework.Settings;
 import com.pearson.framework.Status;
 
-public class AUT_AG_1709_5 extends TestCase {
+public class LSALF_1709_5 extends TestCase {
 
 	private FunctionalLibrary functionalLibrary;
-
+	
 	@Test
-	public void COLLECTIONS_045() {
+	public void COLLECTIONS_05() {
 		testParameters
-				.setCurrentTestDescription("ALFDEPLOY-4049_Verify there is a modal Dialog box on clicking"
-						+ " Generate realize CSV for Course object<br>"					
-						+ "ALFDEPLOY-4051_Verify there is a Column/Header in CSV for Genres<br>"
-						);
+				.setCurrentTestDescription("Confirm Genres property export with multi select values separated with pipe symbol");
 		
 		testParameters.setIterationMode(IterationOptions.RunOneIterationOnly);
 		driverScript = new DriverScript(testParameters);

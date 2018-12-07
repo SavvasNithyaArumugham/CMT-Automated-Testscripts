@@ -1,72 +1,36 @@
-package testscripts.releasesow7;
+package testscripts.collections8;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.Test;
-
-
-
-
-
-
-
-
-
-
-
-
-
-import au.com.bytecode.opencsv.CSVReader;
-
-import com.pearson.automation.utils.CSVUtil;
-import com.pearson.automation.utils.FileUtil;
-import com.pearson.automation.utils.TestCase;
-import com.pearson.automation.utils.UIHelper;
-
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+
+import org.testng.annotations.Test;
 
 import com.pearson.automation.alfresco.functionllibs.FunctionalLibrary;
 import com.pearson.automation.alfresco.pages.AlfrescoCollectionsPage;
-import com.pearson.automation.alfresco.pages.AlfrescoDocumentDetailsPage;
-import com.pearson.automation.alfresco.pages.AlfrescoDocumentLibPage;
 import com.pearson.automation.alfresco.pages.AlfrescoHomePage;
 import com.pearson.automation.alfresco.pages.AlfrescoLoginPage;
 import com.pearson.automation.alfresco.pages.AlfrescoMediaTransformPage;
 import com.pearson.automation.alfresco.pages.AlfrescoMyFilesPage;
-import com.pearson.automation.alfresco.pages.AlfrescoSearchPage;
-import com.pearson.automation.alfresco.pages.AlfrescoSiteMembersPage;
 import com.pearson.automation.alfresco.pages.AlfrescoSitesPage;
-import com.pearson.automation.alfresco.tests.AlfrescoCollectionsPageTest;
-import com.pearson.automation.alfresco.tests.AlfrescoSearchPageTest;
-import com.pearson.automation.alfresco.tests.AlfrescoSiteMembersPageTest;
-import com.pearson.automation.alfresco.tests.AlfrescoSitesPageTest;
+import com.pearson.automation.utils.CSVUtil;
 import com.pearson.automation.utils.DriverScript;
+import com.pearson.automation.utils.FileUtil;
+import com.pearson.automation.utils.TestCase;
+import com.pearson.automation.utils.UIHelper;
 import com.pearson.framework.IterationOptions;
-import com.pearson.framework.Settings;
 import com.pearson.framework.Status;
 
-public class AUT_AG_1709_6 extends TestCase {
+public class LSALF_1467_6 extends TestCase {
 
 	private FunctionalLibrary functionalLibrary;
 
 	@Test
-	public void COLLECTIONS_045() {
+	public void COLLECTIONS_06() {
 		testParameters
-				.setCurrentTestDescription("ALFDEPLOY-4049_Verify there is a modal Dialog box on clicking"
-						+ " Generate realize CSV for Course object<br>"					
-						+ "ALFDEPLOY-4051_Verify there is a Column/Header in CSV for Genres<br>"
-						);
+		.setCurrentTestDescription("Confirm CSV update of \"Comprehension Skills\" property with multiple pipe-separated values");
 		
 		testParameters.setIterationMode(IterationOptions.RunOneIterationOnly);
 		driverScript = new DriverScript(testParameters);
@@ -164,32 +128,32 @@ public class AUT_AG_1709_6 extends TestCase {
 				downloadedFile = new File(downloadFilePath + "/" + filename2);
 				if (downloadedFile.exists() && !filename2.equalsIgnoreCase("File Not Found")) {
 					report.updateTestLog("Verify download file", "File: " + filename2 + " downloaded sucessfully", Status.PASS);
-					/***************************Confirm Genres Leveled Reader properties are exporting properly*********************/
+					/***************************Confirm CompSkills Leveled Reader properties are exporting properly*********************/
 					String downloadedCSVFileANmeWithPath = downloadFilePath + "/" + filename2;
 					try {
-						if(CSVUtil.verifyDataInCell(downloadedCSVFileANmeWithPath,"Fantasy|Fiction",2,77))
+						if(CSVUtil.verifyDataInCell(downloadedCSVFileANmeWithPath,"Alike and Different|Cause/Effect",2,75))
 							{
-							report.updateTestLog("Confirm Leveled Reader property Genres is exporting properly ",
-									"Column BZ (Genres) value for 'Leveled Reader Test - Valid Genres' is Fantasy|Fiction", Status.PASS);
+							report.updateTestLog("Confirm Leveled Reader property CompSkills is exporting properly ",
+									"Column BX (CompSkills) value for 'Leveled Reader Test - Valid CompSkills' is Alike and Different|Cause/Effect", Status.PASS);
 							}else {
 
-								report.updateTestLog("Confirm Leveled Reader property Genres is exporting properly ",
-										"Column BZ (Genres) value for 'Leveled Reader Test - Valid Genres' is not Fantasy|Fiction", Status.FAIL);
+								report.updateTestLog("Confirm Leveled Reader property CompSkills is exporting properly ",
+										"Column BX (CompSkills) value for 'Leveled Reader Test - Valid CompSkills' is not Alike and Different|Cause/Effect", Status.FAIL);
 							}
 					} catch (IOException e) {
 					
 						e.printStackTrace();
 					}
 					
-/************************************Modify Genres in CSV and update***********************************/			
+/************************************Modify CompSkills in CSV and update***********************************/			
 					
 					try {
-						CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, updatedGenres ,2 ,77 );
+						CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, updatedGenres ,2 ,75 );
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					report.updateTestLog("Verify Genres value is updated", "File: " + filename2
+					report.updateTestLog("Verify CompSkills value is updated", "File: " + filename2
 							+ " updated sucessfully", Status.PASS);
 					
 					// Import the updated CSV File
@@ -223,7 +187,7 @@ public class AUT_AG_1709_6 extends TestCase {
 					UIHelper.waitFor(driver);
 					collectionPg.commonMethodForClickOnMoreSettingsOption("Content Object 1","View Details");
 					UIHelper.waitFor(driver);
-					collectionPg.VerifyPropertyValueINviewDetails("Genres:", "Nonfiction,Mystery");	
+					collectionPg.VerifyPropertyValueINviewDetails("Comprehension Skills:", "Predict,Generalize");	
 					UIHelper.waitFor(driver);
 
 					

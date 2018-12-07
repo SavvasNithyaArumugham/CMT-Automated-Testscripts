@@ -1,11 +1,9 @@
-package testscripts.releasesow7;
+package testscripts.collections8;
 
-import java.util.ArrayList;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
 import com.pearson.automation.alfresco.functionllibs.FunctionalLibrary;
@@ -21,23 +19,15 @@ import com.pearson.automation.utils.UIHelper;
 import com.pearson.framework.IterationOptions;
 import com.pearson.framework.Status;
 
-public class AUT_AG_1709_4 extends TestCase {
+public class LSALF_1467_4 extends TestCase {
 
 	private FunctionalLibrary functionalLibrary;
 
 	@Test
-	public void COLLECTIONS_005() {
+	public void COLLECTIONS_04() {
 		testParameters.setCurrentTestDescription(
 				
-				"<br>ALFDEPLOY 4051_Verify the value for Genres property"
-				+ "populated in correct place for Content object"
-				+"<br>ALFDEPLOY 4049_Verify all the collection object are available in the resulted CSV when the Version state is blank."
-				+"<br>ALFDEPLOY 4049_Verify there is no prefix when the filter is blank."
-				+"<br>ALFDEPLOY 4049_Verify the filter is working as Boolean 'OR'"
-				+"<br>ALFDEPLOY 4049_Verify the CSV  contains collection object whose version state is null even there is some condition applied ."
-						
-
-		);
+				"Confirm \"Comprehension Skills\" property dropdown allows to remove multi selected values");
 
 		testParameters.setIterationMode(IterationOptions.RunOneIterationOnly);
 
@@ -102,18 +92,18 @@ public class AUT_AG_1709_4 extends TestCase {
 					UIHelper.click(driver, allProperties); 					
 					UIHelper.waitFor(driver);
 
-					WebElement select1 = driver.findElement(By.xpath("//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default_prop_cpnals_genres-entry\"]/option[8]"));
-			        WebElement select2 = driver.findElement(By.xpath("//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default_prop_cpnals_genres-entry\"]/option[9]"));
+					WebElement select1 = driver.findElement(By.xpath("//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default_prop_cpnals_comprehensionSkills-entry\"]/option[2]"));
+			        WebElement select2 = driver.findElement(By.xpath("//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default_prop_cpnals_comprehensionSkills-entry\"]/option[5]"));
 			        Actions action = new Actions(driver);
 			        action.keyDown(Keys.CONTROL).click(select1).click(select2).build().perform();				
 					collectionPg.clickOnSaveBtn();
 					
-					 
+					UIHelper.waitFor(driver);
 					 collectionPg.clickOnMoreSetting("AutoContentObj");
 						UIHelper.waitFor(driver);
 						collectionPg.commonMethodForClickOnMoreSettingsOption("AutoContentObj","View Details");
 						UIHelper.waitFor(driver);
-						collectionPg.VerifyPropertyValueINviewDetails("Genres:", "None");	
+						collectionPg.VerifyPropertyValueINviewDetails("Comprehension Skills:", "None");	
 						UIHelper.waitFor(driver);
 					}
 	

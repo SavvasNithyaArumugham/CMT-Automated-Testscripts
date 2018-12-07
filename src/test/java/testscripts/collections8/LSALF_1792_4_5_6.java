@@ -1,46 +1,35 @@
-package testscripts.releasesow7;
-
-
-import java.util.ArrayList;
-
+package testscripts.collections8;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
 import org.testng.annotations.Test;
 
 import com.pearson.automation.alfresco.functionllibs.FunctionalLibrary;
 import com.pearson.automation.alfresco.pages.AlfrescoCollectionsPage;
-
 import com.pearson.automation.alfresco.pages.AlfrescoHomePage;
 import com.pearson.automation.alfresco.pages.AlfrescoLoginPage;
-
 import com.pearson.automation.alfresco.pages.AlfrescoMyFilesPage;
 import com.pearson.automation.alfresco.pages.AlfrescoSitesPage;
 import com.pearson.automation.alfresco.tests.AlfrescoCollectionsPageTest;
-
 import com.pearson.automation.utils.DriverScript;
-
 import com.pearson.automation.utils.TestCase;
 import com.pearson.automation.utils.UIHelper;
 import com.pearson.framework.IterationOptions;
 import com.pearson.framework.Status;
 
-public class AUT_AG_1709_3 extends TestCase {
+public class LSALF_1792_4_5_6 extends TestCase {
 
 	private FunctionalLibrary functionalLibrary;
 
 	@Test
-	public void COLLECTIONS_005() {
+	public void COLLECTIONS_04_05_06() {
 		testParameters.setCurrentTestDescription(
 				
-				"<br>ALFDEPLOY 4051_Verify the value for Genres property"
-				+ "populated in correct place for Content object"
-				+"<br>ALFDEPLOY 4049_Verify all the collection object are available in the resulted CSV when the Version state is blank."
-				+"<br>ALFDEPLOY 4049_Verify the CSV  contains collection object whose version state is null even there is some condition applied ."
-		);
+				"<br>Confirm \"CMT Skills Discipline\" property dropdown allows to remove and save multi select values"
+				+"<br>Confirm exporting a course with \"CMT Skills Discipline\" values applied."
+				+"<br>Confirm \"CMT Skills Discipline\" property value is displayed for the already existed course object.");
 
 		testParameters.setIterationMode(IterationOptions.RunOneIterationOnly);
 
@@ -71,7 +60,8 @@ public class AUT_AG_1709_3 extends TestCase {
 		String createObjectData = dataTable.getData("MyFiles", "CollectionObjectBasicData");
 
 		
-		String CourseXpath = "//*[@class='filename']//*[contains(text(),'Course')]";
+		
+		String CourseXpath = "//*[@class='filename']//*[contains(text(),'AutoCourse')]";
 		String allProperties = ".//a[contains(text(),'All Properties...')]";
 		
 		// Log in Pearson Schools project
@@ -81,13 +71,13 @@ public class AUT_AG_1709_3 extends TestCase {
 		homePageObj.navigateToSitesTab();
 
 		// From the site Type dropdown select 'Collection Site'.
-		sitesPage.createSite(siteNameValue, "No");
-		String siteName = sitesPage.getCreatedSiteName();
-		sitesPage.openSiteFromRecentSites(siteName);
+		/*sitesPage.createSite(siteNameValue, "Yes");
+		String siteName = sitesPage.getCreatedSiteName();*/
+		sitesPage.openSiteFromRecentSites(siteNameValue);
 		
 				
 
-		// Navigate to document library and click on a program>Program Object
+		// Navigate to document library and click on a programs>Program Object
 		sitesPage.enterIntoDocumentLibrary();
 		myFiles.openCreatedFolder(folderNames[0]);
 		myFiles.openCreatedFolder(folderNames[1]);
@@ -96,42 +86,22 @@ public class AUT_AG_1709_3 extends TestCase {
 		collectionPgTest.verifyEditCollectionOption();
 		collectionPg.clickOnEditCollectionButton();
 		UIHelper.waitFor(driver);
-		UIHelper.click(driver, CourseXpath);
-		// Verify custom icons by creating new collections objects
-
-		collectionPg.createBasicCollectionObjectFromCreateMenuforcsv(createObjectData);
-
-		String collectionObjectName = dataTable.getData("MyFiles", "CreateMenuItemsForCollection");
-		collectionPg.openCollectionObject(collectionObjectName);
+		//UIHelper.click(driver, CourseXpath);
 		
+					UIHelper.waitFor(driver);
+					collectionPg.clickOnMouseOverMenu("AutoCourse","Edit Properties");
+					UIHelper.waitFor(driver);
+					UIHelper.click(driver, allProperties); 					
+					UIHelper.waitFor(driver);
 
-		ArrayList<String> listOfObjects = new ArrayList<String>();
-		listOfObjects=collectionPg.getFoldersFromRightPanInCollectionUi();
-		for (String listOfObjectsString : listOfObjects) {
-			
-			//Genres select values which is a multiselect dropdown
-			if(listOfObjectsString.contains("AutoContentObj")){
-				UIHelper.waitFor(driver);
-				collectionPg.clickOnMoreSetting(listOfObjectsString);
-				collectionPg.commonMethodForClickOnMoreSettingsOption(listOfObjectsString,
-						"Edit Properties");
-				UIHelper.waitFor(driver);
-				UIHelper.click(driver, allProperties);
-				UIHelper.waitFor(driver);
-				WebElement select1 = driver.findElement(By.xpath("//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default_prop_cpnals_genres-entry\"]/option[8]"));
-		        WebElement select2 = driver.findElement(By.xpath("//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default_prop_cpnals_genres-entry\"]/option[9]"));
-		        Actions action = new Actions(driver);
-		        action.keyDown(Keys.CONTROL).click(select1).click(select2).build().perform();				
-				collectionPg.clickOnSaveBtn();
-			}			
-	}
-					collectionPg.clickOnMoreSetting("AutoContentObj");
-					UIHelper.waitFor(driver);
-					collectionPg.commonMethodForClickOnMoreSettingsOption("AutoContentObj","View Details");
-					UIHelper.waitFor(driver);
-					collectionPg.VerifyPropertyValueINviewDetails("Genres:", "Fantasy,Fiction");	
-					UIHelper.waitFor(driver);
-}
+					WebElement select1 = driver.findElement(By.xpath("//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default_prop_cpnals_cmtSkillsDiscipline-entry\"]/option[3]"));
+			        WebElement select2 = driver.findElement(By.xpath("//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default_prop_cpnals_cmtSkillsDiscipline-entry\"]/option[4]"));
+			        Actions action = new Actions(driver);
+			        action.keyDown(Keys.CONTROL).click(select1).click(select2).build().perform();				
+					collectionPg.clickOnSaveBtn();
+					
+					}
+	
 
 	@Override
 	public void tearDown() {

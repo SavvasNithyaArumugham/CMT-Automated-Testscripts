@@ -1,72 +1,34 @@
-package testscripts.releasesow7;
+package testscripts.collections8;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.Test;
-
-
-
-
-
-
-
-
-
-
-
-
-
-import au.com.bytecode.opencsv.CSVReader;
-
-import com.pearson.automation.utils.CSVUtil;
-import com.pearson.automation.utils.FileUtil;
-import com.pearson.automation.utils.TestCase;
-import com.pearson.automation.utils.UIHelper;
-
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.StringTokenizer;
+
+import org.testng.annotations.Test;
 
 import com.pearson.automation.alfresco.functionllibs.FunctionalLibrary;
 import com.pearson.automation.alfresco.pages.AlfrescoCollectionsPage;
-import com.pearson.automation.alfresco.pages.AlfrescoDocumentDetailsPage;
-import com.pearson.automation.alfresco.pages.AlfrescoDocumentLibPage;
 import com.pearson.automation.alfresco.pages.AlfrescoHomePage;
 import com.pearson.automation.alfresco.pages.AlfrescoLoginPage;
 import com.pearson.automation.alfresco.pages.AlfrescoMediaTransformPage;
 import com.pearson.automation.alfresco.pages.AlfrescoMyFilesPage;
-import com.pearson.automation.alfresco.pages.AlfrescoSearchPage;
-import com.pearson.automation.alfresco.pages.AlfrescoSiteMembersPage;
 import com.pearson.automation.alfresco.pages.AlfrescoSitesPage;
-import com.pearson.automation.alfresco.tests.AlfrescoCollectionsPageTest;
-import com.pearson.automation.alfresco.tests.AlfrescoSearchPageTest;
-import com.pearson.automation.alfresco.tests.AlfrescoSiteMembersPageTest;
-import com.pearson.automation.alfresco.tests.AlfrescoSitesPageTest;
+import com.pearson.automation.utils.CSVUtil;
 import com.pearson.automation.utils.DriverScript;
+import com.pearson.automation.utils.FileUtil;
+import com.pearson.automation.utils.TestCase;
 import com.pearson.framework.IterationOptions;
-import com.pearson.framework.Settings;
 import com.pearson.framework.Status;
 
-public class AUT_AG_1709_7 extends TestCase {
+public class LSALF_1467_5 extends TestCase {
 
 	private FunctionalLibrary functionalLibrary;
 
 	@Test
-	public void COLLECTIONS_045() {
+	public void COLLECTIONS_05() {
 		testParameters
-				.setCurrentTestDescription("ALFDEPLOY-4049_Verify there is a modal Dialog box on clicking"
-						+ " Generate realize CSV for Course object<br>"					
-						+ "ALFDEPLOY-4051_Verify there is a Column/Header in CSV for Genres<br>"
-						);
+		.setCurrentTestDescription("Confirm \"Comprehension Skills\" property export with multi select values separated with pipe symbol");
 		
 		testParameters.setIterationMode(IterationOptions.RunOneIterationOnly);
 		driverScript = new DriverScript(testParameters);
@@ -105,12 +67,9 @@ public class AUT_AG_1709_7 extends TestCase {
 		String browseActionName = dataTable.getData("MyFiles", "MoreSettingsOption");
 		Date date = new Date();
 		String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(date);
-		File downloadedFile = null;
-		ArrayList<String> csvFileRowDataList = null;
-		String updatedGenres = dataTable.getData("MyFiles", "BrowseActionName");
+		File downloadedFile = null;		
 		String downloadFilePath = properties.getProperty("DefaultDownloadPath");
-		String CourseXpath = "//*[@class='filename']//*[contains(text(),'Course Object 1')]";
-		String errorfile = dataTable.getData("MyFiles", "Subfolders1");
+		
 		// Log in Pearson Schools project
 				functionalLibrary.loginAsValidUser(signOnPage);
 				
@@ -155,7 +114,6 @@ public class AUT_AG_1709_7 extends TestCase {
 				
 				// CSVfile presence and filename
 				String fileName1 = objectName + "-" + currentDate;	
-				String filenameCSV= mediaTransPage.RetreiveFilename(fileName1);
 				String filename2= collectionPg.CSVFilename(fileName1);
 				collectionPg.clickOnMoreSetting(filename2);
 				collectionPg.commonMethodForClickOnMoreSettingsOption(filename2,"Download");
@@ -164,71 +122,23 @@ public class AUT_AG_1709_7 extends TestCase {
 				downloadedFile = new File(downloadFilePath + "/" + filename2);
 				if (downloadedFile.exists() && !filename2.equalsIgnoreCase("File Not Found")) {
 					report.updateTestLog("Verify download file", "File: " + filename2 + " downloaded sucessfully", Status.PASS);
-					/***************************Confirm Genres Leveled Reader properties are exporting properly*********************/
+														
+					/***************************Confirm CompSkills Leveled Reader properties are exporting properly*********************/
 					String downloadedCSVFileANmeWithPath = downloadFilePath + "/" + filename2;
-					
-					
-/************************************Modify Genres in CSV and update***********************************/			
-					
 					try {
-						CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, updatedGenres ,2 ,77 );
+						if(CSVUtil.verifyDataInCell(downloadedCSVFileANmeWithPath,"Alike and Different|Cause/Effect",2,75))
+							{
+							report.updateTestLog("Confirm Leveled Reader property CompSkills is exporting properly ",
+									"Column BX (CompSkills) value for 'Leveled Reader Test - Valid CompSkills' is Alike and Different|Cause/Effect", Status.PASS);
+							}else {
+
+								report.updateTestLog("Confirm Leveled Reader property CompSkills is exporting properly ",
+										"Column BX (CompSkills) value for 'Leveled Reader Test - Valid CompSkills' is not Alike and Different|Cause/Effect", Status.FAIL);
+							}
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
+					
 						e.printStackTrace();
 					}
-					report.updateTestLog("Verify Genres value is updated", "File: " + filename2
-							+ " updated sucessfully", Status.PASS);
-					
-					// Import the updated CSV File
-					
-					// Go to collection UI
-					sitesPage.enterIntoDocumentLibrary();
-
-					//go to Course plan
-					myFiles.openCreatedFolder("Data Imports");
-					myFiles.openCreatedFolder("Course Plan");
-							
-					// upload course plan
-					
-					collectionPg.uploadUpdatedFileInCollectionSite(downloadFilePath, filename2);
-					UIHelper.waitForLong(driver);
-					UIHelper.pageRefresh(driver);
-					UIHelper.waitForLong(driver);
-					UIHelper.pageRefresh(driver);
-				    driver.navigate().refresh();
-				    
-				    
-//go to course object 1
-					
-					sitesPage.enterIntoDocumentLibrary();
-					UIHelper.waitFor(driver);
-					myFiles.openCreatedFolder("Data Imports");
-					UIHelper.waitFor(driver);
-					myFiles.openCreatedFolder("Completed");
-					UIHelper.waitFor(driver);
-					myFiles.openCreatedFolder(currentDate.substring(0, 4));
-					myFiles.openCreatedFolder(currentDate.substring(5, 7));
-					myFiles.openCreatedFolder(currentDate.substring(8, 10));
-					UIHelper.waitFor(driver);
-					collectionPg.clickOnMoreSetting(filename2);
-					UIHelper.waitFor(driver);
-					
-					collectionPg.commonMethodForClickOnMoreSettingsOption(filename2, "View Error Report");
-					UIHelper.waitFor(driver);					
-					new FileUtil().waitUptoAllFilesDownloadComplete(downloadFilePath,errorfile);
-
-					try {
-						Thread.sleep(5000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-
-					homePageObj.openNewTab(downloadFilePath + "\\" + errorfile);	
-					UIHelper.waitFor(driver);
-					UIHelper.waitFor(driver);
-					collectionPg.errormessagecontains("Found 1 integrity violations:","Invalid property value");
-					
 					
 				} else {
 
