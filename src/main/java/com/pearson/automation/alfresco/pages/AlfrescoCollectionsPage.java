@@ -56,6 +56,8 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	//Added skillspathXpath as part of NALS  
 	private String descriptionXpath = ".//*[contains(@id,'prop_cm_description')]";
 	private String versionStateDropdownXpath = ".//*[contains(@id,'prop_cpnals_versionState') and @name='-']";
+	//Modified as part of NALS Release SOW7 1709_3 Added genres
+	private String genresDropdownXpath = ".//*[contains(@id,'prop_cpnals_genres') and @name='-']";
 	private String versioncountryDropdownXpath = ".//*[contains(@id,'prop_cpnals_versionCountry') and @name='-']";
 	private String versiondistricttextxpath = ".//*[contains(@id,'prop_cpnals_versionDistrict')]";
 	private String versionstatementtextxpath = ".//*[contains(@id,'prop_cpnals_versionStatement')]";
@@ -68,6 +70,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	private String contentTypeDropdownXpathInCreateObject = ".//*[contains(@id,'prop_cpnals_contentType')]";
 	private String contribSourceDropdownXpathInCreateObject = ".//*[contains(@id,'prop_cpnals_contribSource')]";
 	private String realizeFileTypeDropdownXpathInCreateObject = ".//*[contains(@id,'prop_cpnals_realizeFileType')]";
+	//private String disciplizeDropdownXpathInCreateObject = "//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default_prop_cpnals_discipline\"]";
 	private String disciplizeDropdownXpathInCreateObject = ".//*[contains(@id,'prop_cpnals_discipline')]";
 
 	private String saveBtnXpathInCreateObject = ".//*[contains(@id,'form-submit-button')]";
@@ -139,7 +142,9 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 
 	private String childReferencesXapth = ".//*[contains(@id,'relationships-list-outgoingRelations')]//*[text()='Child References']//following-sibling::*/a";
 	private String titleTxtAreaXapth = ".//textarea[@name='prop_cm_title']";
-	private String urlImageXapth = ".//td//h3/span[text()='CRAFT']//ancestor::tr//td//div[@class='status']";
+	//Modified as part of NALS
+	//private String urlImageXapth = ".//td//h3/span[text()='CRAFT']//ancestor::tr//td//div[@class='status']";
+	private String urlImageXapth = ".//td//h3/span[text()='CRAFT']";
 
 	private String folderPropValueXpath = ".//span[text()='CRAFT']/following-sibling::*";
 	private String externalIdInputXapth = ".//label[text()='CRAFT']/following-sibling::*";
@@ -195,6 +200,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	private String dragfromxpath = "//*[@class='treeview']/li/ul/li[2]/span";
 	private String dragtoxpath = "//*[@class='treeview']/li/ul/li[3]/span";
 	private String realizecsvbox = "//*[contains(text(),'Realize Course CSV filtering')]";
+	private String detailsrealizecsvbox = "//*[@id=\"onActionObjectGenerateRealizeCsv\"]/a/span";
 	private String realizecsvboxOKbutton = "//button[contains(text(),'Ok')]";
 	private String realizecsvvaluesxpath = "//select[@name='versionStates']";
 	private String programscreenxpath = "//a[@class='dynatree-title' and contains(text(),'Program')]";
@@ -436,22 +442,25 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			String createObjectData) {
 		try {
 			if (createObjectData.contains(";")) {
+				System.out.println("inside");
 				String splittedObjectData[] = createObjectData.split(";");
+				
 				for (String fileValues : splittedObjectData) {
 					String splittedFileValues[] = fileValues.split(",");
-
+					System.out.println("splittedFileValues"+splittedFileValues.length);
 					if (splittedFileValues != null) {
 						
 						String objectType = splittedFileValues[0].replace(
 								"ObjectType:", "");
-						
+						System.out.println("objectType"+objectType);
+						System.out.println("splittedFileValues"+splittedFileValues);
 						createCollectionObjectsByBasicData(objectType,
 								splittedFileValues);
 
 					}
 				}
 			} else {
-
+				System.out.println("22222222222222");
 				String splittedObjectData[] = createObjectData.split(",");
 
 				if (splittedObjectData != null) {
@@ -488,8 +497,8 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	public void createCollectionObjectsByBasicData(String objectType,
 			String splittedFileValues[]) {
 		try {
-			//Added rumba,skillspath as part of NALS
-			String name = "", title = "", description = "", courseAbbrevation = "", contentType = "", contribSource = "", realizeFileType = "", discipline = "",rumbaprogramname ="", skillspath = "",mediaType = "";
+			//Added rumba,skillspath,cmtskills as part of NALS
+			String name = "", title = "", description = "", courseAbbrevation = "", contentType = "", contribSource = "", realizeFileType = "", discipline = "",rumbaprogramname ="", skillspath = "",mediaType = "",cmtskills = "";
 
 			if (objectType.equalsIgnoreCase("Course")) {
 
@@ -503,16 +512,19 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 						splittedFileValues, "CourseAbbrevation:");
 				discipline = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "Discipline:");
-			//	Added rumba,skillspath as part of NALS
+			//	Added rumba,skillspath,cmtskills as part of NALS
 				rumbaprogramname = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "RUMBA Program:");
 				skillspath = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "Skills Path:");
-			//	Added rumba,skillspath as part of NALS
+				cmtskills = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "CMT Skills Discipline:");
+				System.out.println("cmtskills"+cmtskills);
 				clickOnCreateButton();
 				clickOnCreateMenuItem(objectType);
 				enterBasicDataForCreateCourseObject(name, title, description,
-						courseAbbrevation, discipline, rumbaprogramname,skillspath);
+						courseAbbrevation, discipline, rumbaprogramname,skillspath,cmtskills);//	Added rumba,skillspath,cmtskills as part of NALS
+				
 				clickOnSaveBtnForSubmitCreateObjectData();
 			} else if (objectType.equalsIgnoreCase("Sequence Object")) {
 
@@ -715,11 +727,11 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	}
 
 	// Create Collections Objects
-	//Added rumba,skillspath as part of NALS
+	//Added rumba,skillspath,cmtskills as part of NALS
 	public void createCollectionObjects(String createObjectType, String name,
 			String title, String description, String courseAbbrevation,
 			String contentType, String contribSource, String realizeFileType,
-			String mediaType, String discipline, String rumba,String skillspath) {
+			String mediaType, String discipline, String rumba,String skillspath,String cmtskills) {
 
 		try {
 			switch (createObjectType) {
@@ -728,7 +740,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				clickOnCreateMenuItem(createObjectType);
 				//Added rumba,skillspath as part of NALS
 				enterBasicDataForCreateCourseObject(name, title, description,
-						courseAbbrevation, discipline, rumba,skillspath);
+						courseAbbrevation, discipline, rumba,skillspath,cmtskills);
 				//Added rumba,skillspath as part of NALS
 				clickOnSaveBtnForSubmitCreateObjectData();
 
@@ -785,9 +797,9 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 
 	// Create Course objects from Create menu items
 	// Enter Data in fields
-	//Added rumba,skillspath as part of NALS
+	//Added rumba,skillspath,cmtskills as part of NALS
 	public void enterBasicDataForCreateCourseObject(String name, String title,
-			String description, String courseAbbrevation, String discipline,String rumba,String skillspath) {
+			String description, String courseAbbrevation, String discipline,String rumba,String skillspath,String cmtskills) {
 
 		try {
 			UIHelper.waitForVisibilityOfEleByXpath(driver,
@@ -827,15 +839,36 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			}*/
 
 			if (!discipline.isEmpty()) {
-				UIHelper.selectbyVisibleText(driver,
-						disciplizeDropdownXpathInCreateObject, discipline);
+				Select selectBox = new Select(driver.findElement(By.xpath(disciplizeDropdownXpathInCreateObject)));
+				selectBox.selectByIndex(2);
+				/*UIHelper.selectIntergerValue(driver,
+						disciplizeDropdownXpathInCreateObject, 2);*/
 			}
-			report.updateTestLog("Input data to create 'Course' object",
+			
+			if(!cmtskills.isEmpty()) {
+				System.out.println("1");
+				WebElement select1 = driver.findElement(By.xpath("//*[@id=\"template_x002e_collections-secondary-toolbar_x002e_assembly-view_x0023_default-createObject_prop_cpnals_cmtSkillsDiscipline-entry\"]/option[1]"));
+		        WebElement select2 = driver.findElement(By.xpath("//*[@id=\"template_x002e_collections-secondary-toolbar_x002e_assembly-view_x0023_default-createObject_prop_cpnals_cmtSkillsDiscipline-entry\"]/option[2]"));        
+		        Actions action = new Actions(driver);
+		        System.out.println("2");
+		        action.keyDown(Keys.CONTROL).click(select1).click(select2).build().perform();
+		        System.out.println("3");
+			}else {
+				report.updateTestLog("Input data to create 'Course' object",
+						"User un able to enter data for CMT Skills of Course Object"
+								+ "<br>Name: " + name + ", " + "Title: " + title
+								+ ", <br>" + "Description: " + description
+								+ ", <br>Course Abbrevation: " + courseAbbrevation
+								+ "<br>Discipline: " + discipline 
+								+ "<br>CMT Skills Discipline: " + cmtskills, Status.FAIL);
+			}
+			/*report.updateTestLog("Input data to create 'Course' object",
 					"User able to enter data for 'Course' object"
 							+ "<br>Name: " + name + ", " + "Title: " + title
 							+ ", <br>" + "Description: " + description
 							+ ", <br>Course Abbrevation: " + courseAbbrevation
-							+ "Discipline: " + discipline, Status.DONE);
+							+ "Discipline: " + discipline 
+							+ "CMT Skills Discipline: " + cmtskills, Status.DONE);*/
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -948,8 +981,10 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			}
 
 			if (!discipline.isEmpty()) {
-				UIHelper.selectbyVisibleText(driver,
-						disciplizeDropdownXpathInCreateObject, discipline);
+				Select selectBox = new Select(driver.findElement(By.xpath(disciplizeDropdownXpathInCreateObject)));
+				selectBox.selectByIndex(2);
+				/*UIHelper.selectIntergerValue(driver,
+						disciplizeDropdownXpathInCreateObject, 2);*/
 			}
 
 			if (!contentType.isEmpty()) {
@@ -1534,6 +1569,61 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 
 	}
 
+	
+	public void clickonDetailsRealizeBox() {
+
+		try {
+			
+			JavascriptExecutor executor = (JavascriptExecutor) driver;
+			WebElement moreSettingsEle = UIHelper.findAnElementbyXpath(
+					driver, detailsrealizecsvbox);
+
+			UIHelper.highlightElement(driver, moreSettingsEle);
+			executor.executeScript("arguments[0].click();",
+					moreSettingsEle);
+			UIHelper.waitFor(driver);
+
+
+			UIHelper.waitForVisibilityOfEleByXpath(driver, realizecsvbox);
+
+			if (UIHelper.isWebElementDisplayed(UIHelper.findAnElementbyXpath(
+					driver, realizecsvbox))) {
+				report.updateTestLog("Realize CSV filter options is available",
+						"Realize CSV filter options is available", Status.DONE);
+				String[] values = dataTable.getData("MyFiles",
+						"CSVFilteroptions").split("-");
+				for (String options : values) {
+					UIHelper.selectbyVisibleText(driver, realizecsvvaluesxpath,
+							options);
+					report.updateTestLog("Click on '" + options, "clicked on"
+							+ options, Status.PASS);
+
+				}
+
+				UIHelper.click(driver, realizecsvboxOKbutton);
+				UIHelper.waitForPageToLoad(driver);
+				if (UIHelper.isWebElementDisplayed(UIHelper
+						.findAnElementbyXpath(driver, programscreenxpath))) {
+					report.updateTestLog("Click on ok button", "clicked on ok",
+							Status.PASS);
+				} else {
+					report.updateTestLog("Click on ok button",
+							"clicked on ok Failed", Status.FAIL);
+				}
+
+			} else {
+				report.updateTestLog(
+						"Realize CSV filter options is available?",
+						"Realize CSV filter options is not available",
+						Status.FAIL);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
 	/**
 	 * @author 412766
 	 * @return
@@ -2094,6 +2184,31 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	//upload updated file in collection site -New method Added for NALS
+	public void uploadUpdatedFileInCollectionSite(String filePath, String fileName) {
+	try {
+	String finalFilePath;
+	if (filePath.contains("Automation/Alfresco")) {
+		finalFilePath = filePath;
+	} else {
+		finalFilePath = filePath;
+	}
+
+	if (fileName.contains(",")) {
+	String splittedFileNames[] = fileName.split(",");
+	for (String fileNameVal : splittedFileNames) {
+	commonMethodForUploadMultipleFiles(finalFilePath,
+	fileNameVal);
+	}
+	} else {
+	commonMethodForUploadMultipleFiles(finalFilePath, fileName);
+	}
+
+	} catch (Exception e) {
+	e.printStackTrace();
+	}
 	}
 
 	public void commonMethodForUploadMultipleFiles(String filePath,
@@ -3530,8 +3645,12 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 		for (String referToValStr : referToObjectAtringArray) {
 
 			// System.out.println(referToValStr);
+			if(referToValStr.contains(".jpg") || referToValStr.contains(".json")) {
+				break;
+			}else {
 			String temp_respectiveAddButtonXpathToNavigate = respectiveAddButtonXpathToNavigate
 					.replace("CRAFT", referToValStr);
+			//System.out.println("temp_respectiveAddButtonXpathToNavigate"+temp_respectiveAddButtonXpathToNavigate);
 			UIHelper.waitForVisibilityOfEleByXpath(driver,
 					temp_respectiveAddButtonXpathToNavigate);
 			UIHelper.highlightElement(driver,
@@ -3540,11 +3659,20 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			UIHelper.waitFor(driver);
 			UIHelper.waitFor(driver);
 			referToVal = referToValStr;
+			//System.out.println("referToVal"+referToVal);
+			}
 		}
 
-		UIHelper.click(driver, NavigateUpButton);
+		/*UIHelper.click(driver, NavigateUpButton);
 		String temp_respectiveAddButtonXpath = respectiveAddButtonXpath
 				.replace("CRAFT", referToVal);
+		System.out.println("temp_respectiveAddButtonXpath"+temp_respectiveAddButtonXpath);
+		UIHelper.waitForVisibilityOfEleByXpath(driver,
+				temp_respectiveAddButtonXpath);
+		UIHelper.highlightElement(driver, temp_respectiveAddButtonXpath);
+		UIHelper.click(driver, temp_respectiveAddButtonXpath);*/
+		
+		String temp_respectiveAddButtonXpath = "//*[contains(@id,'cpnals_outgoingReferences-cntrl-picker-results')]//table//tbody//tr//td//a[@title='Add']";
 		UIHelper.waitForVisibilityOfEleByXpath(driver,
 				temp_respectiveAddButtonXpath);
 		UIHelper.highlightElement(driver, temp_respectiveAddButtonXpath);
@@ -3557,6 +3685,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 
 	}
 
+	
 	private String selectButton = ".//div[contains(@class,'form-field')]//label[text()='CRAFT']//parent::div//button";
 	private String addButtonXpath = ".//tr[contains(@class,'yui-dt-rec yui-dt')]//div[contains(@class,'yui-dt-liner')]//h3[text()='CRAFT']//parent::h3//parent::div//parent::td//parent::tr//td[contains(@class,'yui-dt-col-add')]//a";
 	private String collectionUiRighPanTableXpath = "	.//tbody[@class='yui-dt-data']//tr";
@@ -4128,7 +4257,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	public void errormessage(String value, String error) {
 		try {
 			String finalerrormsg = errormsg.replace("CRAFT", value);
-			System.out.println(finalerrormsg);
+			
 			UIHelper.waitFor(driver);
 			UIHelper.waitForVisibilityOfEleByXpath(driver, finalerrormsg);
 			UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
@@ -4136,7 +4265,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			UIHelper.highlightElement(driver, finalerrormsg);
 			String finalmsg = UIHelper.getTextFromWebElement(driver,
 					finalerrormsg);
-			System.out.println(finalmsg);
+			
 			if (finalmsg.equalsIgnoreCase(error)) {
 				report.updateTestLog("Verify Error Msg" + error,
 						"Error msg as expected.<br><b> Error msg : <b>"
@@ -4432,12 +4561,13 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 					+ "is available", fileName1 + " is not available",
 					Status.FAIL);
 		}
-
+		System.out.println("inside CSVFilename");
+		System.out.println("filename1"+fileName1);
 		String filename2 = mediaTransPage.RetreiveFilename(fileName1);
-
+		System.out.println("filename2"+filename2);
 		int len = filename2.length();
 		String name = filename2.substring(0, len - 9);
-
+		System.out.println("name"+name);
 		String filterselection = dataTable.getData("MyFiles",
 				"CSVFilteroptions");
 		if (filterselection.contentEquals("NO FILTER")) {
@@ -4455,8 +4585,9 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 
 			}
 		} else {
+			
 			String expectedname = filterselection + "-" + fileName1;
-			if (name.contentEquals(expectedname)) {
+				if (name.contentEquals(expectedname)) {
 				report.updateTestLog("Check the file name of the csv file ",
 						"File: " + filename2 + "is generated successfully",
 						Status.PASS);
@@ -4511,8 +4642,8 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	// Create structural object with basic data
 	public void createCollectionObjectsByBasicDataforcsv(String objectType,
 			String splittedFileValues[]) {
-		try {
-			String name = "", title = "", description = "", courseAbbrevation = "", contentType = "", contribSource = "", realizeFileType = "", discipline = "", mediaType = "", versionCountry = "", versionState = "", versionDistrict = "", versionStatement = "", downloadRestrictions = "",rumbaprogramname = "", skillpath="";
+		try {//Added genres as part of NALS
+			String name = "", title = "", description = "", courseAbbrevation = "", contentType = "", contribSource = "", realizeFileType = "", discipline = "", mediaType = "", versionCountry = "", versionState = "", versionDistrict = "", versionStatement = "", downloadRestrictions = "",rumbaprogramname = "", skillpath="",genres="";
 
 			if (objectType.equalsIgnoreCase("Course")) {
 
@@ -4538,8 +4669,9 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 						splittedFileValues, "VersionDistrict:");
 				versionStatement = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "VersionStatement:");
-								
-
+				//Added genres as part of NALS	
+				genres = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "Genres:");
 				clickOnCreateButton();
 				clickOnCreateMenuItem(objectType);
 
@@ -4547,7 +4679,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				enterBasicDataForCreateCourseObjectforcsv(name, title,rumbaprogramname,
 						description,skillpath,courseAbbrevation, discipline,
 						versionCountry, versionState, versionDistrict,
-						versionStatement);
+						versionStatement,genres);
 
 				clickOnSaveBtnForSubmitCreateObjectData();
 			} else if (objectType.equalsIgnoreCase("Sequence Object")) {
@@ -4598,12 +4730,13 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 						splittedFileValues, "VersionDistrict:");
 				versionStatement = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "VersionStatement:");
-
+				genres = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "Genres:");
 				clickOnCreateButton();
 				clickOnCreateMenuItem(objectType);
 				enterBasicDataForContainerforcsv(name, title,rumbaprogramname, description,skillpath,
 						discipline, versionCountry, versionState,
-						versionDistrict, versionStatement);
+						versionDistrict, versionStatement,genres);
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			} else if (objectType.equalsIgnoreCase("Content Object")) {
@@ -4748,7 +4881,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			String courseAbbrevation, String contentType, String contribSource,
 			String realizeFileType, String mediaType, String discipline,
 			String versionCountry, String versionState, String versionDistrict,
-			String versionStatement, String downloadRestrications) {
+			String versionStatement, String downloadRestrications,String genres) {
 
 		try {
 			switch (createObjectType) {
@@ -4758,7 +4891,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				enterBasicDataForCreateCourseObjectforcsv(name, title,rumbaprogramname,
 						description,skillpath, courseAbbrevation, discipline,
 						versionCountry, versionState, versionDistrict,
-						versionStatement);
+						versionStatement,genres);
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			case "Sequence Object":
@@ -4775,7 +4908,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				clickOnCreateMenuItem(createObjectType);
 				enterBasicDataForContainerforcsv(name, title,rumbaprogramname,description,skillpath,
 						discipline, versionCountry, versionState,
-						versionDistrict, versionStatement);
+						versionDistrict, versionStatement,"");//Modified as part of NALS Release SOW7 1709_3
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			case "Content Object":
@@ -4829,7 +4962,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	public void enterBasicDataForCreateCourseObjectforcsv(String name,
 			String title,String rumbaprogramname, String description,String skillspath,String courseAbbrevation,
 			String discipline, String versionCountry, String versionState,
-			String versionDistrict, String versionStatement) {
+			String versionDistrict, String versionStatement,String genres) {
 
 		try {
 			UIHelper.waitForVisibilityOfEleByXpath(driver,
@@ -4890,6 +5023,14 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			if (!versionStatement.isEmpty()) {
 				UIHelper.sendKeysToAnElementByXpath(driver,
 						versionstatementtextxpath, versionStatement);
+			}
+			
+			if (!genres.isEmpty()) {
+				String[] genresProp = genres.split("|");
+				for (String genresPropValue : genresProp) {
+					UIHelper.selectbyVisibleText(driver,
+							genresDropdownXpath, genresPropValue);
+				}
 			}
 
 			report.updateTestLog("Input data to create 'Course' object",
@@ -4995,7 +5136,8 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	// Enter Data in fields
 	public void enterBasicDataForContainerforcsv(String name, String title,String rumbaprogramname,
 			String description,String skillpath, String discipline, String versionCountry,
-			String versionState, String versionDistrict, String versionStatement) {
+			String versionState, String versionDistrict, String versionStatement,String genres) {
+		//Modified as part of NALS Added Genres Release SOW7 1709_3
 		try {
 			UIHelper.waitForVisibilityOfEleByXpath(driver,
 					nameFieldXpathInCreateObject);
@@ -5038,7 +5180,12 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				UIHelper.sendKeysToAnElementByXpath(driver,
 						versionstatementtextxpath, versionStatement);
 			}
-
+			//Modified as part of NALS Added Genres Release SOW7 1709_3
+			if (!genres.isEmpty()) {
+				UIHelper.selectbyVisibleText(driver, versionStateDropdownXpath,
+						genres);
+			}
+			
 			report.updateTestLog("Input data to create 'Container' object",
 					"User able to enter data for 'Container' object"
 							+ "<br>Name: " + name + ", " + "Title: " + title
@@ -5047,9 +5194,10 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 							+ "<br> Version State:" + versionState
 							+ ", <br> Version Country:" + versionCountry
 							+ ", version district:" + versionDistrict
-							+ ",version statement:" + versionStatement,
+							+ ",version statement:" + versionStatement
+							+ ",genres:" + genres,
 					Status.DONE);
-
+			//Modified as part of NALS Added Genres Release SOW7 1709_3
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -5673,19 +5821,23 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			
 			public void VerifyPropertyValue(String fieldName, String fieldValue){
 				try{
-					
+					System.out.println("22");
 					editPropInputXpathTemp = editPropInputXpath.replace("CRAFT", fieldName);
-					WebElement PropertyEle = driver.findElement(By.xpath(editPropInputXpathTemp));				
+					System.out.println("23");
+					WebElement PropertyEle = driver.findElement(By.xpath(editPropInputXpath));
+					System.out.println("24");
 					String propertyValue = PropertyEle.getAttribute("value");
+					System.out.println(propertyValue+"propertyValue");
+					System.out.println(fieldValue+"fieldValue");
 					if(propertyValue.contains(fieldValue))
 					{
-						report.updateTestLog("Validate the presence of Leveled Readers value for  " + fieldName , "Leveled Readers property value is Present for  "  + fieldValue , Status.PASS);
+						System.out.println("1");
+						report.updateTestLog("Validate the presence of Genres " + fieldName , "Validate the presence of Genres "  + fieldValue , Status.PASS);
 					}else
 					{
-						report.updateTestLog("Validate the presence of Leveled Readers value for  " + fieldName , "Leveled Readers property value is not Present for  "  + fieldValue , Status.FAIL);
+						System.out.println("2");
+						report.updateTestLog("Validate the presence of Genres " + fieldName , "Validate the presence of Genres "  + fieldValue , Status.FAIL);
 					}																
-						
-					
 				}catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -6083,7 +6235,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				try{
 					String propertyvalueText = "//div[@class='form-field']//div[@class='viewmode-field']//span[text()='CRAFT']/following-sibling::*";
 					String propValueXpathTemp = propertyvalueText.replace("CRAFT", fieldName);
-					WebElement PropertyEle = driver.findElement(By.xpath(propValueXpathTemp));				
+					WebElement PropertyEle = driver.findElement(By.xpath(propValueXpathTemp));		
 					String propertyValue = PropertyEle.getText();
 					if(propertyValue.contains(fieldValue))
 					{
