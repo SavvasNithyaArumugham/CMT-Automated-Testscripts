@@ -1,5 +1,7 @@
 package testscripts.collections3;
 
+import java.util.ArrayList;
+
 import org.testng.annotations.Test;
 
 import com.pearson.automation.alfresco.functionllibs.FunctionalLibrary;
@@ -12,6 +14,7 @@ import com.pearson.automation.alfresco.pages.AlfrescoSitesPage;
 import com.pearson.automation.alfresco.tests.AlfrescoSiteMembersPageTest;
 import com.pearson.automation.utils.DriverScript;
 import com.pearson.automation.utils.TestCase;
+import com.pearson.automation.utils.UIHelper;
 import com.pearson.framework.IterationOptions;
 import com.pearson.framework.Status;
 
@@ -62,10 +65,10 @@ public class ALFDEPLOY_3216_TC001P1 extends TestCase {
 				String siteName = sitesPage.getCreatedSiteName();
 				
 		//Add users SSO1,SSO3 as Coordinator,Collaborator respectively
-				String userName = dataTable.getData("Sites", "InviteUserName");
+				/*String userName = dataTable.getData("Sites", "InviteUserName");
 				String roleName = dataTable.getData("Sites", "Role");				
 				sitesPage.performInviteUserToSite(siteName);
-				siteMemPgTest.verifySiteMemebrs(siteName, userName,roleName );
+				siteMemPgTest.verifySiteMemebrs(siteName, userName,roleName );*/
 				
 		//Create content object in collections UI
 				sitesPage.openSiteFromRecentSites(siteName);
@@ -77,6 +80,31 @@ public class ALFDEPLOY_3216_TC001P1 extends TestCase {
 				String createObjectData = dataTable.getData("MyFiles","CollectionObjectBasicData");
 				collectionPg.createBasicCollectionObjectFromCreateMenu(createObjectData);
 				
+				sitesPage.enterIntoDocumentLibrary();	
+				
+				myFiles.openCreatedFolder(folderNames[0]);
+				myFiles.openCreatedFolder(folderNames[1]);
+				
+				collectionPg.clickOnEditCollectionButton();
+				collectionPg.clickOnMoreSetting("AutoCourse");
+				UIHelper.waitFor(driver);
+				UIHelper.waitFor(driver);
+				//Read available options 
+				ArrayList<String> availableOptions = new ArrayList<String>();
+				availableOptions = collectionPg.readMoreOptions("AutoCourse");
+				UIHelper.waitFor(driver);
+				
+				if(availableOptions.contains("Duplicate All")){
+					
+					report.updateTestLog("Fail" , "opt available: " + availableOptions , Status.FAIL);
+					
+				}
+				else{
+					report.updateTestLog("PASS" , "option not available " +availableOptions , Status.PASS);
+
+				}
+				
+					
 			
 	}
 

@@ -167,14 +167,15 @@ public class AUT_AG_002 extends TestCase {
 			e.printStackTrace();
 		}
 
-		homePageObj.openNewTab(fileDownloadPath + "\\" + errorfile);
+		//Commented as part of NALS
+		//homePageObj.openNewTab(fileDownloadPath + "\\" + errorfile);
 
-		collectionPg
+		/*collectionPg
 				.errormessage("Grid Thumbnail",
 						"Site collection is not found for Grid Thumbnail AlfGrid.jpg.");
 		collectionPg.errormessage("AlfTum.jpg",
-				"Site collection is not found for Thumbnail AlfTum.jpg.");
-		
+				"Site collection is not found for Thumbnail AlfTum.jpg.");*/
+		//Commented as part of NALS
 		homePageObj.switchtab(0);
 		
 		UIHelper.waitFor(driver);

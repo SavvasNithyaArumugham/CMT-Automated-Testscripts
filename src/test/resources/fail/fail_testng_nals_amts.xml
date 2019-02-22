@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><suite name="Alfresco_Automation_Failure_Suite" parallel="classes" thread-count="1">
+    <test name="Test">
+        <classes>
+            <class name="testscripts.amts.AUT_AG_003"/>
+            <class name="testscripts.amts.AUT_AG_004"/>
+            <class name="testscripts.amts.AUT_AG_005"/>
+            <class name="testscripts.amts.AUT_AG_007"/>
+            <class name="testscripts.amts.AUT_AG_008"/>
+            <class name="testscripts.amts.AUT_AG_009"/>
+            <class name="testscripts.amts.AUT_AG_010"/>
+            <class name="testscripts.amts.AUT_AG_011"/>
+            <class name="testscripts.amts.AUT_AG_012"/>
+            <class name="testscripts.amts.AUT_AG_049"/>
+            <class name="testscripts.amts.AUT_AG_050"/>
+            <class name="testscripts.amts.AUT_AG_052"/>
+            <class name="testscripts.amts.AUT_AG_056"/>
+            <class name="testscripts.amts.AUT_AG_057"/>
+            <class name="testscripts.amts.AUT_AG_075"/>
+            <class name="testscripts.amts.AUT_AG_078"/>
+            <class name="testscripts.amts.AUT_AG_079"/>
+            <class name="testscripts.amts.AUT_AG_081"/>
+            <class name="testscripts.amts.AUT_AG_096"/>
+            <class name="testscripts.amts.AUT_AG_098"/>
+            <class name="testscripts.amts.AUT_AG_099"/>
+            <class name="testscripts.amts.AUT_AG_100"/>
+            <class name="testscripts.amts.AUT_AG_101"/>
+            <class name="testscripts.amts.AUT_AG_107"/>
+            <class name="testscripts.amts.AUT_AG_128"/>
+            <class name="testscripts.amts.AUT_AG_778"/>
+            <class name="testscripts.amts.AUT_AG_781"/>
+            <class name="testscripts.amts.AUT_AG_798"/>
+            <class name="testscripts.amts.AUT_AG_802"/>
+            <class name="testscripts.amts.AUT_AG_803"/>
+            <class name="testscripts.amts.AUT_AG_804"/>
+            <class name="testscripts.amts.AUT_AG_820"/>
+            <class name="testscripts.amts.AUT_AG_823"/>
+            <class name="testscripts.amts.AUT_AG_824"/>
+        </classes>
+    </test>
+</suite>

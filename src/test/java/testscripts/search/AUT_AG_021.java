@@ -78,7 +78,7 @@ public class AUT_AG_021 extends TestCase {
 		homePage.navigateToHomePage();
 		homePage.searchSavedSearchType(type);
 		UIHelper.waitForPageToLoad(driver);
-		homePage.deleteValueFrmDashletList(listXpath, Name);
+	//	homePage.deleteValueFrmDashletList(listXpath, Name);
 		homePage.navigateToMyFilesTab();		
 		
 		if (sitesPage.Checkdocument(fileName)) {

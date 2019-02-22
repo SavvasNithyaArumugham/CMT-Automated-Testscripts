@@ -152,17 +152,17 @@ public class ALFDEPLOY_3191_TC017 extends TestCase {
 				/*****************Confirm Text Features field was populated in import***************/
 				/*****************Confirm Text Features field in configured correctly***************/
 				/*****************Change Text Features field value**********************************/
-				collectionPg.verifyMetadataValuesInEditAllProperties(folderNames[2],Metadata[0],"no");
+				collectionPg.verifyMetadataValuesInEditAllProperties(folderNames[2],Metadata[0],"no");//Modified yes to no as part of NALS
 				/*****************Confirm Content Areas field was populated in import***************/
 				/*****************Confirm Content Areas field in configured correctly***************/
 				/*****************Change Content Areas field value**********************************/				
-				collectionPg.verifyMetadataValuesInEditAllProperties(folderNames[3],Metadata[1],"no");
+				collectionPg.verifyMetadataValuesInEditAllProperties(folderNames[3],Metadata[1],"no");//Modified yes to no as part of NALS
 				/*******************Confirm ISBN field was populated in import*********************/
 				/*****************Confirm ISBN field in configured correctly***************/
-				//collectionPg.confirmPropertyinImportAndSave(folderNames[4],Metadata[2],fieldData[0]);
+				//collectionPg.confirmPropertyinImportAndSave(folderNames[4],Metadata[2],fieldData[0]);//Commented as part of NALS
 				/*******************Confirm Author field was populated in import*********************/
 				/*****************Confirm Author field in configured correctly***************/
-				//collectionPg.confirmPropertyinImportAndSave(folderNames[5],Metadata[3],fieldData[1]);	
+				//collectionPg.confirmPropertyinImportAndSave(folderNames[5],Metadata[3],fieldData[1]);	//Commented as part of NALS
 			
 		}	  
 

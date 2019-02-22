@@ -172,15 +172,15 @@ public class AUT_AG_007 extends TestCase {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
-				homePageObj.openNewTab(fileDownloadPath + "\\" + errorfile);
+				//Commented as part of NALS
+				/*homePageObj.openNewTab(fileDownloadPath + "\\" + errorfile);
 				
 				collectionPg
 				.errormessage("Grid Thumbnail","Site " +
 						siteassertValue+ " is not found for Grid Thumbnail AlfGrid.jpg.");
 		collectionPg.errormessage("AlfTum.jpg","Site " +
 				siteassertValue+ " is not found for Thumbnail AlfTum.jpg.");
-
+*///Commented as part of NALS
 			}
 
 	@Override

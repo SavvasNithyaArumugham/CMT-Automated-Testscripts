@@ -56,9 +56,6 @@ public class LSALF_1467_4 extends TestCase {
 		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
 		String siteNameValue = dataTable.getData("Sites", "SiteName");
 		String createObjectData = dataTable.getData("MyFiles", "CollectionObjectBasicData");
-
-		
-		
 		String CourseXpath = "//*[@class='filename']//*[contains(text(),'Course')]";
 		String allProperties = ".//a[contains(text(),'All Properties...')]";
 		
@@ -67,14 +64,7 @@ public class LSALF_1467_4 extends TestCase {
 		functionalLibrary.loginAsValidUser(signOnPage);
 
 		homePageObj.navigateToSitesTab();
-
-		// From the site Type dropdown select 'Collection Site'.
-		/*sitesPage.createSite(siteNameValue, "Yes");
-		String siteName = sitesPage.getCreatedSiteName();*/
 		sitesPage.openSiteFromRecentSites(siteNameValue);
-		
-				
-
 		// Navigate to document library and click on a program>Program Object
 		sitesPage.enterIntoDocumentLibrary();
 		myFiles.openCreatedFolder(folderNames[0]);

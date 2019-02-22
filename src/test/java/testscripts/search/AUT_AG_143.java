@@ -77,7 +77,7 @@ public class AUT_AG_143 extends TestCase {
 		}
 		homePage.navigateToHomePage();
 		homePage.searchSavedSearchType(type);
-		homePage.deleteValueFrmDashletList(listXpath, Name);
+	//	homePage.deleteValueFrmDashletList(listXpath, Name);
 		homePage.navigateToMyFilesTab();		
 		
 		if (sitesPage.Checkdocument(fileName)) {

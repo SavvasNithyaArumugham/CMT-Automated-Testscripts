@@ -37,6 +37,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	public String messageXpath = ".//*[@id='message']/div";
 	private String createMenuItemsXpath = ".//*[contains(@id,'default-createContent-menu')]//*[contains(@id,'yui-gen')]/a[@class='yuimenuitemlabel']/span";
 	public String createLinkXpath = ".//*[@id='bd']//span[contains(@id,'createContent-button')]//span/*[contains(.,'Create')]";
+	public String createRulesLinkXpath = "//*[@id=\"template_x002e_rules-none_x002e_folder-rules_x0023_default-body\"]/div[2]/div[1]/a";
 	private String createContentContainerXpath = ".//*[contains(@id,'default-createContent-menu')]/*[@class='bd']";
 	private String loadingDocumentsXpath = ".//*[@class='yui-dt-message']//*[contains(@id,'yui-gen')]/*[contains(.,'Loading Documents')]";
 	private String loadingDocumentsnewXpath = ".//*[@class='yui-dt-message']//*[contains(@id,'yui-gen')]/*[contains(.,'Loading Documents')]";
@@ -48,13 +49,48 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	public String paneltwisteropen = ".//div[@class='document-details-panel']//h2[contains(@class,'twister-open')]";
 
 	private String tempXpathForCreateMenuItemLink = ".//*[contains(@id,'yui-gen')]/a/span[contains(.,'CRAFT')]";
-	private String nameFieldXpathInCreateObject = ".//*[contains(@id,'prop_cm_name')]";
+	private String nameFieldXpathInCreateObject = ".//*[contains(@id,'createObject_prop_cm_name')]";
 	private String titleXpath = ".//*[contains(@id,'prop_cm_title')]";
+	
+	// Added Dynamic content object xpath for NALS
+	private String folioPrefixXpath = ".//*[contains(@id,'prop_cpnals_folioPrefix') and @name='prop_cpnals_folioPrefix']";
+	private String folioStyleXpath = ".//*[contains(@id,'prop_cpnals_folioStyle') and @name='prop_cpnals_folioStyle']";
+	private String folioStartXpath = ".//*[contains(@id,'prop_cpnals_folioStart') and @name='prop_cpnals_folioStart']";
+	private String tocIncFromXpath = ".//*[contains(@id,'prop_cpnals_tocIncludeFrom') and @name='prop_cpnals_tocIncludeFrom']";
+	private String tocIncToXpath = ".//*[contains(@id,'prop_cpnals_tocIncludeTo') and @name='prop_cpnals_tocIncludeTo']";
+	private String stdCorrelationTableTypeXpath = ".//*[contains(@id,'cpnals_standardCorrelationTableType') and @name='prop_cpnals_standardCorrelationTableType']";
+	private String contentObjectAggregationXpath = ".//*[contains(@id,'prop_cpnals_contentObjectAggregationType') and @name='prop_cpnals_contentObjectAggregationType']";
+		
 	//Added rumbaprogramnameXpath as part of NALS 
 	private String rumbaprogramnameXpath = ".//*[contains(@id,'prop_cpnals_rumbaProgramName')]";
 	private String skillspathXpath = ".//*[contains(@id,'prop_cpnals_skillsPath')]";
-	//Added skillspathXpath as part of NALS  
+	// Added Level Automation,Product Configuration,Program Standards fields Xpath for NALS
+	
+	//Level Automation fields
+	private String levelLable1Xpath =".//*[contains(@id,'levelAutomationCollection-label-1')]";
+	private String levelLable2Xpath = ".//*[contains(@id,'levelAutomationCollection-label-2')]";
+	private String numberingFormatXpath = ".//*[contains(@id,'levelAutomationCollection-numbering-format-1')]";
+	private String startValueXpath = ".//*[contains(@id,'levelAutomationCollection-start-value-1')]";
+	private String restartatLevelXpath = ".//*[contains(@id,'levelAutomationCollection-restart-level-2')]";
+	private String addLevelButtonXpath = ".//*[contains(@id,'default_prop_cpnals_levelAutomationCollection-add-level-automation\\')]/span";
+	private String orientationCheckBoxXpath = ".//*[contains(@id,'default_prop_cpnals_levelAutomationCollection-add-level-automation\\')]/span";
+	
+	//Product Configuration fields
+	private String productTypeXpath = ".//*[contains(@id,'productConfigurationCollection-type-1')]";
+	private String addProductButtonXpath = ".//*[contains(@id,'prop_cpnals_productConfigurationCollection-add-product-configuration')]/span";
+	
+	//Program Standards fields
+	private String cmtStandardsXpath = ".//*[contains(@id,'prop_cpnals_cmtStandards')]";
+	
+	  
 	private String descriptionXpath = ".//*[contains(@id,'prop_cm_description')]";
+	private String folioprefixXpath = ".//*[contains(@id,'prop_cpnals_folioPrefix')]";
+	private String foliostyleXpath = ".//*[contains(@id,'prop_cpnals_folioStyle')]";
+	private String foliostartXpath = ".//*[contains(@id,'prop_cpnals_folioStart')]";
+	private String tocIncludeFromXpath = ".//*[contains(@id,'prop_cpnals_tocIncludeFrom')]";
+	private String tocIncludeToXpath = ".//*[contains(@id,'prop_cpnals_tocIncludeTo')]";
+	private String aggregationtypeXpath =".//*[contains(@id,'prop_cpnals_contentObjectAggregationType')]";
+	//Added as part of NALS
 	private String versionStateDropdownXpath = ".//*[contains(@id,'prop_cpnals_versionState') and @name='-']";
 	//Modified as part of NALS Release SOW7 1709_3 Added genres
 	private String genresDropdownXpath = ".//*[contains(@id,'prop_cpnals_genres') and @name='-']";
@@ -68,11 +104,12 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	private String courserumbaXpathInCreateObject = ".//input[@name='prop_cpnals_rumbaProgramName']";
 	private String mediaTypeDropdownXpathInCreateObject = ".//*[contains(@id,'prop_cpnals_mediaType')]";
 	private String contentTypeDropdownXpathInCreateObject = ".//*[contains(@id,'prop_cpnals_contentType')]";
+	private String dynamiccontentTypeDropdownXpathInCreateObject = ".//*[contains(@id,'prop_cpnals_dynamicContentType')]";
 	private String contribSourceDropdownXpathInCreateObject = ".//*[contains(@id,'prop_cpnals_contribSource')]";
 	private String realizeFileTypeDropdownXpathInCreateObject = ".//*[contains(@id,'prop_cpnals_realizeFileType')]";
 	//private String disciplizeDropdownXpathInCreateObject = "//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default_prop_cpnals_discipline\"]";
 	private String disciplizeDropdownXpathInCreateObject = ".//*[contains(@id,'prop_cpnals_discipline')]";
-
+	private String productTypeDropdownXpathInCreateObject = ".//*[contains(@id,'prop_cpnals_productType')]";
 	private String saveBtnXpathInCreateObject = ".//*[contains(@id,'form-submit-button')]";
 	private String cancelBtnXpathInCreateObject = ".//*[contains(@id,'form-cancel-button')]";
 
@@ -160,8 +197,20 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	private String childRefOkXpath = ".//*[@type='button' and contains(.,'OK')]";
 	private String externalIdXpath = ".//*[contains(@id,'default_prop_cpnals_externalID')]";
 	private String refFolderXpath = ".//*[contains(@id,'cpnals_outgoingReferences-cntrl-picker-results')]//table//tbody//tr//td//a[contains(.,'CRAFT')]";
+	//Added for NALS
+	private String refFolderXpaththumb = ".//*[contains(@id,'cpnals_outgoingReferences-cntrl-picker-results')]//table//tbody//tr//td//a[contains(.,'CRAFT')]";
+	private String refFolderXpaththumbFile = ".//*[contains(@id,'cpnals_outgoingReferences-cntrl-picker-results')]//table//tbody//tr//td//a[@title='Add']";
+	private String refFolderXpaththumbFilee = ".//*[contains(@id,'cpnals_outgoingReferences-cntrl-picker-results')]//table//tbody//tr[2]//td//a[@title='Add']";
+	private String childRefFileAvailableCheck = ".//*[contains(@id,'relationships-list-outgoingRelations')]//table//tbody//tr//td////a[@title='/Assets/Thumbnails/AlfrescoJPEGFile.jpg']";
 	private String collectionIcon = ".//*[contains(@id,'cpnals_outgoingReferences-cntrl-picker-results')]//table//tbody//tr//td//a[contains(.,'CRAFT')]//ancestor::tr//img";
-
+	private String activePreviewOKXpath = "//*[@id='prompt']//div[@class='ft']//span[@class='first-child']";
+	
+	//private String activePreviewContentXpath = "//*[@id='prompt']//div[@class='bd']";
+	
+//	private String activePreviewContentXpath ="//div[contains(text(),'https://usppewip.pearsoncms.com/alfresco')]";
+	
+	private String activePreviewContentXpath ="//*[@id='prompt']/div[2]/text()";
+	
 	private String tempSelectFolderChkboxXpath = "//*[contains(@class,'filename')]//*[text()='CRAFT']//ancestor::tr//td//*[@type='checkbox']";
 	private String tempXpathForMoreOptionLink = ".//*[contains(@id,'yuievtautoid')]//*[text()='CRAFT']//ancestor::tr//a/span[contains(.,'More')]";
 	private String uploadedFilesTitlesXpath = "//*[@class='yui-dt-data']//h3/*[contains(@id,'alf-id')]";
@@ -441,35 +490,28 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	public void createBasicCollectionObjectFromCreateMenu(
 			String createObjectData) {
 		try {
-			if (createObjectData.contains(";")) {
-				System.out.println("inside");
+			if (createObjectData.contains(";")) {			
 				String splittedObjectData[] = createObjectData.split(";");
 				
 				for (String fileValues : splittedObjectData) {
-					String splittedFileValues[] = fileValues.split(",");
-					System.out.println("splittedFileValues"+splittedFileValues.length);
+					String splittedFileValues[] = fileValues.split(",");					
 					if (splittedFileValues != null) {
 						
 						String objectType = splittedFileValues[0].replace(
-								"ObjectType:", "");
-						System.out.println("objectType"+objectType);
-						System.out.println("splittedFileValues"+splittedFileValues);
+								"ObjectType:", "");						
 						createCollectionObjectsByBasicData(objectType,
 								splittedFileValues);
 
 					}
 				}
-			} else {
-				System.out.println("22222222222222");
+			} else {				
 				String splittedObjectData[] = createObjectData.split(",");
 
 				if (splittedObjectData != null) {
 					String objectType = splittedObjectData[0].replace(
 							"ObjectType:", "");
-
 					createCollectionObjectsByBasicData(objectType,
 							splittedObjectData);
-
 				}
 			}
 		} catch (Exception e) {
@@ -499,7 +541,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 		try {
 			//Added rumba,skillspath,cmtskills as part of NALS
 			String name = "", title = "", description = "", courseAbbrevation = "", contentType = "", contribSource = "", realizeFileType = "", discipline = "",rumbaprogramname ="", skillspath = "",mediaType = "",cmtskills = "";
-
+			String productType="",dynamiccontentType="",folioprefix="",foliostyle="",foliostart="",tocIncludeFrom="",tocIncludeTo="",aggregationtype="";
 			if (objectType.equalsIgnoreCase("Course")) {
 
 				name = getFieldValueFromExcelForCreateObjects(
@@ -519,7 +561,6 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 						splittedFileValues, "Skills Path:");
 				cmtskills = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "CMT Skills Discipline:");
-				System.out.println("cmtskills"+cmtskills);
 				clickOnCreateButton();
 				clickOnCreateMenuItem(objectType);
 				enterBasicDataForCreateCourseObject(name, title, description,
@@ -555,10 +596,11 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 						splittedFileValues, "Description:");
 				discipline = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "Discipline:");
-
+				foliostart=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "FolioStart:");
 				clickOnCreateButton();
 				clickOnCreateMenuItem(objectType);
-				enterBasicDataForContainer(name, title, description, discipline);
+				enterBasicDataForContainer(name, title, description, discipline,foliostart);
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			} else if (objectType.equalsIgnoreCase("Content Object")) {
@@ -579,12 +621,24 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 						splittedFileValues, "RealizeFileType:");
 				mediaType = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "MediaType:");
-
+				//Added as part of NALS
+				folioprefix=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "FolioPrefix:");
+				foliostyle=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "FolioStyle:");
+				foliostart=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "FolioStart:");				
+				tocIncludeFrom=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "TocIncludeFrom:");				
+				tocIncludeTo=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "TocIncludeTo:");
+				aggregationtype=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "ConObjAggregationType:");
 				clickOnCreateButton();
 				clickOnCreateMenuItem(objectType);
 				enterBasicDataForContentObject(name, title, description,
 						contentType, contribSource, realizeFileType, mediaType,
-						discipline);
+						discipline,folioprefix,foliostart,foliostyle,tocIncludeFrom,tocIncludeTo,aggregationtype);
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			} else if (objectType.equalsIgnoreCase("Learning Bundle")) {
@@ -647,6 +701,48 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				enterBasicDataForCompositeObject(name, title, description,
 						contentType, contribSource, realizeFileType, mediaType,
 						discipline);
+				clickOnSaveBtnForSubmitCreateObjectData();
+
+			} else if (objectType.equalsIgnoreCase("Dynamic Content Object")) {
+
+				name = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "Name:");
+				System.out.println(name);
+				title = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "Title:");
+				System.out.println(title);
+				description = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "Description:");
+				System.out.println(description);
+				productType=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "ProductType:");
+				System.out.println(productType);
+				dynamiccontentType=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "DynamicContentType:");
+				System.out.println(dynamiccontentType);
+				folioprefix=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "FolioPrefix:");
+				System.out.println(folioprefix);
+				foliostyle=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "FolioStyle:");
+				System.out.println(foliostyle);
+				foliostart=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "FolioStart:");
+				System.out.println(foliostart);
+				tocIncludeFrom=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "TocIncludeFrom:");
+				System.out.println(tocIncludeFrom);
+				tocIncludeTo=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "TocIncludeTo:");
+				System.out.println(tocIncludeTo);
+				aggregationtype=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "ConObjAggregationType:");
+				System.out.println(aggregationtype);
+				clickOnCreateButton();
+				clickOnCreateMenuItem(objectType);
+				enterBasicDataForDynamicContentObject(name, title,
+						description, productType,dynamiccontentType, folioprefix,
+						foliostyle, foliostart, tocIncludeFrom, tocIncludeTo,aggregationtype);
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			}
@@ -731,7 +827,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	public void createCollectionObjects(String createObjectType, String name,
 			String title, String description, String courseAbbrevation,
 			String contentType, String contribSource, String realizeFileType,
-			String mediaType, String discipline, String rumba,String skillspath,String cmtskills) {
+			String mediaType, String discipline, String rumba,String skillspath,String cmtskills,String productType,String dynamiccontentType,String folioprefix,String foliostart,String foliostyle,String tocIncludeFrom,String tocIncludeTo,String aggregationtype) {
 
 		try {
 			switch (createObjectType) {
@@ -754,7 +850,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			case "Container":
 				clickOnCreateButton();
 				clickOnCreateMenuItem(createObjectType);
-				enterBasicDataForContainer(name, title, description, discipline);
+				enterBasicDataForContainer(name, title, description, discipline,foliostart);
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			case "Content Object":
@@ -762,7 +858,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				clickOnCreateMenuItem(createObjectType);
 				enterBasicDataForContentObject(name, title, description,
 						contentType, contribSource, realizeFileType, mediaType,
-						discipline);
+						discipline,folioprefix,foliostart,foliostyle,tocIncludeFrom,tocIncludeTo,aggregationtype);
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			case "Learning Bundle":
@@ -787,6 +883,11 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 						discipline);
 				clickOnSaveBtnForSubmitCreateObjectData();
 
+			case "Dynamic Content Object":
+				clickOnCreateButton();
+				clickOnCreateMenuItem(createObjectType);
+				enterBasicDataForDynamicContentObject(name, title, description, productType, dynamiccontentType, folioprefix, foliostyle, foliostart, tocIncludeFrom, tocIncludeTo, aggregationtype);
+				clickOnSaveBtnForSubmitCreateObjectData();
 			default:
 				System.out.println("Option not found");
 			}
@@ -795,9 +896,63 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 		}
 	}
 
-	// Create Course objects from Create menu items
-	// Enter Data in fields
-	//Added rumba,skillspath,cmtskills as part of NALS
+	//Added New properties in Alfresco Course Property Form as part of NALS
+	
+		public void enterDataForCreateCourseObjectNewFields(String levelOne, String levelTwo,
+				String numFormat, String startValue, String restartAtLevel,String productType,String cmtStandards) {
+		try {
+			
+			if (!levelOne.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver, levelLable1Xpath,
+						levelOne);
+			}
+			
+			if (!levelTwo.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver, levelLable2Xpath,
+						levelTwo);
+			}
+			
+			if (!numFormat.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver, numberingFormatXpath, numFormat);
+			}
+			
+			if (!startValue.isEmpty()) {
+				UIHelper.selectbyVisibleText(driver,startValueXpath,startValue );
+			}
+			
+			if (!restartAtLevel.isEmpty()) {
+				UIHelper.selectbyVisibleText(driver,restartatLevelXpath,restartAtLevel );
+			}
+			
+			if (!productType.isEmpty()) {
+				UIHelper.selectbyVisibleText(driver,productTypeXpath,productType );
+			}
+			
+			if (!cmtStandards.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver,cmtStandardsXpath,cmtStandards );
+			}
+			
+			
+report.updateTestLog("Input data for new fields (Level Automation,Product Configuration,Program Standards) in 'Course' object",
+					"User able to enter data for 'Course' object"
+							+ "<br>Level 1 Lable: " + levelOne + 
+							", " + "Level 2 Lable: " + levelTwo+ 
+							", <br>Numbering Format: " + numFormat+ 
+							", <br>Start Value: " + startValue
+							+ "Restart at Level: " + restartAtLevel +
+							", <br>Product Type: " + productType +
+							", <br>CMT Standards: " + cmtStandards, Status.DONE);
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// New Dynamic Content Object Details - Added as a part of NALS
+
+	// Create Course objects from Create menu items - Enter Data in fields
+	//Added rumba,skillspath as part of NALS
 	public void enterBasicDataForCreateCourseObject(String name, String title,
 			String description, String courseAbbrevation, String discipline,String rumba,String skillspath,String cmtskills) {
 
@@ -855,20 +1010,20 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 		        System.out.println("3");
 			}else {
 				report.updateTestLog("Input data to create 'Course' object",
-						"User un able to enter data for CMT Skills of Course Object"
+						"User unable to enter data for CMT Skills of Course Object"
 								+ "<br>Name: " + name + ", " + "Title: " + title
 								+ ", <br>" + "Description: " + description
 								+ ", <br>Course Abbrevation: " + courseAbbrevation
 								+ "<br>Discipline: " + discipline 
 								+ "<br>CMT Skills Discipline: " + cmtskills, Status.FAIL);
 			}
-			/*report.updateTestLog("Input data to create 'Course' object",
+			report.updateTestLog("Input data to create 'Course' object",
 					"User able to enter data for 'Course' object"
 							+ "<br>Name: " + name + ", " + "Title: " + title
 							+ ", <br>" + "Description: " + description
 							+ ", <br>Course Abbrevation: " + courseAbbrevation
 							+ "Discipline: " + discipline 
-							+ "CMT Skills Discipline: " + cmtskills, Status.DONE);*/
+							+ "CMT Skills Discipline: " + cmtskills, Status.DONE);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -898,8 +1053,8 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			}
 
 			if (!discipline.isEmpty()) {
-				UIHelper.selectbyVisibleText(driver,
-						disciplizeDropdownXpathInCreateObject, discipline);
+				Select selectBox = new Select(driver.findElement(By.xpath(disciplizeDropdownXpathInCreateObject)));
+				selectBox.selectByIndex(2);
 			}
 
 			if (!mediaType.isEmpty()) {
@@ -922,7 +1077,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	// Create Container from Create menu items
 	// Enter Data in fields
 	public void enterBasicDataForContainer(String name, String title,
-			String description, String discipline) {
+			String description, String discipline,String foliostart) {
 		try {
 			UIHelper.waitForVisibilityOfEleByXpath(driver,
 					nameFieldXpathInCreateObject);
@@ -942,8 +1097,13 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			}
 
 			if (!discipline.isEmpty()) {
-				UIHelper.selectbyVisibleText(driver,
-						disciplizeDropdownXpathInCreateObject, discipline);
+				Select selectBox = new Select(driver.findElement(By.xpath(disciplizeDropdownXpathInCreateObject)));
+				selectBox.selectByIndex(2);
+			}
+			
+			if (!foliostart.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver, foliostartXpath,
+						foliostart);
 			}
 
 			report.updateTestLog("Input data to create 'Container' object",
@@ -961,7 +1121,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	// Enter Data in fields
 	public void enterBasicDataForContentObject(String name, String title,
 			String description, String contentType, String contribSource,
-			String realizeFileType, String mediaType, String discipline) {
+			String realizeFileType, String mediaType, String discipline,String folioprefix,String foliostart,String foliostyle,String tocIncludeFrom,String tocIncludeTo,String aggregationtype) {
 		try {
 			UIHelper.waitForVisibilityOfEleByXpath(driver,
 					nameFieldXpathInCreateObject);
@@ -1007,7 +1167,28 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				UIHelper.selectbyVisibleText(driver,
 						mediaTypeDropdownXpathInCreateObject, mediaType);
 			}
-
+			//Added as part of NALS
+			System.out.println("Content Object");
+			if (!folioprefix.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver, folioprefixXpath,
+						folioprefix);
+			}System.out.println("folioprefix:"+folioprefix);
+			
+			if (!foliostyle.isEmpty()) {
+				Select selectBox = new Select(driver.findElement(By.xpath(foliostyleXpath)));
+				selectBox.selectByIndex(1);	
+			}System.out.println("Content Object");
+			
+			if (!foliostart.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver, foliostartXpath,
+						foliostart);
+			}System.out.println("foliostart:"+foliostart);
+			
+			if (!aggregationtype.isEmpty()) {
+				Select selectBox = new Select(driver.findElement(By.xpath(aggregationtypeXpath)));
+				selectBox.selectByIndex(1);
+			}
+			System.out.println("Content Object");
 			report.updateTestLog("Input data to create 'Content Object'",
 					"User able to enter data for 'Content Object'"
 							+ "<br>Name: " + name + ", " + "Title: " + title
@@ -1915,6 +2096,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				String dataType = "";
 				String value = "";
 				StringTokenizer subToken = new StringTokenizer(docProperty, "-");
+				System.out.println("subToken " + subToken.toString());
 				while (subToken.hasMoreElements()) {
 					title = subToken.nextToken().trim();
 					dataType = subToken.nextToken().trim();
@@ -2186,30 +2368,32 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 		}
 	}
 	
-	//upload updated file in collection site -New method Added for NALS
+	//upload updated file in collection site -Added for NALS
 	public void uploadUpdatedFileInCollectionSite(String filePath, String fileName) {
-	try {
-	String finalFilePath;
-	if (filePath.contains("Automation/Alfresco")) {
-		finalFilePath = filePath;
-	} else {
-		finalFilePath = filePath;
+		try {
+			String finalFilePath;
+			if (filePath.contains("Automation/Alfresco")) {
+				finalFilePath = filePath;
+			} else {
+				//Added for NALS
+				finalFilePath = filePath;
+			}
+			
+			if (fileName.contains(",")) {
+				String splittedFileNames[] = fileName.split(",");
+				for (String fileNameVal : splittedFileNames) {
+					commonMethodForUploadMultipleFiles(finalFilePath,
+							fileNameVal);
+				}
+			} else {
+				commonMethodForUploadMultipleFiles(finalFilePath, fileName);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-
-	if (fileName.contains(",")) {
-	String splittedFileNames[] = fileName.split(",");
-	for (String fileNameVal : splittedFileNames) {
-	commonMethodForUploadMultipleFiles(finalFilePath,
-	fileNameVal);
-	}
-	} else {
-	commonMethodForUploadMultipleFiles(finalFilePath, fileName);
-	}
-
-	} catch (Exception e) {
-	e.printStackTrace();
-	}
-	}
+	
 
 	public void commonMethodForUploadMultipleFiles(String filePath,
 			String fileName) {
@@ -2640,6 +2824,140 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 
 		}
 	}
+	
+	// Add Thumbnail child reference Added for NALS
+		public void addThumbnailChildReference(String refFolderName, String asset, String objectName) {
+			try {
+			
+				//Click on Assets
+				String finalrefFolderXpath = refFolderXpath.replace("CRAFT",refFolderName);
+				UIHelper.waitForVisibilityOfEleByXpath(driver, finalrefFolderXpath);
+				UIHelper.click(driver, finalrefFolderXpath);
+				UIHelper.waitFor(driver);
+				//Click on Thumbnails
+				String finalrefFolderthumbnailXpath = refFolderXpaththumb.replace("CRAFT",asset);
+				UIHelper.waitForVisibilityOfEleByXpath(driver, finalrefFolderthumbnailXpath);
+				UIHelper.click(driver, finalrefFolderthumbnailXpath);
+				UIHelper.waitFor(driver);
+							
+				UIHelper.waitForVisibilityOfEleByXpath(driver,refFolderXpaththumbFile);
+				UIHelper.highlightElement(driver, refFolderXpaththumbFile);
+				UIHelper.click(driver, refFolderXpaththumbFile);
+				UIHelper.waitFor(driver);
+				
+				// Click on "OK"
+				UIHelper.click(driver, childRefOkXpath);
+				UIHelper.waitFor(driver);
+				UIHelper.waitFor(driver);
+				
+				report.updateTestLog(
+						"Add reference object in Child reference pop up",
+						"Reference object is added successfully"
+								+ "<br><b>Reference Object Name: </br>"
+								+ objectName, Status.DONE);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				report.updateTestLog(
+						"Add reference object in Child reference pop up",
+						"Failed to add reference object"
+								+ "<br><b>Reference Object Name: </br>"
+								+ objectName, Status.FAIL);
+
+			}
+		}
+		
+		// Added for Image add child xpath
+		
+		public void addImageChildReference(String refFolderName, String asset,String folder) {
+			try {
+			
+				//Click on Assets
+				String finalrefFolderXpath = refFolderXpath.replace("CRAFT",refFolderName);
+				UIHelper.waitForVisibilityOfEleByXpath(driver, finalrefFolderXpath);
+				UIHelper.click(driver, finalrefFolderXpath);
+				UIHelper.waitFor(driver);
+				//Click on Image
+				String finalrefFolderthumbnailXpath = refFolderXpaththumb.replace("CRAFT",asset);
+				UIHelper.waitForVisibilityOfEleByXpath(driver, finalrefFolderthumbnailXpath);
+				UIHelper.click(driver, finalrefFolderthumbnailXpath);
+				UIHelper.waitFor(driver);
+				
+				//Click on a
+				String finalrefFolderaXpath = refFolderXpaththumb.replace("CRAFT",folder);
+				UIHelper.waitForVisibilityOfEleByXpath(driver, finalrefFolderaXpath);
+				UIHelper.click(driver, finalrefFolderaXpath);
+				UIHelper.waitFor(driver);
+							
+				UIHelper.waitForVisibilityOfEleByXpath(driver,refFolderXpaththumbFile);
+				UIHelper.highlightElement(driver, refFolderXpaththumbFile);
+				UIHelper.click(driver, refFolderXpaththumbFile);
+				UIHelper.waitFor(driver);
+				
+				UIHelper.waitForVisibilityOfEleByXpath(driver,refFolderXpaththumbFilee);
+				UIHelper.highlightElement(driver, refFolderXpaththumbFilee);
+				UIHelper.click(driver, refFolderXpaththumbFilee);
+				UIHelper.waitFor(driver);
+				
+				// Click on "OK"
+				UIHelper.click(driver, childRefOkXpath);
+				UIHelper.waitFor(driver);
+				UIHelper.waitFor(driver);
+				
+				report.updateTestLog(
+						"Add reference object in Child reference pop up",
+						"Reference object is added successfully"
+								+ "<br><b>Reference Object Name: </br>"
+								, Status.DONE);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				report.updateTestLog(
+						"Add reference object in Child reference pop up",
+						"Failed to add reference object"
+								+ "<br><b>Reference Object Name: </br>"
+								, Status.FAIL);
+
+			}
+		}
+		
+		
+		// Add Project Files child reference Added for NALS
+				public void addProjectFilesChildReference(String refFolderName) {
+					try {
+					
+						//Click on Project Files
+						String finalrefFolderXpath = refFolderXpath.replace("CRAFT",refFolderName);
+						UIHelper.waitForVisibilityOfEleByXpath(driver, finalrefFolderXpath);
+						UIHelper.click(driver, finalrefFolderXpath);
+						UIHelper.waitFor(driver);
+						// Click on the file								
+						UIHelper.waitForVisibilityOfEleByXpath(driver,refFolderXpaththumbFile);
+						UIHelper.highlightElement(driver, refFolderXpaththumbFile);
+						UIHelper.click(driver, refFolderXpaththumbFile);
+						UIHelper.waitFor(driver);
+											
+						// Click on "OK"
+						UIHelper.click(driver, childRefOkXpath);
+						UIHelper.waitFor(driver);
+						UIHelper.waitFor(driver);
+						
+						report.updateTestLog(
+								"Add reference object in Child reference pop up",
+								"Reference object is added successfully"
+										+ "<br><b>Reference Object Name: </br>"
+										, Status.DONE);
+
+					} catch (Exception e) {
+						e.printStackTrace();
+						report.updateTestLog(
+								"Add reference object in Child reference pop up",
+								"Failed to add reference object"
+										+ "<br><b>Reference Object Name: </br>"
+										, Status.FAIL);
+
+					}
+				}
 
 	// Get External ID
 	public int getExternalId() {
@@ -2852,7 +3170,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 					moreSettingsOptElement);
 			report.updateTestLog("Click on " + moreSettingsOptName,
 					"User able to click the " + moreSettingsOptName,
-					Status.PASS);
+					Status.PASS);			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -3137,7 +3455,6 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			}
 
 			for (String folderName : foldersListFromLeftTreeInShareUi) {
-				System.out.println(folderName);
 				listOfFolders.append(i++ + "." + folderName + ",\n");
 			}
 
@@ -3171,7 +3488,6 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			}
 
 			for (String folderName : foldersListFromLeftTreeInCollectionUi) {
-				System.out.println(folderName);
 				listOfFolders.append(i++ + "." + folderName + ",\n");
 			}
 
@@ -3245,7 +3561,6 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			}
 
 			for (String folderName : foldersListFromRightPanInShareUi) {
-				System.out.println(folderName);
 				listOfFolders.append(i++ + "." + folderName + ",\n");
 			}
 
@@ -4561,13 +4876,19 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 					+ "is available", fileName1 + " is not available",
 					Status.FAIL);
 		}
-		System.out.println("inside CSVFilename");
-		System.out.println("filename1"+fileName1);
+		
 		String filename2 = mediaTransPage.RetreiveFilename(fileName1);
-		System.out.println("filename2"+filename2);
+		
 		int len = filename2.length();
-		String name = filename2.substring(0, len - 9);
+		String name="";
+		if(!filename2.contains(".json")){
+			name = filename2.substring(0, len - 9);	
+		}else {
+			name = filename2.substring(0, len - 10);
+		}
+		System.out.println("filename1"+fileName1);
 		System.out.println("name"+name);
+		System.out.println("filename2"+filename2);
 		String filterselection = dataTable.getData("MyFiles",
 				"CSVFilteroptions");
 		if (filterselection.contentEquals("NO FILTER")) {
@@ -6942,22 +7263,554 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				report.updateTestLog("Verify Create Alignment",
 						"Error in method : createAlignment()", Status.FAIL);
 			}
-		   
-		   
-	   
-	   
+		 
    }
+	   
+	   // Added for NALS - Active Preview pop up 
+	   
+		// Click on Create Button
+			public String clickOnOKButtoninActivePreview() {
+				
+				String activePreviewURL="";
+				try {
+					UIHelper.waitFor(driver);
+					/*String xpath ="//div[@id='prompt_h']";
+					String	webElementText = driver.findElement(By.xpath(xpath)).getText();
+					System.out.println("ACTIVE PREVIEW Heading :: " + webElementText );
+				*/
+					
+					String xpathofUrl = "/html/body/div[2]/div[1]/div[2]";		
+					activePreviewURL = driver.findElement(By.xpath(xpathofUrl)).getText();
+					System.out.println("ACTIVE PREVIEW URL:: " + activePreviewURL );
+					UIHelper.waitFor(driver);
+					
+					UIHelper.waitForVisibilityOfEleByXpath(driver, activePreviewOKXpath);
+					UIHelper.click(driver, activePreviewOKXpath);
+					UIHelper.waitFor(driver);
+							
+				} catch (Exception e) {
+					e.printStackTrace();
+				}return activePreviewURL;
+			}
 
    
+	   //******************************Added for NALS Job queue UI**********************************//
    
-   
-   
-   
-   
-   
-   
-   
+	   String csvFileNameXpath =	"//*[contains(@id,'ALF-CMS-3_x007e_dashboard_x0023_default-jobsList')]//table//tbody[2]//tr//td//a[contains(.,'CRAFT')]";
+		String userNameXpath =	"//*[contains(@id,'ALF-CMS-3_x007e_dashboard_x0023_default-jobsList')]//table//tbody[2]//tr//td//div[contains(text(), 'CRAFT')]";
+		String siteNameXpath =	"//*[contains(@id,'ALF-CMS-3_x007e_dashboard_x0023_default-jobsList')]//table//tbody[2]//tr//td//a[contains(.,'CRAFT')]";
+		String jobTypeXpath ="//*[contains(@id,'ALF-CMS-3_x007e_dashboard_x0023_default-jobsList')]//table//tbody[2]//tr//td[2]//div[contains(text(),'Course Import')]";
+		String jobTypeXpath1 ="//*[contains(@id,'ALF-CMS-3_x007e_dashboard_x0023_default-jobsList')]//table//tbody[2]//tr//td[2]//div[contains(text(),'Collection to Realize')]";
+		String serverNameXpath = "//*[contains(@id,'ALF-CMS-3_x007e_dashboard_x0023_default-jobsList')]//table//tbody[2]//tr//td[3]//div[contains(text(),'CRAFT')]";
+		String progressXpath = "//*[contains(@id,'ALF-CMS-3_x007e_dashboard_x0023_default-jobsList')]//table//tbody[2]//tr//td[3]//div[contains(text(), 'CRAFT')]";
 			
-}
+		//dropdown values
+		 String dropDownXpath =	".//div[@class='toolbar flat-button'] //span[contains(@id,'dashboard_x0023_default-status')]";
+	   	String dropDownValueInProgress ="//div[@class='toolbar flat-button']//div[@id='yui-gen10']//ul//li//a[contains(.,'CRAFT')]";
+		
+		  public void selectInProgressDropDown (String Value) {
+		   
+		   String finaldropDownValueInProgress = dropDownValueInProgress.replace("CRAFT", dropDownValueInProgress);
+		   UIHelper.highlightElement(driver, dropDownXpath);
+		   UIHelper.click (driver,dropDownXpath);
+		   UIHelper.highlightElement(driver, finaldropDownValueInProgress);
+		   UIHelper.click (driver,finaldropDownValueInProgress);
+		 	   
+	   }
+	 	   
+	   public void isDataImportStatusDisplayed(String csvFileName,String userName,String reqSiteName,String jobType ,String serverName ,String progress ) {
+
+			try {
+				
+				/*UIHelper.highlightElement(driver, dropDownXpath);
+				
+				String themeName = dataTable.getData("MyFiles", "BrowseActionName");
+				UIHelper.selectDropdownList(driver, UIHelper.findAnElementbyXpath(driver,dropDownXpath), themeName);
+				UIHelper.click (driver,dropDownXpath);
+				*/
+				
+				String finalcsvFileNameXpath = csvFileNameXpath.replace("CRAFT", csvFileName);
+				String finaluserNameXpath = userNameXpath.replace("CRAFT", userName);
+				String finalsiteNameXpath = siteNameXpath.replace("CRAFT", reqSiteName);
+				String finaljobTypeXpath = jobTypeXpath.replace("CRAFT",jobType );
+				String finalserverNameXpath = serverNameXpath.replace("CRAFT", serverName);
+				String finalprogressXpath = progressXpath.replace("CRAFT", progress);
+					
+				UIHelper.highlightElement(driver, finalcsvFileNameXpath);
+									
+					if (UIHelper.checkForAnElementbyXpath(driver,finalcsvFileNameXpath))
+					{
+						UIHelper.highlightElement(driver, finalcsvFileNameXpath);
+						report.updateTestLog("Confirm CSV file name displayed for IN PROGRESS status",
+								" CSV filename is displayed ", Status.PASS);	
+					}
+					else
+					{
+						report.updateTestLog("Confirm CSV file name displayed for IN PROGRESS status",
+								" CSV filename is not displayed ", Status.FAIL);	
+					}
+					
+					UIHelper.highlightElement(driver, finaluserNameXpath);	
+					
+					if (UIHelper.checkForAnElementbyXpath(driver,finaluserNameXpath))
+					{
+						UIHelper.highlightElement(driver, finaluserNameXpath);
+						report.updateTestLog("Confirm that Username-ALF-CMS-3 is listed as the requestor for IN PROGRESS status",
+								" ALF-CMS-3 is listed as the requestor", Status.PASS);	
+					}
+					else
+					{
+						report.updateTestLog("Confirm that Username-ALF-CMS-3 is listed as the requestor for IN PROGRESS status",
+								"ALF-CMS-3 is listed as the requestor ", Status.FAIL);	
+					}
+					
+					UIHelper.highlightElement(driver, finalsiteNameXpath);	
+					
+					if (UIHelper.checkForAnElementbyXpath(driver,finalsiteNameXpath))
+					{
+						UIHelper.highlightElement(driver, finalsiteNameXpath);
+						report.updateTestLog("Confirm that the Site name from which you made the request is listed for IN PROGRESS status",
+								" Site name is listed", Status.PASS);	
+					}
+					else
+					{
+						report.updateTestLog("Confirm that the Site name from which you made the request is listed for IN PROGRESS status",
+								"Site name is not listed ", Status.FAIL);	
+					}
+					
+					UIHelper.highlightElement(driver,jobTypeXpath );	
+					
+					if (UIHelper.checkForAnElementbyXpath(driver,jobTypeXpath))
+					{
+						UIHelper.highlightElement(driver, jobTypeXpath);
+					System.out.println(jobTypeXpath);
+					
+						report.updateTestLog("Confirm that job is listed as Course Import for IN PROGRESS status",
+								" Course Import is listed", Status.PASS);	
+					}
+					else
+					{
+						report.updateTestLog("Confirm that the job type is listed for IN PROGRESS status",
+								"Course Import is not listed ", Status.FAIL);	
+					}
+					
+					UIHelper.highlightElement(driver,finalserverNameXpath );	
+					
+					if (UIHelper.checkForAnElementbyXpath(driver,finalserverNameXpath))
+					{
+						UIHelper.highlightElement(driver, finalserverNameXpath);
+						report.updateTestLog("Confirm that the server is listed for IN PROGRESS status",
+								" Server name is listed", Status.PASS);	
+					}
+					else
+					{
+						report.updateTestLog("Confirm that the server is listed for IN PROGRESS status",
+								"Server name is not listed ", Status.FAIL);	
+					}
+					
+					UIHelper.highlightElement(driver,finalprogressXpath );	
+					
+					if (UIHelper.checkForAnElementbyXpath(driver,finalprogressXpath))
+					{
+						UIHelper.highlightElement(driver, finalprogressXpath);
+						report.updateTestLog("Confirm that the progress is listed as In Progress",
+								" Site name is listed", Status.PASS);	
+					}
+					else
+					{
+						report.updateTestLog("Confirm that the progress is listed as In Progress ",
+								"Site name is not listed ", Status.FAIL);	
+					}
+					
+								
+					
+			} catch (Exception e) {
+				e.printStackTrace();
+				report.updateTestLog("Verify Relationship viewer",
+						"Verify Relationship viewer Failed", Status.FAIL);
+			}
+
+			
+		}
+   
+   
+	   public void isGenerateRealizeStatusDisplayed(String csvFileName,String userName,String reqSiteName,String jobType ,String serverName ,String progress ) {
+			
+			try {
+						
+				String finalcsvFileNameXpath = csvFileNameXpath.replace("CRAFT", csvFileName);
+				String finaluserNameXpath = userNameXpath.replace("CRAFT", userName);
+				String finalsiteNameXpath = siteNameXpath.replace("CRAFT", reqSiteName);
+			//	String finaljobTypeXpath = jobTypeXpath.replace("CRAFT",jobType );
+				String finalserverNameXpath = serverNameXpath.replace("CRAFT", serverName);
+				String finalprogressXpath = progressXpath.replace("CRAFT", progress);
+				
+				UIHelper.highlightElement(driver, finalcsvFileNameXpath);
+				
+				if (UIHelper.checkForAnElementbyXpath(driver,finalcsvFileNameXpath))
+				{
+					UIHelper.highlightElement(driver, finalcsvFileNameXpath);
+					report.updateTestLog("Confirm for the export job that the Course CSV filename is listed as a link to the file in the Data Exports folder",
+							" CSV filename is listed as a link ", Status.PASS);	
+				}
+				else
+				{
+					report.updateTestLog("Confirm for the export job that the Course CSV filename is listed as a link to the file in the Data Exports folder ",
+							" CSV filename is not listed ", Status.FAIL);	
+				}
+				
+				UIHelper.highlightElement(driver, finaluserNameXpath);	
+				
+				if (UIHelper.checkForAnElementbyXpath(driver,finaluserNameXpath))
+				{
+					UIHelper.highlightElement(driver, finaluserNameXpath);
+					report.updateTestLog("Confirm that Username-ALF-CMS-3 is listed as the requestor",
+							" ALF-CMS-3 is listed as the requestor", Status.PASS);	
+				}
+				else
+				{
+					report.updateTestLog("Confirm that Username-ALF-CMS-3 is listed as the requestor",
+							"ALF-CMS-3 is listed as the requestor ", Status.FAIL);	
+				}
+				
+				UIHelper.highlightElement(driver, finalsiteNameXpath);	
+				
+				if (UIHelper.checkForAnElementbyXpath(driver,finalsiteNameXpath))
+				{
+					UIHelper.highlightElement(driver, finalsiteNameXpath);
+					report.updateTestLog("Confirm that the Site name from which you made the request is listed",
+							" Site name is listed", Status.PASS);	
+				}
+				else
+				{
+					report.updateTestLog("Confirm that the Site name from which you made the request is listed ",
+							"Site name is not listed ", Status.FAIL);	
+				}
+				
+				UIHelper.highlightElement(driver,jobTypeXpath1 );	
+				
+				if (UIHelper.checkForAnElementbyXpath(driver,jobTypeXpath1))
+				{
+					UIHelper.highlightElement(driver, jobTypeXpath1);
+					report.updateTestLog("Confirm that job is listed as Collection to Realize ",
+							" Collection to Realize is listed", Status.PASS);	
+				}
+				else
+				{
+					report.updateTestLog("Confirm that job is listed as Collection to Realize ",
+							"Collection to Realize is not listed ", Status.FAIL);	
+				}
+				
+				UIHelper.highlightElement(driver,finalserverNameXpath );	
+				
+				if (UIHelper.checkForAnElementbyXpath(driver,finalserverNameXpath))
+				{
+					UIHelper.highlightElement(driver, finalserverNameXpath);
+					report.updateTestLog("Confirm that the server name is listed",
+							" Server name is listed", Status.PASS);	
+				}
+				else
+				{
+					report.updateTestLog("Confirm that the server name is listed",
+							"Server name is not listed ", Status.FAIL);	
+				}
+				
+				UIHelper.highlightElement(driver,finalprogressXpath );	
+				
+				if (UIHelper.checkForAnElementbyXpath(driver,finalprogressXpath))
+				{
+					UIHelper.highlightElement(driver, finalprogressXpath);
+					report.updateTestLog("Confirm that the progress is listed as In Progress",
+							" Progress is listed", Status.PASS);	
+				}
+				else
+				{
+					report.updateTestLog("Confirm that the progress is listed as In Progress ",
+							"Progress is not listed ", Status.FAIL);	
+				}
+				
+				
+
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+				report.updateTestLog("Verify Relationship viewer",
+						"Verify Relationship viewer Failed", Status.FAIL);
+			}
+
+			
+		}
+  
+   
+	   public void isDuplicateAllStatusDisplayed(String csvFileName,String userName,String reqSiteName,String jobType ,String serverName ,String progress ) {
+			
+			try {
+						
+				String finalcsvFileNameXpath = csvFileNameXpath.replace("CRAFT", csvFileName);
+				String finaluserNameXpath = userNameXpath.replace("CRAFT", userName);
+				String finalsiteNameXpath = siteNameXpath.replace("CRAFT", reqSiteName);
+			//	String finaljobTypeXpath = jobTypeXpath.replace("CRAFT",jobType );
+				String finalserverNameXpath = serverNameXpath.replace("CRAFT", serverName);
+				String finalprogressXpath = progressXpath.replace("CRAFT", progress);
+				
+				UIHelper.highlightElement(driver, finalcsvFileNameXpath);
+				
+				if (UIHelper.checkForAnElementbyXpath(driver,finalcsvFileNameXpath))
+				{
+					UIHelper.highlightElement(driver, finalcsvFileNameXpath);
+					report.updateTestLog("Confirm for the export job that the Course CSV filename is listed as a link to the file in the Data Exports folder",
+							" CSV filename is listed as a link ", Status.PASS);	
+				}
+				else
+				{
+					report.updateTestLog("Confirm for the export job that the Course CSV filename is listed as a link to the file in the Data Exports folder ",
+							" CSV filename is not listed ", Status.FAIL);	
+				}
+				
+				UIHelper.highlightElement(driver, finaluserNameXpath);	
+				
+				if (UIHelper.checkForAnElementbyXpath(driver,finaluserNameXpath))
+				{
+					UIHelper.highlightElement(driver, finaluserNameXpath);
+					report.updateTestLog("Confirm that Username-ALF-CMS-3 is listed as the requestor",
+							" ALF-CMS-3 is listed as the requestor", Status.PASS);	
+				}
+				else
+				{
+					report.updateTestLog("Confirm that Username-ALF-CMS-3 is listed as the requestor",
+							"ALF-CMS-3 is listed as the requestor ", Status.FAIL);	
+				}
+				
+				UIHelper.highlightElement(driver, finalsiteNameXpath);	
+				
+				if (UIHelper.checkForAnElementbyXpath(driver,finalsiteNameXpath))
+				{
+					UIHelper.highlightElement(driver, finalsiteNameXpath);
+					report.updateTestLog("Confirm that the Site name from which you made the request is listed",
+							" Site name is listed", Status.PASS);	
+				}
+				else
+				{
+					report.updateTestLog("Confirm that the Site name from which you made the request is listed ",
+							"Site name is not listed ", Status.FAIL);	
+				}
+				
+				UIHelper.highlightElement(driver,jobTypeXpath1 );	
+				
+				if (UIHelper.checkForAnElementbyXpath(driver,jobTypeXpath1))
+				{
+					UIHelper.highlightElement(driver, jobTypeXpath1);
+					report.updateTestLog("Confirm that job is listed as Collection to Realize ",
+							" Collection to Realize is listed", Status.PASS);	
+				}
+				else
+				{
+					report.updateTestLog("Confirm that job is listed as Collection to Realize ",
+							"Collection to Realize is not listed ", Status.FAIL);	
+				}
+				
+				UIHelper.highlightElement(driver,finalserverNameXpath );	
+				
+				if (UIHelper.checkForAnElementbyXpath(driver,finalserverNameXpath))
+				{
+					UIHelper.highlightElement(driver, finalserverNameXpath);
+					report.updateTestLog("Confirm that the server name is listed",
+							" Server name is listed", Status.PASS);	
+				}
+				else
+				{
+					report.updateTestLog("Confirm that the server name is listed",
+							"Server name is not listed ", Status.FAIL);	
+				}
+				
+				UIHelper.highlightElement(driver,finalprogressXpath );	
+				
+				if (UIHelper.checkForAnElementbyXpath(driver,finalprogressXpath))
+				{
+					UIHelper.highlightElement(driver, finalprogressXpath);
+					report.updateTestLog("Confirm that the progress is listed as In Progress",
+							" Progress is listed", Status.PASS);	
+				}
+				else
+				{
+					report.updateTestLog("Confirm that the progress is listed as In Progress ",
+							"Progress is not listed ", Status.FAIL);	
+				}
+					
+			} catch (Exception e) {
+				e.printStackTrace();
+				report.updateTestLog("Verify Relationship viewer",
+						"Verify Relationship viewer Failed", Status.FAIL);
+			}
+
+			
+		}
+	   
+	 //Click on Create Rules under Manage Rules Option NALS	      
+	   
+		public void clickOnCreateRules() {
+			try {
+				UIHelper.waitFor(driver);
+				UIHelper.waitForVisibilityOfEleByXpath(driver, createRulesLinkXpath);
+				UIHelper.click(driver, createRulesLinkXpath);
+				UIHelper.waitFor(driver);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		
+		//Method Added as part of NALS
+		public void createRulesBasicData(String ruleDetails) {
+			try {
+				String name = "", mimetype = "",performAction="Generate-ExcelToJSONAction";
+				String splittedFileValues[] = ruleDetails.split(",");
+
+				if (splittedFileValues != null) {
+				name = getFieldValueFromExcelForCreateObjects(
+							splittedFileValues, "name:");
+				mimetype = getFieldValueFromExcelForCreateObjects(
+							splittedFileValues, "mimetype:");
+					enterBasicDataForCreateRules(name, mimetype,performAction);
+					clickOnCreateBtnForRules();
+				}
+			} catch(Exception e) {
+					
+				}
+			}
+		
+		//Method and Variables declared as part of NALS
+		private String nameFieldXpathInCreateRules = "//*[@id=\"template_x002e_rule-edit_x002e_rule-edit_x0023_default-title\"]";
+		private String mimeTypeDropdownXpathInCreateRules = ".//*[contains(@id,'alf-id5')]";
+		private String mimeTypeOptionDropdownXpathInCreateRules = ".//*[contains(@id,'alf-id15')]";
+		private String performActionDropdownXpathInCreateRules="//*[@id=\"alf-id11\"]";
+		private String runInBackgroundXpath="//*[@id=\\\"template_x002e_rule-edit_x002e_rule-edit_x0023_default-executeAsynchronously\\\"]";
+		public void enterBasicDataForCreateRules(String name, String mimetype,String performAction) {
+
+			try {
+				UIHelper.waitForVisibilityOfEleByXpath(driver,
+						nameFieldXpathInCreateRules);
+
+				if (!name.isEmpty()) {
+					UIHelper.sendKeysToAnElementByXpath(driver,
+							nameFieldXpathInCreateRules, name);
+				}
+
+				if (!mimetype.isEmpty()) {
+					Select selectBox = new Select(driver.findElement(By.xpath(mimeTypeDropdownXpathInCreateRules)));
+					selectBox.selectByVisibleText("Mimetype");
+					Select selectBox1 = new Select(driver.findElement(By.xpath(mimeTypeOptionDropdownXpathInCreateRules)));
+					selectBox1.selectByVisibleText("Microsoft Excel 2007");
+				}
+				
+
+				
+				if(!performAction.isEmpty()) {
+					Select selectBox = new Select(driver.findElement(By.xpath(performActionDropdownXpathInCreateRules)));
+					selectBox.selectByVisibleText(performAction);
+				}
+				
+				driver.findElement(By.xpath(runInBackgroundXpath)).click();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		private String saveBtnXpathInCreateRules = "//*[@id=\"template_x002e_rule-edit_x002e_rule-edit_x0023_default-create-button-button\"]";
+		// Click on create Button
+		public void clickOnCreateBtnForRules() {
+			try {
+				UIHelper.click(driver, saveBtnXpathInCreateRules);
+				UIHelper.waitFor(driver);
+				UIHelper.waitFor(driver);
+				UIHelper.waitFor(driver);
+				report.updateTestLog("Click on 'Create' button",
+						"User clicked the 'Create' button", Status.DONE);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+	// Create Content objects from Create menu items
+		// Enter Data in fields
+		public void enterBasicDataForDynamicContentObject(String name, String title,
+				String description, String productType,String dynamiccontentType, String folioprefix,
+				String foliostyle, String foliostart, String tocIncludeFrom, String tocIncludeTo,String aggregationtype) {
+			try {
+				UIHelper.waitForVisibilityOfEleByXpath(driver,
+						nameFieldXpathInCreateObject);
+				UIHelper.waitFor(driver);
+				System.out.println("name inside enterBasicDataForDynamicContentObject"+name);
+				if (!name.isEmpty()) {
+					System.out.println("1");
+					UIHelper.sendKeysToAnElementByXpath(driver,nameFieldXpathInCreateObject, name);
+				}
+
+				if (!title.isEmpty()) {
+					UIHelper.sendKeysToAnElementByXpath(driver, titleXpath, title);
+				}
+
+				if (!description.isEmpty()) {
+					UIHelper.sendKeysToAnElementByXpath(driver, descriptionXpath,
+							description);
+				}
+
+				if (!productType.isEmpty()) {
+					Select selectBox = new Select(driver.findElement(By.xpath(productTypeDropdownXpathInCreateObject)));
+					selectBox.selectByIndex(6);
+				}
+
+				if (!dynamiccontentType.isEmpty()) {
+					Select selectBox = new Select(driver.findElement(By.xpath(dynamiccontentTypeDropdownXpathInCreateObject)));
+					selectBox.selectByIndex(3);
+					}
+
+				if (!folioprefix.isEmpty()) {
+					UIHelper.sendKeysToAnElementByXpath(driver, folioprefixXpath,
+							folioprefix);
+				}
+				
+				if (!foliostyle.isEmpty()) {
+					Select selectBox = new Select(driver.findElement(By.xpath(foliostyleXpath)));
+					selectBox.selectByIndex(1);	
+				}
+				
+				if (!foliostart.isEmpty()) {
+					UIHelper.sendKeysToAnElementByXpath(driver, foliostartXpath,
+							foliostart);
+				}
+
+				if (!tocIncludeFrom.isEmpty()) {
+					Select selectBox = new Select(driver.findElement(By.xpath(tocIncludeFromXpath)));
+					selectBox.selectByIndex(1);
+				} 
+				
+				if (!tocIncludeTo.isEmpty()) {
+					Select selectBox = new Select(driver.findElement(By.xpath(tocIncludeToXpath)));
+					selectBox.selectByIndex(1);
+				}
+				
+				if (!aggregationtype.isEmpty()) {
+					Select selectBox = new Select(driver.findElement(By.xpath(aggregationtypeXpath)));
+					selectBox.selectByIndex(1);
+				}
+				report.updateTestLog("Input data to create 'Content Object'",
+						"User able to enter data for 'Content Object'"
+								+ "<br>Name: " + name + ", " + "Title: " + title
+								+ ", <br>" + "Description: " + description
+								+ ", <br>" + "productType: " + productType
+								+ "Dynamic Content Type: " + dynamiccontentType
+								+ "<br>folio prefix: " + folioprefix
+								+ "folio style: " + foliostyle
+								+ "<br>folio start: " + foliostart
+								+ "toc Include From:"+tocIncludeFrom
+								+"toc Include To"+tocIncludeTo, Status.DONE);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+			
+		}
 
 

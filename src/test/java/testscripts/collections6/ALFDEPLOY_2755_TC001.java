@@ -208,6 +208,8 @@ public class ALFDEPLOY_2755_TC001 extends TestCase {
 //		verify error indicator
 		sitesPage.enterIntoDocumentLibrary();
 		myFiles.openCreatedFolder("Data Imports");
+		sitesPage.enterIntoDocumentLibrary();
+		myFiles.openCreatedFolder("Data Imports");
 		sitesPage.documentdetails("Completed");
 		sitesPage.documentdetails(collectionPg
 				.getFoldersFromRightPanInShareUi().get(0));

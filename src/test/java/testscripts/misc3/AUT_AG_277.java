@@ -54,21 +54,27 @@ public class AUT_AG_277 extends TestCase{
 		AlfrescoHomePageTest homePageTest = new AlfrescoHomePageTest(scriptHelper);
 		homePage.navigateToSitesTab();
 		
-		String site = dataTable.getData("Sites", "SiteName");
-		sitesPage.createSite(site, "Yes");
+		String siteName = dataTable.getData("Sites", "SiteName");
+		System.out.println("1"+siteName);
+		/*sitesPage.createSite(site, "Yes");
 		String siteName = sitesPage.getCreatedSiteName();
-		sitesPage.siteFinder(siteName);
+		sitesPage.siteFinder(siteName);*/
 		
-		homePage.navigateToSitesTab();
-		homePage.navigateToMySitesPage();
+		//homePage.navigateToSitesTab();
+		sitesPage.openSiteFromRecentSites(siteName);
+		System.out.println("2");
+		//homePage.navigateToMySitesPage();
 		
 		AlfrescoMySitesPage mySitesPage = new AlfrescoMySitesPage(scriptHelper);
 		mySitesPage.disableActivityFeeds(siteName);
+		System.out.println("3");
 		
 homePage.navigateToHomePage();
+System.out.println("5");
 String sitesFilterOptionVal = dataTable.getData("Home",
 		"SitesFilterDropdownValue");
 		String dashletNme = dataTable.getData("Home", "DashletName");
+		System.out.println("6"+sitesFilterOptionVal+""+dashletNme);
 		if(!homePage.checkDashletInUserDashboard(dashletNme))
 		{
 			homePage.addDashletInCustomDashBoard();

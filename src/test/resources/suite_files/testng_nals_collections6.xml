@@ -13,7 +13,7 @@
 			
 		 	 <class name="testscripts.collections6.ALFDEPLOY_3190_TC001" /> 
 			<class name="testscripts.collections6.ALFDEPLOY_3190_TC003" /> 
-			 <class name="testscripts.collections6.ALFDEPLOY_3190_TC006" /><!-- Map issue--> 
+			 <class name="testscripts.collections6.ALFDEPLOY_3190_TC006" />
 			
 		 <class name="testscripts.collections6.ALFDEPLOY_3191_TC017" /> 
 			<class name="testscripts.collections6.ALFDEPLOY_3191_TC027" />  

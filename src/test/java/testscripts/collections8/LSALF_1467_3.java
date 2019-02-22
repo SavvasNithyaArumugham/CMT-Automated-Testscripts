@@ -120,7 +120,7 @@ public class LSALF_1467_3 extends TestCase {
 					UIHelper.waitFor(driver);
 					collectionPg.commonMethodForClickOnMoreSettingsOption("AutoContentObj","View Details");
 					UIHelper.waitFor(driver);
-					collectionPg.VerifyPropertyValueINviewDetails("Comprehension Skills:", "Alike and Different,Author’s Purpose");	
+					collectionPg.VerifyPropertyValueINviewDetails("Comprehension Skills:", "Alike and Different,Cause/Effect");	
 					UIHelper.waitFor(driver);
 }
 

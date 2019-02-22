@@ -89,8 +89,8 @@ public class ALFDEPLOY_2767_TC001_P1 extends TestCase {
 		myFiles.openCreatedFolder(folderNames[1]);
 		collectionPg.clickOnEditCollectionButton();
 
-		// enter into default course object
-		collectionPg.openCollectionObject(collectionObjectName);
+		// enter into default course object Modified as part of NALS
+		//collectionPg.openCollectionObject(collectionObjectName);
 
 		// create collections objects
 		collectionPg
@@ -171,7 +171,7 @@ public class ALFDEPLOY_2767_TC001_P1 extends TestCase {
 		for (String objectName : levelOneObjectList) {
 			UIHelper.waitFor(driver);
 			UIHelper.waitFor(driver);
-			if (!objectName.contains("Asset")) {
+			if (!objectName.contains("Asset") && !objectName.contains("Course")) {//Modified as part of NALS
 				collectionPg.clickOnMoreSetting(objectName);
 				collectionPg.commonMethodForClickOnMoreSettingsOption(
 						objectName, "Duplicate all");
@@ -186,7 +186,7 @@ public class ALFDEPLOY_2767_TC001_P1 extends TestCase {
 		for (String objectName : levelOneObjectList) {
 			UIHelper.waitFor(driver);
 			UIHelper.waitFor(driver);
-			if (!objectName.contains("Asset")) {
+			if (!objectName.contains("Asset")&& !objectName.contains("Course")) {//Modified as part of NALS
 				collectionPg.clickOnMoreSetting(objectName);
 				collectionPg.commonMethodForClickOnMoreSettingsOption(
 						objectName, "Duplicate all to..");
@@ -196,7 +196,7 @@ public class ALFDEPLOY_2767_TC001_P1 extends TestCase {
 			UIHelper.waitFor(driver);
 
 		}
-		String assetTypes = dataTable.getData("MyFiles", "AssetTypes3");
+		/*String assetTypes = dataTable.getData("MyFiles", "AssetTypes3");
 
 		sitesPage.enterIntoDocumentLibrary();
 		UIHelper.waitFor(driver);
@@ -334,11 +334,11 @@ public class ALFDEPLOY_2767_TC001_P1 extends TestCase {
 			UIHelper.waitFor(driver);
 			UIHelper.waitFor(driver);
 
-		}
+		}*/
 		
 
 
-		sitesPage.enterIntoDocumentLibrary();
+		/*sitesPage.enterIntoDocumentLibrary();
 		UIHelper.waitFor(driver);
 		UIHelper.waitFor(driver);
 		// add parent reference to duplicated object except course using
@@ -416,7 +416,7 @@ public class ALFDEPLOY_2767_TC001_P1 extends TestCase {
 		} catch (Exception e) {
 			// TODO: handle exception
 
-		}
+		}*/
 	}
 
 	@Override

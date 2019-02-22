@@ -29,9 +29,7 @@ public class LSALF_1709_3 extends TestCase {
 	@Test
 	public void COLLECTIONS_03() {
 		testParameters.setCurrentTestDescription(
-				
 				"Confirm Genres property dropdown allows to add multi select values");
-
 		testParameters.setIterationMode(IterationOptions.RunOneIterationOnly);
 
 		driverScript = new DriverScript(testParameters);

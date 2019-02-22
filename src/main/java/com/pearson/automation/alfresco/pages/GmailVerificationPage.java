@@ -25,8 +25,11 @@ public class GmailVerificationPage extends ReusableLibrary {
 
 	private String gmailSubjectXpath = ".//*[contains(text(), 'Mail Subject')]";
 	private String mailIconXpath = ".//*[@id='gbq1']/div/a/span";
-	private String searchinputXpath = ".//*[@id='gbqfq']";
-	private String searchBtnXpath = ".//*[@id='gbqfb']";
+/*	private String searchinputXpath = ".//*[@id='gbqfq']";
+	private String searchBtnXpath = ".//*[@id='gbqfb']";*/
+	
+	private String searchinputXpath = ".//input[@aria-label='Search mail']";
+	private String searchBtnXpath = ".//button[@aria-label='Search Mail']";
 
 	private String searchMailListXpath = ".//span[contains(.,'You have been assigned a task')]";
 	private String searchMailXpath = ".//tr[1]//span[contains(.,'You have been assigned') and contains(.,'CRAFT')]";
@@ -148,13 +151,13 @@ public class GmailVerificationPage extends ReusableLibrary {
 		performLogin(userName, password);
 	}
 
-	private void performLogin(String userName, String password) {
+	/*private void performLogin(String userName, String password) {
 		try {
-			/*
+			
 			 * driver.findElement(By.id("UsernameTextBox")).sendKeys(userName);
 			 * driver.findElement(By.id("PasswordTextBox")).sendKeys(password);
 			 * driver.findElement(By.id("SubmitButton")).click();
-			 */
+			 
 
 			driver.findElement(By.id("user-name-txt")).sendKeys(userName);
 			driver.findElement(By.id("pwd-txt")).sendKeys(password);
@@ -169,6 +172,56 @@ public class GmailVerificationPage extends ReusableLibrary {
 		} catch (Exception e) {
 			report.updateTestLog("Login into Pearson mail", "Login to Gmail failed", Status.FAIL);
 		}
+	}*/
+	private String continueButtonXpath="//span[contains(text(),'Continue')]";
+	private String skipForNowXpath="//a[text()='Skip for now']";
+	private void performLogin(String userName, String password) {
+	try {
+	/*
+	* driver.findElement(By.id("UsernameTextBox")).sendKeys(userName);
+	* driver.findElement(By.id("PasswordTextBox")).sendKeys(password);
+	* driver.findElement(By.id("SubmitButton")).click();
+	*/
+
+
+	driver.findElement(By.id("user-name-txt")).sendKeys(userName);
+	driver.findElement(By.id("pwd-txt")).sendKeys(password);
+	driver.findElement(By.id("signin-button")).click();
+	UIHelper.waitFor(driver);
+	UIHelper.waitForPageToLoad(driver);
+	UIHelper.waitFor(driver);
+
+	try{
+	UIHelper.waitForVisibilityOfEleByXpath(driver, skipForNowXpath);
+	if(UIHelper.checkForAnElementbyXpath(driver, skipForNowXpath)){
+	UIHelper.click(driver, skipForNowXpath);
+	UIHelper.waitForPageToLoad(driver);
+	UIHelper.waitFor(driver);
+	UIHelper.waitForPageToLoad(driver);
+	}
+	}catch(Exception e){
+	e.printStackTrace();
+	}
+
+	try {
+	UIHelper.waitForVisibilityOfEleByXpath(driver, continueButtonXpath);
+	if(UIHelper.checkForAnElementbyXpath(driver, continueButtonXpath))
+	UIHelper.click(driver, continueButtonXpath);
+	UIHelper.waitForPageToLoad(driver);
+	UIHelper.waitFor(driver);
+	UIHelper.waitForPageToLoad(driver);
+	UIHelper.waitFor(driver);
+	} catch (Exception e) {
+	UIHelper.waitForPageToLoad(driver);
+	UIHelper.waitFor(driver);
+	UIHelper.waitFor(driver);
+	}
+
+	report.updateTestLog("Login into Pearson mail",
+	"Enter login credentials: " + "<br /><b>Username : </b>" + userName, Status.DONE);
+	} catch (Exception e) {
+	report.updateTestLog("Login into Pearson mail", "Login to Gmail failed", Status.FAIL);
+	}
 	}
 
 	public void searchWFStatusmessage(String Msg) {

@@ -49,15 +49,11 @@ public class LSALF_1709_5 extends TestCase {
 
 	@Override
 	public void executeTest() {
-		
-
-		
 		AlfrescoSitesPage sitesPage = new AlfrescoSitesPage(scriptHelper);
 		AlfrescoLoginPage signOnPage = new AlfrescoLoginPage(scriptHelper);
 		AlfrescoHomePage homePageObj = new AlfrescoHomePage(scriptHelper);
 		AlfrescoMyFilesPage myFiles = new AlfrescoMyFilesPage(scriptHelper);
-		AlfrescoCollectionsPage collectionPg = new AlfrescoCollectionsPage(scriptHelper);
-		AlfrescoMediaTransformPage mediaTransPage = new AlfrescoMediaTransformPage(scriptHelper);
+		AlfrescoCollectionsPage collectionPg = new AlfrescoCollectionsPage(scriptHelper);		
 				
 		String[] filePath = dataTable.getData("MyFiles", "FilePath").split("/");
 		String filepathfile = dataTable.getData("MyFiles", "uploadpath");

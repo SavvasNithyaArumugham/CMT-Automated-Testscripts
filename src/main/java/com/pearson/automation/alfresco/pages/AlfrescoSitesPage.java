@@ -2401,6 +2401,57 @@ public class AlfrescoSitesPage extends ReusableLibrary {
 		return new AlfrescoMyFilesPage(scriptHelper);
 	}
 
+	//Added fo NALS - method for perform browse action for (partial name)file or folder 
+	
+	public AlfrescoMyFilesPage commonMethodForPerformBrowseOptionJson(String fileOrFolderName, String browseOption) {
+		try {
+			
+			 String selectedFolderORFileItemXpathJson = "//*[@class='filename']//a[contains(text(),'CRAFT')]//ancestor::td";
+			 String tempXpathForBrowseActionJson = "//*[contains(@id,'yuievtautoid')]//a[contains(text(),'CRAFT')]//ancestor::tr//a/span[contains(.,'BROWSE_OPTION')]";
+			 String tempSelectFolderChkboxXpathJson = "//*[@class='filename']//a[contains(text(),'CRAFT')]//ancestor::tr//td[1]//*[@type='checkbox']";
+			
+			String finalSelectFolderChkboxXpath = tempSelectFolderChkboxXpathJson.replace("CRAFT", fileOrFolderName);
+			String finalselectedFolderORFileItemXpath = selectedFolderORFileItemXpathJson.replace("CRAFT",fileOrFolderName);
+			String finalXpathForBrowseActionOptionLink = tempXpathForBrowseActionJson.replace("CRAFT", fileOrFolderName).replace("BROWSE_OPTION", browseOption);
+			
+			UIHelper.waitFor(driver);
+			/*UIHelper.waitForVisibilityOfEleByXpath(driver, pageTitleXpath);
+			
+			WebElement pageHeaderEle = UIHelper.findAnElementbyXpath(driver, pageTitleXpath);
+			UIHelper.highlightElement(driver, pageHeaderEle);
+*/
+			UIHelper.waitForVisibilityOfEleByXpath(driver, pageBodyXpath);
+
+					
+					WebElement chkboxElement = UIHelper.findAnElementbyXpath(driver, finalSelectFolderChkboxXpath);
+					UIHelper.highlightElement(driver, chkboxElement);
+					JavascriptExecutor executor = (JavascriptExecutor) driver;
+					executor.executeScript("arguments[0].click();", chkboxElement);
+					UIHelper.waitFor(driver);
+
+					WebElement folderEle = UIHelper.findAnElementbyXpath(driver, finalselectedFolderORFileItemXpath);
+					UIHelper.scrollToAnElement(folderEle);
+					UIHelper.highlightElement(driver, folderEle);
+					UIHelper.mouseOveranElement(driver, folderEle);
+
+					WebElement browseActionEle = UIHelper.findAnElementbyXpath(driver,
+							finalXpathForBrowseActionOptionLink);
+					UIHelper.highlightElement(driver, browseActionEle);
+					executor.executeScript("arguments[0].click();", browseActionEle);
+					UIHelper.waitForPageToLoad(driver);
+					UIHelper.waitFor(driver);
+					
+				
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return new AlfrescoMyFilesPage(scriptHelper);
+	}
+	
+	
+	
 	public boolean checkMoreOptions(String fileOrFolderName) {
 		boolean isDisplayedMoreOptions = false;
 		try {
@@ -3783,6 +3834,7 @@ public class AlfrescoSitesPage extends ReusableLibrary {
 			UIHelper.waitForPageToLoad(driver);
 			UIHelper.waitFor(driver);
 			String finalFileXpath = tempFileXpath.replace("CRAFT", file);
+			System.out.println("finalFileXpath"+finalFileXpath);
 			UIHelper.waitForVisibilityOfEleByXpath(driver, finalFileXpath);
 			if (UIHelper.checkForAnElementbyXpath(driver, finalFileXpath)) {
 				UIHelper.waitForVisibilityOfEleByXpath(driver, finalFileXpath);
@@ -6677,5 +6729,52 @@ public class AlfrescoSitesPage extends ReusableLibrary {
 			} catch (Exception e) {
 			}
 			}
+	
+	public AlfrescoMyFilesPage commonMethodForPerformBrowseOptionJson1(String fileOrFolderName, String browseOption) {
+		try {
+			
+			 String selectedFolderORFileItemXpathJson = "//*[@class='filename']//a[contains(text(),'CRAFT')]//ancestor::td";
+			 String tempXpathForBrowseActionJson = "//*[contains(@id,'yuievtautoid')]//a[contains(text(),'CRAFT')]//ancestor::tr//a/span[contains(.,'BROWSE_OPTION')]";
+			 String tempSelectFolderChkboxXpathJson = "//*[@class='filename']//a[contains(text(),'CRAFT')]//ancestor::tr//td[1]//*[@type='checkbox']";
+			
+			String finalSelectFolderChkboxXpath = tempSelectFolderChkboxXpathJson.replace("CRAFT", fileOrFolderName);
+			String finalselectedFolderORFileItemXpath = selectedFolderORFileItemXpathJson.replace("CRAFT",fileOrFolderName);
+			String finalXpathForBrowseActionOptionLink = tempXpathForBrowseActionJson.replace("CRAFT", fileOrFolderName).replace("BROWSE_OPTION", browseOption);
+			
+			UIHelper.waitFor(driver);
+			/*UIHelper.waitForVisibilityOfEleByXpath(driver, pageTitleXpath);
+			
+			WebElement pageHeaderEle = UIHelper.findAnElementbyXpath(driver, pageTitleXpath);
+			UIHelper.highlightElement(driver, pageHeaderEle);
+*/
+			UIHelper.waitForVisibilityOfEleByXpath(driver, pageBodyXpath);
+
+					
+					WebElement chkboxElement = UIHelper.findAnElementbyXpath(driver, finalSelectFolderChkboxXpath);
+					UIHelper.highlightElement(driver, chkboxElement);
+					JavascriptExecutor executor = (JavascriptExecutor) driver;
+					executor.executeScript("arguments[0].click();", chkboxElement);
+					UIHelper.waitFor(driver);
+
+					WebElement folderEle = UIHelper.findAnElementbyXpath(driver, finalselectedFolderORFileItemXpath);
+					UIHelper.scrollToAnElement(folderEle);
+					UIHelper.highlightElement(driver, folderEle);
+					UIHelper.mouseOveranElement(driver, folderEle);
+
+					WebElement browseActionEle = UIHelper.findAnElementbyXpath(driver,
+							finalXpathForBrowseActionOptionLink);
+					UIHelper.highlightElement(driver, browseActionEle);
+					executor.executeScript("arguments[0].click();", browseActionEle);
+					UIHelper.waitForPageToLoad(driver);
+					UIHelper.waitFor(driver);
+					
+				
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return new AlfrescoMyFilesPage(scriptHelper);
+	}
 
 }

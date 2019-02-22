@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.pearson.automation.alfresco.pages.AlfrescoCollectionsPage;
@@ -1059,5 +1060,39 @@ public class AlfrescoCollectionsPageTest extends ReusableLibrary {
 		} catch (Exception e) {
 			report.updateTestLog("Find File", e.getMessage(), Status.FAIL);
 		}
+	}
+	
+	public void verifyDynamicProperties() {
+		//Level Automation
+		try {
+		if(driver.findElement(By.name("Level Automation")).getText().equals("Level Automation")) {
+		//if (UIHelper.checkForAnElementbyXpath(driver,"//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default-form-fields\"]/div[6]/div/div[1]")) {
+			report.updateTestLog("Level Automation","Level Automation Property is present",Status.FAIL);
+		}
+		}catch(Exception e) {
+			report.updateTestLog("Level Automation","Level Automation Property is not present",Status.PASS);
+		}
+		UIHelper.waitFor(driver);
+		//Product Configuration
+		try {
+			if(driver.findElement(By.name("Level Automation")).getText().equals("Product Configuration")) {
+		//if (UIHelper.checkForAnElementbyXpath(driver,"//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default-form-fields\"]/div[7]/div/div[1]")) {
+			report.updateTestLog("Product Configuration","Product Configuration Property is present",Status.FAIL);
+			}
+		}catch(Exception e) {
+			report.updateTestLog("Product Configuration","Product Configuration Property is not present",Status.PASS);
+		}
+		UIHelper.waitFor(driver);
+		//Program Standards
+		try {
+		if(driver.findElement(By.name("Level Automation")).getText().equals("Program Standards")) {
+		//if (UIHelper.checkForAnElementbyXpath(driver,"//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default-form-fields\"]/div[8]/div/div[1]")) {
+			report.updateTestLog("Program Standards","Program Standards Property is present",Status.FAIL);
+		}
+		}catch(Exception e){
+			report.updateTestLog("Program Standards","Program Standards Property is not present",Status.PASS);
+		}
+		//Click the Cancel button
+		UIHelper.click(driver, "//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default-form-cancel-button\"]");
 	}
 }

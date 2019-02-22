@@ -1297,6 +1297,7 @@ public class AlfrescoHomePageTest extends ReusableLibrary {
 	public void verifyFavSiteWhenPlaceCursorOnStar(String expectedSiteName) {
 		try {
 			if (appHomePg.checkFavoriteSite(expectedSiteName)) {
+				System.out.println("expectedSiteName"+expectedSiteName);
 				report.updateTestLog(
 						"Verify Favorite Site in 'My Sites' dashlet when user take cusor to the star filled with yellow",
 						"User is seen message as 'Remove site from favorites' and 'x' icon on the favorite site: "
@@ -1309,6 +1310,7 @@ public class AlfrescoHomePageTest extends ReusableLibrary {
 								+ expectedSiteName,
 						Status.PASS);
 			}
+			System.out.println("expectedSiteName"+expectedSiteName);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

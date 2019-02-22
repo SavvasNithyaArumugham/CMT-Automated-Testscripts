@@ -103,6 +103,9 @@ public class AUT_AG_802 extends TestCase {
 		//mediaTransPage.navigateToProfilePage(profName);
 		mediaTransPage.deleteProfileFrmMediaTransPg(profName);
 		UIHelper.waitFor(driver);
+		UIHelper.waitFor(driver);
+		UIHelper.waitFor(driver);
+		
 		mediaTransPage.clickOnCreateImageProfBtn();
 		mediaTransPage.commonMethodForEnterImageProfDetails(profName, profDesc,
 				macCode, subAsstCode, filePathForUploadFile, fileNameForUpload);

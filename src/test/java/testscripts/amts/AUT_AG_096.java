@@ -142,7 +142,9 @@ public class AUT_AG_096 extends TestCase{
 		sitesDashboardPageTest.verifyNumberOfEntriesInAsyncDashlet();
 		
 		sitesDashboardPage.clickOnMoreInfoLinkUnderAsyncDashlet();
-		
+		UIHelper.waitFor(driver);
+		UIHelper.waitFor(driver);
+		UIHelper.waitFor(driver);
 		sitesDashboardPageTest.verifyPageNavigationForAsyncStatusDashlet();
 		
 	}

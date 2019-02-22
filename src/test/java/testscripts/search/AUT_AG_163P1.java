@@ -86,16 +86,15 @@ private FunctionalLibrary functionalLibrary;
 		myFiles.createFile(fileDetails);
 		sitesPage.enterIntoDocumentLibraryWithoutReport();
 		myFiles.createFolder(folderDetails);
-			
-
+		sitesPage.enterIntoDocumentLibrary();	
 	
-		homePageObj.alfrescoSearch(folder);
-		searchTestObj.commonMethodForVerifySearchResults(folder);
-	
-		
 		homePageObj.alfrescoSearch(file);
 		searchTestObj.commonMethodForVerifySearchResults(file);
+		
+		homePageObj.alfrescoSearch(folder);
 		searchTestObj.commonMethodForVerifySearchResults(folder);
+		
+		//searchTestObj.commonMethodForVerifySearchResults(folder);
 		
 				
 		homePageObj.navigateToAdvSearch();

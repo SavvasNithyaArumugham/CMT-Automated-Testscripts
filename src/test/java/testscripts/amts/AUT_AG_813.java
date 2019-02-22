@@ -140,7 +140,7 @@ public class AUT_AG_813 extends TestCase {
 
 		String fileName = file[0] + "_" + subAsstCode + "-" + preTxt;
 
-		if (mediaTransPage.isTransferredFileIsAvailable(fileName)) {
+		if (mediaTransPage.isTransferredFileIsAvailable(fileNme)) {
 			report.updateTestLog(
 					"Verify video profile applied Successfully to the File "
 							+ fileNme, "Video profile applied successfully.",

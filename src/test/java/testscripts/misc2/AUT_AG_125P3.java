@@ -56,9 +56,9 @@ private FunctionalLibrary functionalLibrary;
 			sitesDashboardPageTest.verifyAddDashletInCustomDashBrd();
 		}
 		//Modified as part of NALS Starts 
-		homePage.navigateToSitesTab();
+		//homePage.navigateToSitesTab();
 		String siteName = dataTable.getData("Sites", "SiteName");
-		sitesPage.openSiteFromRecentSites(siteName);
+	//	sitesPage.openSiteFromRecentSites(siteName);
 		//Modified as part of NALS Ends 
 		AlfrescoHomePageTest homePageTest = new AlfrescoHomePageTest(scriptHelper);
 		homePageTest.verifyUserActivityDisplayedInMyActivityDashlet(siteName);		
