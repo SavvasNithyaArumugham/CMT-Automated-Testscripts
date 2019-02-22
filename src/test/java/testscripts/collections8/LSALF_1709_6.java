@@ -131,14 +131,14 @@ public class LSALF_1709_6 extends TestCase {
 					/***************************Confirm Genres Leveled Reader properties are exporting properly*********************/
 					String downloadedCSVFileANmeWithPath = downloadFilePath + "/" + filename2;
 					try {
-						if(CSVUtil.verifyDataInCell(downloadedCSVFileANmeWithPath,"Fantasy|Fiction",2,77))
+						if(CSVUtil.verifyDataInCell(downloadedCSVFileANmeWithPath,"Fantasy",2,77))
 							{
 							report.updateTestLog("Confirm Leveled Reader property Genres is exporting properly ",
-									"Column BZ (Genres) value for 'Leveled Reader Test - Valid Genres' is Fantasy|Fiction", Status.PASS);
+									"Column BZ (Genres) value for 'Leveled Reader Test - Valid Genres' is Fantasy", Status.PASS);
 							}else {
 
 								report.updateTestLog("Confirm Leveled Reader property Genres is exporting properly ",
-										"Column BZ (Genres) value for 'Leveled Reader Test - Valid Genres' is not Fantasy|Fiction", Status.FAIL);
+										"Column BZ (Genres) value for 'Leveled Reader Test - Valid Genres' is not Fantasy", Status.FAIL);
 							}
 					} catch (IOException e) {
 					

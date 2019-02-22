@@ -182,29 +182,6 @@ public class ALFDEPLOY_2755_TC001 extends TestCase {
 
 		}
 		
-
-		
-//		verify tumbnail asset
-/*		sitesPage.enterIntoDocumentLibrary();
-		myFiles.openCreatedFolder("Assets");
-		myFiles.openCreatedFolder("Thumbnails");
-		collectionPg.getFoldersFromRightPanInShareUi();*/
-		
-//		verify tumbnail reference 
-	/*	sitesPage.enterIntoDocumentLibrary();
-		myFiles.openCreatedFolder(folderNames[0]);
-		myFiles.openCreatedFolder(folderNames[1]);
-		collectionPg.clickOnEditCollectionButton();
-		collectionPg.openCollectionObject(collectionObjectName);
-		collectionPg.openCollectionObject(collectionPg.getFoldersFromRightPanInCollectionUi().get(0));
-		collectionPg.openCollectionObject(collectionPg.getFoldersFromRightPanInCollectionUi().get(0));
-		collectionPg.clickOnMoreSetting(collectionPg.getFoldersFromRightPanInCollectionUi().get(1));
-		String objName = collectionPg.getFoldersFromRightPanInCollectionUi().get(1);
-		collectionPg.commonMethodForClickOnMoreSettingsOption(objName,
-				"View Details");
-		collectionPg.verifyRelationshipViewerOnObjectsInCollectionUi(objName, "outgoing", "Thumbnail");*/
-
-		
 //		verify error indicator
 		sitesPage.enterIntoDocumentLibrary();
 		myFiles.openCreatedFolder("Data Imports");

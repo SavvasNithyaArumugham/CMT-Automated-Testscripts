@@ -79,7 +79,7 @@ private FunctionalLibrary functionalLibrary;
 	
 		String selectedItemMenuOptVal = dataTable.getData("Sites", "SelectedItemsMenuOption");
 	
-		sitePageTest.verifySelectedItemsMenuOptionForNegativeCase(selectedItemMenuOptVal);
+		sitePageTest.verifySelectedItemsMenuOption(selectedItemMenuOptVal);
 		
 	}
 	

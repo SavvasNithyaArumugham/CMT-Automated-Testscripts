@@ -60,7 +60,7 @@ public class LSALF_1513_4 extends TestCase {
 		Date date = new Date();
 		String downloadFilePath = properties.getProperty("DefaultDownloadPath");
 		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
-
+		
 		
 		// Log in Pearson Schools project
 				functionalLibrary.loginAsValidUser(signOnPage);

@@ -2631,7 +2631,7 @@ public class AlfrescoSearchPage extends ReusableLibrary {
 					"FILTER", filter).replace("CRAFT", value);
 			UIHelper.waitForVisibilityOfEleByXpath(driver,
 					finalsearchFiltersXpath);
-
+			
 			noofhits = UIHelper.findAnElementbyXpath(driver,
 					finalselectFilterValXpath).getText();
 			UIHelper.click(driver, finalselectFiltersXpath);

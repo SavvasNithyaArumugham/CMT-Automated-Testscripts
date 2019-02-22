@@ -54,10 +54,6 @@ public class LSALF_1709_4 extends TestCase {
 
 		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
 		String siteNameValue = dataTable.getData("Sites", "SiteName");
-		String createObjectData = dataTable.getData("MyFiles", "CollectionObjectBasicData");
-
-		
-		
 		String CourseXpath = "//*[@class='filename']//*[contains(text(),'Course')]";
 		String allProperties = ".//a[contains(text(),'All Properties...')]";
 		
@@ -66,14 +62,8 @@ public class LSALF_1709_4 extends TestCase {
 		functionalLibrary.loginAsValidUser(signOnPage);
 
 		homePageObj.navigateToSitesTab();
-
-		// From the site Type dropdown select 'Collection Site'.
-		/*sitesPage.createSite(siteNameValue, "Yes");
-		String siteName = sitesPage.getCreatedSiteName();*/
 		sitesPage.openSiteFromRecentSites(siteNameValue);
 		
-				
-
 		// Navigate to document library and click on a program>Program Object
 		sitesPage.enterIntoDocumentLibrary();
 		myFiles.openCreatedFolder(folderNames[0]);
@@ -85,26 +75,25 @@ public class LSALF_1709_4 extends TestCase {
 		UIHelper.waitFor(driver);
 		UIHelper.click(driver, CourseXpath);
 		
-					UIHelper.waitFor(driver);
-					collectionPg.clickOnMouseOverMenu("AutoContentObj","Edit Properties");
-					UIHelper.waitFor(driver);
-					UIHelper.click(driver, allProperties); 					
-					UIHelper.waitFor(driver);
+		UIHelper.waitFor(driver);
+		collectionPg.clickOnMouseOverMenu("AutoContentObj","Edit Properties");
+		UIHelper.waitFor(driver);
+		UIHelper.click(driver, allProperties); 					
+		UIHelper.waitFor(driver);
 
-					WebElement select1 = driver.findElement(By.xpath("//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default_prop_cpnals_genres-entry\"]/option[8]"));
-			        WebElement select2 = driver.findElement(By.xpath("//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default_prop_cpnals_genres-entry\"]/option[9]"));
-			        Actions action = new Actions(driver);
-			        action.keyDown(Keys.CONTROL).click(select1).click(select2).build().perform();				
-					collectionPg.clickOnSaveBtn();
-					
-					 
-					 collectionPg.clickOnMoreSetting("AutoContentObj");
-						UIHelper.waitFor(driver);
-						collectionPg.commonMethodForClickOnMoreSettingsOption("AutoContentObj","View Details");
-						UIHelper.waitFor(driver);
-						collectionPg.VerifyPropertyValueINviewDetails("Genres:", "None");	
-						UIHelper.waitFor(driver);
-					}
+		WebElement select1 = driver.findElement(By.xpath("//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default_prop_cpnals_genres-entry\"]/option[8]"));
+		WebElement select2 = driver.findElement(By.xpath("//*[@id=\"template_x002e_edit-metadata_x002e_edit-metadata_x0023_default_prop_cpnals_genres-entry\"]/option[9]"));
+		Actions action = new Actions(driver);
+		action.keyDown(Keys.CONTROL).click(select1).click(select2).build().perform();				
+		collectionPg.clickOnSaveBtn();
+				 
+		collectionPg.clickOnMoreSetting("AutoContentObj");
+		UIHelper.waitFor(driver);
+		collectionPg.commonMethodForClickOnMoreSettingsOption("AutoContentObj","View Details");
+		UIHelper.waitFor(driver);
+		collectionPg.VerifyPropertyValueINviewDetails("Genres:", "None");	
+		UIHelper.waitFor(driver);
+	}
 	
 
 	@Override

@@ -130,7 +130,7 @@ public class LSALF_1709_1_2 extends TestCase {
 				for (String listOfObjectsString : filterselection1) {
 					if (listOfObjectsString.contains(splitedRow[77].replace("\"", ""))) {
 						report.updateTestLog(listOfObjectsString + " header is appearing in the csv file ",
-								"Status: " + listOfObjectsString + "appeared in the csv file", Status.PASS);
+								"Status: " + listOfObjectsString + " appeared in the csv file", Status.PASS);
 					} else {
 						// System.out.println("it is not appearing");
 					}

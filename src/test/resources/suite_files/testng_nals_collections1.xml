@@ -11,7 +11,7 @@
 			<class name="testscripts.collections1.ALFDEPLOY_2204_TC003" />
 			<class name="testscripts.collections1.ALFDEPLOY_2205_TC001" /> 
 			 <class name="testscripts.collections1.ALFDEPLOY_2206_TC006" />
-			<class name="testscripts.collections1.ALFDEPLOY_2210_TC001" /><!-- Fail -->
+			<class name="testscripts.collections1.ALFDEPLOY_2210_TC001" />
 			<class name="testscripts.collections1.ALFDEPLOY_2235_TC001" />
 			<class name="testscripts.collections1.ALFDEPLOY_2236_TC001" />
 		<!--<class name="testscripts.collections1.ALFDEPLOY_2236_TC002" /> Duplicate testcase -->

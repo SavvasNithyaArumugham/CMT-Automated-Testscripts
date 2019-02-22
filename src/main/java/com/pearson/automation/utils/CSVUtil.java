@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.Iterator;
+
 import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.CSVWriter;
 
@@ -126,7 +128,6 @@ public class CSVUtil {
 		// get CSV row column and replace with by using row and column
 		if (csvBody.get(row)[col].equalsIgnoreCase(stringToComp))
 				{
-					System.out.println(csvBody.get(row)[col]);
 					flag=true;
 					reader.close();
 					return flag;
@@ -134,6 +135,25 @@ public class CSVUtil {
 		reader.close();
 		return flag;
 	}
+	
+	
+	
+	//*********************************Read data in CSV file - Added for NALS*****************************//
+			
+		public static String readDataInCell(String fileToVerify,int row,int col) throws IOException 
+		{
+
+			File inputFile = new File(fileToVerify);
+			// Read existing file
+			CSVReader reader = new CSVReader(new FileReader(inputFile), ',');
+			List<String[]> csvBody = reader.readAll();
+			String cellValue = csvBody.get(row)[col];
+			reader.close();
+			return cellValue;
+		}
+		
+		
+		
 	
 	//*********************************Verify number of rows in CSV file*****************************//
 	//*********************************Added by Sangeetha.L *******************************//
@@ -165,5 +185,24 @@ public class CSVUtil {
 	      return rowCount;
 	   }
 	 
+	
+	public static boolean verifyDataInCellContains(String fileToVerify, String stringToComp, int row,
+			int col) throws IOException {
+
+		File inputFile = new File(fileToVerify);
+		boolean flag =false;
+		// Read existing file
+		CSVReader reader = new CSVReader(new FileReader(inputFile), ',');
+		List<String[]> csvBody = reader.readAll();
+		// get CSV row column and replace with by using row and column
+		if (csvBody.get(row)[col].contains(stringToComp))
+				{
+					flag=true;
+					reader.close();
+					return flag;
+				};
+		reader.close();
+		return flag;
+	}
 }
 

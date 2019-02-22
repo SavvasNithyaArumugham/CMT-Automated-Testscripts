@@ -98,7 +98,7 @@ public class ALFDEPLOY_2236_TC004 extends TestCase {
 				collectionObjectDataArray[0], collectionObjectDataArray[1],
 				collectionObjectDataArray[2], collectionObjectDataArray[3],
 				collectionObjectDataArray[4], collectionObjectDataArray[5],
-				collectionObjectDataArray[6], collectionObjectDataArray[7]);
+				collectionObjectDataArray[6], collectionObjectDataArray[7],collectionObjectDataArray[8],collectionObjectDataArray[9],collectionObjectDataArray[10],collectionObjectDataArray[11],collectionObjectDataArray[12],collectionObjectDataArray[13]);
 		
 		collectionPg.clickOnSaveBtnForSubmitCreateObjectData();
 		UIHelper.waitForPageToLoad(driver);

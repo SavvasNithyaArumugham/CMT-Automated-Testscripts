@@ -218,23 +218,26 @@ public class AlfrescoMyFilesPage extends ReusableLibrary {
 	// Upload a file in My Files Page
 	public AlfrescoMyFilesPage uploadFileInMyFilesPage(String filePath, String fileName) {
 		try {
+			
 			String finalFilePath;
 			if (filePath.contains("Automation/Alfresco")) {
+				
 				finalFilePath = filePath;
 			}
-			else if (filePath.contains("Automation/Alfresco")) {
-				finalFilePath = filePath;
-			} 
 			else {
+				
 				finalFilePath = System.getProperty("user.dir") + filePath;
 			}
 			if (fileName.contains(",")) {
+				
 				String splittedFileNames[] = fileName.split(",");
 				for (String fileNameVal : splittedFileNames) {
 					commonMethodForUploadMultipleFiles(finalFilePath, fileNameVal);
 				}
 			} else {
+		
 				commonMethodForUploadMultipleFiles(finalFilePath, fileName);
+				
 			}
 
 		} catch (Exception e) {
@@ -274,45 +277,43 @@ public class AlfrescoMyFilesPage extends ReusableLibrary {
 
 	public void commonMethodForUploadMultipleFiles(String filePath, String fileName) {
 		try {
-
+			
 			String finalXpathForUploadedFile = tempXpathForUploadedFile.replace("CRAFT", fileName);
 
 			UIHelper.waitForVisibilityOfEleByXpath(driver, uploadBtnXpath);
 			WebElement uploadBtnEle = driver.findElement(By.xpath(uploadBtnXpath));
 
 			if (UIHelper.checkForAnWebElement(uploadBtnEle)) {
+				
 				UIHelper.highlightElement(driver, uploadBtnEle);
+				
 				driver.findElement(By.xpath(uploadBtnXpath)).click();
+				
 				UIHelper.waitForVisibilityOfEleByXpath(driver, selctFilesToUploadBtnXpath);
+				
 				WebElement uploadInputFieldEle = driver.findElement(By.xpath(selctFilesToUploadBtnXpath));
+				
 				UIHelper.highlightElement(driver, uploadInputFieldEle);
-
+				
 				WebElement fileInput = driver.findElement(By.xpath(uploadInputField));
+				
 				fileInput.sendKeys(filePath + fileName);
-
+				
 				/*
-				 * try{
-				 * UIHelper.waitForVisibilityOfEleByXpathForLongTime(driver,
-				 * okBtnXpathInUploadPopup); } catch(Exception e) {
-				 * e.printStackTrace(); }
-				 * 
-				 * if(UIHelper.checkForAnElementbyXpath(driver,
-				 * okBtnXpathInUploadPopup)) { UIHelper.click(driver,
-				 * okBtnXpathInUploadPopup); }
-				 */
-
 				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, messageEleXpath);
-
+				System.out.println("14");
 				UIHelper.waitForVisibilityOfElementLocated(driver, finalXpathForUploadedFile);
+				System.out.println("15");
 				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, messageEleXpath);
-
+				System.out.println("16");
 				UIHelper.waitForPageToLoad(driver);
+				System.out.println("17");
 				UIHelper.waitFor(driver);
-
+				System.out.println("18");*/
 				report.updateTestLog("Upload File",
 						"Upload file using -" + "<b>FilePath:</b>" + filePath + ", " + "<b>FileName:</b>" + fileName,
 						Status.DONE);
-
+				System.out.println("19");
 			}
 		} catch (Exception e) {
 

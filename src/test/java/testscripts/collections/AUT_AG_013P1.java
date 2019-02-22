@@ -96,30 +96,16 @@ public class AUT_AG_013P1 extends TestCase {
 		sitesPage.clickOnMoreSetting(folderName);
 		docLibPg.commonMethodForClickOnMoreSettingsOption(folderName,
 				moreSettingsOption);
-	/*	
-		if(properties.getProperty("ApplicationUrl").contains("apppe")){
-			
-			sitesPage.clickOnAddUserGroupButton("QAPERFORM51");
-			sitesPage.clickOnUserRole("Collaborator", "QAPERFORM51");
-			
-			sitesPage.clickOnAddUserGroupButton("QAPERFORM52");
-			sitesPage.clickOnUserRole("Manager", "QAPERFORM52");
-			
-			sitesPage.clickOnAddUserGroupButton("QAPERFORM53");
-			sitesPage.clickOnUserRole("Reviewer", "QAPERFORM53");
-			
-		}else{*/
-				
-		sitesPage.clickOnAddUserGroupButton("ALF01");
-		sitesPage.clickOnUserRole("Collaborator", "ALF01");
+		//Added as part of NALS
+		sitesPage.clickOnAddUserGroupButton("ALF-CMS-2");
+		sitesPage.clickOnUserRole("Manager", "ALF-CMS-2");
 		
-		sitesPage.clickOnAddUserGroupButton("ALF02");
-		sitesPage.clickOnUserRole("Manager", "ALF02");
+		sitesPage.clickOnAddUserGroupButton("ALF-CMS-1");
+		sitesPage.clickOnUserRole("Collaborator", "ALF-CMS-1");
 		
-		sitesPage.clickOnAddUserGroupButton("ALF03");
-		sitesPage.clickOnUserRole("Reviewer", "ALF03");
-		
-	//	}
+		sitesPage.clickOnAddUserGroupButton("ALF-CMS-3");
+		sitesPage.clickOnUserRole("Reviewer", "ALF-CMS-3");
+		//Added as part of NALS
 	
 		docDetailsPage.removeInheritPermissions();
 		

@@ -1,6 +1,7 @@
 package com.pearson.automation.utils;
 
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import com.jayway.jsonpath.JsonPath;
 import com.jayway.restassured.response.Response;
 
 import net.minidev.json.JSONObject;
+import net.minidev.json.parser.JSONParser;
 
 public class CC_API_Helper extends RESTServiceBase {
 
@@ -252,5 +254,32 @@ public class CC_API_Helper extends RESTServiceBase {
 			return null;
 		}
 	}
+	
+	
+	
+	public static String readJsonFile(String file) { 
+		@SuppressWarnings("deprecation")
+		JSONParser parser = new JSONParser(); 
+		String requiredCellVal="";
+		try { 
 
-}
+			Object object = parser
+                    .parse(new FileReader(file));
+            
+            //convert Object to JSONObject
+            JSONObject jsonObject = (JSONObject)object;
+            requiredCellVal = (String) jsonObject.get("Contrib Source");
+            					
+		/* FileReader fileReader = new FileReader(file); 
+		JSONObject json = (JSONObject) parser.parse(fileReader);
+		requiredCellVal = (String) json.get("Contrib Source"); */
+	
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return requiredCellVal;
+	}
+	
+	}

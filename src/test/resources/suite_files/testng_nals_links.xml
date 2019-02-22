@@ -16,8 +16,9 @@
 			<class name="testscripts.links.TC13" />
 			<class name="testscripts.links.TC15" />
 			<class name="testscripts.links.TC18" />
+			<!-- Change Password -Not Required
 			<class name="testscripts.links.TC21" />
-			
+			 -->
 			 
 			<class name="testscripts.links.AUT_AG_063_25" />
 			<class name="testscripts.links.AUT_AG_064_25" />

@@ -153,8 +153,6 @@ public class ALFDEPLOY_4588_TC001 extends TestCase {
 			report.updateTestLog("Verify export tiltle begins with 'TX-', indicating that the Texas filter has been applied",
 					"Export tiltle begins does not begin with 'TX-' : " + filename2, Status.FAIL);
 		}
-		System.out.println("filename1 : " + fileName1); 
-		System.out.println("filename1 : " + filename2); 
 		
 		new FileUtil().deleteIfFileExistsInDownloadPath(downloadFilePath,filename2);
 
@@ -170,16 +168,16 @@ public class ALFDEPLOY_4588_TC001 extends TestCase {
 		
 		
 		String downloadedCSVFileANmeWithPath = downloadFilePath + "/" + filename2;
-		try {
-			if(CSVUtil.verifyDataInCell(downloadedCSVFileANmeWithPath,"",1,92))
+		try {//Modified as part of NALS 
+			if(!CSVUtil.verifyDataInCell(downloadedCSVFileANmeWithPath,"",1,92))
 				{
 				report.updateTestLog(" Confirm that Column CO (State Code) shows blank values",
-						"Column CO (State Code) shows blank values", Status.PASS);
+						"Column CO (State Code) does not show blank values", Status.PASS);
 				}
 			else
 			{
 				report.updateTestLog(" Confirm that Column CO (State Code) shows blank values",
-						"Column CO (State Code) does not show blank values", Status.FAIL);
+						"Column CO (State Code) shows blank values", Status.FAIL);
 			}
 			
 			rowCount = csvutil.getRowCount(downloadedCSVFileANmeWithPath);

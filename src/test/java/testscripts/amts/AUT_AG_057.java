@@ -98,6 +98,8 @@ public class AUT_AG_057 extends TestCase {
 		//mediaTransPage.navigateToProfilePage(profName);
 		mediaTransPage.deleteProfileFrmMediaTransPg(profName);
 		UIHelper.waitFor(driver);
+		UIHelper.waitFor(driver);
+		UIHelper.waitFor(driver);
 		mediaTransPage.clickOnCreateVideoProfBtn();
 		mediaTransPage.commonMethodForEnterVideoProfDetails(profName, profDesc,
 				macCode, subAsstCode);

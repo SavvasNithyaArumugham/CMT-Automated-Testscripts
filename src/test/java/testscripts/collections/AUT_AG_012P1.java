@@ -96,31 +96,14 @@ public class AUT_AG_012P1 extends TestCase {
 		sitesPage.clickOnMoreSetting(folderName);
 		docLibPg.commonMethodForClickOnMoreSettingsOption(folderName,
 				moreSettingsOption);
+		//Added as part of NALS
+		sitesPage.clickOnAddUserGroupButton("ALF-CMS-2");
+		sitesPage.clickOnUserRole("Coordinator", "ALF-CMS-2");
 		
-		/*if(properties.getProperty("ApplicationUrl").contains("apppe")){
-			
-			sitesPage.clickOnAddUserGroupButton("QAPERFORM51");
-			sitesPage.clickOnUserRole("Coordinator", "QAPERFORM51");
-			
-			sitesPage.clickOnAddUserGroupButton("QAPERFORM52");
-			sitesPage.clickOnUserRole("Consumer", "QAPERFORM52");
-		}
-		else{*/
-			
-			/*sitesPage.clickOnAddUserGroupButton("SSO1");
-			sitesPage.clickOnUserRole("Coordinator", "SSO1");
-			
-			sitesPage.clickOnAddUserGroupButton("SSO2");
-			sitesPage.clickOnUserRole("Consumer", "SSO2");*/
-		//}
+		sitesPage.clickOnAddUserGroupButton("ALF-CMS-3");
+		sitesPage.clickOnUserRole("Consumer", "ALF-CMS-3");
+		//Added as part of NALS
 		
-				
-		sitesPage.clickOnAddUserGroupButton("ALF01");
-		sitesPage.clickOnUserRole("Coordinator", "ALF01");
-		
-		sitesPage.clickOnAddUserGroupButton("ALF02");
-		sitesPage.clickOnUserRole("Consumer", "ALF02");
-	
 		docDetailsPage.removeInheritPermissions();
 		
 		sitesPage.documentdetailsColl(folderName);
