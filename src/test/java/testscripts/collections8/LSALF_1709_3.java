@@ -70,8 +70,7 @@ public class LSALF_1709_3 extends TestCase {
 
 		// From the site Type dropdown select 'Collection Site'.
 		sitesPage.createSite(siteNameValue, "No");
-		String siteName = sitesPage.getCreatedSiteName();
-		sitesPage.openSiteFromRecentSites(siteName);
+		
 		
 				
 

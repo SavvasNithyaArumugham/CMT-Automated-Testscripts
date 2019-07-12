@@ -189,7 +189,7 @@ public class ALFDEPLOY_3440_TC001 extends TestCase {
 				String downloadedCSVFileANmeWithPath = downloadFilePath + "/" + filename2;
 				try {
 					//Added for NALS
-					if(CSVUtil.verifyDataInCell(downloadedCSVFileANmeWithPath,"Discuss changed value",2,82))
+					if(CSVUtil.verifyDataInCell(downloadedCSVFileANmeWithPath,"Discuss changed value",2,81))
 						
 						{
 						report.updateTestLog("Confirm Discussion Prompt is exporting correctly ",
@@ -203,7 +203,7 @@ public class ALFDEPLOY_3440_TC001 extends TestCase {
 				
 				/************************************Modify Discussion Prompt in CSV and update***********************************/			
 					
-					CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, smartlink ,2 ,81 );
+					CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, smartlink ,2 ,83 );
 					report.updateTestLog("Verify Discussion prompt value is updated", "File: " + filename2
 							+ " updated sucessfully", Status.PASS);
 					

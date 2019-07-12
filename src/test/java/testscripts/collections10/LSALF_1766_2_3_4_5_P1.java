@@ -49,24 +49,24 @@ public class LSALF_1766_2_3_4_5_P1 extends TestCase {
 		AlfrescoMyFilesPage myFiles = new AlfrescoMyFilesPage(scriptHelper);
 		AlfrescoCollectionsPage collectionPg = new AlfrescoCollectionsPage(scriptHelper);
 		AlfrescoCollectionsPageTest collectionPgTest = new AlfrescoCollectionsPageTest(scriptHelper);
-		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
-		String siteNameValue = dataTable.getData("Sites", "SiteName");
-		String createObjectData = dataTable.getData("MyFiles", "CollectionObjectBasicData");
-		String objectFileName = dataTable.getData("MyFiles", "FileName");
+		
 				// Log in Pearson Schools project
 		AlfrescoLoginPage signOnPage = new AlfrescoLoginPage(scriptHelper);
 		functionalLibrary.loginAsValidUser(signOnPage);
-
+		String siteNameValue = dataTable.getData("Sites", "SiteName");
 		// Select Sites > Create Site from top black menu.
 		homePageObj.navigateToSitesTab();
 
 		// From the site Type dropdown select 'Collection Site'.
 		sitesPage.createSite(siteNameValue, "No");
-		String siteName = sitesPage.getCreatedSiteName();
-		sitesPage.openSiteFromRecentSites(siteName);
+		
+		
 
 		// Navigate to document library and click on a program>Program Object
 		sitesPage.enterIntoDocumentLibrary();
+		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
+		String createObjectData = dataTable.getData("MyFiles", "CollectionObjectBasicData");
+		String objectFileName = dataTable.getData("MyFiles", "FileName");
 		myFiles.openCreatedFolder(folderNames[0]);
 		myFiles.openCreatedFolder(folderNames[1]);
 

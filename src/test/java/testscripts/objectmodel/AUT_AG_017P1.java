@@ -73,11 +73,10 @@ public class AUT_AG_017P1 extends TestCase
 		AlfrescoDocumentLibPage docLibPage = new AlfrescoDocumentLibPage(scriptHelper);
 		
 		homePageObj.navigateToSitesTab();
-		sitesPage.createSite(siteNameValue, "Yes");
+		sitesPage.createSite(siteNameValue, "No");
 			
-		String siteName=sitesPage.getCreatedSiteName();
 		
-		sitesPage.performInviteUserToSite(siteName);
+		sitesPage.performInviteUserToSite(siteNameValue);
 		
 		sitesPage.enterIntoDocumentLibrary();
 		myFiles.uploadFileInMyFilesPage(filePath, fileName);

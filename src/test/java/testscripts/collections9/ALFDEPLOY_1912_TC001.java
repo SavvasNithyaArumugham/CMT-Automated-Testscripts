@@ -68,7 +68,7 @@ public class ALFDEPLOY_1912_TC001 extends TestCase {
 		String siteNameValue = dataTable.getData("Sites", "SiteName");
 		String Option = dataTable.getData("MyFiles", "MoreSettingsOption");
 		String filePath = dataTable.getData("MyFiles", "FilePath");
-		String fileName[] = dataTable.getData("MyFiles", "FileName").split(";");
+		String fileName[] = dataTable.getData("MyFiles", "FileName").split(",");
 							
 		//  login
 		functionalLibrary.loginAsValidUser(signOnPage);

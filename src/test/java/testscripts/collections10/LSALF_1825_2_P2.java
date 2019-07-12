@@ -90,9 +90,9 @@ public class LSALF_1825_2_P2 extends TestCase {
 			String splittedObjectData2[] = createObjectDataC.split(",");
 			String splittedObjectData1[] = createObjectDataCO.split(",");
 			String objectType="";
-			String name3 = "",folioprefix3="",foliostyle3="",foliostart3="";
-			String name2 = "",foliostart2="";
-			String name1 = "",folioprefix1="",foliostyle1="",foliostart1="";
+			String name3 = "",folioprefix3="",foliostyle3="",foliostart3="",objectType3="";
+			String name2 = "",foliostart2="",objectType2="",containerType2;
+			String name1 = "",folioprefix1="",foliostyle1="",foliostart1="",objectType1="";
 						
 			if (splittedObjectData3 != null) {
 				objectType = splittedObjectData3[0].replace(
@@ -105,6 +105,10 @@ public class LSALF_1825_2_P2 extends TestCase {
 						splittedObjectData3, "FolioStyle:");				
 				foliostart3=collectionPg.getFieldValueFromExcelForCreateObjects(
 						splittedObjectData3, "FolioStart:");
+				objectType3=collectionPg.getFieldValueFromExcelForCreateObjects(
+						splittedObjectData3, "ObjectType:");
+				objectType3=objectType3.replaceAll("\\s","");
+				objectType3=objectType3.toLowerCase();
 			}
 			
 			if (splittedObjectData2 != null) {
@@ -114,6 +118,12 @@ public class LSALF_1825_2_P2 extends TestCase {
 						splittedObjectData2, "Name:");
 				foliostart2=collectionPg.getFieldValueFromExcelForCreateObjects(
 						splittedObjectData2, "FolioStart:");
+				objectType2=collectionPg.getFieldValueFromExcelForCreateObjects(
+						splittedObjectData2, "ObjectType:");
+				objectType2=objectType2.replaceAll("\\s","");
+				objectType2=objectType2.toLowerCase();
+				containerType2 = collectionPg.getFieldValueFromExcelForCreateObjects(
+						splittedObjectData2, "ContainerType:");
 			}
 			
 			
@@ -129,6 +139,10 @@ public class LSALF_1825_2_P2 extends TestCase {
 						splittedObjectData1, "FolioStyle:");				
 				foliostart1=collectionPg.getFieldValueFromExcelForCreateObjects(
 						splittedObjectData1, "FolioStart:");
+				objectType1=collectionPg.getFieldValueFromExcelForCreateObjects(
+						splittedObjectData1, "ObjectType:");
+				objectType1=objectType1.replaceAll("\\s","");
+				objectType1=objectType1.toLowerCase();
 			}		
 				
 			
@@ -136,14 +150,20 @@ public class LSALF_1825_2_P2 extends TestCase {
 			FileReader reader = new FileReader(filePath1);
             JSONParser jsonParser = new JSONParser();
             JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
+            if(jsonObject.get("External ID Prefix and Separator").equals("")) {
+            	report.updateTestLog("External ID Prefix and Separator is blank","LSALF-2192 Include cpnals:externalIdPrefixAndSeparator property in JSON export",Status.PASS);
+            }else {
+            	report.updateTestLog("External ID Prefix and Separator is not blank","LSALF-2192 Include cpnals:externalIdPrefixAndSeparator property in JSON export",Status.FAIL);
+            }
+            
             JSONArray Children1 = (JSONArray) jsonObject.get("Children");
             report.updateTestLog("Verify Children1 present in the Course json file", "Children1:::::" + Children1, Status.DONE);	
 			Iterator itr = Children1.iterator();
 		if (itr!=null) {		
 			while (itr.hasNext()) {
 				 JSONObject innerObj3 = (JSONObject) itr.next();
-				 	report.updateTestLog("Verify Children1 present in the Course json file", "Children1:::::" + innerObj3.get("Name")+" @ "+innerObj3.get("Folio Prefix")+" @ "+innerObj3.get("Folio Start")+" @ "+innerObj3.get("Folio Style"), Status.DONE);
-					report.updateTestLog("Verify Children1 present in the excel sheet", "Children1:::::" + folioprefix3+" "+foliostart3+" "+foliostyle3, Status.DONE);
+				 	report.updateTestLog("Verify Children3 present in the Course json file", "Children3:::::" + innerObj3.get("Name")+" @ "+innerObj3.get("Folio Prefix")+" @ "+innerObj3.get("Folio Start")+" @ "+innerObj3.get("Folio Style")+" @ "+innerObj3.get("Object Type"), Status.DONE);
+					report.updateTestLog("Verify Children3 present in the excel sheet", "Children3:::::" + folioprefix3+" "+foliostart3+" "+foliostyle3+objectType3, Status.DONE);
 					if(innerObj3.get("Name").toString().contains(name3)) {
 						report.updateTestLog("Object type matches json and excel","",Status.PASS);
 					}else {
@@ -164,6 +184,11 @@ public class LSALF_1825_2_P2 extends TestCase {
 					}else {
 						report.updateTestLog("Folio Style does not match json and excel","",Status.FAIL);
 					}
+					if(innerObj3.get("Object Type").toString().trim().toLowerCase().contains(objectType3.trim())) {
+						report.updateTestLog("object Type matches json and excel","",Status.PASS);
+					}else {
+						report.updateTestLog("object Type does not match json and excel","",Status.FAIL);
+					}
 				}
 			}
 			Iterator itrr = Children1.iterator();
@@ -177,13 +202,17 @@ public class LSALF_1825_2_P2 extends TestCase {
 				while (itr1.hasNext()) {
 					JSONObject innerObj2 = (JSONObject) itr1.next();
 					if(innerObj2.get("Name").toString().contains(name2)) {
-						System.out.println("2Pass");
+						report.updateTestLog("Object type matches json and excel","",Status.PASS);
+					}else {
+						report.updateTestLog("Object type does not match json and excel","",Status.FAIL);
 					}
 					if(innerObj2.get("Folio Start").toString().contains(foliostart2)) {
-						System.out.println("2Pass2");
-					}					
-					report.updateTestLog("Verify Children2 present in the Course json file", "Children2:::::" + innerObj2.get("Name")+" @ "+" @ "+innerObj2.get("Folio Start"), Status.DONE);
-					report.updateTestLog("Verify Children2 present in the excel sheet", "Children2:::::" + name2+" "+foliostart2, Status.DONE);
+						report.updateTestLog("Folio Start matches json and excel","",Status.PASS);
+					}else {
+						report.updateTestLog("Folio Start does not match json and excel","",Status.FAIL);
+					}				
+					report.updateTestLog("Verify Children2 present in the Course json file", "Children2:::::" + innerObj2.get("Name")+" @ "+" @ "+innerObj2.get("Folio Start")+" @ "+innerObj2.get("Object Type"), Status.DONE);
+					report.updateTestLog("Verify Children2 present in the excel sheet", "Children2:::::" + name2+" "+foliostart2+objectType2, Status.DONE);
 					if(innerObj2.get("Name").toString().contains(name2)) {
 						report.updateTestLog("Object type matches json and excel","",Status.PASS);
 					}else {
@@ -194,6 +223,11 @@ public class LSALF_1825_2_P2 extends TestCase {
 					}else {
 						report.updateTestLog("Folio Start does not match json and excel","",Status.FAIL);
 					}
+					if(innerObj2.get("Object Type").toString().trim().toLowerCase().contains(objectType2.trim())) {
+						report.updateTestLog("object Type matches json and excel","",Status.PASS);
+					}else {
+						report.updateTestLog("object Type does not match json and excel","",Status.FAIL);
+					}
 				}
 				
 
@@ -203,12 +237,12 @@ public class LSALF_1825_2_P2 extends TestCase {
 					Object slide1 = itrr1.next();
 					JSONObject jsonObject22 = (JSONObject) slide1;
 					JSONArray Children3 = (JSONArray) jsonObject22.get("Children");
-					report.updateTestLog("Verify Children3 present in the Course json file", "Children2:::::" + Children3, Status.DONE);
+					report.updateTestLog("Verify Children1 present in the Course json file", "Children1:::::" + Children3, Status.DONE);
 					Iterator itr2 = Children3.iterator();
 					while (itr2.hasNext()) {						
 						 JSONObject innerObj1 = (JSONObject) itr2.next();
-						 report.updateTestLog("Verify Children3 present in the Course json file", "Children3:::::" + innerObj1.get("Name")+" @ "+innerObj1.get("Folio Prefix")+" @ "+innerObj1.get("Folio Start")+" @ "+innerObj1.get("Folio Style"), Status.DONE);
-						 report.updateTestLog("Verify Children3 present in the excel sheet", "Children3:::::" +" "+ name1+" "+folioprefix1+" "+foliostart1+" "+foliostyle1, Status.DONE);										 
+						 report.updateTestLog("Verify Children1 present in the Course json file", "Children1:::::" + innerObj1.get("Name")+" @ "+innerObj1.get("Folio Prefix")+" @ "+innerObj1.get("Folio Start")+" @ "+innerObj1.get("Folio Style")+" @ "+innerObj1.get("Object Type"), Status.DONE);
+						 report.updateTestLog("Verify Children1 present in the excel sheet", "Children1:::::" +" "+ name1+" "+folioprefix1+" "+foliostart1+" "+foliostyle1+objectType1, Status.DONE);										 
 						 if(innerObj1.get("Name").toString().trim().contains(name1.trim())) {
 								report.updateTestLog("Object type matches json and excel","",Status.PASS);
 							}else {
@@ -228,6 +262,11 @@ public class LSALF_1825_2_P2 extends TestCase {
 								report.updateTestLog("Folio Style matches json and excel","",Status.PASS);
 							}else {
 								report.updateTestLog("Folio Style does not match json and excel","",Status.FAIL);
+							}
+							if(innerObj1.get("Object Type").toString().trim().toLowerCase().contains(objectType1.trim())) {
+								report.updateTestLog("object Type matches json and excel","",Status.PASS);
+							}else {
+								report.updateTestLog("object Type does not match json and excel","",Status.FAIL);
 							}
 					}
 				}

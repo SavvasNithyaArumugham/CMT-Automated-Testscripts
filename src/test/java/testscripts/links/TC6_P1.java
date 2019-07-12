@@ -61,6 +61,9 @@ public class TC6_P1 extends TestCase
 				scriptHelper);
 		AlfrescoTasksPage taskPage = new AlfrescoTasksPage(scriptHelper);
 
+		functionalLibrary.loginAsValidUser(signOnPage);
+		homePageObj.navigateToSitesTab();
+
 		String filePath = dataTable.getData("MyFiles", "FilePath");
 		String fileName = dataTable.getData("MyFiles", "FileName");
 		String file = dataTable.getData("MyFiles", "Version");
@@ -68,12 +71,9 @@ public class TC6_P1 extends TestCase
 		String folderDetails = dataTable.getData("MyFiles", "CreateFolder");
 
 
-		functionalLibrary.loginAsValidUser(signOnPage);
-		homePageObj.navigateToSitesTab();
-		
 		
 		sitesPage.openSiteFromRecentSites(sourceSiteName);
-			sitesPage.enterIntoDocumentLibrary();
+		sitesPage.enterIntoDocumentLibrary();
 		doclib.deleteAllFilesAndFolders();
 		
 		folderNamesList = myFiles.getFolderNames(folderDetails);
@@ -85,7 +85,7 @@ public class TC6_P1 extends TestCase
 		myFiles.uploadFileInMyFilesPage(filePath, fileName);
 		
 		myFiles.methodToSelectMultipleFiles(fileName);
-		
+		sitesPage.clickOnSelectedItems();
 		myFiles.selectDropDownLinkTo();
 		
 		docDetailsPageObj.selectFolderInLinkPopUp(sourceSiteName);

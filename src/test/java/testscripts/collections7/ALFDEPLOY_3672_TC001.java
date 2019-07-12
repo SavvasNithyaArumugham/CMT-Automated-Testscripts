@@ -261,8 +261,8 @@ public class ALFDEPLOY_3672_TC001 extends TestCase {
 														String splitedRow[] = null;
 														splitedRow = csvRow.split(",",-1);
 														//Added for NALS
-														System.out.println("splitedRow[69]=="+splitedRow[69]);
-														if(values.equals(splitedRow[69].replace("\"", ""))){												
+														System.out.println("splitedRow[69]=="+splitedRow[71]);
+														if(values.equals(splitedRow[71].replace("\"", ""))){												
 															count1++;
 															break;
 														}else{

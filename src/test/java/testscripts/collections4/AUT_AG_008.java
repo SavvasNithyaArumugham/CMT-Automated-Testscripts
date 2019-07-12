@@ -74,11 +74,10 @@ public class AUT_AG_008 extends TestCase {
 		
 		// Log in Pearson Schools project
 				functionalLibrary.loginAsValidUser(signOnPage);
-				
-		//Create site
-				String siteassertValue = dataTable.getData("Sites", "SiteName");
-				sitesPage.siteFinder(siteassertValue);
-				String siteName=siteassertValue.toLowerCase();
+				//Create site
+				homePageObj.navigateToSitesTab();
+				String siteNameValue =  dataTable.getData("Sites", "SiteName");
+				sitesPage.createSite(siteNameValue, "Yes");
 				
 		// upload Thumbnails  files 
 		sitesPage.enterIntoDocumentLibrary();
@@ -93,16 +92,7 @@ public class AUT_AG_008 extends TestCase {
 		collectionPg.uploadFileInCollectionSite(filePath, fileName);
 		
 	
-		//Create site
-		homePageObj.navigateToSitesTab();
-		String siteNameValue =  dataTable.getData("Sites", "SiteName");
-		//sitesPage.siteFinder(siteNameValue);
-				//
-		sitesPage.createSite(siteNameValue, "Yes");
-		/*homePageObj.navigateToSitesTab();
-		String siteName = sitesPage.getCreatedSiteName();				
-		sitesPage.openSiteFromRecentSites(siteName);
-		siteName=siteName.toLowerCase();*/
+		
 				
 		// Go to collection UI
 				sitesPage.enterIntoDocumentLibrary();
@@ -131,9 +121,9 @@ public class AUT_AG_008 extends TestCase {
 						collectionPg.commonMethodForClickOnMoreSettingsOption(listOfObjectsString,
 								"Edit Properties");
 						UIHelper.waitFor(driver);
-					//	collectionPg.enterCollectionObjectA2LData("Asset(s) to link:", siteName+":AlfrescoXMLFile.xml, "+siteName+":AlfrescoJSONFile.json");
-						collectionPg.enterCollectionObjectA2LData("Grid Thumbnail to link:",siteName+":"+fileNames[0]);
-						collectionPg.enterCollectionObjectA2LData("Thumbnail to link:", siteName+":"+fileNames[1]);
+						//collectionPg.enterCollectionObjectA2LData("Asset(s) to link:", siteNameValue+":AlfrescoXMLFile.xml, "+siteNameValue+":AlfrescoJSONFile.json");
+						collectionPg.enterCollectionObjectA2LData("Grid Thumbnail to link:",siteNameValue+":"+fileNames[0]);
+						collectionPg.enterCollectionObjectA2LData("Thumbnail to link:", siteNameValue+":"+fileNames[1]);
 						
 						UIHelper.waitFor(driver);
 					//	collectionPg.verifyThumbnailGridThumbnailValuesInAllPropPage(listOfObjectsString);
@@ -155,7 +145,7 @@ public class AUT_AG_008 extends TestCase {
 				//enter into default course object
 				collectionPg.openCollectionObject(collectionObjectName);
 				
-				//Verify respective  grid thumbnail, thumbnail references were added
+				/*//Verify respective  grid thumbnail, thumbnail references were added
 				for (String listOfObjectsString : listOfObjects) {
 					if(listOfObjectsString.contains("AutoContentObj") ||listOfObjectsString.contains("AutoCompositeObj") ||
 							listOfObjectsString.contains("AutoSeqObj") ||listOfObjectsString.contains("AutoLearningBundle")){
@@ -163,7 +153,7 @@ public class AUT_AG_008 extends TestCase {
 						collectionPg.verifyListOfReferenveValue(listOfObjectsString, "outgoing","Thumbnail",fileNames[1]);
 
 					}
-				}
+				}*/
 			}
 
 	@Override

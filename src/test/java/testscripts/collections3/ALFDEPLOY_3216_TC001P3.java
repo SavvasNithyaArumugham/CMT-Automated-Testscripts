@@ -63,11 +63,12 @@ public class ALFDEPLOY_3216_TC001P3 extends TestCase {
 				
 		//open site created from ALFDEPLOY_3216_TC001P1
 				homePageObj.navigateToSitesTab();
-				String siteName = sitesPage.getCreatedSiteName();
+				//String siteName = sitesPage.getCreatedSiteName();
 				
+				String siteNameValue = dataTable.getData("Sites", "SiteName");
 				
 		//go to Created content object's view details page in collections UI
-				sitesPage.openSiteFromRecentSites(siteName);
+				sitesPage.openSiteFromRecentSites(siteNameValue);
 				sitesPage.enterIntoDocumentLibrary();				
 				String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
 				myFiles.openCreatedFolder(folderNames[0]);

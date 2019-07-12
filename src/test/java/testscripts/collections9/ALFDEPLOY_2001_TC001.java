@@ -80,6 +80,7 @@ public class ALFDEPLOY_2001_TC001 extends TestCase {
 		String fileName[] = dataTable.getData("MyFiles", "FileName").split(",");
 		File downloadedFile = null;
 		ArrayList<String> csvFileRowDataList = null;
+	  String okBtnXpathForPrintPlanCSV = ".//*[contains(@id,'default-generate-manifest-ok-button')]";
 		
 		//  login
 		functionalLibrary.loginAsValidUser(signOnPage);
@@ -102,6 +103,17 @@ public class ALFDEPLOY_2001_TC001 extends TestCase {
 		myFiles.openAFile(fileName[1]); 
 		String currentURL  = driver.getCurrentUrl();
 		String imageNodeIdFromURL=currentURL.substring(137, 173);
+		System.out.println("Image ID : " +imageNodeIdFromURL ); 
+		
+		sitesPage.enterIntoDocumentLibrary();
+		myFiles.openCreatedFolder("Assets");
+		myFiles.openCreatedFolder("Image");
+		myFiles.openCreatedFolder("a");
+		myFiles.openAFile(fileName[2]); 
+		String currentURL1  = driver.getCurrentUrl();
+		String imageNodeIdFromURL1=currentURL1.substring(137, 173);
+		System.out.println("Image ID 1 : " +imageNodeIdFromURL1 ); 
+		
 		// go to Course plan
 		sitesPage.enterIntoDocumentLibrary();
 		myFiles.openCreatedFolder("Data Imports");
@@ -129,7 +141,9 @@ public class ALFDEPLOY_2001_TC001 extends TestCase {
 		collectionPg.clickOnEditCollectionButton();
 		
 		collectionPg.clickOnMoreSetting(folderNames[2]);
-		collectionPg.commonMethodForClickOnMoreSettingsOption(folderNames[2], Option[1]);
+		collectionPg.commonMethodForClickOnMoreSettingsOption(folderNames[2], Option[0]);
+		// Added for clicking Ok button in print plan CSV 
+		UIHelper.click(driver, okBtnXpathForPrintPlanCSV);
 		sitesPage.enterIntoDocumentLibrary();
 							
 		for (String path : filePath1) {
@@ -162,7 +176,7 @@ public class ALFDEPLOY_2001_TC001 extends TestCase {
 		csvFileRowDataList = new CSVUtil().readLinesOfDataFromCSVFileWithoutHeader(downloadFilePath + "/" + filename2);	
 			
 		try {
-			String imagenodeIDFromCSV = CSVUtil.readDataInCell(downloadedCSVFileANmeWithPath,2,25);
+			String imagenodeIDFromCSV = CSVUtil.readDataInCell(downloadedCSVFileANmeWithPath,2,27);
 						
 			if (imagenodeIDFromCSV.contains(imageNodeIdFromURL))
 			{

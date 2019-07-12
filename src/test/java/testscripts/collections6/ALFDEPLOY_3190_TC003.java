@@ -72,18 +72,12 @@ public class ALFDEPLOY_3190_TC003 extends TestCase {
 		AlfrescoHomePage homePageObj = new AlfrescoHomePage(scriptHelper);
 		AlfrescoMyFilesPage myFiles = new AlfrescoMyFilesPage(scriptHelper);
 		AlfrescoCollectionsPage collectionPg = new AlfrescoCollectionsPage(scriptHelper);
-		AlfrescoCollectionsPageTest collectionPgTest = new AlfrescoCollectionsPageTest(scriptHelper);	
-		AlfrescoSearchPage alfrescoSearchPage = new AlfrescoSearchPage(scriptHelper);
-		AlfrescoMyTasksPageTest alfrescoTaskPage= new AlfrescoMyTasksPageTest(scriptHelper);
 		
 		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
-		String collectionsobj = dataTable.getData("MyFiles", "CreateFileDetails");
+		
 		String siteNameValue =  dataTable.getData("Sites", "SiteName");
 		String filePath = dataTable.getData("MyFiles", "FilePath");
 		String fileName = dataTable.getData("MyFiles", "FileName");
-		String fileDownloadPath = properties.getProperty("DefaultDownloadPath");
-		String errorfile = dataTable.getData("MyFiles", "Subfolders1");
-		String Option[] = dataTable.getData("MyFiles", "MoreSettingsOption").split(";");
 		String[] Metadata = dataTable.getData("MyFiles", "FieldDataForAllProperties").split(";");	
 		
 		boolean flag = false;
@@ -94,10 +88,6 @@ public class ALFDEPLOY_3190_TC003 extends TestCase {
 			    //Create site
 			    homePageObj.navigateToSitesTab();
 				UIHelper.waitFor(driver);
-				/*
-				String siteName = sitesPage.getCreatedSiteName();				
-				sitesPage.openSiteFromRecentSites(siteName);
-				*/
 				sitesPage.createSite(siteNameValue, "Yes");
 				UIHelper.waitFor(driver);
 	

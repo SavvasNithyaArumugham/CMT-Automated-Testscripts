@@ -57,19 +57,7 @@ public class LSALF_1813_P1 extends TestCase {
 		AlfrescoCollectionsPage collectionPg = new AlfrescoCollectionsPage(scriptHelper);
 		AlfrescoMediaTransformPage mediaTransPage = new AlfrescoMediaTransformPage(scriptHelper);
 		
-		//String collectionObjectData = dataTable.getData("MyFiles", "FieldDataForQuickEdit");
-		String[] filePath = dataTable.getData("MyFiles", "FilePath").split("/");
-		String filepathfile = dataTable.getData("MyFiles", "uploadpath");
-		String filepathfilename = dataTable.getData("MyFiles", "CreateFolder");
-		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
-		String objectName = dataTable.getData("MyFiles", "FileName");
-	//	String allProperties = ".//a[contains(text(),'All Properties...')]";
-		Date date = new Date();
-		String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(date);
-		File downloadedFile = null;
-		ArrayList<String> csvFileRowDataList = null;
-
-		String downloadFilePath = properties.getProperty("DefaultDownloadPath");
+		
 
 		// Log in Pearson Schools project
 		functionalLibrary.loginAsValidUser(signOnPage);
@@ -88,6 +76,20 @@ public class LSALF_1813_P1 extends TestCase {
 		myFiles.openCreatedFolder("Data Imports");
 		myFiles.openCreatedFolder("Course Plan");
 
+		//String collectionObjectData = dataTable.getData("MyFiles", "FieldDataForQuickEdit");
+				String[] filePath = dataTable.getData("MyFiles", "FilePath").split("/");
+				String filepathfile = dataTable.getData("MyFiles", "uploadpath");
+				String filepathfilename = dataTable.getData("MyFiles", "CreateFolder");
+				String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
+				String objectName = dataTable.getData("MyFiles", "FileName");
+			//	String allProperties = ".//a[contains(text(),'All Properties...')]";
+				Date date = new Date();
+				String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(date);
+				File downloadedFile = null;
+				ArrayList<String> csvFileRowDataList = null;
+
+				String downloadFilePath = properties.getProperty("DefaultDownloadPath");
+				
 		// upload course plan
 		collectionPg.uploadFileInCollectionSite(filepathfile, filepathfilename);
 
@@ -103,6 +105,7 @@ public class LSALF_1813_P1 extends TestCase {
 		// Click on Generate Realize Csv for course object
 		collectionPg.clickOnMoreSetting("Batch 4 Test Course");
 		collectionPg.commonMethodForClickOnMoreSettingsOption("Batch 4 Test Course", "Generate Print Plan CSV");
+		collectionPg.clickonprintcsvrealizebox();
 		// Navigate to Document library
 		sitesPage.enterIntoDocumentLibrary();
 
@@ -141,24 +144,26 @@ public class LSALF_1813_P1 extends TestCase {
 				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "Content object-CSVUpdated", 6, 10);
 				//Product Type iBook
 				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "iBook", 6, 11);
+				//Release Version
+				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "1", 6, 14);
 				//Skills Alike and Different
-				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "Alike and Different", 6, 14);
+				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "Alike and Different", 6, 15);
 				//Folio Start - 1
-				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "1", 6, 16);
+				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "1", 6, 17);
 				//Folio Prefix - A-
-				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "A-", 6, 17);
+				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "A-", 6, 18);
 				//Folio Style A - Upper Alpha
-				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "1 - Arabic", 6, 18);
+				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "1 - Arabic", 6, 19);
 				//Folio Special  - Forward Interleaf
-				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "Forward Interleaf", 6, 19);
+				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "Forward Interleaf", 6, 20);
 				//TOC Include From - Level 1
-				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "Level 1", 6, 21);
-				//TOC Include To - Level 1
 				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "Level 1", 6, 22);
+				//TOC Include To - Level 1
+				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "Level 1", 6, 23);
 				//Content Object Aggregation Type - Additional Answers
-				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "Additional Answers", 6, 23);
+				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "Additional Answers", 6, 24);
 				//Keywords - ABCD
-				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "ABCD", 6, 24);
+				CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, "ABCD", 6, 25);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -169,7 +174,7 @@ public class LSALF_1813_P1 extends TestCase {
 			myFiles.openCreatedFolder("Data Imports");
 			myFiles.openCreatedFolder("Course Plan");
 
-			myFiles.uploadFile(downloadFilePath + "/", filename2);
+			collectionPg.uploadUpdatedFileInCollectionSite(downloadFilePath, filename2);
 
 			sitesPage.enterIntoDocumentLibrary();
 

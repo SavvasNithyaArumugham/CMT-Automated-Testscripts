@@ -86,6 +86,7 @@ public class AUT_AG_178 extends TestCase {
 		myFiles.openCreatedFolder(folder);
 		docLibPgObj.clickOnDocOptions(fileName, link);
 		UIHelper.waitFor(driver);
+		UIHelper.waitFor(driver);
 		docLibPagetest.verifyFavoptionselected();
 		UIHelper.waitFor(driver);
 		taskPage.filterWFtasks();

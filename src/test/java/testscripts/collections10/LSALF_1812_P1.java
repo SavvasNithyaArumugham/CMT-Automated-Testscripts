@@ -98,6 +98,7 @@ public class LSALF_1812_P1 extends TestCase {
 		// Click on Generate Realize Csv for course object
 		collectionPg.clickOnMoreSetting("Batch 4 Test Course");
 		collectionPg.commonMethodForClickOnMoreSettingsOption("Batch 4 Test Course", "Generate Print Plan CSV");
+		collectionPg.clickonprintcsvrealizebox();
 		// Navigate to Document library
 		sitesPage.enterIntoDocumentLibrary();
 

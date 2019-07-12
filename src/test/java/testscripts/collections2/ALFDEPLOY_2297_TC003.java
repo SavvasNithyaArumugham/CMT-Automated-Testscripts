@@ -62,6 +62,13 @@ public class ALFDEPLOY_2297_TC003 extends TestCase {
 		homePageObj.navigateToSitesTab();
 		
 		String sourceSiteName = dataTable.getData("Sites", "SiteName");
+		
+		homePageObj.navigateToSitesTab();
+		//Create new collection site from Create site menu
+		sitesPage.createSite(sourceSiteName, "Yes");
+			
+		//Enter into Document library
+		sitesPage.enterIntoDocumentLibrary();
 		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
 		String collectionObjectName = dataTable.getData("MyFiles", "CreateMenuItemsForCollection");
 		String collectionObjectData = dataTable.getData("MyFiles", "CollectionObjectAdditionalData");
@@ -69,15 +76,9 @@ public class ALFDEPLOY_2297_TC003 extends TestCase {
 		String moreSettingsOptionName = dataTable.getData("MyFiles", "MoreSettingsOption");
 		
 		String[] objectFileNames = objectFileName.split(",");
+		System.out.println(objectFileNames[1]);
 		String[] objectTypes = collectionObjectName.split(",");
 		String[] collectionObjectDataArray = collectionObjectData.split(","); 
-		
-		//Create new collection site from Create site menu
-		sitesPage.createSite(sourceSiteName, "Yes");
-		
-		//Enter into Document library
-		sitesPage.enterIntoDocumentLibrary();
-		
 		myFiles.openCreatedFolder(folderNames[0]);
 		myFiles.openCreatedFolder(folderNames[1]);
 		
@@ -119,7 +120,7 @@ public class ALFDEPLOY_2297_TC003 extends TestCase {
 		collectionPg.enterBasicDataForContentObject(objectFileNames[1], 
 				collectionObjectDataArray[1], collectionObjectDataArray[2], collectionObjectDataArray[3], 
 				collectionObjectDataArray[4], collectionObjectDataArray[5], collectionObjectDataArray[6]
-						,collectionObjectDataArray[7],collectionObjectDataArray[8],collectionObjectDataArray[9],collectionObjectDataArray[10],collectionObjectDataArray[11],collectionObjectDataArray[12],collectionObjectDataArray[13]);
+						,collectionObjectDataArray[7],"","","","","","");
 		collectionPg.clickOnSaveBtnForSubmitCreateObjectData();
 		
 		UIHelper.waitFor(driver);

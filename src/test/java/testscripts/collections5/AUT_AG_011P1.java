@@ -99,17 +99,17 @@ public class AUT_AG_011P1 extends TestCase {
 				moreSettingsOption);
 		
 		//Added as part of NALS
-		sitesPage.clickOnAddUserGroupButton("ALF-CMS-4");
-		sitesPage.clickOnUserRole("Coordinator", "ALF-CMS-4");
+		sitesPage.clickOnAddUserGroupButton("alf-cms-3");
+		sitesPage.clickOnUserRole("Coordinator", "alf-cms-3");
 		
-		sitesPage.clickOnAddUserGroupButton("ALF-CMS-2");
-		sitesPage.clickOnUserRole("Contributor", "ALF-CMS-2");
+		sitesPage.clickOnAddUserGroupButton("alf-cms-2");
+		sitesPage.clickOnUserRole("Contributor", "alf-cms-2");
 		
-		sitesPage.clickOnAddUserGroupButton("ALF-CMS-1");
-		sitesPage.clickOnUserRole("Collaborator", "ALF-CMS-1");
+		sitesPage.clickOnAddUserGroupButton("alf-cms-1");
+		sitesPage.clickOnUserRole("Collaborator", "alf-cms-1");
 		
-		sitesPage.clickOnAddUserGroupButton("ALF-CMS-3");
-		sitesPage.clickOnUserRole("Reviewer", "ALF-CMS-3");		
+		sitesPage.clickOnAddUserGroupButton("alf-cms-4");
+		sitesPage.clickOnUserRole("Reviewer", "alf-cms-4");		
 			//Added as part of NALS
 		
 		docDetailsPage.removeInheritPermissions();

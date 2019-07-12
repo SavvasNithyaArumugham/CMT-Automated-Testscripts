@@ -62,9 +62,7 @@ public class LSALF_1825_2_P1 extends TestCase {
 
 		// From the site Type dropdown select 'Collection Site'.
 		sitesPage.createSite(siteNameValue, "Yes");
-		String siteName = sitesPage.getCreatedSiteName();
-		sitesPage.openSiteFromRecentSites(siteName);
-
+		
 		// Navigate to document library and click on a program>Program Object
 		sitesPage.enterIntoDocumentLibrary();
 		myFiles.openCreatedFolder(folderNames[0]);
@@ -89,7 +87,7 @@ public class LSALF_1825_2_P1 extends TestCase {
 		UIHelper.waitFor(driver);
 		collectionPg.clickOnMoreSetting("AutoCourse");
 		UIHelper.waitFor(driver);
-		collectionPg.commonMethodForClickOnMoreSettingsOption("AutoCourse","Generate JSON");
+		collectionPg.commonMethodForClickOnMoreSettingsOption("AutoCourse","Generate Bookbuild");
 		}
 
 

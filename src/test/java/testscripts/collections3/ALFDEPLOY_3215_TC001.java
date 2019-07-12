@@ -71,8 +71,8 @@ public class ALFDEPLOY_3215_TC001 extends TestCase {
 				homePageObj.navigateToSitesTab();
 				String siteNameValue = dataTable.getData("Sites", "SiteName");
 				sitesPage.createSite(siteNameValue, "Yes");
-				String siteName = sitesPage.getCreatedSiteName();
-				
+				//String siteName = sitesPage.getCreatedSiteName();
+				//sitesPage.openSiteFromRecentSites("AutoRCollectionSite2028270219164706");
 			
 		// Go to collection UI
 				sitesPage.enterIntoDocumentLibrary();

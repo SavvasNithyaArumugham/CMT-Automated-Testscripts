@@ -54,14 +54,7 @@ public class LSALF_1778_1_to_11_P2 extends TestCase {
 		AlfrescoMyFilesPage myFiles = new AlfrescoMyFilesPage(scriptHelper);
 		AlfrescoCollectionsPage collectionPg = new AlfrescoCollectionsPage(scriptHelper);
 		AlfrescoCollectionsPageTest collectionPgTest = new AlfrescoCollectionsPageTest(scriptHelper);
-
-		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
 		String siteNameValue = dataTable.getData("Sites", "SiteName");
-		String createObjectData = dataTable.getData("MyFiles", "CollectionObjectBasicData");
-
-		
-		String CourseXpath = "//*[@class='filename']//*[contains(text(),'AutoCourse')]";
-		String allProperties = ".//a[contains(text(),'All Properties...')]";
 		
 		// Log in Pearson Schools project
 		AlfrescoLoginPage signOnPage = new AlfrescoLoginPage(scriptHelper);
@@ -73,6 +66,11 @@ public class LSALF_1778_1_to_11_P2 extends TestCase {
 		//sitesPage.createSite(siteNameValue, "No");
 		//String siteName = sitesPage.getCreatedSiteName();
 		sitesPage.openSiteFromRecentSites(siteNameValue);
+		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
+		String createObjectData = dataTable.getData("MyFiles", "CollectionObjectBasicData");
+		String CourseXpath = "//*[@class='filename']//*[contains(text(),'AutoCourse')]";
+		String allProperties = ".//a[contains(text(),'All Properties...')]";
+
 		
 				
 

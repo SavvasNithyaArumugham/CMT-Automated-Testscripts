@@ -99,16 +99,15 @@ public class AUT_AG_120 extends TestCase{
 
 		sitesPage.siteFinder(siteNameValue);
 		sitesPage.enterIntoDocumentLibrary();
-	
 		docLibPage.deleteAllFilesAndFolders();
-	
-		
-
+		UIHelper.waitFor(driver);
 			myFiles.createFile(fileDetails);
+			UIHelper.waitFor(driver);
 			docDetailsPage.likeADocument(fileName);
-
+			UIHelper.waitFor(driver);
+			sitesPage.enterIntoDocumentLibrary();
 		docLibPage.deleteAllFilesAndFolders();//Modified as part of NALS
-		
+		UIHelper.waitFor(driver);
 		homePage.navigateToHomePage();
 		
 		

@@ -78,13 +78,13 @@ public class AUT_AG_009 extends TestCase {
 		//Create site
 				String siteassertValue = dataTable.getData("Sites", "SiteName");
 				homePageObj.navigateToSitesTab();
-				sitesPage.createSite(siteassertValue, "Yes");
-				String siteNameValue = sitesPage.getCreatedSiteName().toLowerCase();
+				sitesPage.createSite(siteassertValue, "No");
+				//String siteNameValue = sitesPage.getCreatedSiteName().toLowerCase();
 				
 				//sitesPage.siteFinder(siteNameValue);
 						//
 				homePageObj.commoncustDd("Edit Site Details");
-				homePageObj.editsite(siteNameValue+"new");
+				homePageObj.editsite(siteassertValue+"new");
 				
 				
 		// upload Thumbnails  files 
@@ -102,7 +102,7 @@ public class AUT_AG_009 extends TestCase {
 	
 		//Create site
 		homePageObj.navigateToSitesTab();
-		sitesPage.createSite(siteassertValue, "Yes");
+		sitesPage.createSite(siteassertValue+"new", "No");
 				
 		// Go to collection UI
 				sitesPage.enterIntoDocumentLibrary();
@@ -132,8 +132,8 @@ public class AUT_AG_009 extends TestCase {
 								"Edit Properties");
 						UIHelper.waitFor(driver);
 					//	collectionPg.enterCollectionObjectA2LData("Asset(s) to link:", siteName+":AlfrescoXMLFile.xml, "+siteName+":AlfrescoJSONFile.json");
-						collectionPg.enterCollectionObjectA2LData("Grid Thumbnail to link:",siteNameValue+":"+fileNames[0]);
-						collectionPg.enterCollectionObjectA2LData("Thumbnail to link:", siteNameValue+":"+fileNames[1]);
+						collectionPg.enterCollectionObjectA2LData("Grid Thumbnail to link:",siteassertValue+"new"+":"+fileNames[0]);
+						collectionPg.enterCollectionObjectA2LData("Thumbnail to link:", siteassertValue+"new"+":"+fileNames[1]);
 						
 						UIHelper.waitFor(driver);
 					//	collectionPg.verifyThumbnailGridThumbnailValuesInAllPropPage(listOfObjectsString);

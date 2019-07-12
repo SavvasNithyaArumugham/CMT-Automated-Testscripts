@@ -126,7 +126,7 @@ public class LSALF_1467_5 extends TestCase {
 					/***************************Confirm CompSkills Leveled Reader properties are exporting properly*********************/
 					String downloadedCSVFileANmeWithPath = downloadFilePath + "/" + filename2;
 					try {
-						if(CSVUtil.verifyDataInCell(downloadedCSVFileANmeWithPath,"Alike and Different|Cause/Effect",2,75))
+						if(CSVUtil.verifyDataInCell(downloadedCSVFileANmeWithPath,"Alike and Different|Cause/Effect",2,76))
 							{
 							report.updateTestLog("Confirm Leveled Reader property CompSkills is exporting properly ",
 									"Column BX (CompSkills) value for 'Leveled Reader Test - Valid CompSkills' is Alike and Different|Cause/Effect", Status.PASS);

@@ -37,6 +37,10 @@
 		<class name="testscripts.collections10.LSALF_1825_2_P5" />
 		<class name="testscripts.collections10.LSALF_1825_2_P6" />
 		 
+		 <class name="testscripts.collections10.LSALF_2192_P1" />
+		<class name="testscripts.collections10.LSALF_2192_P2" /><!-- Not working --> 
+		<class name="testscripts.collections10.LSALF_2192_P3" />
+		<class name="testscripts.collections10.LSALF_2192_P4" /><!-- Not working -->
 		 
 		<!-- Part 10 Ends -->
 			

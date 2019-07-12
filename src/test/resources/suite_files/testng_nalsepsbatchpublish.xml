@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="EPSBatchPublish" parallel="classes" thread-count="1">
+  <test name="Test">
+    <classes>
+   
+	<class name="testscripts.nalsepsbatchpublish.AUT_BP_FileAndFolder" /> 
+	<class name="testscripts.nalsepsbatchpublish.AUT_BP_FileOnly" />
+	<class name="testscripts.nalsepsbatchpublish.AUT_BP_FolderOnly" />
+	<class name="testscripts.nalsepsbatchpublish.AUT_BP_PubAndUnPubFile" />
+	<class name="testscripts.nalsepsbatchpublish.AUT_BP_PubAndUnPubFolder" />
+	<class name="testscripts.nalsepsbatchpublish.AUT_BP_RevisedFileAndFolder" />
+	<class name="testscripts.nalsepsbatchpublish.AUT_BP_ScoZip" />
+	<class name="testscripts.nalsepsbatchpublish.AUT_BP_ZAllCases" />
+   						
+  
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

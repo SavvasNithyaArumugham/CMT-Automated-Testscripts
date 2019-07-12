@@ -117,7 +117,7 @@ public class LSALF_1513_4 extends TestCase {
 					//***************************Confirm URl/RubricsURLare exporting properly*********************//
 					String downloadedCSVFileANmeWithPath = downloadFilePath + "/" + filename2;
 					try {
-						if(CSVUtil.verifyDataInCellContains(downloadedCSVFileANmeWithPath,urlValue,2,46))
+						if(CSVUtil.verifyDataInCellContains(downloadedCSVFileANmeWithPath,urlValue,2,47))
 							{
 							report.updateTestLog("Confirm url is exporting properly ",
 									"Column AU (URL) value"+urlValue, Status.PASS);
@@ -127,7 +127,7 @@ public class LSALF_1513_4 extends TestCase {
 										"Column AU (URL) value"+urlValue, Status.FAIL);
 							}
 						
-						if(CSVUtil.verifyDataInCellContains(downloadedCSVFileANmeWithPath,urlValue,2,47))
+						if(CSVUtil.verifyDataInCellContains(downloadedCSVFileANmeWithPath,urlValue,2,48))
 						{
 						report.updateTestLog("Confirm rubricsurl is exporting properly ",
 								"Column AV (RubricsURL) value"+urlValue, Status.PASS);

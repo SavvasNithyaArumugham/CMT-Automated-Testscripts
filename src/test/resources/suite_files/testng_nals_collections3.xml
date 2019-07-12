@@ -13,7 +13,7 @@
 			<class name="testscripts.collections3.ALFDEPLOY_3216_TC001P1" />
 			<class name="testscripts.collections3.ALFDEPLOY_3216_TC001P2" /> 
 			<class name="testscripts.collections3.ALFDEPLOY_3216_TC001P3" /> 
-			<class name="testscripts.collections3.ALFDEPLOY_3210_TC001" /> 
+			<!-- <class name="testscripts.collections3.ALFDEPLOY_3210_TC001" /> GMAIL Remove--> 
 			<class name="testscripts.collections3.ALFDEPLOY_3203_TC004" /> 
 			<class name="testscripts.collections3.ALFDEPLOY_3206_TC001" /> 
 		<!-- Part 3 Ends -->

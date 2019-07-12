@@ -65,7 +65,8 @@ private FunctionalLibrary functionalLibrary;
 		homePage.validatepagetitle(dashboardname);
 		UIHelper.waitForPageToLoad(driver);
 		UIHelper.waitFor(driver);
-		sitesPage.siteFinder(sitename1);
+		//sitesPage.siteFinder(sitename1);
+		sitesPage.openSiteFromRecentSites(sitename1);
 		
 		//homePage.navigateToHomePage();
 		
@@ -77,7 +78,8 @@ private FunctionalLibrary functionalLibrary;
 		homePage.validatepagetitle(sitename1);
 		UIHelper.waitForPageToLoad(driver);
 		UIHelper.waitFor(driver);
-		sitesPage.siteFinder(sitename2);
+		//sitesPage.siteFinder(sitename2);
+		sitesPage.openSiteFromRecentSites(sitename2);
 		
 		//String Option1 = dataTable.getData("Home", "DashletName");
 		homePage.UserMenucommonMethod(Option);

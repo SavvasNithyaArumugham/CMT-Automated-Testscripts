@@ -93,14 +93,14 @@ public class AUT_AG_014P1 extends TestCase {
 		docLibPg.commonMethodForClickOnMoreSettingsOption(folderName,
 				moreSettingsOption);
 		//Added as part of NALS
-		sitesPage.clickOnAddUserGroupButton("ALF-CMS-1");
-		sitesPage.clickOnUserRole("Coordinator", "ALF-CMS-1");
+		sitesPage.clickOnAddUserGroupButton("alf-cms-1");
+		sitesPage.clickOnUserRole("Coordinator", "alf-cms-1");
 		
-		sitesPage.clickOnAddUserGroupButton("ALF-CMS-3");
-		sitesPage.clickOnUserRole("Contributor", "ALF-CMS-3");
+		sitesPage.clickOnAddUserGroupButton("alf-cms-3");
+		sitesPage.clickOnUserRole("Contributor", "alf-cms-3");
 		
-		sitesPage.clickOnAddUserGroupButton("ALF-CMS-2");
-		sitesPage.clickOnUserRole("Reviewer", "ALF-CMS-2");
+		sitesPage.clickOnAddUserGroupButton("alf-cms-4");
+		sitesPage.clickOnUserRole("Reviewer", "alf-cms-4");
 		//Added as part of NALS
 		docDetailsPage.removeInheritPermissions();
 		

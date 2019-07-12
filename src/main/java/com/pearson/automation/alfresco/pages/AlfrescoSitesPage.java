@@ -1327,14 +1327,14 @@ public class AlfrescoSitesPage extends ReusableLibrary {
 
 			String siteName = new FileUtil().readDataFromFile(testOutputFilePath);
 
-			/*
-			 * String finalsiteresultXpath =
-			 * tempsiteresultXpath.replace("CRAFT", siteName);
-			 * UIHelper.iterateListandhighlightele(driver, siteResultList,
-			 * siteName, finalsiteresultXpath); UIHelper.click(driver,
-			 * finalsiteresultXpath);
-			 * UIHelper.waitForVisibilityOfEleByXpath(driver, siteTitleXpath);
-			 */
+			
+			 String finalsiteresultXpath =
+			 tempsiteresultXpath.replace("CRAFT", siteName);
+			 UIHelper.iterateListandhighlightele(driver, siteResultList,
+			  siteName, finalsiteresultXpath); UIHelper.click(driver,
+			 finalsiteresultXpath);
+			 UIHelper.waitForVisibilityOfEleByXpath(driver, siteTitleXpath);
+			 
 
 			performInviteUserToSite(siteName);
 
@@ -1452,10 +1452,12 @@ public class AlfrescoSitesPage extends ReusableLibrary {
 				UIHelper.mouseOveranElement(driver, UIHelper.findAnElementbyXpath(driver, searchResultsXpath));
 				UIHelper.waitFor(driver);
 				String finalAddBtnXpath = tempAddBtnXpath.replace("CRAFT", userName);
+				System.out.println("finalAddBtnXpath1"+finalAddBtnXpath);
 				UIHelper.waitFor(driver);
 				// UIHelper.waitForVisibilityOfEleByXpath(driver,
 				// finalAddBtnXpath);
 				if (UIHelper.isWebElementEnabled(UIHelper.findAnElementbyXpath(driver, finalAddBtnXpath))) {
+					System.out.println("finalAddBtnXpath2"+finalAddBtnXpath);
 					UIHelper.click(driver, finalAddBtnXpath);
 					UIHelper.mouseOveranElement(driver, UIHelper.findAnElementbyXpath(driver, invitedContainerXpath));
 					UIHelper.mouseOveranElement(driver,

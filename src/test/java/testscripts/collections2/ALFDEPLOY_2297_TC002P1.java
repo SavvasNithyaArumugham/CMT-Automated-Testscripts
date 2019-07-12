@@ -57,16 +57,15 @@ public class ALFDEPLOY_2297_TC002P1 extends TestCase {
 		
 		
 		String siteName = dataTable.getData("Sites", "SiteName");
-		homePage.navigateToSitesTab();
-		sitesPage.createSite(siteName, "Yes");
+		sitesPage.navigateToSitesTab();
 		
-		String site=sitesPage.getCreatedSiteName();
+		sitesPage.createSite(siteName, "No");
 		
 		String siteuserName = dataTable.getData("Sites", "InviteUserName");
 		String roleName = dataTable.getData("Sites", "Role");
-		sitesPage.performInviteUserToSite(site);
+		sitesPage.performInviteUserToSite(siteName);
 
-		siteMemPgTest.verifySiteMemebrs(site, siteuserName, roleName);
+		siteMemPgTest.verifySiteMemebrs(siteName, siteuserName, roleName);
 	/*	boolean isDisplayedSiteMember = siteMembPg.isDisplayedRequiredUserInSiteMembersList(invitedUserName, role);
 		
 		if(!isDisplayedSiteMember){

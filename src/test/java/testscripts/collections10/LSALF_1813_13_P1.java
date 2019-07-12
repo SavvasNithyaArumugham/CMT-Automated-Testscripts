@@ -49,7 +49,7 @@ public class LSALF_1813_13_P1 extends TestCase {
 
 	@Override
 	public void executeTest() {
-		AlfrescoCollectionsPageTest collectionPgTest = new AlfrescoCollectionsPageTest(scriptHelper);
+		
 		AlfrescoSitesPage sitesPage = new AlfrescoSitesPage(scriptHelper);
 		AlfrescoLoginPage signOnPage = new AlfrescoLoginPage(scriptHelper);
 		AlfrescoHomePage homePageObj = new AlfrescoHomePage(scriptHelper);
@@ -57,14 +57,13 @@ public class LSALF_1813_13_P1 extends TestCase {
 		AlfrescoCollectionsPage collectionPg = new AlfrescoCollectionsPage(scriptHelper);
 		AlfrescoMediaTransformPage mediaTransPage = new AlfrescoMediaTransformPage(scriptHelper);
 		
-		String collectionObjectData = dataTable.getData("MyFiles", "FieldDataForQuickEdit");
+		
 		String[] filePath = dataTable.getData("MyFiles", "FilePath").split("/");
 		String filepathfile = dataTable.getData("MyFiles", "uploadpath");
 		String filepathfilename = dataTable.getData("MyFiles", "CreateFolder");
 		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
 		String objectName = dataTable.getData("MyFiles", "FileName");
-		String allProperties = ".//a[contains(text(),'All Properties...')]";
-		String input = dataTable.getData("MyFiles", "BrowseActionName");
+		
 		Date date = new Date();
 		String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(date);
 		File downloadedFile = null;
@@ -104,6 +103,7 @@ public class LSALF_1813_13_P1 extends TestCase {
 		// Click on Generate Realize Csv for course object
 		collectionPg.clickOnMoreSetting("Batch 4 Test Course");
 		collectionPg.commonMethodForClickOnMoreSettingsOption("Batch 4 Test Course", "Generate Print Plan CSV");
+		collectionPg.clickonprintcsvrealizebox();
 		// Navigate to Document library
 		sitesPage.enterIntoDocumentLibrary();
 

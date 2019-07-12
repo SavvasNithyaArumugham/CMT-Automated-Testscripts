@@ -94,8 +94,8 @@ public class AUT_AG_020P3 extends TestCase
 		
 		functionalLibrary.loginAsValidUser(signOnPage);	
 	
-	String site=sitesPage.getCreatedSiteName();
-		sitesPage.siteFinder(site);		
+		String siteName = dataTable.getData("Sites", "SiteName");
+		sitesPage.siteFinder(siteName);		
 		sitesPage.enterIntoDocumentLibrary();
         sitesPage.documentdetails(fileName);
  

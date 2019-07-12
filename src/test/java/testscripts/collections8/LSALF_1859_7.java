@@ -80,7 +80,7 @@ public class LSALF_1859_7 extends TestCase {
 		collectionPg.commonMethodForClickOnMoreSettingsOption(createdFolder,MoreSettingsOption);
 		UIHelper.click(driver, createRulesXPath);
 		collectionPg.clickOnCreateRules();
-		collectionPg.createRulesBasicData(ruleDetails);
+		collectionPg.createRulesBasicData(ruleDetails,"Generate-ExcelToJSONAction");
 		try {
 		UIHelper.click(driver,createdFolderXpath );
 		myFiles.uploadFileInMyFilesPage(filePath, fileName);

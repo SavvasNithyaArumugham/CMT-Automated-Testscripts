@@ -55,16 +55,7 @@ public class LSALF_1812_P2 extends TestCase {
 		AlfrescoCollectionsPage collectionPg = new AlfrescoCollectionsPage(scriptHelper);
 		AlfrescoMediaTransformPage mediaTransPage = new AlfrescoMediaTransformPage(scriptHelper);
 
-		String[] filePath = dataTable.getData("MyFiles", "FilePath").split("/");
-		String filepathfile = dataTable.getData("MyFiles", "uploadpath");
-		String filepathfilename = dataTable.getData("MyFiles", "CreateFolder");
-		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
-		String objectName = dataTable.getData("MyFiles", "FileName");
-
-		Date date = new Date();
-		String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(date);
-		File downloadedFile = null;
-		ArrayList<String> csvFileRowDataList = null;
+		
 
 		String downloadFilePath = properties.getProperty("DefaultDownloadPath");
 
@@ -79,7 +70,16 @@ public class LSALF_1812_P2 extends TestCase {
 
 		// Go to collection UI
 		sitesPage.enterIntoDocumentLibrary();
+		String[] filePath = dataTable.getData("MyFiles", "FilePath").split("/");
+		String filepathfile = dataTable.getData("MyFiles", "uploadpath");
+		String filepathfilename = dataTable.getData("MyFiles", "CreateFolder");
+		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
+		String objectName = dataTable.getData("MyFiles", "FileName");
 
+		Date date = new Date();
+		String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(date);
+		File downloadedFile = null;
+		ArrayList<String> csvFileRowDataList = null;
 		// go to Course plan
 		myFiles.openCreatedFolder("Data Imports");
 		myFiles.openCreatedFolder("Course Plan");
@@ -107,6 +107,7 @@ public class LSALF_1812_P2 extends TestCase {
 				collectionPg.clickOnMoreSetting(listOfObjectsString);
 				collectionPg.commonMethodForClickOnMoreSettingsOption(listOfObjectsString,
 						"Generate Print Plan CSV");
+				collectionPg.clickonprintcsvrealizebox();
 				}catch(Exception e) {
 					report.updateTestLog("Generate Print Plan CSV","Generate Print Plan CSV is not present",Status.PASS);
 				}

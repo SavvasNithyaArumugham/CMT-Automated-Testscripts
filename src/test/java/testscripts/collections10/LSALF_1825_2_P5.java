@@ -171,7 +171,7 @@ public class LSALF_1825_2_P5 extends TestCase {
 		UIHelper.waitFor(driver);
 		collectionPg.clickOnMoreSetting("AutoCourse");
 		UIHelper.waitFor(driver);
-		collectionPg.commonMethodForClickOnMoreSettingsOption("AutoCourse","Generate JSON");
+		collectionPg.commonMethodForClickOnMoreSettingsOption("AutoCourse","Generate Bookbuild");
 		}
 
 

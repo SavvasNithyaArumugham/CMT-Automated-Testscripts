@@ -86,12 +86,12 @@ public class AUT_AG_020P1 extends TestCase
 		functionalLibrary.loginAsValidUser(signOnPage);
 		
 		homePageObj.navigateToSitesTab();
-		sitesPage.createSite(siteName, "Yes");
-		String site=sitesPage.getCreatedSiteName();
+		sitesPage.createSite(siteName, "No");
+		//String site=sitesPage.getCreatedSiteName();
 	///	sitesPage.siteFinder(site);
 		
-      	sitesPage.performInviteUserToSite(site);
-        siteMemPgTest.verifySiteMemebrs(site, siteuserName, roleName);
+      	sitesPage.performInviteUserToSite(siteName);
+        siteMemPgTest.verifySiteMemebrs(siteName, siteuserName, roleName);
 		
 		sitesPage.enterIntoDocumentLibrary();
 
@@ -129,7 +129,7 @@ public class AUT_AG_020P1 extends TestCase
 		 sitesPage.documentdetails(fileName);
 		
 		docDetailsPageObj.clickCopyToDocAction();
-		docDetailsPageObj.selectFolderToCopyInCopyPopUp(fileName,site,destinationFolder);
+		docDetailsPageObj.selectFolderToCopyInCopyPopUp(fileName,siteName,destinationFolder);
 		 
 		 sitesPage.enterIntoDocumentLibrary();
 		
@@ -155,7 +155,7 @@ public class AUT_AG_020P1 extends TestCase
 		sitesPage.clickOnMoreSetting(fileName);
 		sitesPage.clickOnMoreLinkOptions(fileName, "Link To..");
 		
-		docDetailsPageObj.selectFolderInLinkPopUp(site);
+		docDetailsPageObj.selectFolderInLinkPopUp(siteName);
 		docDetailsPageObj.clickLinkBtnInLinkPopUp();
 		
 		

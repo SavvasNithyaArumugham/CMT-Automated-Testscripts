@@ -14,7 +14,7 @@
 			<class name="testscripts.collections2.ALFDEPLOY_2297_TC007" />
 			<class name="testscripts.collections2.ALFDEPLOY_2421_TC001" />
 			<!-- <class name="testscripts.collections2.ALFDEPLOY_2747_TC001_2_3_4" /> --><!-- Remove this duplicate of 3203_tc_002 Fail case -->
-	 		<class name="testscripts.collections2.ALFDEPLOY_2760_TC002" />
+	 		<!-- <class name="testscripts.collections2.ALFDEPLOY_2760_TC002" /> --><!-- Email -->
 			<!-- <class name="testscripts.collections2.ALFDEPLOY_2761_TC001" /> Duplicate Case -->
 			<!-- <class name="testscripts.collections2.ALFDEPLOY_2762_TC001" />Duplicate Case -->
 			<class name="testscripts.collections2.ALFDEPLOY_2763_TC001" /> <!-- long run fail -->

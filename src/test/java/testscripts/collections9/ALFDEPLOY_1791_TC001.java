@@ -155,8 +155,8 @@ public class ALFDEPLOY_1791_TC001 extends TestCase {
 
 				}
 		
-		CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, input1 ,4 ,86 );
-		CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, input1 ,8 ,86 );
+		CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, input1 ,4 ,87 );
+		CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, input1 ,8 ,87 );
 		
 		CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, input2 ,4 ,90 );
 		CSVUtil.updateCSV(downloadedCSVFileANmeWithPath, input2 ,8 ,90 );

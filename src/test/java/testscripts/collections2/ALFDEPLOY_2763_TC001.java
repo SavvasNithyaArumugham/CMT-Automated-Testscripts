@@ -76,8 +76,8 @@ public class ALFDEPLOY_2763_TC001 extends TestCase {
 		// goto site > document lib
 		homePageObj.navigateToSitesTab();
 		sitesPage.createSite(siteNameValue, "Yes");
-		String siteName = sitesPage.getCreatedSiteName();
-		sitesPage.openSiteFromRecentSites(siteName);
+	//	String siteName = sitesPage.getCreatedSiteName();
+		sitesPage.openSiteFromRecentSites(siteNameValue);
 		sitesPage.enterIntoDocumentLibrary();
 
 		// goto site > document lib >Programs > Program object

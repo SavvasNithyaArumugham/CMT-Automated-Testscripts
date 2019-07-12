@@ -2,14 +2,9 @@
 
 Echo "Enter Number any one of Environment from the below List"
 Echo.
-Echo 1- qawip.cms.pearson.com
-Echo 2- qaarc.pearsoncms.com
-Echo 3- usppewip.pearsoncms.com
-Echo 4- ukppewip.pearsoncms.com
-Echo 5- apppewip.pearsoncms.com
-Echo 6- usppearc.pearsoncms.com
-Echo 7- ukppearc.pearsoncms.com
-Echo 8- apppearc.pearsoncms.com
+Echo 1- usppewip.pearsoncms.com
+Echo 2- usppearc.pearsoncms.com
+Echo 3- alfrescoppe.pearson.com
 
 Echo.
 

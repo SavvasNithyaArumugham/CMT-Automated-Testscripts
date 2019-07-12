@@ -66,16 +66,15 @@ public class AUT_AG_005 extends TestCase {
 		AlfrescoCollectionsPage collectionPg = new AlfrescoCollectionsPage(scriptHelper);
 		AlfrescoCollectionsPageTest collectionPgTest = new AlfrescoCollectionsPageTest(scriptHelper);	
 		AlfrescoSearchPage alfrescoSearchPage = new AlfrescoSearchPage(scriptHelper);
-		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
-		String moreSettingsOptionName = dataTable.getData("MyFiles", "MoreSettingsOption");
+		
 		
 		// Log in Pearson Schools project
-				functionalLibrary.loginAsValidUser(signOnPage);
-				
+		functionalLibrary.loginAsValidUser(signOnPage);
 		//Create site
-				String siteassertValue = dataTable.getData("Sites", "SiteName");
-				sitesPage.siteFinder(siteassertValue);
-				String siteName=siteassertValue.toLowerCase();
+				homePageObj.navigateToSitesTab();
+				String siteNameValue =  dataTable.getData("Sites", "SiteName");
+				
+				sitesPage.createSite(siteNameValue, "Yes");
 				
 		// upload Thumbnails  files 
 		sitesPage.enterIntoDocumentLibrary();
@@ -88,18 +87,10 @@ public class AUT_AG_005 extends TestCase {
 		String filePath = dataTable.getData("MyFiles", "FilePath");
 		String fileName = dataTable.getData("MyFiles", "FileName");
 		collectionPg.uploadFileInCollectionSite(filePath, fileName);
-		
+		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
+		String moreSettingsOptionName = dataTable.getData("MyFiles", "MoreSettingsOption");
 	
-		//Create site
-		homePageObj.navigateToSitesTab();
-		String siteNameValue =  dataTable.getData("Sites", "SiteName");
-		//sitesPage.siteFinder(siteNameValue);
-				//
-		sitesPage.createSite(siteNameValue, "Yes");
-		/*homePageObj.navigateToSitesTab();
-		String siteName = sitesPage.getCreatedSiteName();				
-		sitesPage.openSiteFromRecentSites(siteName);
-		siteName=siteName.toLowerCase();*/
+		
 				
 		// Go to collection UI
 				sitesPage.enterIntoDocumentLibrary();
@@ -129,8 +120,8 @@ public class AUT_AG_005 extends TestCase {
 								"Edit Properties");
 						UIHelper.waitFor(driver);
 					//	collectionPg.enterCollectionObjectA2LData("Asset(s) to link:", siteName+":AlfrescoXMLFile.xml, "+siteName+":AlfrescoJSONFile.json");
-						collectionPg.enterCollectionObjectA2LData("Grid Thumbnail to link:",siteName+ ":AlfGrid.jpg");
-						collectionPg.enterCollectionObjectA2LData("Thumbnail to link:", siteName+":AlfTum.jpg");
+						collectionPg.enterCollectionObjectA2LData("Grid Thumbnail to link:",siteNameValue+ ":AlfGrid.jpg");
+						collectionPg.enterCollectionObjectA2LData("Thumbnail to link:", siteNameValue+":AlfTum.jpg");
 						
 						UIHelper.waitFor(driver);
 					//	collectionPg.verifyThumbnailGridThumbnailValuesInAllPropPage(listOfObjectsString);

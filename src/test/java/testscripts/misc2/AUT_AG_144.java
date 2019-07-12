@@ -69,10 +69,7 @@ public class AUT_AG_144 extends TestCase{
 		sitesPage.enterIntoDocumentLibrary();
 		
 		AlfrescoMyFilesPage myFiles = new AlfrescoMyFilesPage(scriptHelper);
-		
-		docLibPg.deleteAllFilesAndFolders();
-		docLibPg.deleteAllFilesAndFolders();
-		
+		docLibPg.deleteAllFilesAndFolders();		
 		myFiles.uploadFileInMyFilesPage(filePath, fileName);
 		
 		String[] fileNames = fileName.split(",");

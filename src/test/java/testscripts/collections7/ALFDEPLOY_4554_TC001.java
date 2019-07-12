@@ -114,11 +114,11 @@ public class ALFDEPLOY_4554_TC001 extends TestCase {
 		UIHelper.waitFor(driver);
 		UIHelper.waitFor(driver);
 		UIHelper.waitForPageToLoad(driver);
-		collectionPg.filtervalidationforContentObjects("Texas State Content 1", "Texas State Content 2");		
+		collectionPg.filtervalidationforContentObjects("Texas State Unit 2", "Texas State Unit 2");		
 		
 		//case 3: Verify that editing properties on filtered objects does not clear the filter
 		
-		collectionPg.clickOnMouseOverMenu("Texas State Content 1","Edit Properties");		
+		collectionPg.clickOnMouseOverMenu("Texas State Unit 2","Edit Properties");		
 		collectionPg.editpropAndSave("Version State:", "FL");
 		UIHelper.waitFor(driver);
 		UIHelper.waitFor(driver);

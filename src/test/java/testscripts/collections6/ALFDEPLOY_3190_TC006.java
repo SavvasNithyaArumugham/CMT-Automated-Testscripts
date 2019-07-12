@@ -212,7 +212,7 @@ public class ALFDEPLOY_3190_TC006 extends TestCase {
 				
 		// upload course plan
 		
-		collectionPg.uploadFileInCollectionSite("/DownloadFiles/", filename2);
+		collectionPg.uploadUpdatedFileInCollectionSite(downloadFilePath, filename2);
 		UIHelper.waitForLong(driver);
 		UIHelper.pageRefresh(driver);
 		UIHelper.waitForLong(driver);

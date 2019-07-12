@@ -28,7 +28,7 @@ public class LSALF_1778_13 extends TestCase {
 	@Test
 	public void COLLECTIONS_01_02() {
 		testParameters.setCurrentTestDescription("Confirm successfull Import of test data set."
-				+ "Confirm Genres property is available and populated with CSV values");
+				+ "Confirm LevelIncrementing property is available and populated with CSV values");
 
 		testParameters.setIterationMode(IterationOptions.RunOneIterationOnly);
 		driverScript = new DriverScript(testParameters);

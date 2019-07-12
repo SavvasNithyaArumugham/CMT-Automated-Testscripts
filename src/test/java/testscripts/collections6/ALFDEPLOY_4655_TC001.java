@@ -87,7 +87,7 @@ public class ALFDEPLOY_4655_TC001 extends TestCase {
 		myFiles.openCreatedFolder(folderNames[1]);
 		myFiles.openCreatedFolder(folderNames[2]);
 		myFiles.openCreatedFolder(fileName);
-		DocDetailsPg.performUnzipDocAction("DocumentsFolder");	
+		DocDetailsPg.performUnzipDocAction("Here");	
 		
 		// Go to collection UI
 		sitesPage.enterIntoDocumentLibrary();

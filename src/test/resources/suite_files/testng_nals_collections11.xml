@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Collections Part10" parallel="classes"
+	thread-count="1">
+	<test name="Test">
+		<classes>
+		
+<class name="testscripts.collections11.LSALF_2123_3Cn" />
+<class name="testscripts.collections11.LSALF_2123_3CnCSV" />
+<class name="testscripts.collections11.LSALF_2123_3CnDel" />
+<class name="testscripts.collections11.LSALF_2123_3CnUpd" />
+<class name="testscripts.collections11.LSALF_2123_3CnUpdInvalid" />
+
+<class name="testscripts.collections11.LSALF_2123_3Seq" />
+<class name="testscripts.collections11.LSALF_2123_3SeqCSV" />
+<class name="testscripts.collections11.LSALF_2123_3SeqDel" />
+<class name="testscripts.collections11.LSALF_2123_3SeqUpd" />
+<class name="testscripts.collections11.LSALF_2123_3SeqUpdInvalid" />
+
+<class name="testscripts.collections11.LSALF_2123_4Cn" />
+
+<class name="testscripts.collections11.LSALF_2123_4Seq" />
+
+<class name="testscripts.collections11.LSALF_2128_2" />
+<class name="testscripts.collections11.LSALF_2128" />
+<class name="testscripts.collections11.LSALF_2130_01" />
+
+<class name="testscripts.collections11.LSALF_2130_02" />
+<class name="testscripts.collections11.LSALF_2130_03" />
+
+<class name="testscripts.collections11.LSALF_2174_P1" />
+
+	</classes>			
+	
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

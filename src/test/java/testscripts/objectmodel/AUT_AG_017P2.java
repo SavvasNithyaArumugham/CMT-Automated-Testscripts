@@ -71,9 +71,9 @@ public class AUT_AG_017P2 extends TestCase
 		AlfrescoDocumentLibPage docLibPage = new AlfrescoDocumentLibPage(scriptHelper);
 
 			
-		String siteName=sitesPage.getCreatedSiteName();
+		String siteNameValue = dataTable.getData("Sites", "SiteName");
 		
-		sitesPage.siteFinder(siteName);
+		sitesPage.siteFinder(siteNameValue);
 		
 		sitesPage.enterIntoDocumentLibrary();
 	

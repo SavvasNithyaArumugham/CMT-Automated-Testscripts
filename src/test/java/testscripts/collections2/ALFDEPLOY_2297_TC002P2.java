@@ -65,8 +65,9 @@ private FunctionalLibrary functionalLibrary;
 		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
 		String collectionObjectName = dataTable.getData("MyFiles", "CreateMenuItemsForCollection");
 		String moreSettingsOptionName = dataTable.getData("MyFiles", "MoreSettingsOption");
-		String siteName=sitesPage.getCreatedSiteName();
-		sitesPage.siteFinder(siteName);
+		//String siteName=sitesPage.getCreatedSiteName();
+		//sitesPage.siteFinder(sourceSiteName);
+		sitesPage.openSiteFromRecentSites(sourceSiteName);
 		sitesPage.enterIntoDocumentLibrary();
 		
 		myFiles.openCreatedFolder(folderNames[0]);

@@ -61,17 +61,17 @@ public class ALFDEPLOY_3216_TC001P1 extends TestCase {
 		//Create site
 				homePageObj.navigateToSitesTab();
 				String siteNameValue = dataTable.getData("Sites", "SiteName");
-				sitesPage.createSite(siteNameValue, "Yes");
-				String siteName = sitesPage.getCreatedSiteName();
+				sitesPage.createSite(siteNameValue, "No");
+				//String siteName = sitesPage.getCreatedSiteName();
 				
 		//Add users SSO1,SSO3 as Coordinator,Collaborator respectively
-				/*String userName = dataTable.getData("Sites", "InviteUserName");
+				String userName = dataTable.getData("Sites", "InviteUserName");
 				String roleName = dataTable.getData("Sites", "Role");				
-				sitesPage.performInviteUserToSite(siteName);
-				siteMemPgTest.verifySiteMemebrs(siteName, userName,roleName );*/
+				sitesPage.performInviteUserToSite(siteNameValue);
+				siteMemPgTest.verifySiteMemebrs(siteNameValue, userName,roleName );
 				
 		//Create content object in collections UI
-				sitesPage.openSiteFromRecentSites(siteName);
+				sitesPage.openSiteFromRecentSites(siteNameValue);
 				sitesPage.enterIntoDocumentLibrary();				
 				String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
 				myFiles.openCreatedFolder(folderNames[0]);
@@ -86,12 +86,12 @@ public class ALFDEPLOY_3216_TC001P1 extends TestCase {
 				myFiles.openCreatedFolder(folderNames[1]);
 				
 				collectionPg.clickOnEditCollectionButton();
-				collectionPg.clickOnMoreSetting("AutoCourse");
+				collectionPg.clickOnMoreSetting("AutoContentObj");
 				UIHelper.waitFor(driver);
 				UIHelper.waitFor(driver);
 				//Read available options 
 				ArrayList<String> availableOptions = new ArrayList<String>();
-				availableOptions = collectionPg.readMoreOptions("AutoCourse");
+				availableOptions = collectionPg.readMoreOptions("AutoContentObj");
 				UIHelper.waitFor(driver);
 				
 				if(availableOptions.contains("Duplicate All")){

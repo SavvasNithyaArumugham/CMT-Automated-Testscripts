@@ -69,6 +69,24 @@ public class ALFDEPLOY_3191_TC027 extends TestCase {
 		AlfrescoMyFilesPage myFiles = new AlfrescoMyFilesPage(scriptHelper);
 		AlfrescoCollectionsPage collectionPg = new AlfrescoCollectionsPage(scriptHelper);
 
+		
+		//ArrayList<String> csvFileRowDataList = null;
+	
+		// Log in Pearson Schools project
+		functionalLibrary.loginAsValidUser(signOnPage);		
+		// Create site
+		String siteassertValue = dataTable.getData("Sites", "SiteName");
+		homePageObj.navigateToSitesTab();
+		sitesPage.createSite(siteassertValue, "Yes");
+		
+
+		// Go to collection UI
+		sitesPage.enterIntoDocumentLibrary();
+
+		//go to Course plan
+		myFiles.openCreatedFolder("Data Imports");
+		myFiles.openCreatedFolder("Course Plan");
+
 		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
 		String moreSettingsOptionName = dataTable.getData("MyFiles","MoreSettingsOption");
 		String link = dataTable.getData("MyFiles", "Subfolders1");
@@ -84,26 +102,7 @@ public class ALFDEPLOY_3191_TC027 extends TestCase {
 		String downloadFilePath = properties.getProperty("DefaultDownloadPath");
 		
 		File downloadedFile = null;
-		//ArrayList<String> csvFileRowDataList = null;
-	
-		// Log in Pearson Schools project
-		functionalLibrary.loginAsValidUser(signOnPage);
-		UIHelper.waitForLong(driver);
-		// Create site
-		String siteassertValue = dataTable.getData("Sites", "SiteName");
-		homePageObj.navigateToSitesTab();
-		sitesPage.createSite(siteassertValue, "Yes");
-		String siteName = sitesPage.getCreatedSiteName();
-
-		siteName = siteName.toLowerCase();
-
-		// Go to collection UI
-		sitesPage.enterIntoDocumentLibrary();
-
-		//go to Course plan
-		myFiles.openCreatedFolder("Data Imports");
-		myFiles.openCreatedFolder("Course Plan");
-
+		
 		// upload course plan
 		
 		collectionPg.uploadFileInCollectionSite(filePath, fileName);
@@ -136,10 +135,10 @@ public class ALFDEPLOY_3191_TC027 extends TestCase {
 		collectionPg.confirmPropertyinImportAndSave(folderNames[6],Metadata[3],fieldData[3]);
 		collectionPg.clickOnMouseOverMenu(folderNames[7],"Edit Properties");
 		UIHelper.click(driver, allProperties1);
-		collectionPg.confirmPropertyinImportAndSave(folderNames[7],Metadata[4],fieldData[4]);
+		/*collectionPg.confirmPropertyinImportAndSave(folderNames[7],Metadata[4],fieldData[4]);
 		collectionPg.clickOnMouseOverMenu(folderNames[8],"Edit Properties");
-		UIHelper.click(driver, allProperties1);
-		collectionPg.confirmPropertyinImportAndSave(folderNames[8],Metadata[5],fieldData[5]);
+		UIHelper.click(driver, allProperties1);*/
+		//collectionPg.confirmPropertyinImportAndSave(folderNames[8],Metadata[5],fieldData[5]);
 	   
 		sitesPage.enterIntoDocumentLibrary();
 	    sitesPage.documentdetailsColl(folderNames[0]);

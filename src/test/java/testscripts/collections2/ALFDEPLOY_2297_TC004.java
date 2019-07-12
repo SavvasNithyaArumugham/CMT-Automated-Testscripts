@@ -62,8 +62,7 @@ public class ALFDEPLOY_2297_TC004 extends TestCase {
 		// // goto site > document lib
 		homePageObj.navigateToSitesTab();
 		sitesPage.createSite(siteNameValue, "Yes");
-		String siteName = sitesPage.getCreatedSiteName();
-		sitesPage.openSiteFromRecentSites(siteName);
+		
 		sitesPage.enterIntoDocumentLibrary();
 		
 		myFiles.openCreatedFolder("Courses");

@@ -96,9 +96,9 @@ public class AUT_AG_020P2 extends TestCase
 		functionalLibrary.loginAsValidUser(signOnPage);
 		
 		homePageObj.navigateToSitesTab();
-	
-		String site=sitesPage.getCreatedSiteName();
-		sitesPage.siteFinder(site);
+		String siteName = dataTable.getData("Sites", "SiteName");
+		
+		sitesPage.siteFinder(siteName);
 
        
 		

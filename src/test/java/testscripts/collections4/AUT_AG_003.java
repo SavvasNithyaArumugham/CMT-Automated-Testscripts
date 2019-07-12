@@ -66,20 +66,20 @@ public class AUT_AG_003 extends TestCase {
 		AlfrescoCollectionsPage collectionPg = new AlfrescoCollectionsPage(scriptHelper);
 		AlfrescoCollectionsPageTest collectionPgTest = new AlfrescoCollectionsPageTest(scriptHelper);	
 		AlfrescoSearchPage alfrescoSearchPage = new AlfrescoSearchPage(scriptHelper);
-		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
-		String moreSettingsOptionName = dataTable.getData("MyFiles", "MoreSettingsOption");
+		
 		
 		// Log in Pearson Schools project
 				functionalLibrary.loginAsValidUser(signOnPage);
 				
 		//Create site
 				String siteassertValue = dataTable.getData("Sites", "SiteName");
-				sitesPage.siteFinder(siteassertValue);
 				String siteName=siteassertValue.toLowerCase();
-				
+				homePageObj.navigateToSitesTab();
+				sitesPage.createSite(siteassertValue, "Yes");
 		// upload Thumbnails  files 
 		sitesPage.enterIntoDocumentLibrary();
-		
+		String[] folderNames = dataTable.getData("MyFiles", "Version").split(",");
+		String moreSettingsOptionName = dataTable.getData("MyFiles", "MoreSettingsOption");
 		myFiles.openCreatedFolder("Assets");
 		myFiles.openCreatedFolder("Thumbnails");	
 		AlfrescoDocumentLibPage docLibPg = new AlfrescoDocumentLibPage(
@@ -89,18 +89,7 @@ public class AUT_AG_003 extends TestCase {
 		String fileName = dataTable.getData("MyFiles", "FileName");
 		collectionPg.uploadFileInCollectionSite(filePath, fileName);
 	
-		//Create site
-	//	homePageObj.navigateToSitesTab();
-		//String siteNameValue =  dataTable.getData("Sites", "SiteName");
-		//sitesPage.siteFinder(siteNameValue);
-				//
-		homePageObj.navigateToSitesTab();
-		sitesPage.createSite(siteassertValue, "Yes");
-		/*homePageObj.navigateToSitesTab();
-		String siteName = sitesPage.getCreatedSiteName();				
-		sitesPage.openSiteFromRecentSites(siteName);
-		siteName=siteName.toLowerCase();*/
-				
+	
 		// Go to collection UI
 				sitesPage.enterIntoDocumentLibrary();
 				myFiles.openCreatedFolder(folderNames[0]);
@@ -156,8 +145,8 @@ public class AUT_AG_003 extends TestCase {
 						"AutoSeqObj", "outgoing", "Thumbnail");
 				collectionPg.verifyRelationshipViewerOnObjectsInCollectionUi(
 						"AutoSeqObj", "outgoing", "Grid Thumbnail");*/
-				collectionPg.verifyListOfReferenveValue("AutoSeqObj", "outgoing","Grid Thumbnail","AlfGrid.jpg");
-				collectionPg.verifyListOfReferenveValue("AutoSeqObj", "outgoing","Thumbnail","AlfTum.jpg");
+				/*collectionPg.verifyListOfReferenveValue("AutoSeqObj", "outgoing","Grid Thumbnail","AlfGrid.jpg");
+				collectionPg.verifyListOfReferenveValue("AutoSeqObj", "outgoing","Thumbnail","AlfTum.jpg");*/
 			}
 
 	@Override
