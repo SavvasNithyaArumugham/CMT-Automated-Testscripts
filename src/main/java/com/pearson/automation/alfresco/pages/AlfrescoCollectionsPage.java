@@ -1,13 +1,9 @@
 package com.pearson.automation.alfresco.pages;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Scanner;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -16,9 +12,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
-import au.com.bytecode.opencsv.CSVReader;
-
 import org.openqa.selenium.support.ui.Select;
 
 import com.pearson.automation.utils.CSVUtil;
@@ -95,6 +88,8 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	private String versionStateDropdownXpath = ".//*[contains(@id,'prop_cpnals_versionState') and @name='-']";
 	//Modified as part of NALS Release SOW7 1709_3 Added genres
 	private String genresDropdownXpath = ".//*[contains(@id,'prop_cpnals_genres') and @name='-']";
+	private String librarydropdownxpath = ".//*[contains(@id,'prop_cpnals_library') and @name='-']";
+	private String releaseversionxpath = ".//*[contains(@id,'prop_cpnals_releaseVersion') and @name='-']";
 	private String versioncountryDropdownXpath = ".//*[contains(@id,'prop_cpnals_versionCountry') and @name='-']";
 	private String versiondistricttextxpath = ".//*[contains(@id,'prop_cpnals_versionDistrict')]";
 	private String versionstatementtextxpath = ".//*[contains(@id,'prop_cpnals_versionStatement')]";
@@ -223,7 +218,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	public String errorStatusIcon = "//*[@class='filename']//a[contains(text(),'Course-2016-10-17')]//ancestor::tr//*[@class='status']//img";
 
 	private String searchResultsListXpath = ".//*[@class='documents yui-dt']//tbody[@class='yui-dt-data']//h3//a";
-
+	
 	private String leftFoldersListFromShareUiXpath = "//*[contains(@class,'ygtvchildren')]//*[contains(@class,'ygtvitem selected')]//*[contains(@class,'documentDroppable ')]//*[contains(@class,'ygtvcell ')]//span[@class='ygtvlabel']";
 	private String leftFoldersListFromCollectionUiXpath = "//*[contains(@id,'assembly-view-node-workspace')]//*[contains(@class,'dynatree-title')]//div[1]";
 
@@ -250,6 +245,8 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	private String dragfromxpath = "//*[@class='treeview']/li/ul/li[2]/span";
 	private String dragtoxpath = "//*[@class='treeview']/li/ul/li[3]/span";
 	private String realizecsvbox = "//*[contains(text(),'Realize Course CSV filtering')]";
+	private String printcsvrealize = "//*[contains(text(),'Print CSV filtering')]";
+	
 	private String detailsrealizecsvbox = "//*[@id=\"onActionObjectGenerateRealizeCsv\"]/a/span";
 	private String realizecsvboxOKbutton = "//button[contains(text(),'Ok')]";
 	private String realizecsvvaluesxpath = "//select[@name='versionStates']";
@@ -302,6 +299,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	private String leveledReaderListXpath = " (//div[@class='set-bordered-panel-body'])[last()]//label";
 	private String LexilePropertyEleXpath = "//*[@id='template_x002e_edit-metadata_x002e_edit-metadata_x0023_default_prop_cpnals_lexile']";			
 
+	
 	/**
 	 * Constructor to initialize the component library
 	 * 
@@ -542,7 +540,11 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 		try {
 			//Added rumba,skillspath,cmtskills as part of NALS
 			String name = "", title = "", description = "", courseAbbrevation = "", contentType = "", contribSource = "", realizeFileType = "", discipline = "",rumbaprogramname ="", skillspath = "",mediaType = "",cmtskills = "";
+<<<<<<< HEAD
 			String productType="",folioSpecial="",dynamiccontentType="",folioprefix="",foliostyle="",foliostart="",tocIncludeFrom="",tocIncludeTo="",aggregationtype="";
+=======
+			String productType="",dynamiccontentType="",folioprefix="",foliostyle="",foliostart="",folioSpecial,tocIncludeFrom="",tocIncludeTo="",aggregationtype="";
+>>>>>>> 2ef7837583cbe1598b1f6535fdf2758d25bdc2eb
 			if (objectType.equalsIgnoreCase("Course")) {
 
 				name = getFieldValueFromExcelForCreateObjects(
@@ -1006,14 +1008,11 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 						disciplizeDropdownXpathInCreateObject, 2);*/
 			}
 			
-			if(!cmtskills.isEmpty()) {
-				System.out.println("1");
+			if(!cmtskills.isEmpty()) {				
 				WebElement select1 = driver.findElement(By.xpath("//*[@id=\"template_x002e_collections-secondary-toolbar_x002e_assembly-view_x0023_default-createObject_prop_cpnals_cmtSkillsDiscipline-entry\"]/option[1]"));
 		        WebElement select2 = driver.findElement(By.xpath("//*[@id=\"template_x002e_collections-secondary-toolbar_x002e_assembly-view_x0023_default-createObject_prop_cpnals_cmtSkillsDiscipline-entry\"]/option[2]"));        
-		        Actions action = new Actions(driver);
-		        System.out.println("2");
+		        Actions action = new Actions(driver);		        
 		        action.keyDown(Keys.CONTROL).click(select1).click(select2).build().perform();
-		        System.out.println("3");
 			}else {
 				report.updateTestLog("Input data to create 'Course' object",
 						"User unable to enter data for CMT Skills of Course Object"
@@ -3277,9 +3276,13 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 			JavascriptExecutor executor = (JavascriptExecutor) driver;
 			executor.executeScript("arguments[0].click();",
 					moreSettingsOptElement);
+			UIHelper.waitFor(driver);
+			UIHelper.highlightElement(driver, summaryOKbutton);
+			UIHelper.waitFor(driver);
+			UIHelper.click(driver, summaryOKbutton);
 			report.updateTestLog("Click on " + moreSettingsOptName,
 					"User able to click the " + moreSettingsOptName,
-					Status.PASS);			
+					Status.PASS);	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -5072,7 +5075,7 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 	public void createCollectionObjectsByBasicDataforcsv(String objectType,
 			String splittedFileValues[]) {
 		try {//Added genres as part of NALS
-			String name = "", title = "", description = "", courseAbbrevation = "", contentType = "", contribSource = "", realizeFileType = "", discipline = "", mediaType = "", versionCountry = "", versionState = "", versionDistrict = "", versionStatement = "", downloadRestrictions = "",rumbaprogramname = "", skillpath="",genres="";
+			String name = "", title = "", description = "", courseAbbrevation = "", contentType = "", contribSource = "", realizeFileType = "", discipline = "", mediaType = "", versionCountry = "", versionState = "", versionDistrict = "", versionStatement = "", downloadRestrictions = "",rumbaprogramname = "", skillpath="",genres="",library="",releaseversion="";
 
 			if (objectType.equalsIgnoreCase("Course")) {
 
@@ -5086,8 +5089,8 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 						splittedFileValues, "Description:");
 				skillpath = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "Skills Path:");
-				courseAbbrevation = getFieldValueFromExcelForCreateObjects(
-						splittedFileValues, "CourseAbbrevation:");
+				/*courseAbbrevation = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "CourseAbbrevation:");*/
 				discipline = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "Discipline:");
 				versionCountry = getFieldValueFromExcelForCreateObjects(
@@ -5131,14 +5134,18 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 						splittedFileValues, "VersionDistrict:");
 				versionStatement = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "VersionStatement:");
-				downloadRestrictions = getFieldValueFromExcelForCreateObjects(
+				/*downloadRestrictions = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "DownloadRestrictions:");
-
+				*/
+				library = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "Library:");
+				releaseversion = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "Release Version:");
 				clickOnCreateButton();
 				clickOnCreateMenuItem(objectType);
 				enterBasicDataForSequenceObjectforcsv(name, title, description,
 						mediaType, discipline, versionCountry, versionState,
-						versionDistrict, versionStatement, downloadRestrictions);
+						versionDistrict, versionStatement, downloadRestrictions,library,releaseversion);
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			} else if (objectType.equalsIgnoreCase("Container")) {
@@ -5161,11 +5168,16 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 						splittedFileValues, "VersionStatement:");
 				genres = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "Genres:");
+				library = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "Library:");
+
+				releaseversion = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "Release Version:");
 				clickOnCreateButton();
 				clickOnCreateMenuItem(objectType);
 				enterBasicDataForContainerforcsv(name, title,rumbaprogramname, description,skillpath,
 						discipline, versionCountry, versionState,
-						versionDistrict, versionStatement,genres);
+						versionDistrict, versionStatement,genres,library,releaseversion);
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			} else if (objectType.equalsIgnoreCase("Content Object")) {
@@ -5197,12 +5209,14 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 				downloadRestrictions = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "DownloadRestrictions:");
 
+				releaseversion = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "Release Version:");
 				clickOnCreateButton();
 				clickOnCreateMenuItem(objectType);
 				enterBasicDataForContentObjectforcsv(name, title, description,
 						contentType, contribSource, realizeFileType, mediaType,
 						discipline, versionCountry, versionState,
-						versionDistrict, versionStatement, downloadRestrictions);
+						versionDistrict, versionStatement, downloadRestrictions,releaseversion);
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			} else if (objectType.equalsIgnoreCase("Learning Bundle")) {
@@ -5224,11 +5238,13 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 				versionStatement = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "VersionStatement:");
 
+				releaseversion = getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "Release Version:");
 				clickOnCreateButton();
 				clickOnCreateMenuItem(objectType);
 				enterBasicDataForLearningBundleforcsv(name, title, description,
 						discipline, versionCountry, versionState,
-						versionDistrict, versionStatement);
+						versionDistrict, versionStatement,releaseversion);
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			} else if (objectType.equalsIgnoreCase("Asset")) {
@@ -5310,7 +5326,7 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 			String courseAbbrevation, String contentType, String contribSource,
 			String realizeFileType, String mediaType, String discipline,
 			String versionCountry, String versionState, String versionDistrict,
-			String versionStatement, String downloadRestrications,String genres) {
+			String versionStatement, String downloadRestrications,String genres,String library,String releaseversion) {
 
 		try {
 			switch (createObjectType) {
@@ -5329,7 +5345,7 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 				enterBasicDataForSequenceObjectforcsv(name, title, description,
 						mediaType, discipline, versionCountry, versionState,
 						versionDistrict, versionStatement,
-						downloadRestrications);
+						downloadRestrications,"","");
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			case "Container":
@@ -5337,7 +5353,7 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 				clickOnCreateMenuItem(createObjectType);
 				enterBasicDataForContainerforcsv(name, title,rumbaprogramname,description,skillpath,
 						discipline, versionCountry, versionState,
-						versionDistrict, versionStatement,"");//Modified as part of NALS Release SOW7 1709_3
+						versionDistrict, versionStatement,"","","");//Modified as part of NALS Release SOW7 1709_3
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			case "Content Object":
@@ -5347,7 +5363,7 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 						contentType, contribSource, realizeFileType, mediaType,
 						discipline, versionCountry, versionState,
 						versionDistrict, versionStatement,
-						downloadRestrications);
+						downloadRestrications,"");
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			case "Learning Bundle":
@@ -5355,7 +5371,7 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 				clickOnCreateMenuItem(createObjectType);
 				enterBasicDataForLearningBundleforcsv(name, title, description,
 						discipline, versionCountry, versionState,
-						versionDistrict, versionStatement);
+						versionDistrict, versionStatement,"");
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			case "Asset":
@@ -5461,6 +5477,8 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 							genresDropdownXpath, genresPropValue);
 				}
 			}
+			
+			
 
 			report.updateTestLog("Input data to create 'Course' object",
 					"User able to enter data for 'Course' object"
@@ -5487,7 +5505,7 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 			String title, String description, String mediaType,
 			String discipline, String versionCountry, String versionState,
 			String versionDistrict, String versionStatement,
-			String downloadRestrictions) {
+			String downloadRestrictions,String library,String releaseversion) {
 		try {
 			UIHelper.waitForVisibilityOfEleByXpath(driver,
 					nameFieldXpathInCreateObject);
@@ -5542,7 +5560,18 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 						downloadrestricationsdropdownxpath,
 						downloadRestrictions);
 			}
+			//Modified as part of NALS Added Library Release SOW9 LSALF-2123
+			if (!library.isEmpty()) {
 
+				UIHelper.selectbyVisibleText(driver,
+						librarydropdownxpath,
+						library);
+			}
+
+			if (!releaseversion.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver,
+						releaseversionxpath, releaseversion);
+			}
 			report.updateTestLog("Input data to create 'Sequence Object'",
 					"User able to enter data for 'Sequence object'"
 							+ "<br>Name: " + name + ", " + "Title: " + title
@@ -5565,7 +5594,7 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 	// Enter Data in fields
 	public void enterBasicDataForContainerforcsv(String name, String title,String rumbaprogramname,
 			String description,String skillpath, String discipline, String versionCountry,
-			String versionState, String versionDistrict, String versionStatement,String genres) {
+			String versionState, String versionDistrict, String versionStatement,String genres,String library,String releaseversion) {
 		//Modified as part of NALS Added Genres Release SOW7 1709_3
 		try {
 			UIHelper.waitForVisibilityOfEleByXpath(driver,
@@ -5611,10 +5640,21 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 			}
 			//Modified as part of NALS Added Genres Release SOW7 1709_3
 			if (!genres.isEmpty()) {
-				UIHelper.selectbyVisibleText(driver, versionStateDropdownXpath,
+				UIHelper.selectbyVisibleText(driver, genresDropdownXpath,
 						genres);
 			}
-			
+			//Modified as part of NALS Added Library Release SOW9 LSALF-2123
+			if (!library.isEmpty()) {
+
+				UIHelper.selectbyVisibleText(driver,
+						librarydropdownxpath,
+						library);
+			}
+				
+			if (!releaseversion.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver,
+						releaseversionxpath, releaseversion);
+			}
 			report.updateTestLog("Input data to create 'Container' object",
 					"User able to enter data for 'Container' object"
 							+ "<br>Name: " + name + ", " + "Title: " + title
@@ -5638,7 +5678,7 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 			String description, String contentType, String contribSource,
 			String realizeFileType, String mediaType, String discipline,
 			String versionCountry, String versionState, String versionDistrict,
-			String versionStatement, String downloadRestrictions) {
+			String versionStatement, String downloadRestrictions,String releaseversion) {
 		try {
 			UIHelper.waitForVisibilityOfEleByXpath(driver,
 					nameFieldXpathInCreateObject);
@@ -5709,6 +5749,11 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 						downloadrestricationsdropdownxpath,
 						downloadRestrictions);
 			}
+			
+			if (!releaseversion.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver,
+						releaseversionxpath, releaseversion);
+			}
 
 			report.updateTestLog("Input data to create 'Content Object'",
 					"User able to enter data for 'Content Object'"
@@ -5752,7 +5797,7 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 	public void enterBasicDataForLearningBundleforcsv(String name,
 			String title, String description, String discipline,
 			String versionCountry, String versionState, String versionDistrict,
-			String versionStatement) {
+			String versionStatement,String releaseversion) {
 		try {
 			UIHelper.waitForVisibilityOfEleByXpath(driver,
 					nameFieldXpathInCreateObject);
@@ -5794,6 +5839,11 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 			if (!versionStatement.isEmpty()) {
 				UIHelper.sendKeysToAnElementByXpath(driver,
 						versionstatementtextxpath, versionStatement);
+			}
+			
+			if (!releaseversion.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver,
+						releaseversionxpath, releaseversion);
 			}
 
 			report.updateTestLog(
@@ -7203,7 +7253,7 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 			}
 			else
 			{
-				report.updateTestLog("Verify that " + value +" should be displayed in View Details",
+				report.updateTestLog("Verify that " + value +" ia not displayed in View Details",
 						value+" is displayed in View Details", Status.FAIL);	
 			}
 		}		
@@ -7769,9 +7819,9 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 
 		
 		//Method Added as part of NALS
-		public void createRulesBasicData(String ruleDetails) {
+		public void createRulesBasicData(String ruleDetails,String performAction) {
 			try {
-				String name = "", mimetype = "",performAction="Generate-ExcelToJSONAction";
+				String name = "", mimetype = "";
 				String splittedFileValues[] = ruleDetails.split(",");
 
 				if (splittedFileValues != null) {
@@ -7917,6 +7967,163 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
+		
+		
+		public void clickonprintcsvrealizebox() {
+
+			try {
+
+				UIHelper.waitForVisibilityOfEleByXpath(driver, printcsvrealize);
+
+				if (UIHelper.isWebElementDisplayed(UIHelper.findAnElementbyXpath(
+						driver, printcsvrealize))) {
+					report.updateTestLog("Print CSV filter options is available",
+							"Print CSV filter options is available", Status.DONE);
+					
+					UIHelper.click(driver, realizecsvboxOKbutton);
+					UIHelper.waitForPageToLoad(driver);
+					if (UIHelper.isWebElementDisplayed(UIHelper
+							.findAnElementbyXpath(driver, programscreenxpath))) {
+						report.updateTestLog("Click on ok button", "clicked on ok",
+								Status.PASS);
+					} else {
+						report.updateTestLog("Click on ok button",
+								"clicked on ok Failed", Status.FAIL);
+					}
+
+				} else {
+					report.updateTestLog(
+							"Print CSV filter options is available?",
+							"Print CSV filter options is not available",
+							Status.FAIL);
+
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+		
+		public void clickMoreSettingsOptionWithProductType(String fileOrfolderName,
+				String moreSettingsOptName) {
+			try {
+				String finalXpathForCopyToFolderLink = tempXpathForMoreSettingsOptLink
+						.replace("CRAFT", fileOrfolderName).replace("MORE_OPT",
+								moreSettingsOptName);
+				UIHelper.waitFor(driver);
+				WebElement moreSettingsOptElement = UIHelper.findAnElementbyXpath(
+						driver, finalXpathForCopyToFolderLink);
+				UIHelper.highlightElement(driver, moreSettingsOptElement);
+				JavascriptExecutor executor = (JavascriptExecutor) driver;
+				executor.executeScript("arguments[0].click();",
+						moreSettingsOptElement);
+				UIHelper.waitFor(driver);
+				UIHelper.findAnElementbyXpath(driver, "//*[contains(@id,'template_x002e_detailed-list-view_x002e_assembly-view_x0023_default-generate-manifest-product-type-checkbox')]").click();	
+				UIHelper.waitFor(driver);
+				Select selectBox = new Select(driver.findElement(By.xpath("//*[@id=\"template_x002e_detailed-list-view_x002e_assembly-view_x0023_default-generate-manifest-product-type-select\"]")));
+				selectBox.selectByIndex(19);
+				UIHelper.waitFor(driver);
+				UIHelper.highlightElement(driver, summaryOKbutton);
+				UIHelper.waitFor(driver);
+				UIHelper.click(driver, summaryOKbutton);
+				UIHelper.waitFor(driver);
+				UIHelper.waitFor(driver);
+				report.updateTestLog("Click on " + moreSettingsOptName,
+						"User able to click the " + moreSettingsOptName,
+						Status.PASS);	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		// Click on 'More Settings' option link for file or Folder
+		public void clickOnMoreSettingWithProductType(String fileOrFolderName) {
+			try {
+				String finalSelectFolderChkboxXpath = tempSelectFolderChkboxXpath
+						.replace("CRAFT", fileOrFolderName);
+				String finalselectedFolderORFileItemXpath = selectedFolderORFileItemXpath
+						.replace("CRAFT", fileOrFolderName);
+				String finalXpathForMoreOptionLink = tempXpathForMoreOptionLink
+						.replace("CRAFT", fileOrFolderName);
+
+				
+
+				List<WebElement> uploadedFileOrFolderTitleEleList = UIHelper
+						.findListOfElementsbyXpath(uploadedFilesTitlesXpath, driver);
+
+				for (WebElement ele : uploadedFileOrFolderTitleEleList) {
+					if (ele.getText().equalsIgnoreCase(fileOrFolderName)) {
+						// UIHelper.scrollToAnElement(ele);
+						UIHelper.highlightElement(driver, ele);
+						WebElement chkboxElement = UIHelper.findAnElementbyXpath(
+								driver, finalSelectFolderChkboxXpath);
+
+						UIHelper.highlightElement(driver, chkboxElement);
+						JavascriptExecutor executor = (JavascriptExecutor) driver;
+						executor.executeScript("arguments[0].click();",
+								chkboxElement);
+						UIHelper.waitFor(driver);
+
+						WebElement folderEle = UIHelper.findAnElementbyXpath(
+								driver, finalselectedFolderORFileItemXpath);
+						UIHelper.highlightElement(driver, folderEle);
+						UIHelper.mouseOveranElement(driver, folderEle);
+
+						WebElement moreSettingsEle = UIHelper.findAnElementbyXpath(
+								driver, finalXpathForMoreOptionLink);
+						UIHelper.highlightElement(driver, moreSettingsEle);
+						report.updateTestLog(
+								"Click on 'More Settings' Link Option",
+								"User successfully clicked the <b> 'More Settings'</b> Option using "
+										+ fileOrFolderName, Status.PASS);
+						executor.executeScript("arguments[0].click();",
+								moreSettingsEle);
+						UIHelper.waitFor(driver);
+
+						break;
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		// Click on More settings option
+		public void commonMethodForClickOnMoreSettingsOptionWithProductType(
+				String fileOrfolderName, String moreSettingsOptName) {
+			try {
+				clickMoreSettingsOptionOnly(fileOrfolderName, moreSettingsOptName);
+				UIHelper.waitForPageToLoad(driver);
+				UIHelper.waitFor(driver);
+				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, messageXpath);
+				UIHelper.waitForPageToLoad(driver);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		private String siteListXpath = ".//*[@class='yui-g']//tbody[@class='yui-dt-data']//h3//a";
+		public boolean addCrossSiteReferenceAsChild(String siteName) {
+			boolean flag = false;
+			try {
+				UIHelper.waitFor(driver);
+				List<WebElement> siteListXpathEle = driver.findElements(By
+						.xpath(siteListXpath));
+				for (WebElement ele : siteListXpathEle) {
+					if (ele.getText().contains(siteName)) {
+						UIHelper.highlightElement(driver, ele);
+						UIHelper.scrollToAnElement(ele);
+						flag = true;
+						break;
+
+					}
+				}
+			} catch (Exception e) {
+				report.updateTestLog("Check site is available",
+						"Check site is Failed", Status.FAIL);
+			}
+			return flag;
 		}
 			
 		}
