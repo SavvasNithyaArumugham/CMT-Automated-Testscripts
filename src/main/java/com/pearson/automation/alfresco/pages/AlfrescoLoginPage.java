@@ -40,21 +40,65 @@ public class AlfrescoLoginPage extends ReusableLibrary {
 
 	//Method for Login
 	public void login() {
+		
 		String userName = dataTable.getData("General_Data", "Username");
 		String password = dataTable.getData("General_Data", "Password");
-		
-		
-		//
-		
+		if(properties.getProperty("ApplicationUrl").contains("pearsoncms")){
+		performLogin(userName, password);
+		UIHelper.waitForVisibilityOfEleByXpath(driver, pearsonlogo);
+		}else if(properties.getProperty("ApplicationUrl").contains("alfrescoppe")){
+		try {
+		performAWSLogin(userName, password);
+		} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		}
+		UIHelper.waitForVisibilityOfEleByXpath(driver, pearsonlogo);
+		}
+		else{
+		performLoginAWS(userName, password);
+		UIHelper.waitForVisibilityOfEleByXpath(driver, pearsonlogo);
+		}
+			
+		/*String userName = dataTable.getData("General_Data", "Username");
+		String password = dataTable.getData("General_Data", "Password");
+			
 		if(properties.getProperty("ApplicationUrl").contains("pearsoncms")){
 			performLogin(userName, password);
 			UIHelper.waitForVisibilityOfEleByXpath(driver, pearsonlogo);
-		}else{
-			performLoginAWS(userName, password);
+		}
+		else if (properties.getProperty("ApplicationUrl").contains("alfrescoppe")){
+			performLogin(userName, password);
 			UIHelper.waitForVisibilityOfEleByXpath(driver, pearsonlogo);
 		}
+		
+		else{
+			performLoginAWS(userName, password);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, pearsonlogo);
+		}*/
 	
 	}
+	
+	//Added for NALS
+		public void performAWSLogin(String userName, String password) {
+			try {
+			UIHelper.waitForVisibilityOfEleByXpath(driver, ".//input[@name='username']");
+			UIHelper.highlightElement(driver, ".//input[@name='username']");	
+			driver.findElement(By.name("username")).sendKeys(userName);
+
+			UIHelper.waitForVisibilityOfEleByXpath(driver, ".//input[@name='password']");	
+			driver.findElement(By.name("password")).sendKeys(password);	
+			UIHelper.click(driver, "//*[contains(@id, 'submit-button')]");
+						
+			UIHelper.waitFor(driver);
+			report.updateTestLog("Login", "Enter login credentials: "
+			+ "Username = " + userName, Status.DONE);
+			}catch(Exception e) {
+			report.updateTestLog("Login", "Enter login credentials: "
+			+ "Username = " + userName, Status.FAIL);
+			}
+			}
+	
 
 	//Method for login with valid user credentils
 	public AlfrescoHomePage loginAsValidUserForPearsonMail() {
@@ -224,6 +268,7 @@ public class AlfrescoLoginPage extends ReusableLibrary {
 		}
 
 	}
+	
 	
 	//Perform Login
 	public void performLoginAWS(String userName, String password) {

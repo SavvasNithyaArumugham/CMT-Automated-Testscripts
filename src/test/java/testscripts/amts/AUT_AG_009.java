@@ -154,18 +154,18 @@ public class AUT_AG_009 extends TestCase {
 		sitesPage.enterIntoDocumentLibrary();
 		sitesPage.documentdetails(watchFolderName);
 		
-		String finalFileName = fileName.replace(".gif", "_"+subAsstCode+"__"+subAsstCode+"."+imageType);
+	//	String finalFileName = fileName.replace(".gif", "_"+subAsstCode+"__"+subAsstCode+"."+imageType);
 		if(mediaTransPage.isNavigatedToDocumentLibrary()){
-			if(docLibPg.isFileIsAvailable(finalFileName)){
+			if(docLibPg.isFileIsAvailable(reName)){
 				report.updateTestLog("Verify the Transformed file with sub assert code",
 						"File verified successfully"
 								+ "<br><b> Transformed File Name : </b>"
-								+ finalFileName, Status.PASS);
+								+ reName, Status.PASS);
 			}else{
 				report.updateTestLog("Verify the Transformed file with sub assert code",
 						"File not verified"
 								+ "<br><b> Transformed File Name : </b>"
-								+ finalFileName, Status.FAIL);
+								+ reName, Status.FAIL);
 			}
 		}
 	

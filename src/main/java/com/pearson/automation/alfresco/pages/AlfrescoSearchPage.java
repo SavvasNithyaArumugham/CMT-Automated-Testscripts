@@ -863,9 +863,12 @@ public class AlfrescoSearchPage extends ReusableLibrary {
 			
 			if(properties.getProperty("ApplicationUrl").contains("pearsoncms")) {
 				 Aspect = dataTable.getData("Search", "Aspect");
-			}else {
+			}
+				
+			else {
 				 Aspect = dataTable.getData("Search", "AWSAspect");
 			}
+			
 			
 			if(properties.getProperty("ApplicationUrl").contains("pearsoncms")) {
 				 Aspect1 = dataTable.getData("Search", "Aspect1");
@@ -3312,5 +3315,203 @@ public class AlfrescoSearchPage extends ReusableLibrary {
 
 			return selectedItemsMenuValues;
 		}
+		
+		//Added for NALS Alfresco for Custom Search automation
+		
+
+		// Click search button in Advanced search
+		public AlfrescoSearchPage clickCustomSearch() {
+			try {
+				UIHelper.waitForVisibilityOfEleByXpath(driver, searchBtnXpath);
+				UIHelper.highlightElement(driver,
+						UIHelper.findAnElementbyXpath(driver, searchBtnXpath));
+				UIHelper.click(driver, searchBtnXpath);
+				UIHelper.waitForPageToLoad(driver);
+				UIHelper.waitFor(driver);
+			//	UIHelper.waitForVisibilityOfEleByXpath(driver, searchingXpath);
+				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, searchingXpath);
+				UIHelper.waitforPresenceOfAllElements(driver, searchCountXpath);
+				UIHelper.waitForVisibilityOfEleByXpathForLongTime(driver,
+						searchCountXpath);
+				UIHelper.waitForPageToLoad(driver);
+				UIHelper.waitFor(driver);
+				UIHelper.waitFor(driver);
+				UIHelper.waitFor(driver);
+				
+
+				if (UIHelper.checkForAnElementbyXpath(driver, searchCountXpath)) {
+					report.updateTestLog(
+							"Perform Custom Search",
+							"Custom Search Performed"
+									+ "<br /><b>No of search result found :</b> "
+									+ UIHelper.findAnElementbyXpath(driver,
+											searchCountXpath).getText(),
+							Status.PASS);
+				}
+			} catch (Exception e) {
+				report.updateTestLog("Perform Custom Search",
+						"Custom Search results not found", Status.FAIL);
+			}
+			return new AlfrescoSearchPage(scriptHelper);
+		}
+		
+		//customSearchWithCourse
+		public AlfrescoSearchPage customSearchWithCourse(String siteName,String courseName) {
+			try {
+				//Click the browse button to choose the site
+				driver.findElement(By.id("template_x002e_customsearch_x002e_customsearchprofile_x0023_default-selectDestination-button-button")).click();
+				UIHelper.waitFor(driver);
+				
+				//Choose the site from the picker window
+				UIHelper.waitFor(driver);
+				List<WebElement> siteResultsListEle = driver.findElements(By.xpath(".//div[@class='site-picker']//h4"));
+				for (WebElement ele : siteResultsListEle) {
+					if (ele.getText().contains(siteName)) {
+						UIHelper.highlightElement(driver, ele);
+						UIHelper.scrollToAnElement(ele);
+						ele.click();
+						break;
+					}
+				}
+				UIHelper.waitFor(driver);
+				//Click OK button
+				driver.findElement(By.id("template_x002e_customsearch_x002e_customsearchprofile_x0023_default-destinationDialog-ok-button")).click();				
+				UIHelper.waitFor(driver);
+				//Choose the objectType
+				Select objType = new Select(driver.findElement(By.id("types-dropdown-0")));
+				objType.selectByVisibleText("Course");
+				UIHelper.waitFor(driver);
+				//Choose the objectType1
+				Select objType1 = new Select(driver.findElement(By.id("types-properties-dropdown-0")));
+				objType1.selectByVisibleText("Version Country");
+				UIHelper.waitFor(driver);
+				//Choose the objectType2
+				Select objType2 = new Select(driver.findElement(By.id("select-conditions-0")));
+				objType2.selectByVisibleText("CONTAINS");
+				UIHelper.waitFor(driver);
+				//Choose the objectType3
+				UIHelper.findAnElementbyXpath(driver, "//*[@id=\"type-search-text-0\"]").sendKeys("USA");
+				UIHelper.waitFor(driver);
+				//Click the Search button
+				driver.findElement(By.id("template_x002e_customsearch_x002e_customsearchprofile_x0023_default-button-submit-button")).click();
+				UIHelper.waitFor(driver);
+				UIHelper.waitFor(driver);
+				//Verify the Results
+				boolean flag = false;
+				List<WebElement> searchResultsListEle = driver.findElements(By
+						.xpath(".//*[@class='contentlist yui-dt']//tbody[@class='yui-dt-data']/tr//a"));
+				for (WebElement ele : searchResultsListEle) {					
+					if (ele.getText().contains(courseName)) {
+						UIHelper.waitFor(driver);						
+						UIHelper.highlightElement(driver, ele);
+						UIHelper.waitFor(driver);
+						flag = true;
+						report.updateTestLog("Custom Search Page","Results verified successfully",Status.DONE);
+						break;
+					}
+				}
+				if(!flag) {
+					report.updateTestLog("Custom Search Page", "Results verification failed",Status.FAIL);
+				}
+				
+			} catch (Exception e) {
+				report.updateTestLog("Perform Custom Search",
+						"Search using Course.No search result found",
+						Status.FAIL);
+			}
+			return new AlfrescoSearchPage(scriptHelper);
+		}
+		
+		
+		//customSearchWithContentObject
+		public AlfrescoSearchPage customSearchWithObjectType(String siteName,String courseName,String objectType0,String objectType1,String objectType2) {
+			try {
+				//Click the browse button to choose the site
+				driver.findElement(By.id("template_x002e_customsearch_x002e_customsearchprofile_x0023_default-selectDestination-button-button")).click();
+				UIHelper.waitFor(driver);
+				
+				//Choose the site from the picker window
+				UIHelper.waitFor(driver);
+				List<WebElement> siteResultsListEle = driver.findElements(By.xpath(".//div[@class='site-picker']//h4"));
+				for (WebElement ele : siteResultsListEle) {
+					if (ele.getText().contains(siteName)) {
+						UIHelper.highlightElement(driver, ele);
+						UIHelper.scrollToAnElement(ele);
+						ele.click();
+						break;
+					}
+				}
+				UIHelper.waitFor(driver);
+				
+				//Choose the path from the picker window
+				UIHelper.waitFor(driver);
+				List<WebElement> pathResultsListEle = driver.findElements(By.xpath(".//*[contains(@id,'ygtvtablee')]//span"));
+				for (WebElement ele : pathResultsListEle) {
+					if (ele.getText().contains(objectType0)) {
+						UIHelper.highlightElement(driver, ele);
+						UIHelper.scrollToAnElement(ele);
+						ele.click();
+						break;
+					}
+				}
+				UIHelper.waitFor(driver);
+				
+				//Click OK button
+				driver.findElement(By.id("template_x002e_customsearch_x002e_customsearchprofile_x0023_default-destinationDialog-ok-button")).click();				
+				UIHelper.waitFor(driver);
+				
+				//Choose the objectType
+				Select objType = new Select(driver.findElement(By.id("types-dropdown-0")));
+				objType.selectByVisibleText(objectType1);
+				UIHelper.waitFor(driver);
+				//Choose the objectType1
+				Select objType1 = new Select(driver.findElement(By.id("types-properties-dropdown-0")));
+				objType1.selectByVisibleText("Version Country");
+				UIHelper.waitFor(driver);
+				//Choose the objectType2
+				Select objType2 = new Select(driver.findElement(By.id("select-conditions-0")));
+				objType2.selectByVisibleText("CONTAINS");
+				UIHelper.waitFor(driver);
+				//Choose the objectType3
+				UIHelper.findAnElementbyXpath(driver, "//*[@id=\"type-search-text-0\"]").sendKeys("USA");
+				UIHelper.waitFor(driver);
+				//Click the Search button
+				driver.findElement(By.id("template_x002e_customsearch_x002e_customsearchprofile_x0023_default-button-submit-button")).click();
+				UIHelper.waitFor(driver);
+				UIHelper.waitFor(driver);
+				//Verify the Results
+				boolean flag = false;
+				List<WebElement> searchResultsListEle = driver.findElements(By
+						.xpath(".//*[@class='contentlist yui-dt']//tbody[@class='yui-dt-data']/tr//a"));
+				for (WebElement ele : searchResultsListEle) {					
+					if (ele.getText().contains(objectType1)) {
+						UIHelper.waitFor(driver);						
+						UIHelper.highlightElement(driver, ele);
+						UIHelper.waitFor(driver);
+						flag = true;
+						report.updateTestLog("Custom Search Page","Results verified successfully for "+objectType0,Status.DONE);
+						break;
+					}
+				}
+				if(!flag) {
+					report.updateTestLog("Custom Search Page", "Results verification failed for "+objectType0,Status.FAIL);
+				}
+				
+			} catch (Exception e) {
+				report.updateTestLog("Perform Custom Search",
+						"Search using "+ objectType0 +". No search result found",
+						Status.FAIL);
+			}
+			return new AlfrescoSearchPage(scriptHelper);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 }

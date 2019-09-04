@@ -925,6 +925,30 @@ public class AlfrescoEPSPage extends ReusableLibrary {
 		}
 	}
 	
+	//Added for NALS
+	public void checkEPSID(String fileNameVal) {
+		UIHelper.waitFor(driver);
+		AlfrescoCollectionsPage collectionPg = new AlfrescoCollectionsPage(scriptHelper);
+		String EPSURL,EPSID=null;
+		collectionPg.clickOnMoreSetting(fileNameVal);	
+		collectionPg.commonMethodForClickOnMoreSettingsOption(fileNameVal,"Publish");
+		UIHelper.waitFor(driver);
+		String EPSURL1 = (UIHelper.findAnElementbyXpath(driver, "//*[@id='prompt']/div[2]/table/tbody/tr[2]/td[5]/u/a").getText()).substring(68,106);	
+		       collectionPg.commonMethodForClickOnMoreSettingsOption(fileNameVal,"Edit Properties");
+		       String EPSURL2 = (UIHelper.findAnElementbyXpath(driver, "//*[contains(@id,'prop_cm_description')]").getText()).substring(8,47);
+		       driver.findElement(By.xpath("//div[@class='yui-module yui-overlay yui-panel']/a")).click();
+		        UIHelper.waitFor(driver); 
+		        
+		    if(EPSURL1.trim().equalsIgnoreCase(EPSURL2.trim())){
+		       report.updateTestLog("EPS ID match check",  "EPS ID matchs" + fileNameVal,Status.PASS);
+		    }
+		    else
+		    {
+		       report.updateTestLog("EPS ID match check",  "EPS ID does not match" +fileNameVal ,Status.FAIL);
+		    }
+
+
+		}
 
 
 }

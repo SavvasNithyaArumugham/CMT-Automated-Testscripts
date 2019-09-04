@@ -86,12 +86,12 @@ public class ALFDEPLOY_3216_TC001P1 extends TestCase {
 				myFiles.openCreatedFolder(folderNames[1]);
 				
 				collectionPg.clickOnEditCollectionButton();
-				collectionPg.clickOnMoreSetting("AutoCourse");
+				collectionPg.clickOnMoreSetting("AutoContentObj");
 				UIHelper.waitFor(driver);
 				UIHelper.waitFor(driver);
 				//Read available options 
 				ArrayList<String> availableOptions = new ArrayList<String>();
-				availableOptions = collectionPg.readMoreOptions("AutoCourse");
+				availableOptions = collectionPg.readMoreOptions("AutoContentObj");
 				UIHelper.waitFor(driver);
 				
 				if(availableOptions.contains("Duplicate All")){

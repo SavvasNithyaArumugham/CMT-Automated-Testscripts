@@ -218,34 +218,31 @@ public class AlfrescoMyFilesPage extends ReusableLibrary {
 	// Upload a file in My Files Page
 	public AlfrescoMyFilesPage uploadFileInMyFilesPage(String filePath, String fileName) {
 		try {
-			
-			String finalFilePath;
-			if (filePath.contains("Automation/Alfresco")) {
-				
-				finalFilePath = filePath;
-			}
-			else {
-				
-				finalFilePath = System.getProperty("user.dir") + filePath;
-			}
-			if (fileName.contains(",")) {
-				
-				String splittedFileNames[] = fileName.split(",");
-				for (String fileNameVal : splittedFileNames) {
-					commonMethodForUploadMultipleFiles(finalFilePath, fileNameVal);
-				}
-			} else {
-		
-				commonMethodForUploadMultipleFiles(finalFilePath, fileName);
-				
-			}
+		String finalFilePath;
+		if (filePath.contains("Automation/Alfresco")) {
+		finalFilePath = filePath;
+		}
+		else if (filePath.contains("Automation/Alfresco")) {
+		finalFilePath = filePath;
+		} 
+		else {
+		finalFilePath = System.getProperty("user.dir") + filePath;
+		}
+		if (fileName.contains(",")) {
+		String splittedFileNames[] = fileName.split(",");
+		for (String fileNameVal : splittedFileNames) {
+		commonMethodForUploadMultipleFiles(finalFilePath, fileNameVal);
+		}
+		} else {
+		commonMethodForUploadMultipleFiles(finalFilePath, fileName);
+		}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+		e.printStackTrace();
 		}
 
 		return new AlfrescoMyFilesPage(scriptHelper);
-	}
+		}
 
 	// Upload a Large file in My Files Page
 	public AlfrescoMyFilesPage uploadLargeFiles(String filePath, String fileName) {

@@ -125,21 +125,26 @@ public class ALFDEPLOY_3191_TC027 extends TestCase {
 		collectionPg.clickOnMouseOverMenu(folderNames[3],"Edit Properties");
 		UIHelper.click(driver, allProperties1);
 		collectionPg.confirmPropertyinImportAndSave(folderNames[3],Metadata[0],fieldData[0]);
+		
 		collectionPg.clickOnMouseOverMenu(folderNames[4],"Edit Properties");
 		UIHelper.click(driver, allProperties1);
 		collectionPg.confirmPropertyinImportAndSave(folderNames[4],Metadata[1],fieldData[1]);
+		
 		collectionPg.clickOnMouseOverMenu(folderNames[5],"Edit Properties");
 		UIHelper.click(driver, allProperties1);
 		collectionPg.confirmPropertyinImportAndSave(folderNames[5],Metadata[2],fieldData[2]);
+		
 		collectionPg.clickOnMouseOverMenu(folderNames[6],"Edit Properties");
 		UIHelper.click(driver, allProperties1);
 		collectionPg.confirmPropertyinImportAndSave(folderNames[6],Metadata[3],fieldData[3]);
+		
 		collectionPg.clickOnMouseOverMenu(folderNames[7],"Edit Properties");
 		UIHelper.click(driver, allProperties1);
 		collectionPg.confirmPropertyinImportAndSave(folderNames[7],Metadata[4],fieldData[4]);
-		collectionPg.clickOnMouseOverMenu(folderNames[8],"Edit Properties");
+		
+		/*collectionPg.clickOnMouseOverMenu(folderNames[8],"Edit Properties");
 		UIHelper.click(driver, allProperties1);
-		collectionPg.confirmPropertyinImportAndSave(folderNames[8],Metadata[5],fieldData[5]);
+		collectionPg.confirmPropertyinImportAndSave(folderNames[8],Metadata[5],fieldData[5]);*/
 	   
 		sitesPage.enterIntoDocumentLibrary();
 	    sitesPage.documentdetailsColl(folderNames[0]);

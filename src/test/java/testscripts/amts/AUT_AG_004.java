@@ -115,18 +115,18 @@ public class AUT_AG_004 extends TestCase{
 		UIHelper.waitFor(driver);
 		UIHelper.pageRefresh(driver);
 		UIHelper.waitFor(driver);
-		String finalFileName = fileName.replace(".gif", "_"+subAsstCode+"_"+subAsstCode+"_-"+preTxt+"."+imageType);
+		//String finalFileName = fileName.replace(".gif", "_"+subAsstCode+"_"+subAsstCode+"_-"+preTxt+"."+imageType);
 		if(mediaTransPage.isNavigatedToDocumentLibrary()){
-			if(docLibPg.isFileIsAvailable(finalFileName)){
+			if(docLibPg.isFileIsAvailable(reName)){
 				report.updateTestLog("Verify the Transformed file with sub assert code",
 						"File verified successfully"
 								+ "<br><b> Transformed File Name : </b>"
-								+ finalFileName, Status.PASS);
+								+ reName, Status.PASS);
 			}else{
 				report.updateTestLog("Verify the Transformed file with sub assert code",
 						"File not verified"
 								+ "<br><b> Transformed File Name : </b>"
-								+ finalFileName, Status.FAIL);
+								+ reName, Status.FAIL);
 			}
 		}
 	}

@@ -72,7 +72,7 @@ public class ALFDEPLOY_2236_TC001 extends TestCase {
 		//String CollectionObjectAdditionalData = dataTable.getData("MyFiles", "CollectionObjectAdditionalData");
 
 		String collectionObjectName = dataTable.getData("MyFiles", "CreateMenuItemsForCollection");
-		String collectionObjectData = dataTable.getData("MyFiles", "CollectionObjectAdditionalData");
+		String collectionObjectData = dataTable.getData("MyFiles", "CollectionObjectBasicData");
 
 		String[] collectionObjectDataArray = collectionObjectData.split(",");
 

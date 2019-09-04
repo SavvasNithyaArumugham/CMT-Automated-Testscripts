@@ -82,9 +82,10 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	//Program Standards fields
 	private String cmtStandardsXpath = ".//*[contains(@id,'prop_cpnals_cmtStandards')]";
 	
-	  
+	//Added as part of NALS
 	private String descriptionXpath = ".//*[contains(@id,'prop_cm_description')]";
 	private String folioprefixXpath = ".//*[contains(@id,'prop_cpnals_folioPrefix')]";
+	private String folioSpecialXpath = ".//*[contains(@id,'createObject_prop_cpnals_folioSpecial')]";
 	private String foliostyleXpath = ".//*[contains(@id,'prop_cpnals_folioStyle')]";
 	private String foliostartXpath = ".//*[contains(@id,'prop_cpnals_folioStart')]";
 	private String tocIncludeFromXpath = ".//*[contains(@id,'prop_cpnals_tocIncludeFrom')]";
@@ -541,7 +542,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 		try {
 			//Added rumba,skillspath,cmtskills as part of NALS
 			String name = "", title = "", description = "", courseAbbrevation = "", contentType = "", contribSource = "", realizeFileType = "", discipline = "",rumbaprogramname ="", skillspath = "",mediaType = "",cmtskills = "";
-			String productType="",dynamiccontentType="",folioprefix="",foliostyle="",foliostart="",tocIncludeFrom="",tocIncludeTo="",aggregationtype="";
+			String productType="",folioSpecial="",dynamiccontentType="",folioprefix="",foliostyle="",foliostart="",tocIncludeFrom="",tocIncludeTo="",aggregationtype="";
 			if (objectType.equalsIgnoreCase("Course")) {
 
 				name = getFieldValueFromExcelForCreateObjects(
@@ -568,9 +569,11 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				
 				clickOnSaveBtnForSubmitCreateObjectData();
 			} else if (objectType.equalsIgnoreCase("Sequence Object")) {
-
+ 
 				name = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "Name:");
+				System.out.println("Name :" + name );
+				
 				title = getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "Title:");
 				description = getFieldValueFromExcelForCreateObjects(
@@ -720,6 +723,9 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				dynamiccontentType=getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "DynamicContentType:");
 				System.out.println(dynamiccontentType);
+				folioSpecial=getFieldValueFromExcelForCreateObjects(
+						splittedFileValues, "FolioSpecial:");
+				System.out.println(folioSpecial);
 				folioprefix=getFieldValueFromExcelForCreateObjects(
 						splittedFileValues, "FolioPrefix:");
 				System.out.println(folioprefix);
@@ -741,8 +747,8 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 				clickOnCreateButton();
 				clickOnCreateMenuItem(objectType);
 				enterBasicDataForDynamicContentObject(name, title,
-						description, productType,dynamiccontentType, folioprefix,
-						foliostyle, foliostart, tocIncludeFrom, tocIncludeTo,aggregationtype);
+						description, productType,dynamiccontentType,folioSpecial,folioprefix,
+						foliostyle, foliostart, tocIncludeFrom, tocIncludeTo);
 				clickOnSaveBtnForSubmitCreateObjectData();
 
 			}
@@ -827,7 +833,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 	public void createCollectionObjects(String createObjectType, String name,
 			String title, String description, String courseAbbrevation,
 			String contentType, String contribSource, String realizeFileType,
-			String mediaType, String discipline, String rumba,String skillspath,String cmtskills,String productType,String dynamiccontentType,String folioprefix,String foliostart,String foliostyle,String tocIncludeFrom,String tocIncludeTo,String aggregationtype) {
+			String mediaType, String discipline, String rumba,String skillspath,String cmtskills,String productType,String folioSpecial,String dynamiccontentType,String folioprefix,String foliostart,String foliostyle,String tocIncludeFrom,String tocIncludeTo,String aggregationtype) {
 
 		try {
 			switch (createObjectType) {
@@ -886,7 +892,7 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 			case "Dynamic Content Object":
 				clickOnCreateButton();
 				clickOnCreateMenuItem(createObjectType);
-				enterBasicDataForDynamicContentObject(name, title, description, productType, dynamiccontentType, folioprefix, foliostyle, foliostart, tocIncludeFrom, tocIncludeTo, aggregationtype);
+				enterBasicDataForDynamicContentObject(name, title, description, productType, dynamiccontentType,folioSpecial, folioprefix, foliostyle, foliostart, tocIncludeFrom, tocIncludeTo);
 				clickOnSaveBtnForSubmitCreateObjectData();
 			default:
 				System.out.println("Option not found");
@@ -1035,13 +1041,14 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 	public void enterBasicDataForSequenceObject(String name, String title,
 			String description, String mediaType, String discipline) {
 		try {
-			UIHelper.waitForVisibilityOfEleByXpath(driver,
-					nameFieldXpathInCreateObject);
+			/*UIHelper.waitForVisibilityOfEleByXpath(driver,
+					nameFieldXpathInCreateObject);*/
 
 			if (!name.isEmpty()) {
-				UIHelper.sendKeysToAnElementByXpath(driver,
-						nameFieldXpathInCreateObject, name);
+				UIHelper.sendKeysToAnElementByXpath(driver,	nameFieldXpathInCreateObject, name);
 			}
+			
+			System.out.println("Name"+name);
 
 			if (!title.isEmpty()) {
 				UIHelper.sendKeysToAnElementByXpath(driver, titleXpath, title);
@@ -1074,6 +1081,43 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 		}
 	}
 
+	//Enter mandatory values for Container
+	public void enterMandatoryDataForContainer(String name, String title,
+			String description, String discipline) {
+		try {
+			UIHelper.waitForVisibilityOfEleByXpath(driver,
+					nameFieldXpathInCreateObject);
+
+			if (!name.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver,
+						nameFieldXpathInCreateObject, name);
+			}
+
+			if (!title.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver, titleXpath, title);
+			}
+
+			if (!description.isEmpty()) {
+				UIHelper.sendKeysToAnElementByXpath(driver, descriptionXpath,
+						description);
+			}
+
+			if (!discipline.isEmpty()) {
+				Select selectBox = new Select(driver.findElement(By.xpath(disciplizeDropdownXpathInCreateObject)));
+				selectBox.selectByIndex(2);
+			}
+		
+			report.updateTestLog("Input data to create 'Container' object",
+					"User able to enter data for 'Container' object"
+							+ "<br>Name: " + name + ", " + "Title: " + title
+							+ ", <br>" + "Description: " + description
+							+ "Discipline: " + discipline, Status.DONE);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	// Create Container from Create menu items
 	// Enter Data in fields
 	public void enterBasicDataForContainer(String name, String title,
@@ -1116,6 +1160,71 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 			e.printStackTrace();
 		}
 	}
+	//Enter mandatory values for Content Object
+	// Enter Data in fields
+		public void enterMandatoryDataForContentObject(String name, String title,
+				String description, String contentType, String contribSource,
+				String realizeFileType, String mediaType, String discipline) {
+			try {
+				UIHelper.waitForVisibilityOfEleByXpath(driver,
+						nameFieldXpathInCreateObject);
+
+				if (!name.isEmpty()) {
+					UIHelper.sendKeysToAnElementByXpath(driver,
+							nameFieldXpathInCreateObject, name);
+				}
+
+				if (!title.isEmpty()) {
+					UIHelper.sendKeysToAnElementByXpath(driver, titleXpath, title);
+				}
+
+				if (!description.isEmpty()) {
+					UIHelper.sendKeysToAnElementByXpath(driver, descriptionXpath,
+							description);
+				}
+
+				if (!discipline.isEmpty()) {
+					Select selectBox = new Select(driver.findElement(By.xpath(disciplizeDropdownXpathInCreateObject)));
+					selectBox.selectByIndex(2);
+					/*UIHelper.selectIntergerValue(driver,
+							disciplizeDropdownXpathInCreateObject, 2);*/
+				}
+
+				if (!contentType.isEmpty()) {
+					UIHelper.selectbyVisibleText(driver,
+							contentTypeDropdownXpathInCreateObject, contentType);
+				}
+
+				if (!contribSource.isEmpty()) {
+					UIHelper.selectbyVisibleText(driver,
+							contribSourceDropdownXpathInCreateObject, contribSource);
+				}
+
+				if (!realizeFileType.isEmpty()) {
+					UIHelper.selectbyVisibleText(driver,
+							realizeFileTypeDropdownXpathInCreateObject,
+							realizeFileType);
+				}
+
+				if (!mediaType.isEmpty()) {
+					UIHelper.selectbyVisibleText(driver,
+							mediaTypeDropdownXpathInCreateObject, mediaType);
+				}
+				
+					report.updateTestLog("Input data to create 'Content Object'",
+						"User able to enter data for 'Content Object'"
+								+ "<br>Name: " + name + ", " + "Title: " + title
+								+ ", <br>" + "Description: " + description
+								+ ", <br>" + "Discipline: " + discipline
+								+ "Content Type: " + contentType
+								+ "<br>Contrib Source: " + contribSource
+								+ "Realize File Type: " + realizeFileType
+								+ "<br>Media Type: " + mediaType, Status.DONE);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 
 	// Create Content objects from Create menu items
 	// Enter Data in fields
@@ -4889,8 +4998,7 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 		System.out.println("filename1"+fileName1);
 		System.out.println("name"+name);
 		System.out.println("filename2"+filename2);
-		String filterselection = dataTable.getData("MyFiles",
-				"CSVFilteroptions");
+		String filterselection = dataTable.getData("MyFiles","CSVFilteroptions");
 		if (filterselection.contentEquals("NO FILTER")) {
 			String expectedname = fileName1;
 
@@ -6097,8 +6205,7 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 					System.out.println(finalerrormsg);
 					UIHelper.waitFor(driver);
 					UIHelper.waitForVisibilityOfEleByXpath(driver, finalerrormsg);
-					UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,
-							finalerrormsg));
+					UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver,finalerrormsg));
 					UIHelper.highlightElement(driver, finalerrormsg);
 					String finalmsg = UIHelper.getTextFromWebElement(driver,
 							finalerrormsg);
@@ -6558,6 +6665,7 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 					String propValueXpathTemp = propertyvalueText.replace("CRAFT", fieldName);
 					WebElement PropertyEle = driver.findElement(By.xpath(propValueXpathTemp));		
 					String propertyValue = PropertyEle.getText();
+					System.out.println("Theme Value" + propertyValue );
 					if(propertyValue.contains(fieldValue))
 					{
 						report.updateTestLog("Validate the presence of property value in view details page  " + fieldName , "Expected Property value is present in view details page  "  + fieldValue , Status.PASS);
@@ -7734,8 +7842,8 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 	// Create Content objects from Create menu items
 		// Enter Data in fields
 		public void enterBasicDataForDynamicContentObject(String name, String title,
-				String description, String productType,String dynamiccontentType, String folioprefix,
-				String foliostyle, String foliostart, String tocIncludeFrom, String tocIncludeTo,String aggregationtype) {
+				String description, String productType,String dynamiccontentType, String folioSpecial,String folioprefix,
+				String foliostyle, String foliostart, String tocIncludeFrom, String tocIncludeTo) {
 			try {
 				UIHelper.waitForVisibilityOfEleByXpath(driver,
 						nameFieldXpathInCreateObject);
@@ -7764,6 +7872,10 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 					Select selectBox = new Select(driver.findElement(By.xpath(dynamiccontentTypeDropdownXpathInCreateObject)));
 					selectBox.selectByIndex(3);
 					}
+				if (!folioSpecial.isEmpty()) {
+					Select selectBox = new Select(driver.findElement(By.xpath(folioSpecialXpath)));
+					selectBox.selectByIndex(3);
+					}
 
 				if (!folioprefix.isEmpty()) {
 					UIHelper.sendKeysToAnElementByXpath(driver, folioprefixXpath,
@@ -7789,11 +7901,7 @@ report.updateTestLog("Input data for new fields (Level Automation,Product Config
 					Select selectBox = new Select(driver.findElement(By.xpath(tocIncludeToXpath)));
 					selectBox.selectByIndex(1);
 				}
-				
-				if (!aggregationtype.isEmpty()) {
-					Select selectBox = new Select(driver.findElement(By.xpath(aggregationtypeXpath)));
-					selectBox.selectByIndex(1);
-				}
+								
 				report.updateTestLog("Input data to create 'Content Object'",
 						"User able to enter data for 'Content Object'"
 								+ "<br>Name: " + name + ", " + "Title: " + title

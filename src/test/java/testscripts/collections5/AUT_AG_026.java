@@ -291,8 +291,9 @@ public class AUT_AG_026 extends TestCase {
 								{				
 									String splitedRow[] = null;
 									splitedRow = csvRow.split(",",-1);
-									if(values.equals(splitedRow[92].replace("\"", ""))||values.equals(splitedRow[91].replace("\"", ""))){
-										
+									if(values.equals(splitedRow[94].replace("\"", ""))||values.equals(splitedRow[93].replace("\"", ""))){
+									System.out.println("Value in 94"+splitedRow[94]);	
+									System.out.println("Value in 93"+splitedRow[93]);	
 										count1++;
 										break;
 									}else{

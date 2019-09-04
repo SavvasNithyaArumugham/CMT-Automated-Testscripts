@@ -297,6 +297,8 @@ public class AlfrescoHomePage extends ReusableLibrary {
 	
 	public String liveresult = ".//div[@data-dojo-attach-point='containerNodeDocs']/div[1]//a[@class='alf-livesearch-item__name']";
 	public String liveressite = ".//div[@data-dojo-attach-point='containerNodeDocs']/div[1]//a[@class='alf-livesearch-item__name']//../span[1]/a";
+	//Added for NALS
+	private String customSearchXpath =".//*[@id='HEADER_SEARCH_BOX_CUSTOM_SEARCH_text']/a";
 	/**
 	 * Constructor to initialize the page
 	 * 
@@ -3520,6 +3522,31 @@ public class AlfrescoHomePage extends ReusableLibrary {
 			
 			return value;
 		}
-		
+		// Navigate to Custom Search page
+		public AlfrescoSearchPage navigateToCustomSearch() {
+		try {
+
+		UIHelper.waitForVisibilityOfEleByXpath(driver, searchFieldXpath);
+		UIHelper.click(driver, searchImageIconXpath);
+		UIHelper.waitForVisibilityOfEleByXpath(driver, customSearchXpath);
+		UIHelper.click(driver, customSearchXpath);
+		UIHelper.waitForPageToLoad(driver);
+		if (UIHelper.findAnElementbyXpath(driver, commonPageTitleXpath).isDisplayed()) {
+		report.updateTestLog("Navigate To Custom Search Page",
+		"Navigated to Advanced Custom Page successfully" + "<br /><b> Page Title : </b>"
+		+ "Advanced Search",
+		Status.DONE);
+		} else {
+		report.updateTestLog("Navigate To Custom Search Page", "Navigated to Custom Search Page failed",
+		Status.FAIL);
+
+		}
+		} catch (Exception e) {
+		report.updateTestLog("Navigate To Custom Search Page", "Navigated to Custom Search Page failed",
+		Status.FAIL);
+		}
+		return new AlfrescoSearchPage(scriptHelper);
+		}
+
 
 }

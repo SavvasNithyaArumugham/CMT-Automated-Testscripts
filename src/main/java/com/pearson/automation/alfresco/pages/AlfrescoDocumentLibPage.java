@@ -167,7 +167,9 @@ public class AlfrescoDocumentLibPage extends ReusableLibrary {
 	private String tempPublishLinkXpath = ".//*[@class='yui-dt-data']//h3/span/a[text()='CRAFT']//ancestor::tr/td//img[@alt='pearson-published']";
 	private String tempPublishInProgressLinkXpath = ".//*[@class='yui-dt-data']//h3/span/a[text()='CRAFT']//ancestor::tr/td[2]//img[@alt='pearson-publishing']";
 	private boolean isDisplayedPublishLink = false;
-	private String pubPopchkXPath = ".//*[@id='zipUpload']";
+	
+	//private String pubPopchkXPath = ".//*[@id='zipUpload']";
+	private String pubPopchkXPath = ".//*[@class='bd']//*[@id='pubActionButton']";
 	private String pubBtnXPath = ".//button[text()='Publish']";
 	private String batchPubBtnXpath = ".//button[text()='Batch-Publish']";
 
@@ -295,7 +297,9 @@ public class AlfrescoDocumentLibPage extends ReusableLibrary {
 	public String copy2itemsxpath = "//*[text()='Copy 2 items to...']";
 
 	// Added for NALS project
-	private String pubBtnXPathtest = "/html/body/div[2]/div[1]/div[2]/table/tbody/tr[2]/td[6]/img";
+//	private String pubBtnXPathtest = "/html/body/div[2]/div[1]/div[2]/table/tbody/tr[2]/td[6]/img";
+	
+	private String pubBtnXPathtest = ".//*[@id='pubActionButton']";
 	private String finalXpathForPublishGreenLink ="/html/body/div[9]/div[1]/div[2]/div[2]/div[2]/div/div/div[1]/div[2]/div[12]/table/tbody[2]/tr/td[3]/div/div/img";
 
 	
@@ -2625,8 +2629,9 @@ public class AlfrescoDocumentLibPage extends ReusableLibrary {
 
 			UIHelper.waitForVisibilityOfEleByXpath(driver, pubPopchkXPath);
 			UIHelper.click(driver, pubPopchkXPath);
-		//	UIHelper.waitForVisibilityOfEleByXpath(driver, pubBtnXPath);
-			UIHelper.click(driver, pubBtnXPathtest);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, pubBtnXPath);
+			UIHelper.click(driver, pubBtnXPath);
+			//UIHelper.click(driver, pubBtnXPathtest);
 			UIHelper.waitFor(driver);
 			UIHelper.waitFor(driver);
 
@@ -5065,14 +5070,7 @@ public void verifyRemoveShareboxExclusionPopupContents(String cancelButtonText, 
 				try {
 				highlightTheDocLibSection(fileName);
 				String finalXpathForPublishGreenLink1 = finalXpathForPublishGreenLink;
-
-				// Thread.sleep(400000);
-				UIHelper.pageRefresh(driver);
-				UIHelper.waitFor(driver);
-				UIHelper.waitForPageToLoad(driver);
-				UIHelper.waitFor(driver);
-				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, tempPublishInProgressLinkXpath);
-
+			
 				try {
 				UIHelper.waitForVisibilityOfEleByXpath(driver, finalXpathForPublishGreenLink1);
 				} catch (Exception e) {
@@ -5082,8 +5080,12 @@ public void verifyRemoveShareboxExclusionPopupContents(String cancelButtonText, 
 				UIHelper.scrollToAnElement(UIHelper.findAnElementbyXpath(driver, finalXpathForPublishGreenLink1));
 				UIHelper.highlightElement(driver, finalXpathForPublishGreenLink1);
 				isDisplayedPublishLink = true;
+				report.updateTestLog("Verify green coloured 'tick' sign after publishing files",
+						"User able to view the green coloured 'tick' sign after publishing file:<b>" + fileName,Status.PASS);
 				} else {
 				isDisplayedPublishLink = false;
+				report.updateTestLog("Verify green coloured 'tick' sign after publishing files",
+						"User not able to view the green coloured 'tick' sign after publishing file:<b>" + fileName,Status.FAIL);
 				}
 				} catch (Exception e) {
 				e.printStackTrace();

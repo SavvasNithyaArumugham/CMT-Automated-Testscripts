@@ -182,23 +182,23 @@ public class AUT_AG_024 extends TestCase {
 			for (String csvRow : csvFileRowDataList) {
 				String splitedRow[] = null;
 				splitedRow = csvRow.split(",",-1);
-				collectionPg.valuecomparation(splitedRow,Versioncountry,91,"VersionCountry");				
+				collectionPg.valuecomparation(splitedRow,Versioncountry,93,"VersionCountry");				
 			}	
 			
 			for (String csvRow : csvFileRowDataList) {
 				String splitedRow[] = null;
 				splitedRow = csvRow.split(",",-1);
-				collectionPg.valuecomparation(splitedRow,Versionstate,92,"VersionState");				
+				collectionPg.valuecomparation(splitedRow,Versionstate,94,"State Code");				
 			}	
 			for (String csvRow : csvFileRowDataList) {
 				String splitedRow[] = null;
 				splitedRow = csvRow.split(",",-1);
-				collectionPg.valuecomparation(splitedRow,Versiondistrict,93,"VersionDistrict");				
+				collectionPg.valuecomparation(splitedRow,Versiondistrict,95,"VersionDistrict");				
 			}	
 			for (String csvRow : csvFileRowDataList) {
 				String splitedRow[] = null;
 				splitedRow = csvRow.split(",",-1);
-				collectionPg.valuecomparation(splitedRow,Versionstatement,94,"VersionStatement");				
+				collectionPg.valuecomparation(splitedRow,Versionstatement,96,"VersionStatement");				
 			}	
 									
 		} else {
