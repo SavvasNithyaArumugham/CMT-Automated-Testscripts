@@ -43,6 +43,7 @@ public class AlfrescoLoginPage extends ReusableLibrary {
 		
 		String userName = dataTable.getData("General_Data", "Username");
 		String password = dataTable.getData("General_Data", "Password");
+<<<<<<< HEAD
 		if(properties.getProperty("ApplicationUrl").contains("pearsoncms")){
 		performLogin(userName, password);
 		UIHelper.waitForVisibilityOfEleByXpath(driver, pearsonlogo);
@@ -69,6 +70,22 @@ public class AlfrescoLoginPage extends ReusableLibrary {
 		}
 		else if (properties.getProperty("ApplicationUrl").contains("alfrescoppe")){
 			performLogin(userName, password);
+=======
+		if(properties.getProperty("ApplicationUrl").contains("pearsoncms")){
+			performLogin(userName, password);
+			UIHelper.waitForVisibilityOfEleByXpath(driver, pearsonlogo);
+		}else if(properties.getProperty("ApplicationUrl").contains("alfrescoppe")){
+			try {
+				performAWSLogin(userName, password);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			UIHelper.waitForVisibilityOfEleByXpath(driver, pearsonlogo);
+		}
+		else{
+			performLoginAWS(userName, password);
+>>>>>>> 2ef7837583cbe1598b1f6535fdf2758d25bdc2eb
 			UIHelper.waitForVisibilityOfEleByXpath(driver, pearsonlogo);
 		}
 		
@@ -126,23 +143,6 @@ public class AlfrescoLoginPage extends ReusableLibrary {
 
 	//Perform Login
 	public void performLogin(String userName, String password) {
-		/*
-		 * UIHelper.waitForVisibilityOfEleByXpath(driver, loaderXpath);
-		 * UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, loaderXpath);
-		 */
-		
-		
-	/*	driver.findElement(By.id("UsernameTextBox")).sendKeys(userName);
-		driver.findElement(By.id("PasswordTextBox")).clear();
-	
-		driver.findElement(By.id("PasswordTextBox")).sendKeys(password);
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch blocks
-			e.printStackTrace();
-		}
-		driver.findElement(By.id("SubmitButton")).click();*/
 		UIHelper.waitForVisibilityOfEleByXpath(driver, userfield);
 		
 		driver.findElement(By.id("user-name-txt")).sendKeys(userName);
@@ -154,30 +154,13 @@ public class AlfrescoLoginPage extends ReusableLibrary {
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch blocks
 			e.printStackTrace();
-		}
-		//driver.findElement(By.id("SubmitButton")).click();
+		}	
 		driver.findElement(By.id("signin-button")).click(); 
 		UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, "signin-button");
 		UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, loaderXpath);
 		UIHelper.waitForPageToLoad(driver);
 		UIHelper.waitForPageToLoad(driver);
-	//	UIHelper.waitForVisibilityOfEleByXpath(driver, homeTabLinkXpath);
 		UIHelper.waitFor(driver);
-		
-		
-	/*	UIHelper.waitForPageToLoad(driver);
-		UIHelper.waitForVisibilityOfEleByXpath(driver, ".//input[@name='username']");
-		UIHelper.highlightElement(driver, "html/body");
-		UIHelper.highlightElement(driver, ".//input[@name='username']");
-		driver.findElement(By.name("username")).click();
-		
-		driver.findElement(By.name("username")).sendKeys(userName);
-		UIHelper.waitForVisibilityOfEleByXpath(driver, ".//input[@name='password']");
-		driver.findElement(By.name("password")).click();
-		
-		driver.findElement(By.name("password")).sendKeys(password);
-		driver.findElement(By.xpath(".//button")).click();*/
-
 		report.updateTestLog("Login", "Enter login credentials: "
 				+ "Username = " + userName, Status.DONE);
 		
@@ -239,7 +222,8 @@ public class AlfrescoLoginPage extends ReusableLibrary {
 	}
 
 	public AlfrescoHomePage loginAsValidUser() {
-		login();
+		login();		
+		System.out.println("5");
 		return new AlfrescoHomePage(scriptHelper);
 	}
 
@@ -316,4 +300,29 @@ public class AlfrescoLoginPage extends ReusableLibrary {
 				+ "Username = " + userName, Status.DONE);
 		
 	}
+	
+	//Perform Login
+		public void performAWSLogin(String userName, String password) {
+			try {
+				UIHelper.waitForVisibilityOfEleByXpath(driver, ".//input[@name='username']");
+				UIHelper.highlightElement(driver, ".//input[@name='username']");	
+				driver.findElement(By.name("username")).sendKeys(userName);
+
+				UIHelper.waitForVisibilityOfEleByXpath(driver, ".//input[@name='password']");	
+				driver.findElement(By.name("password")).sendKeys(password);	
+				UIHelper.click(driver, "//*[contains(@id, 'submit-button')]");
+				UIHelper.waitFor(driver);
+				
+				/*UIHelper.waitForVisibilityOfEleByXpath(driver, ".//input[@name='password']");	
+				driver.findElement(By.name("password")).sendKeys(password);	
+				UIHelper.click(driver, "//*[contains(@id, 'submit-button')]");
+				UIHelper.waitFor(driver);*/
+				report.updateTestLog("Login", "Enter login credentials: "
+				+ "Username = " + userName, Status.DONE);
+			}catch(Exception e) {
+				e.printStackTrace();
+				report.updateTestLog("Login", "Enter login credentials: "
+						+ "Username = " + userName, Status.FAIL);
+			}
+		}
 }

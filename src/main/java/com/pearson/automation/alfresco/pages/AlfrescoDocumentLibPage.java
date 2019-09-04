@@ -164,8 +164,8 @@ public class AlfrescoDocumentLibPage extends ReusableLibrary {
 
 	/*** EPS ***/
 
-	private String tempPublishLinkXpath = ".//*[@class='yui-dt-data']//h3/span/a[text()='CRAFT']//ancestor::tr/td//img[@alt='pearson-published']";
-	private String tempPublishInProgressLinkXpath = ".//*[@class='yui-dt-data']//h3/span/a[text()='CRAFT']//ancestor::tr/td[2]//img[@alt='pearson-publishing']";
+	private String tempPublishLinkXpath = ".//*[@class='yui-dt-data']//h3/span/a[text()='CRAFT']//ancestor::tr/td//img[@alt='pearson-one-inst-published']";
+	private String tempPublishInProgressLinkXpath = ".//*[@class='yui-dt-data']//h3/span/a[text()='CRAFT']//ancestor::tr/td[2]//img[@alt='pearson-one-inst-publishing']";
 	private boolean isDisplayedPublishLink = false;
 	
 	//private String pubPopchkXPath = ".//*[@id='zipUpload']";
@@ -2071,17 +2071,22 @@ public class AlfrescoDocumentLibPage extends ReusableLibrary {
 			String finalDocumentOptionsXpath = tempDocOptionsXpath.replace("CRAFT", fileName).replace("LINK", link);
 
 			if (UIHelper.checkForAnElementbyXpath(driver, finalDocumentOptionsXpath)) {
+				System.out.println("1");
 				UIHelper.click(driver, finalDocumentOptionsXpath);
+				System.out.println("2");
 				UIHelper.waitFor(driver);
+				System.out.println("3");
 				report.updateTestLog("Click on" + link + "option",
 						"Clicked the <b>" + link + "</b> action for <br/><b>File Name:</b> " + fileName, Status.DONE);
-
+				System.out.println("4");
 			}
 
 			else {
+				System.out.println("5");
 				report.updateTestLog("Click on" + link + "option",
 						"Unable to Click the <b>" + link + "</b> action for <br/><b>File Name:</b> " + fileName,
 						Status.FAIL);
+				System.out.println("6");
 			}
 
 		} catch (Exception e) {
@@ -2664,7 +2669,7 @@ public class AlfrescoDocumentLibPage extends ReusableLibrary {
 		try {
 			highlightTheDocLibSection(fileName);
 			String finalXpathForPublishLink = tempPublishLinkXpath.replace("CRAFT", fileName);
-
+			System.out.println(finalXpathForPublishLink);
 			// Thread.sleep(400000);
 			UIHelper.pageRefresh(driver);
 			UIHelper.waitFor(driver);

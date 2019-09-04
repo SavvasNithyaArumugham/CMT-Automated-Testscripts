@@ -78,8 +78,11 @@ private FunctionalLibrary functionalLibrary;
 		UIHelper.waitFor(driver);
 		sitesPage.openSiteFromRecentSites(sourceSiteName);	
 		sitesPage.enterIntoDocumentLibrary();
+<<<<<<< HEAD
 		
 		
+=======
+>>>>>>> 2ef7837583cbe1598b1f6535fdf2758d25bdc2eb
 		//Create Folder and upload file
 		myFiles.createFolder(folderDetails);
 		myFiles.openCreatedFolder(folderName);
@@ -117,6 +120,7 @@ private FunctionalLibrary functionalLibrary;
 		epsPg.checkEPSID(fileName1);
 		}
 		
+<<<<<<< HEAD
 		
 		/*
 		  //Check EPS ID for folder
@@ -133,26 +137,52 @@ private FunctionalLibrary functionalLibrary;
         UIHelper.waitFor(driver);
         
        if( EPSURL1.equals(EPSURL2)){
+=======
+		  //Check EPS ID for folder
+		
+		/*sitesPage.clickOnMoreSetting(fileName2);	
+		epsPg.publishbutton(fileName2, moreSettingsOptionName);
+		String EPSURL1 = (UIHelper.findAnElementbyXpath(driver, "//*[@id='prompt']/div[2]/table/tbody/tr[2]/td[5]/u/a").getText()).substring(60,98);
+        driver.findElement(By.xpath(".//button[text()='Cancel']")).click();
+		collectionPg.commonMethodForClickOnMoreSettingsOption(fileName2,"Edit Properties");
+        String EPSURL2 = (UIHelper.findAnElementbyXpath(driver, "//*[contains(@id,'default-editDetails-alf-id158_prop_cm_description')]").getText()).substring(8,46);
+        
+            
+        if( EPSURL1.equals(EPSURL2)){
+>>>>>>> 2ef7837583cbe1598b1f6535fdf2758d25bdc2eb
         	report.updateTestLog("EPS ID match check",	"EPS ID matchs" + fileName2,Status.PASS);
         }
         else
         {
         	report.updateTestLog("EPS ID match check",	"EPS ID does not match" +fileName2 ,Status.FAIL);
         }
+<<<<<<< HEAD
         UIHelper.waitFor(driver);
         
      //Check EPS ID for folder
         UIHelper.waitFor(driver);
+=======
+        
+        
+     //Check EPS ID for folder
+        
+>>>>>>> 2ef7837583cbe1598b1f6535fdf2758d25bdc2eb
         sitesPage.clickOnMoreSetting(fileName1);	
 		epsPg.publishbutton(fileName1, moreSettingsOptionName);
 		String EPSURL3 = (UIHelper.findAnElementbyXpath(driver, "//*[@id='prompt']/div[2]/table/tbody/tr[2]/td[5]/u/a").getText()).substring(60,98);
 		System.out.println("EPS ID from publish URL" + EPSURL3);
 		driver.findElement(By.xpath(".//button[text()='Cancel']")).click();
 		collectionPg.commonMethodForClickOnMoreSettingsOption(fileName1,"Edit Properties");
+<<<<<<< HEAD
         String EPSURL4 = (UIHelper.findAnElementbyXpath(driver, "//*[contains(@id,'prop_cm_description')]").getText()).substring(8,46);
         driver.findElement(By.xpath("//div[@class='yui-module yui-overlay yui-panel']/a")).click();
         UIHelper.waitFor(driver); 
         
+=======
+        String EPSURL4 = (UIHelper.findAnElementbyXpath(driver, "//*[contains(@id,'default-editDetails-alf-id158_prop_cm_description')]").getText()).substring(8,46);
+        
+            
+>>>>>>> 2ef7837583cbe1598b1f6535fdf2758d25bdc2eb
         if( EPSURL3.equals(EPSURL4)){
         	report.updateTestLog("EPS ID match check",	"EPS ID matchs" + fileName1,Status.PASS);
         }
@@ -161,8 +191,14 @@ private FunctionalLibrary functionalLibrary;
         	report.updateTestLog("EPS ID match check",	"EPS ID does not match" +fileName1 ,Status.FAIL);
         }
         */
+<<<<<<< HEAD
        			
 
+=======
+        
+	
+			
+>>>>>>> 2ef7837583cbe1598b1f6535fdf2758d25bdc2eb
 	
 	@Override
 	public void tearDown() {

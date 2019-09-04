@@ -215,9 +215,10 @@ public class AlfrescoMyFilesPage extends ReusableLibrary {
 		return new AlfrescoMyFilesPage(scriptHelper);
 	}
 
-	// Upload a file in My Files Page
+	/// Upload a file in My Files Page
 	public AlfrescoMyFilesPage uploadFileInMyFilesPage(String filePath, String fileName) {
 		try {
+<<<<<<< HEAD
 		String finalFilePath;
 		if (filePath.contains("Automation/Alfresco")) {
 		finalFilePath = filePath;
@@ -236,6 +237,26 @@ public class AlfrescoMyFilesPage extends ReusableLibrary {
 		} else {
 		commonMethodForUploadMultipleFiles(finalFilePath, fileName);
 		}
+=======
+			String finalFilePath;
+			if (filePath.contains("Automation/Alfresco")) {
+				finalFilePath = filePath;
+			}
+			else if (filePath.contains("Automation/Alfresco")) {
+				finalFilePath = filePath;
+			} 
+			else {
+				finalFilePath = System.getProperty("user.dir") + filePath;
+			}
+			if (fileName.contains(",")) {
+				String splittedFileNames[] = fileName.split(",");
+				for (String fileNameVal : splittedFileNames) {
+					commonMethodForUploadMultipleFiles(finalFilePath, fileNameVal);
+				}
+			} else {
+				commonMethodForUploadMultipleFiles(finalFilePath, fileName);
+			}
+>>>>>>> 2ef7837583cbe1598b1f6535fdf2758d25bdc2eb
 
 		} catch (Exception e) {
 		e.printStackTrace();
@@ -296,17 +317,17 @@ public class AlfrescoMyFilesPage extends ReusableLibrary {
 				
 				fileInput.sendKeys(filePath + fileName);
 				
-				/*
-				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, messageEleXpath);
-				System.out.println("14");
+				
+				/*UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, messageEleXpath);
+				
 				UIHelper.waitForVisibilityOfElementLocated(driver, finalXpathForUploadedFile);
-				System.out.println("15");
+				
 				UIHelper.waitForInvisibilityOfAjaxImgByXpath(driver, messageEleXpath);
-				System.out.println("16");
-				UIHelper.waitForPageToLoad(driver);
-				System.out.println("17");
+				
+				UIHelper.waitForPageToLoad(driver);*/
+				
 				UIHelper.waitFor(driver);
-				System.out.println("18");*/
+				
 				report.updateTestLog("Upload File",
 						"Upload file using -" + "<b>FilePath:</b>" + filePath + ", " + "<b>FileName:</b>" + fileName,
 						Status.DONE);
@@ -1794,8 +1815,10 @@ public class AlfrescoMyFilesPage extends ReusableLibrary {
 		try {
 
 			if (fileName.contains(",")) {
+				System.out.println(fileName);
 				String splittedFileNames[] = fileName.split(",");
 				for (String fileNameVal : splittedFileNames) {
+					System.out.println(fileNameVal);
 					commonMethodForSelectingFile(fileNameVal);
 				}
 			} else {
@@ -1811,8 +1834,9 @@ public class AlfrescoMyFilesPage extends ReusableLibrary {
 
 	public AlfrescoMyFilesPage commonMethodForSelectingFile(String fileOrFolderName) {
 		try {
+			System.out.println(fileOrFolderName);
 			String finalSelectFolderChkboxXpath = tempSelectFolderChkboxXpath.replace("CRAFT", fileOrFolderName);
-
+			System.out.println(finalSelectFolderChkboxXpath);
 			UIHelper.waitForVisibilityOfEleByXpath(driver, myFilesTablesXpath);
 			WebElement myFilesTableEle = driver.findElement(By.xpath(myFilesTablesXpath));
 			UIHelper.highlightElement(driver, myFilesTableEle);
@@ -1822,13 +1846,21 @@ public class AlfrescoMyFilesPage extends ReusableLibrary {
 					.findListOfElementsbyXpath(uploadedFilesTitlesXpath, driver);
 
 			for (WebElement ele : uploadedFileOrFolderTitleEleList) {
+				
 				if (ele.getText().equalsIgnoreCase(fileOrFolderName)) {
+				
 					UIHelper.highlightElement(driver, ele);
-					WebElement chkboxElement = UIHelper.findAnElementbyXpath(driver, finalSelectFolderChkboxXpath);
-					UIHelper.highlightElement(driver, chkboxElement);
-					JavascriptExecutor executor = (JavascriptExecutor) driver;
-					executor.executeScript("arguments[0].click();", chkboxElement);
 					UIHelper.waitFor(driver);
+					WebElement chkboxElement = UIHelper.findAnElementbyXpath(driver, finalSelectFolderChkboxXpath);
+					UIHelper.waitFor(driver);
+					chkboxElement.click();
+					//UIHelper.highlightElement(driver, chkboxElement);
+					
+				/*	JavascriptExecutor executor = (JavascriptExecutor) driver;
+					System.out.println("5");
+					executor.executeScript("arguments[0].click();", chkboxElement);
+					System.out.println("6");
+				*/	UIHelper.waitFor(driver);
 					break;
 				}
 			}
@@ -2314,6 +2346,7 @@ public class AlfrescoMyFilesPage extends ReusableLibrary {
 			UIHelper.highlightElement(driver, finalFileXpath);
 			UIHelper.waitFor(driver);
 			UIHelper.highlightElement(driver, finalSelectFolderChkboxXpath);
+			UIHelper.waitFor(driver);
 			UIHelper.findAnElementbyXpath(driver, finalSelectFolderChkboxXpath).click();
 			/*
 			 * JavascriptExecutor executor = (JavascriptExecutor) driver;
