@@ -78,11 +78,7 @@ private FunctionalLibrary functionalLibrary;
 		UIHelper.waitFor(driver);
 		sitesPage.openSiteFromRecentSites(sourceSiteName);	
 		sitesPage.enterIntoDocumentLibrary();
-<<<<<<< HEAD
-		
-		
-=======
->>>>>>> 2ef7837583cbe1598b1f6535fdf2758d25bdc2eb
+
 		//Create Folder and upload file
 		myFiles.createFolder(folderDetails);
 		myFiles.openCreatedFolder(folderName);
@@ -120,7 +116,7 @@ private FunctionalLibrary functionalLibrary;
 		epsPg.checkEPSID(fileName1);
 		}
 		
-<<<<<<< HEAD
+
 		
 		/*
 		  //Check EPS ID for folder
@@ -191,14 +187,6 @@ private FunctionalLibrary functionalLibrary;
         	report.updateTestLog("EPS ID match check",	"EPS ID does not match" +fileName1 ,Status.FAIL);
         }
         */
-<<<<<<< HEAD
-       			
-
-=======
-        
-	
-			
->>>>>>> 2ef7837583cbe1598b1f6535fdf2758d25bdc2eb
 	
 	@Override
 	public void tearDown() {

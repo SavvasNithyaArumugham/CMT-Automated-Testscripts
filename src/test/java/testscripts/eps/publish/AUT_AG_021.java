@@ -180,14 +180,11 @@ private FunctionalLibrary functionalLibrary;
 				String EPSURL3 = (UIHelper.findAnElementbyXpath(driver, "//*[@id='prompt']/div[2]/table/tbody/tr[2]/td[5]/u/a").getText()).substring(60,98);
 		        driver.findElement(By.xpath(".//button[text()='Cancel']")).click();
 				collectionPg.commonMethodForClickOnMoreSettingsOption(fileName1,"Edit Properties");
-<<<<<<< HEAD
+
 		        String EPSURL4 = (UIHelper.findAnElementbyXpath(driver, "//*[contains(@id,'prop_cm_description')]").getText()).substring(8,46);
 		        driver.findElement(By.xpath("//div[@class='yui-module yui-overlay yui-panel']/a")).click();
 		        UIHelper.waitFor(driver);
-=======
-		        String EPSURL4 = (UIHelper.findAnElementbyXpath(driver, "//*[contains(@id,'default-editDetails-alf-id14_prop_cm_description')]").getText()).substring(8,46);
-		        
->>>>>>> 2ef7837583cbe1598b1f6535fdf2758d25bdc2eb
+
 		            
 		        if( EPSURL3.equals(EPSURL4)){
 		        	report.updateTestLog("EPS ID match check",	"EPS ID matchs" + fileName2,Status.PASS);

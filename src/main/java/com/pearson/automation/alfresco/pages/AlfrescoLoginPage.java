@@ -43,7 +43,7 @@ public class AlfrescoLoginPage extends ReusableLibrary {
 		
 		String userName = dataTable.getData("General_Data", "Username");
 		String password = dataTable.getData("General_Data", "Password");
-<<<<<<< HEAD
+
 		if(properties.getProperty("ApplicationUrl").contains("pearsoncms")){
 		performLogin(userName, password);
 		UIHelper.waitForVisibilityOfEleByXpath(driver, pearsonlogo);
@@ -96,26 +96,22 @@ public class AlfrescoLoginPage extends ReusableLibrary {
 	
 	}
 	
-	//Added for NALS
-		public void performAWSLogin(String userName, String password) {
-			try {
-			UIHelper.waitForVisibilityOfEleByXpath(driver, ".//input[@name='username']");
-			UIHelper.highlightElement(driver, ".//input[@name='username']");	
-			driver.findElement(By.name("username")).sendKeys(userName);
-
-			UIHelper.waitForVisibilityOfEleByXpath(driver, ".//input[@name='password']");	
-			driver.findElement(By.name("password")).sendKeys(password);	
-			UIHelper.click(driver, "//*[contains(@id, 'submit-button')]");
-						
-			UIHelper.waitFor(driver);
-			report.updateTestLog("Login", "Enter login credentials: "
-			+ "Username = " + userName, Status.DONE);
-			}catch(Exception e) {
-			report.updateTestLog("Login", "Enter login credentials: "
-			+ "Username = " + userName, Status.FAIL);
-			}
-			}
-	
+	/*
+	 * //Added for NALS public void performAWSLogin(String userName, String
+	 * password) { try { UIHelper.waitForVisibilityOfEleByXpath(driver,
+	 * ".//input[@name='username']"); UIHelper.highlightElement(driver,
+	 * ".//input[@name='username']");
+	 * driver.findElement(By.name("username")).sendKeys(userName);
+	 * 
+	 * UIHelper.waitForVisibilityOfEleByXpath(driver, ".//input[@name='password']");
+	 * driver.findElement(By.name("password")).sendKeys(password);
+	 * UIHelper.click(driver, "//*[contains(@id, 'submit-button')]");
+	 * 
+	 * UIHelper.waitFor(driver); report.updateTestLog("Login",
+	 * "Enter login credentials: " + "Username = " + userName, Status.DONE);
+	 * }catch(Exception e) { report.updateTestLog("Login",
+	 * "Enter login credentials: " + "Username = " + userName, Status.FAIL); } }
+	 */
 
 	//Method for login with valid user credentils
 	public AlfrescoHomePage loginAsValidUserForPearsonMail() {

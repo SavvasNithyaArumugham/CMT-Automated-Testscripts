@@ -218,7 +218,7 @@ public class AlfrescoMyFilesPage extends ReusableLibrary {
 	/// Upload a file in My Files Page
 	public AlfrescoMyFilesPage uploadFileInMyFilesPage(String filePath, String fileName) {
 		try {
-<<<<<<< HEAD
+
 		String finalFilePath;
 		if (filePath.contains("Automation/Alfresco")) {
 		finalFilePath = filePath;
@@ -237,8 +237,8 @@ public class AlfrescoMyFilesPage extends ReusableLibrary {
 		} else {
 		commonMethodForUploadMultipleFiles(finalFilePath, fileName);
 		}
-=======
-			String finalFilePath;
+
+		
 			if (filePath.contains("Automation/Alfresco")) {
 				finalFilePath = filePath;
 			}
@@ -256,7 +256,7 @@ public class AlfrescoMyFilesPage extends ReusableLibrary {
 			} else {
 				commonMethodForUploadMultipleFiles(finalFilePath, fileName);
 			}
->>>>>>> 2ef7837583cbe1598b1f6535fdf2758d25bdc2eb
+
 
 		} catch (Exception e) {
 		e.printStackTrace();

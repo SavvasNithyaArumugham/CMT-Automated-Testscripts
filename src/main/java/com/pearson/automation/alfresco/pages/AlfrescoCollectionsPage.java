@@ -540,11 +540,9 @@ public class AlfrescoCollectionsPage extends ReusableLibrary {
 		try {
 			//Added rumba,skillspath,cmtskills as part of NALS
 			String name = "", title = "", description = "", courseAbbrevation = "", contentType = "", contribSource = "", realizeFileType = "", discipline = "",rumbaprogramname ="", skillspath = "",mediaType = "",cmtskills = "";
-<<<<<<< HEAD
+
 			String productType="",folioSpecial="",dynamiccontentType="",folioprefix="",foliostyle="",foliostart="",tocIncludeFrom="",tocIncludeTo="",aggregationtype="";
-=======
-			String productType="",dynamiccontentType="",folioprefix="",foliostyle="",foliostart="",folioSpecial,tocIncludeFrom="",tocIncludeTo="",aggregationtype="";
->>>>>>> 2ef7837583cbe1598b1f6535fdf2758d25bdc2eb
+
 			if (objectType.equalsIgnoreCase("Course")) {
 
 				name = getFieldValueFromExcelForCreateObjects(
