@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><suite name="Alfresco_Automation_Failure_Suite" parallel="classes" thread-count="1">
+    <test name="Test">
+        <classes>
+            <class name="testscripts.collections5.AUT_AG_011P1"/>
+            <class name="testscripts.collections5.AUT_AG_011P2"/>
+            <class name="testscripts.collections5.AUT_AG_011P3"/>
+            <class name="testscripts.collections5.AUT_AG_011P4"/>
+            <class name="testscripts.collections5.AUT_AG_012P1"/>
+            <class name="testscripts.collections5.AUT_AG_012P2"/>
+            <class name="testscripts.collections5.AUT_AG_012P3"/>
+            <class name="testscripts.collections5.AUT_AG_013P1"/>
+            <class name="testscripts.collections5.AUT_AG_013P2"/>
+            <class name="testscripts.collections5.AUT_AG_013P3"/>
+            <class name="testscripts.collections5.AUT_AG_013P4"/>
+            <class name="testscripts.collections5.AUT_AG_014P1"/>
+            <class name="testscripts.collections5.AUT_AG_014P2"/>
+            <class name="testscripts.collections5.AUT_AG_014P3"/>
+            <class name="testscripts.collections5.AUT_AG_014P4"/>
+            <class name="testscripts.collections5.AUT_AG_015"/>
+            <class name="testscripts.collections5.AUT_AG_022"/>
+            <class name="testscripts.collections5.AUT_AG_024"/>
+            <class name="testscripts.collections5.AUT_AG_025"/>
+            <class name="testscripts.collections5.AUT_AG_026"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="CMT Smoke Test Suite" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<!-- CMT test cases  -->
+			<class name="testscripts.cmt.CMTHomeTC5" />
+			<class name="testscripts.cmt.CMTHomeTC6" />
+			<class name="testscripts.cmt.CMTHomeTC7" />
+			<class name="testscripts.cmt.CMTHomeTC8" />
+			
+			
+			
+			<!-- DONT SEPARATE  CMTManageCreateNewCurriculum AND CMTManageNewCurriculumReject-->
+			<class name="testscripts.cmt.CMTManageCreateNewCurriculum" /><!-- Creates a new curriculum -->
+			<class name="testscripts.cmt.CMTManageNewCurriculumRejected" /><!-- Reject the above created curriculum -->
+			<!-- DONT SEPARATE  CMTManageCreateNewCurriculum AND CMTManageNewCurriculumReject-->
+			
+			<!-- DONT SEPARATE  CMTManageCreateNewCurriculum AND CMTManageNewCurriculumDelete-->
+			<class name="testscripts.cmt.CMTManageCreateNewCurriculum1" /><!-- Creates a new curriculum -->
+			<class name="testscripts.cmt.CMTManageNewCurriculumDeleted" /><!-- Delete the above created curriculum -->
+			<!-- DONT SEPARATE  CMTManageCreateNewCurriculum AND CMTManageNewCurriculumDelete-->
+			
+			<!-- Upload new curriculum and approve same  -->
+			<class name="testscripts.cmt.CMTManageUploadNewCurriculum" />
+			
+			
+			
+			</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

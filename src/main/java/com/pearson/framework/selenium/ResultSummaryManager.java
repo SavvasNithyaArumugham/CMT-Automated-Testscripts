@@ -19,6 +19,8 @@ import java.io.PrintStream;
 import java.util.Date;
 import java.util.Properties;
 
+import javax.mail.MessagingException;
+
 import org.apache.commons.io.FileUtils;
 
 public class ResultSummaryManager {
@@ -120,7 +122,7 @@ public class ResultSummaryManager {
 
 	}
 
-	public void wrapUp(Boolean testExecutedInUnitTestFramework) {
+	public void wrapUp(Boolean testExecutedInUnitTestFramework) throws MessagingException {
 		overallEndTime = Util.getCurrentTime();
 		String totalExecutionTime = Util.getTimeDifference(overallStartTime,
 				overallEndTime);

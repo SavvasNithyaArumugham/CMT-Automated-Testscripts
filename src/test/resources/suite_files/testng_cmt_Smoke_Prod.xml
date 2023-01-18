@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="CMT Smoke Test Suite" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<!-- CMT test cases  -->
+			<class name="testscripts.cmt.CMTHomeTC5" />
+			<class name="testscripts.cmt.CMTHomeTC6" />
+			<class name="testscripts.cmt.CMTHomeTC7" />
+			<class name="testscripts.cmt.CMTHomeTC8" />
+			
+			<!--Correlations -->		
+			<class name="testscripts.cmt.CMTCorrelations" />
+			<class name="testscripts.cmt.CMTCorrelationsReportCheck"/>
+			
+			</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

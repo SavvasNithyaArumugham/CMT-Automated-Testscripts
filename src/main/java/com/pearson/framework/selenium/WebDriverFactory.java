@@ -191,7 +191,7 @@ public class WebDriverFactory {
 		}
 		//options.addArguments("--test-type");
 		ArrayList<String> chromeArguments = new ArrayList<String>();
-		chromeArguments.add("--disable-extensions");
+		chromeArguments.add("--disable-extensions");		
 		chromeArguments.add("start-maximized");
 		options.addArguments(chromeArguments);
 		DesiredCapabilities cap = DesiredCapabilities.chrome();

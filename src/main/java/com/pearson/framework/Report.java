@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.awt.image.RenderedImage;
 
 import javax.imageio.ImageIO;
+import javax.mail.MessagingException;
 
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -290,7 +291,7 @@ public class Report {
 		}
 	}
 
-	public void addResultSummaryFooter(final String totalExecutionTime) {
+	public void addResultSummaryFooter(final String totalExecutionTime) throws MessagingException {
 		for (int i = 0; i < this.reportTypes.size(); ++i) {
 			this.reportTypes.get(i).addResultSummaryFooter(totalExecutionTime,
 					this.nTestsPassed, this.nTestsFailed);

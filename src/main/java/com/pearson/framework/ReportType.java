@@ -1,5 +1,7 @@
 package com.pearson.framework;
 
+import javax.mail.MessagingException;
+
 public abstract interface ReportType
 {
   public abstract void initializeTestLog();
@@ -28,5 +30,5 @@ public abstract interface ReportType
 
   public abstract void updateResultSummary(String paramString1, String paramString2, String paramString3, String paramString4, String paramString5);
 
-  public abstract void addResultSummaryFooter(String paramString, int paramInt1, int paramInt2);
+  public abstract void addResultSummaryFooter(String paramString, int paramInt1, int paramInt2) throws MessagingException;
 }

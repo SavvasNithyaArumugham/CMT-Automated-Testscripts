@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="CMT Regression Test Suite" parallel="classes" thread-count="1">
+	<test name="Test">
+		<classes>
+			<!-- CMT test cases Home Tab -->
+			<class name="testscripts.cmtregression.CMTHomeFilters"/>
+			<class name="testscripts.cmtregression.CMTSubjectFilter"/>
+			<class name="testscripts.cmtregression.CMTSearchFilter"/>
+			<class name="testscripts.cmtregression.CMTviewURI"/>
+			<class name="testscripts.cmtregression.CMTvalidateCopyURI"/>
+			<class name="testscripts.cmtregression.CMTCurriculumStandardsExcelReport"/>
+			
+			
+			<!-- Manage Tab -->
+			<class name="testscripts.cmtregression.CMTcurriculumDropDown"/>
+			<class name="testscripts.cmtregression.CMTmanageTabValidation"/>
+			<class name="testscripts.cmtregression.CMTmanageAuthorityCheck"/>
+			<class name="testscripts.cmtregression.CMTmanageAuthority"/>
+			<class name="testscripts.cmtregression.CMTuploadCurriculum"/>
+			<class name="testscripts.cmtregression.CMTupdateCurriculum"/>
+					
+			<class name="testscripts.cmtregression.CMTproductDropDown"/>
+			<class name="testscripts.cmtregression.CMTeditProgramCourseProduct"/>
+			<class name="testscripts.cmtregression.CMTdeleteProgramCourseProduct"/>
+			<class name="testscripts.cmtregression.CMTmanageProduct"/>
+			<class name="testscripts.cmtregression.CMTintermediaries"/>
+				
+				
+			<!-- Alignment tab -->
+			<class name="testscripts.cmtregression.CMTalignmentScreenValidation"/>
+			<class name="testscripts.cmtregression.CMTcreateAlign"/>
+			<class name="testscripts.cmtregression.CMTcartValidation"/>
+			<class name="testscripts.cmtregression.CMTprintDigitalAlignAttribute"/>
+			<class name="testscripts.cmtregression.CMTcopyAlignments"/>
+			<class name="testscripts.cmtregression.CMTselectAndUnAlign"/>
+			
+				
+				<!--Correlation tab -->
+			
+			<class name="testscripts.cmtregression.CMTcorrelationTab"/>
+			<class name="testscripts.cmtregression.CMTcorrelationTabReportCheck"/>
+			<class name="testscripts.cmtregression.CMTcorrelationReportRerun"/>
+			<class name="testscripts.cmtregression.CMTcorrelationReportDownload"/>
+			<class name="testscripts.cmtregression.CMTcorrelationReportDelete"/>
+			
+			 
+			<class name="testscripts.cmtregression.CMTcorrelationReverseReport"/>
+			<class name="testscripts.cmtregression.CMTcorrelationReverseReportRerun"/>
+			<class name="testscripts.cmtregression.CMTcorrelationReverseReportCheck"/>
+			<class name="testscripts.cmtregression.CMTcorrelationReverseReportDownload"/>
+			<class name="testscripts.cmtregression.CMTcorrelationReverseReportDelete"/>
+			 
+			
+			
+			</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

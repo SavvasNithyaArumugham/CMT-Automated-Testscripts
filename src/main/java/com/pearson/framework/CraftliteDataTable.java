@@ -1,6 +1,7 @@
 package com.pearson.framework;
 
 import java.util.Properties;
+import java.util.Random;
 
 public class CraftliteDataTable
 {
@@ -68,7 +69,12 @@ public class CraftliteDataTable
 
     if(fieldName.equalsIgnoreCase("SiteName")||fieldName.equalsIgnoreCase("TargetSiteName")||fieldName.equalsIgnoreCase("SiteToSelect")){
     	properties = Settings.getInstance();
+    	//Modified as part of NALS to generate random number after the siteName
     	dataValue=dataValue+properties.getProperty("SiteNumber");
+    	 
+        /*Random rand = new Random(); 
+        int randomSiteNumber = rand.nextInt(1000); 
+        dataValue = dataValue+Integer.toString(randomSiteNumber);*/
     }
     return dataValue;
   }

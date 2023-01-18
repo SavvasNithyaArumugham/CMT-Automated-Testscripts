@@ -6,6 +6,8 @@ import java.io.PrintWriter;
 import java.util.Date;
 import java.util.Properties;
 
+import javax.mail.MessagingException;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.SkipException;
@@ -111,9 +113,10 @@ public abstract class TestCase
 	
 	/**
 	 * Function to do the required set-up activities before executing each test case in TestNG
+	 * @throws MessagingException 
 	 */
 	@BeforeMethod
-	public void testMethodSetup()
+	public void testMethodSetup() throws MessagingException
 	{
 		FrameworkParameters frameworkParameters = FrameworkParameters.getInstance();
 		if(frameworkParameters.getStopExecution()) {
@@ -178,9 +181,10 @@ public abstract class TestCase
 	
 	/**
 	 * Function to do the required wrap-up activities after executing the overall test suite in TestNG
+	 * @throws MessagingException 
 	 */
 	@AfterSuite
-	public void suiteTearDown()
+	public void suiteTearDown() throws MessagingException
 	{
 		resultSummaryManager.wrapUp(true);
 		String HPALMStatusUpdateVal=new ALMIntegration().loadProperties("HPALMStatusUpdate");

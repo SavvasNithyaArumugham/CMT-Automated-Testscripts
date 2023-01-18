@@ -18,3 +18,44 @@
 [0102/160147.361:ERROR:registration_protocol_win.cc(84)] TransactNamedPipe: The pipe has been ended. (0x6D)
 [0102/160942.145:ERROR:registration_protocol_win.cc(84)] TransactNamedPipe: The pipe has been ended. (0x6D)
 [0102/162603.121:ERROR:registration_protocol_win.cc(84)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0128/150520.049:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0214/173840.394:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0214/174410.900:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0214/174906.505:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0214/180351.272:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0217/101643.223:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0217/102628.985:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0217/115930.715:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0217/122929.964:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0217/123226.825:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0217/123433.574:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0217/123745.380:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0217/124251.579:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0217/124437.005:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0217/125107.796:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0217/130600.817:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0217/130704.993:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0217/131005.079:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0217/133432.524:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0217/133558.118:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0416/202407.550:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0423/143625.445:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0424/143625.591:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0425/143625.632:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/184720.359:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/185617.500:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/185956.046:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/190349.008:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/192119.248:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/192351.104:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/194435.735:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/194707.418:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/195021.261:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/200507.692:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/200721.785:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/204703.236:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/205153.950:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/205648.048:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/205904.460:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/210129.352:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/213058.202:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports

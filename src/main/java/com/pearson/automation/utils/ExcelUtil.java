@@ -3,16 +3,26 @@ package com.pearson.automation.utils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**********************************************************************************************
  * ExcelParser.java - This class Parse Excel file into Java Objects.
@@ -22,7 +32,54 @@ import org.apache.poi.ss.usermodel.Row;
  ***********************************************************************************************/
 
 public class ExcelUtil {
+	
+	 public static String readdatafromExcel(String filePath,String fileName)
+			   throws EncryptedDocumentException, InvalidFormatException, IOException 
+			 {
+			  String SheetName = "Sheet1";
+			  File file = new File(filePath+"\\"+fileName);
+			  FileInputStream fi = new FileInputStream(file);
+			  Workbook wb = WorkbookFactory.create(fi);
+			  Sheet sheet = wb.getSheet(SheetName);
+			  // it will take value from first row
+			  Row row = sheet.getRow(0);
+			// it will give you count of row which is used or filled
+			  short lastcolumnused = row.getLastCellNum();
 
+			  int colnum = 0;
+			  for (int i = 0; i < lastcolumnused; i++) 
+			  {
+			   if (row.getCell(i).getStringCellValue() != null) 
+			   {
+			    colnum = i;
+			    break;
+			   }
+			  }
+			  
+			  // it will take value from Second row
+			//  row = sheet.getRow(1);
+			  Cell column = row.getCell(colnum);
+			  String CellValue = column.getStringCellValue();
+
+			  return CellValue;
+
+			 }
+			 
+
+	 public static String readExcelData(String filePath ) throws Exception
+	    {
+	        FileInputStream fis = new FileInputStream(new File(filePath));
+	        XSSFWorkbook workbook = new XSSFWorkbook(fis);
+	        XSSFSheet sheet = workbook.getSheet("Sheet1");
+	        XSSFRow row = sheet.getRow(1);
+	        XSSFCell cell = row.getCell(0);
+	 
+	        String userName = String.valueOf(cell.getNumericCellValue());
+	        System.out.println("Value from the Excel sheet :"+ userName);
+			return userName;
+	    }
+	
+		
 	// Write data into Excel sheet
 	public void writeDataIntoExcelSheet(String filePath, int sheetPosition,
 			int rowVal, int columnVal, String cellValue) throws Exception {
@@ -54,6 +111,11 @@ public class ExcelUtil {
 		output_file.close();
 	}
 
+	
+	
+	
+	
+	
 	// Get adjacent cell value based specific row cell value
 	public String getDataFromExcelSheet(String filePath, String sheetName, String autoTestCaseNameVal) {
 		String requiredCellVal="";

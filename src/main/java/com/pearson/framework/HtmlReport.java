@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.io.File;
 import java.util.ArrayList;
 
+import javax.mail.MessagingException;
+
 import com.pearson.framework.selenium.FailXML;
 import com.pearson.framework.selenium.SendMailTLS;
 
@@ -383,7 +385,7 @@ public class HtmlReport implements ReportType
         }
     }
     
-    public void addResultSummaryFooter(final String totalExecutionTime, final int nTestsPassed, final int nTestsFailed) {
+    public void addResultSummaryFooter(final String totalExecutionTime, final int nTestsPassed, final int nTestsFailed) throws MessagingException {
         try {
         	
             final BufferedWriter bufferWriter = new BufferedWriter(new FileWriter(this.resultSummaryPath, true));

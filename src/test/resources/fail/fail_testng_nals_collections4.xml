@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><suite name="Alfresco_Automation_Failure_Suite" parallel="classes" thread-count="1">
+    <test name="Test">
+        <classes>
+            <class name="testscripts.collections4.AUT_AG_002"/>
+            <class name="testscripts.collections4.AUT_AG_003"/>
+            <class name="testscripts.collections4.AUT_AG_004"/>
+            <class name="testscripts.collections4.AUT_AG_005"/>
+            <class name="testscripts.collections4.AUT_AG_006"/>
+            <class name="testscripts.collections4.AUT_AG_008"/>
+            <class name="testscripts.collections4.AUT_AG_009"/>
+            <class name="testscripts.collections4.AUT_AG_010"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><suite name="Alfresco_Automation_Failure_Suite" parallel="classes" thread-count="1">
+    <test name="Test">
+        <classes>
+            <class name="testscripts.collections3.ALFDEPLOY_3215_TC001"/>
+            <class name="testscripts.collections3.ALFDEPLOY_3203_TC002"/>
+            <class name="testscripts.collections3.ALFDEPLOY_3216_TC001P1"/>
+            <class name="testscripts.collections3.ALFDEPLOY_3216_TC001P2"/>
+            <class name="testscripts.collections3.ALFDEPLOY_3216_TC001P3"/>
+            <class name="testscripts.collections3.ALFDEPLOY_3203_TC004"/>
+            <class name="testscripts.collections3.ALFDEPLOY_3206_TC001"/>
+        </classes>
+    </test>
+</suite>
